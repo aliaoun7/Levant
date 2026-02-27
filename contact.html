@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Levant Digital Marketing</title>
+  <meta name="description" content="Contact Levant Digital Marketing for website creation, redesign, branding, logos, SEO, and Google Business Profile posting." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Space Grotesk','sans-serif'], display: ['Syne','sans-serif'] } } } }
+  </script>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body class="font-sans antialiased selection:bg-emerald-500 selection:text-white" data-page="contact">
+  <div class="grain"></div>
+  <div class="cursor-dot hidden md:block"></div>
+  <div class="cursor-outline hidden md:block"></div>
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 text-white py-4 px-4 sm:px-8 bg-black/90 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="font-display text-2xl font-bold tracking-tighter hover:text-emerald-400 transition-colors">
+        LEVANT<span class="text-emerald-500">.</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-6">
+        <a href="index.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">HOME</a>
+        <a href="services.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">SERVICES</a>
+        <a href="work.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">WORK</a>
+        <a href="estimator.html" class="nav-link px-4 py-2 bg-emerald-500/10 border border-emerald-500/50 rounded-full text-sm font-medium text-emerald-300 hover:bg-emerald-500 hover:text-black transition-all">
+          <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4"></i> ESTIMATOR</span>
+        </a>
+        <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2 rounded-full text-sm font-bold transition-all">CONTACT</a>
+      </div>
+      <button id="menu-btn" class="lg:hidden text-white" aria-label="Open menu"><i data-lucide="menu" class="w-6 h-6"></i></button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-6 lg:hidden">
+    <button id="close-menu" class="absolute top-6 right-6 text-white" aria-label="Close menu"><i data-lucide="x" class="w-8 h-8"></i></button>
+    <a href="index.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors mobile-link">HOME</a>
+    <a href="services.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors mobile-link">SERVICES</a>
+    <a href="work.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors mobile-link">WORK</a>
+    <a href="estimator.html" class="text-3xl font-display font-bold text-emerald-400 mobile-link">ESTIMATOR</a>
+    <a href="contact.html" class="text-3xl font-display font-bold text-emerald-400 mobile-link">CONTACT</a>
+  </div>
+
+  <main class="pt-24 bg-neutral-950">
+    <section class="relative py-20 overflow-hidden">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <span class="text-emerald-300 font-mono text-sm tracking-widest uppercase block mb-4">Contact</span>
+            <h1 class="font-display text-5xl md:text-6xl font-bold mb-5 leading-tight">
+              LET’S BUILD<br><span class="text-emerald-300">SOMETHING</span><br>REAL
+            </h1>
+            <p class="text-gray-400 text-lg mb-8 max-w-md">
+              Tell us what you need — website creation, redesign, logos, graphics, SEO setup, or Google Business Profile posting.
+            </p>
+
+            <div class="soft-card rounded-3xl p-7 space-y-4">
+              <div class="text-xs text-gray-500 uppercase tracking-wider">Replace these with your real info</div>
+
+              <div class="flex items-start gap-3">
+                <i data-lucide="mail" class="w-5 h-5 text-emerald-300 mt-0.5"></i>
+                <div>
+                  <div class="font-semibold">Email</div>
+                  <div class="text-gray-400 text-sm">your@email.com</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i data-lucide="phone" class="w-5 h-5 text-emerald-300 mt-0.5"></i>
+                <div>
+                  <div class="font-semibold">Phone</div>
+                  <div class="text-gray-400 text-sm">(Your phone number)</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-emerald-300 mt-0.5"></i>
+                <div>
+                  <div class="font-semibold">Location</div>
+                  <div class="text-gray-400 text-sm">(Your city / service area)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="soft-card rounded-3xl p-8 md:p-10 spotlight-card" onmousemove="handleSpotlight(event,this)" onmouseleave="clearSpotlight(this)">
+            <h2 class="font-display text-2xl font-bold mb-6">Project Request</h2>
+
+            <form class="space-y-5" onsubmit="event.preventDefault(); alert('Message received. Replace this alert with your real form handler.');">
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider ml-1 mb-2">Name</label>
+                  <input type="text" class="contact-input w-full rounded-2xl px-5 py-4 text-white placeholder-gray-500" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider ml-1 mb-2">Email</label>
+                  <input type="email" class="contact-input w-full rounded-2xl px-5 py-4 text-white placeholder-gray-500" placeholder="you@business.com" required />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider ml-1 mb-2">Service</label>
+                  <select class="contact-input w-full rounded-2xl px-5 py-4 text-white appearance-none cursor-pointer">
+                    <option value="" disabled selected>Select a service...</option>
+                    <option>Website Creation</option>
+                    <option>Website Redesign</option>
+                    <option>Logo Design</option>
+                    <option>Graphic Design</option>
+                    <option>SEO Setup</option>
+                    <option>Google Business Profile Posting</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider ml-1 mb-2">Budget</label>
+                  <select class="contact-input w-full rounded-2xl px-5 py-4 text-white appearance-none cursor-pointer">
+                    <option value="" disabled selected>Select...</option>
+                    <option>Under $1,000</option>
+                    <option>$1,000 – $3,000</option>
+                    <option>$3,000 – $7,500</option>
+                    <option>$7,500+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider ml-1 mb-2">Details</label>
+                <textarea rows="5" class="contact-input w-full rounded-2xl px-5 py-4 text-white placeholder-gray-500 resize-none" placeholder="What are you trying to build, redesign, or improve?"></textarea>
+              </div>
+
+              <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-5 rounded-2xl transition-all transform hover:scale-[1.01] inline-flex items-center justify-center gap-3 text-lg">
+                SEND <i data-lucide="send" class="w-5 h-5"></i>
+              </button>
+
+              <p class="text-gray-500 text-xs leading-relaxed">
+                Note: this form currently shows a placeholder message. To receive submissions, connect it to Formspree, Netlify Forms, or your backend.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="font-display text-2xl font-bold">LEVANT<span class="text-emerald-500">.</span></div>
+      <div class="flex gap-8 text-sm text-gray-400 flex-wrap justify-center">
+        <a href="index.html" class="hover:text-emerald-300 transition-colors">Home</a>
+        <a href="services.html" class="hover:text-emerald-300 transition-colors">Services</a>
+        <a href="work.html" class="hover:text-emerald-300 transition-colors">Work</a>
+        <a href="estimator.html" class="hover:text-emerald-300 transition-colors">Estimator</a>
+        <a href="contact.html" class="hover:text-emerald-300 transition-colors">Contact</a>
+      </div>
+      <div class="text-gray-500 text-sm">© 2026 Levant Digital Marketing. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
