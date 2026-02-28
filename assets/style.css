@@ -1,52 +1,178 @@
-* { box-sizing: border-box; }
-html, body { overflow-x: hidden; background: #0a0a0a; color: white; }
-body { margin: 0; }
+/* =========================================
+   Levant Digital Marketing — style.css
+   Premium visuals + smooth motion (mobile-safe)
+   ========================================= */
 
+:root{
+  --bg: #0a0a0a;
+  --fg: #ffffff;
+  --muted: rgba(255,255,255,0.65);
+  --muted2: rgba(255,255,255,0.45);
+  --emerald: #10b981;
+  --emerald2: #059669;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(16,185,129,0.22);
+  --shadow: rgba(16,185,129,0.18);
+}
+
+* { box-sizing: border-box; }
+html, body { overflow-x: hidden; background: var(--bg); color: var(--fg); }
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* ========== Page fade transitions (multi-page) ========== */
+body { opacity: 1; transition: opacity 200ms ease; }
+body.is-leaving { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  body, body.is-leaving { transition: none !important; }
+}
+
+/* ========== Grain overlay ========== */
 .grain{
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  pointer-events: none; z-index: 9999; opacity: 0.03;
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Cursor */
+/* ========== Custom cursor (desktop only) ========== */
 .cursor-dot, .cursor-outline{
-  position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
-  border-radius: 50%; z-index: 9999; pointer-events: none;
+  position: fixed; top: 0; left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  z-index: 9999;
+  pointer-events: none;
+  will-change: transform, left, top, width, height, opacity;
 }
-.cursor-dot { width: 5px; height: 5px; background-color: #10b981; }
-.cursor-outline { width: 30px; height: 30px; border: 2px solid #10b981; transition: all 0.2s; }
+.cursor-dot{
+  width: 6px; height: 6px;
+  background: var(--emerald);
+  opacity: 0.95;
+}
+.cursor-outline{
+  width: 34px; height: 34px;
+  border: 2px solid var(--emerald);
+  opacity: 0.85;
+  transition: width 180ms ease, height 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
 .hover-expand .cursor-outline{
-  width: 80px; height: 80px; background-color: rgba(16, 185, 129, 0.10);
+  width: 82px; height: 82px;
+  background-color: rgba(16,185,129,0.10);
   border-color: transparent;
 }
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot, .cursor-outline { display: none !important; }
+}
 
-/* Text effects */
-.text-stroke { -webkit-text-stroke: 2px #10b981; color: transparent; transition: all 0.3s; }
-.text-stroke:hover { color: #10b981; }
+/* ========== Text stroke hover ========== */
+.text-stroke{
+  -webkit-text-stroke: 2px var(--emerald);
+  color: transparent;
+  transition: color 240ms ease;
+}
+.text-stroke:hover{ color: var(--emerald); }
 
-/* Aurora */
-.aurora { position: absolute; width: 100%; height: 100%; overflow: hidden; }
+/* ========== Aurora blobs ========== */
+.aurora { position: absolute; inset: 0; overflow: hidden; }
 .aurora-blob{
-  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
-  animation: aurora-move 20s infinite alternate;
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: aurora-move 18s infinite alternate ease-in-out;
+  will-change: transform;
 }
 @keyframes aurora-move{
-  0% { transform: translate(0,0) scale(1); }
-  100% { transform: translate(50px,-50px) scale(1.1); }
+  from { transform: translate(0,0) scale(1); }
+  to   { transform: translate(60px,-50px) scale(1.10); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob { animation: none !important; }
 }
 
-/* Spotlight cards */
+/* ========== Spotlight card (optional) ========== */
 .spotlight-card { position: relative; overflow: hidden; }
 .spotlight-card::before{
-  content: ''; position: absolute;
-  top: var(--mouse-y, 50%); left: var(--mouse-x, 50%);
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, 50%);
+  left: var(--mouse-x, 50%);
   width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%);
-  transform: translate(-50%, -50%); pointer-events: none;
-  opacity: 0; transition: opacity 0.25s ease;
+  background: radial-gradient(circle, rgba(16,185,129,0.16) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
 }
-.spotlight-card:hover::before { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .spotlight-card:hover::before{ opacity: 1; }
+}
+@media (hover: none), (pointer: coarse) {
+  .spotlight-card::before { display: none; }
+}
 
+/* ========== Scroll reveal (fast) ========== */
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: transform, opacity;
+}
+.reveal.in-view{
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ========== Card hovers (desktop only) ========== */
+@media (hover: hover) and (pointer: fine) {
+  .pro-card{
+    transform: translateY(0);
+    transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease, background-color 320ms ease;
+  }
+  .pro-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px var(--shadow);
+    border-color: rgba(16,185,129,0.35) !important;
+    background-color: rgba(16,185,129,0.06) !important;
+  }
+}
+
+/* ========== Metric cards (your hero features) ========== */
+.metric-card{
+  background: rgba(16,185,129,0.05);
+  border: 1px solid rgba(16,185,129,0.20);
+  transition: transform 260ms ease, background-color 260ms ease, border-color 260ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .metric-card:hover{
+    background: rgba(16,185,129,0.10);
+    border-color: rgba(16,185,129,0.45);
+    transform: translateY(-4px);
+  }
+}
+
+/* ========== Soft cards (used in your process section) ========== */
+.soft-card{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+@media (hover: hover) and (pointer: fine) {
+  .soft-card{
+    transition: transform 260ms ease, border-color 260ms ease, background-color 260ms ease;
+  }
+  .soft-card:hover{
+    transform: translateY(-3px);
+    border-color: rgba(16,185,129,0.28);
+    background: rgba(16,185,129,0.06);
+  }
+}
+
+/* ========== Gradient border wrapper (used in your HTML) ========== */
 .gradient-border{
   position: relative;
   background: linear-gradient(135deg, #0a0a0a 0%, #111 100%);
@@ -54,7 +180,8 @@ body { margin: 0; }
 }
 .gradient-border::before{
   content: '';
-  position: absolute; inset: -2px;
+  position: absolute;
+  inset: -2px;
   border-radius: 22px;
   background: linear-gradient(45deg, #10b981, #059669, #047857, #10b981);
   background-size: 400% 400%;
@@ -66,66 +193,75 @@ body { margin: 0; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+@media (prefers-reduced-motion: reduce) {
+  .gradient-border::before { animation: none !important; }
+}
 
-/* Marquee */
+/* ========== Marquee (used in your HTML) ========== */
 .marquee-container { overflow: hidden; white-space: nowrap; }
-.marquee-content { display: inline-block; animation: marquee 20s linear infinite; }
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-/* Cards */
-.soft-card{
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.10);
+.marquee-content{
+  display: inline-block;
+  animation: marquee 18s linear infinite;
+  will-change: transform;
 }
-.metric-card{
-  background: rgba(16,185,129,0.05);
-  border: 1px solid rgba(16,185,129,0.18);
-  transition: all 0.25s ease;
+@keyframes marquee{
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-.metric-card:hover{
-  background: rgba(16,185,129,0.09);
-  border-color: rgba(16,185,129,0.40);
-  transform: translateY(-5px);
+@media (prefers-reduced-motion: reduce) {
+  .marquee-content { animation: none !important; }
 }
 
-/* Device previews */
-.device-clickable { cursor: pointer; transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1); }
-.device-clickable:hover { transform: scale(1.02) translateY(-10px); }
-.click-hint { opacity: 0; transform: translateY(8px); transition: all 0.25s ease; }
-.device-clickable:hover .click-hint { opacity: 1; transform: translateY(0); }
-
-/* Inputs */
-.contact-input{
-  background: rgba(0,0,0,0.40);
-  border: 1px solid rgba(255,255,255,0.12);
-  transition: all 0.25s ease;
-}
-.contact-input:focus{
-  border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16,185,129,0.12);
-  outline: none;
-}
-
-/* Range slider */
+/* ========== Sliders (if used on estimator page) ========== */
 .slider-thumb{
   -webkit-appearance: none; appearance: none;
-  width: 100%; height: 8px; background: rgba(255,255,255,0.12);
-  border-radius: 4px; outline: none;
+  width: 100%; height: 8px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 999px;
+  outline: none;
 }
 .slider-thumb::-webkit-slider-thumb{
   -webkit-appearance: none; appearance: none;
-  width: 22px; height: 22px; background: #10b981;
-  border-radius: 50%; cursor: pointer;
-  box-shadow: 0 0 18px rgba(16,185,129,0.45);
-  transition: all 0.2s ease;
+  width: 24px; height: 24px;
+  background: var(--emerald);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(16,185,129,0.50);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
-.slider-thumb::-webkit-slider-thumb:hover{ transform: scale(1.15); }
+.slider-thumb::-webkit-slider-thumb:hover{
+  transform: scale(1.12);
+  box-shadow: 0 0 30px rgba(16,185,129,0.70);
+}
 
-/* Active nav */
-.nav-link.active { color: #10b981; position: relative; }
+/* ========== Click hint (portfolio devices, if you use it) ========== */
+.click-hint{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .device-clickable{
+    transition: transform 320ms cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+  }
+  .device-clickable:hover{ transform: scale(1.03) translateY(-10px); }
+  .device-clickable:hover .click-hint{ opacity: 1; transform: translateY(0); }
+}
+
+/* ========== Nav active underline ========== */
+.nav-link.active { color: var(--emerald); position: relative; }
 .nav-link.active::after{
-  content: ''; position: absolute; bottom: -4px; left: 0;
-  width: 100%; height: 2px; background: #10b981;
+  content:'';
+  position:absolute;
+  left:0; bottom:-4px;
+  width:100%; height:2px;
+  background: var(--emerald);
+}
+
+/* ========== Focus ring for accessibility ========== */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.18);
+  border-radius: 10px;
 }
