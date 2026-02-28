@@ -1,158 +1,249 @@
-// Lucide
-if (window.lucide) lucide.createIcons();
+/* =========================================
+   Levant Digital Marketing — app.js
+   Smooth motion + mobile-safe performance
+   ========================================= */
 
-// Cursor
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
+(function () {
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-if (cursorDot && cursorOutline) {
-  window.addEventListener('mousemove', (e) => {
-    const x = e.clientX, y = e.clientY;
-    cursorDot.style.left = `${x}px`;
-    cursorDot.style.top = `${y}px`;
-    cursorOutline.animate({ left: `${x}px`, top: `${y}px` }, { duration: 450, fill: "forwards" });
-  });
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canHover = window.matchMedia("(hover: hover)").matches;
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  const isDesktopEffects = canHover && finePointer && !prefersReducedMotion;
 
-  document.querySelectorAll('a, button, input, select, textarea, .device-clickable')
-    .forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('hover-expand'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('hover-expand'));
+  // -----------------------------
+  // Lucide icons (safe)
+  // -----------------------------
+  function initIcons() {
+    try {
+      if (window.lucide && typeof window.lucide.createIcons === "function") {
+        window.lucide.createIcons();
+      }
+    } catch (_) {}
+  }
+
+  // -----------------------------
+  // Active nav link (auto)
+  // Works across pages: index/services/work/estimator/contact
+  // -----------------------------
+  function initActiveNav() {
+    const path = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+    const map = {
+      "": "index.html",
+      "index.html": "index.html",
+      "services.html": "services.html",
+      "work.html": "work.html",
+      "estimator.html": "estimator.html",
+      "contact.html": "contact.html",
+    };
+    const current = map[path] || path;
+
+    $$(".nav-link").forEach((link) => {
+      link.classList.remove("active");
+      const href = (link.getAttribute("href") || "").toLowerCase();
+      if (href === current) link.classList.add("active");
     });
-}
+  }
 
-// Mobile menu
-const menuBtn = document.getElementById('menu-btn');
-const closeMenu = document.getElementById('close-menu');
-const mobileMenu = document.getElementById('mobile-menu');
+  // -----------------------------
+  // Page transitions (multi-page)
+  // -----------------------------
+  function initPageTransitions() {
+    $$("a[href]").forEach((a) => {
+      const href = a.getAttribute("href");
+      if (!href) return;
 
-if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
-if (closeMenu && mobileMenu) closeMenu.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
-document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => mobileMenu?.classList.add('translate-x-full')));
+      const isExternal =
+        href.startsWith("http") ||
+        href.startsWith("mailto:") ||
+        href.startsWith("tel:") ||
+        a.target === "_blank" ||
+        a.hasAttribute("download");
 
-// Spotlight effect
-window.handleSpotlight = function(e, element) {
-  const rect = element.getBoundingClientRect();
-  const x = ((e.clientX - rect.left) / rect.width) * 100;
-  const y = ((e.clientY - rect.top) / rect.height) * 100;
-  element.style.setProperty('--mouse-x', `${x}%`);
-  element.style.setProperty('--mouse-y', `${y}%`);
-}
-window.clearSpotlight = function(element) {
-  element.style.setProperty('--mouse-x', '50%');
-  element.style.setProperty('--mouse-y', '50%');
-}
+      const isAnchor = href.startsWith("#");
 
-// Active nav highlight based on current file
-(function setActiveNav(){
-  const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  document.querySelectorAll('.nav-link').forEach(a => {
-    const href = (a.getAttribute('href') || '').split('/').pop().toLowerCase();
-    if (href === current) a.classList.add('active');
+      if (isExternal || isAnchor) return;
+
+      a.addEventListener("click", (e) => {
+        // allow cmd/ctrl click
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+        e.preventDefault();
+        document.body.classList.add("is-leaving");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 180);
+      });
+    });
+  }
+
+  // -----------------------------
+  // Scroll reveal (fast)
+  // -----------------------------
+  function initScrollReveal() {
+    const els = $$(".reveal");
+    if (!els.length) return;
+
+    if (prefersReducedMotion) {
+      els.forEach((el) => el.classList.add("in-view"));
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("in-view");
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    els.forEach((el) => io.observe(el));
+  }
+
+  // -----------------------------
+  // Spotlight hover (desktop only)
+  // -----------------------------
+  function initSpotlight() {
+    if (!isDesktopEffects) return;
+
+    $$(".spotlight-card").forEach((card) => {
+      card.addEventListener(
+        "mousemove",
+        (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty("--mouse-x", `${x}%`);
+          card.style.setProperty("--mouse-y", `${y}%`);
+        },
+        { passive: true }
+      );
+
+      card.addEventListener("mouseleave", () => {
+        card.style.setProperty("--mouse-x", "50%");
+        card.style.setProperty("--mouse-y", "50%");
+      });
+    });
+  }
+
+  // -----------------------------
+  // Custom cursor (desktop only)
+  // -----------------------------
+  function initCursor() {
+    if (!isDesktopEffects) return;
+
+    const dot = $(".cursor-dot");
+    const outline = $(".cursor-outline");
+    if (!dot || !outline) return;
+
+    let x = 0, y = 0;
+    let ox = 0, oy = 0;
+
+    function tick() {
+      ox += (x - ox) * 0.12;
+      oy += (y - oy) * 0.12;
+
+      dot.style.left = x + "px";
+      dot.style.top = y + "px";
+      outline.style.left = ox + "px";
+      outline.style.top = oy + "px";
+
+      requestAnimationFrame(tick);
+    }
+
+    window.addEventListener(
+      "mousemove",
+      (e) => {
+        x = e.clientX;
+        y = e.clientY;
+      },
+      { passive: true }
+    );
+
+    const hoverTargets = ["a", "button", ".device-clickable", "input", "select", "textarea"];
+    $$(hoverTargets.join(",")).forEach((el) => {
+      el.addEventListener("mouseenter", () => document.body.classList.add("hover-expand"));
+      el.addEventListener("mouseleave", () => document.body.classList.remove("hover-expand"));
+    });
+
+    requestAnimationFrame(tick);
+  }
+
+  // -----------------------------
+  // Mobile menu (safe)
+  // -----------------------------
+  function initMobileMenu() {
+    const menuBtn = $("#menu-btn");
+    const closeBtn = $("#close-menu");
+    const menu = $("#mobile-menu");
+
+    if (!menuBtn || !menu) return;
+
+    menuBtn.addEventListener("click", () => menu.classList.remove("translate-x-full"));
+    if (closeBtn) closeBtn.addEventListener("click", () => menu.classList.add("translate-x-full"));
+
+    $$(".mobile-link").forEach((link) => {
+      link.addEventListener("click", () => menu.classList.add("translate-x-full"));
+    });
+  }
+
+  // -----------------------------
+  // Aurora parallax (desktop only)
+  // -----------------------------
+  function initAuroraParallax() {
+    if (!isDesktopEffects) return;
+
+    const blobs = $$(".aurora-blob");
+    if (!blobs.length) return;
+
+    window.addEventListener(
+      "mousemove",
+      (e) => {
+        const mx = (e.clientX / window.innerWidth - 0.5) * 10;
+        const my = (e.clientY / window.innerHeight - 0.5) * 10;
+
+        blobs.forEach((b, i) => {
+          const k = i + 1;
+          b.style.transform = `translate(${mx * k}px, ${my * k}px)`;
+        });
+      },
+      { passive: true }
+    );
+  }
+
+  // -----------------------------
+  // Auto-add reveal to sections/cards (optional helper)
+  // If you forget to add class="reveal", this helps.
+  // -----------------------------
+  function autoTagReveal() {
+    const candidates = [
+      "section",
+      ".metric-card",
+      ".soft-card",
+      ".gradient-border",
+      "footer"
+    ];
+    candidates.forEach((sel) => {
+      $$(sel).forEach((el) => {
+        if (!el.classList.contains("reveal")) el.classList.add("reveal");
+      });
+    });
+  }
+
+  // -----------------------------
+  // Init
+  // -----------------------------
+  document.addEventListener("DOMContentLoaded", () => {
+    initIcons();
+    initActiveNav();
+    initPageTransitions();
+    autoTagReveal();        // you can remove this if you want manual control
+    initScrollReveal();
+    initSpotlight();
+    initCursor();
+    initMobileMenu();
+    initAuroraParallax();
   });
 })();
-
-// ===========================
-// Estimator (planning tool)
-// ===========================
-let revenueChart;
-
-function fmtMoney(n) {
-  const v = Math.max(0, Math.round(n));
-  return '$' + v.toLocaleString();
-}
-
-function initEstimatorChart() {
-  const canvas = document.getElementById('revenueChart');
-  if (!canvas || !window.Chart) return;
-  if (revenueChart) revenueChart.destroy();
-
-  revenueChart = new Chart(canvas.getContext('2d'), {
-    type: 'bar',
-    data: {
-      labels: ['Current', 'Projected (Low)', 'Projected (Mid)', 'Projected (High)'],
-      datasets: [{
-        data: [0, 0, 0, 0],
-        backgroundColor: [
-          'rgba(255,255,255,0.10)',
-          'rgba(16,185,129,0.35)',
-          'rgba(16,185,129,0.55)',
-          '#10b981'
-        ],
-        borderRadius: 8,
-        borderSkipped: false
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        y: {
-          beginAtZero: true,
-          grid: { color: 'rgba(255,255,255,0.06)' },
-          ticks: {
-            color: '#9ca3af',
-            callback: v => '$' + Number(v).toLocaleString()
-          }
-        },
-        x: { grid: { display: false }, ticks: { color: '#9ca3af' } }
-      }
-    }
-  });
-}
-
-function updateEstimator() {
-  const visitors = Number(document.getElementById('visitors')?.value || 0);
-  const aov = Number(document.getElementById('aov')?.value || 0);
-  const cvr = Number(document.getElementById('cvr')?.value || 0);
-  const trafficLift = Number(document.getElementById('trafficLift')?.value || 0);
-  const cvrLift = Number(document.getElementById('cvrLift')?.value || 0);
-
-  // Displays
-  const vDisp = document.getElementById('visitorsDisp');
-  const aovDisp = document.getElementById('aovDisp');
-  const cvrDisp = document.getElementById('cvrDisp');
-  const tDisp = document.getElementById('trafficLiftDisp');
-  const cDisp = document.getElementById('cvrLiftDisp');
-
-  if (vDisp) vDisp.textContent = visitors.toLocaleString();
-  if (aovDisp) aovDisp.textContent = fmtMoney(aov);
-  if (cvrDisp) cvrDisp.textContent = cvr.toFixed(1) + '%';
-  if (tDisp) tDisp.textContent = trafficLift.toFixed(0) + '%';
-  if (cDisp) cDisp.textContent = cvrLift.toFixed(0) + '%';
-
-  const currentRevenue = visitors * (cvr / 100) * aov;
-
-  // We calculate a LOW/MID/HIGH range to make it clear it’s not a promise.
-  const newVisitorsLow = visitors * (1 + (trafficLift * 0.6) / 100);
-  const newVisitorsMid = visitors * (1 + (trafficLift * 1.0) / 100);
-  const newVisitorsHigh = visitors * (1 + (trafficLift * 1.3) / 100);
-
-  const newCvrLow = (cvr * (1 + (cvrLift * 0.6) / 100)) / 100;
-  const newCvrMid = (cvr * (1 + (cvrLift * 1.0) / 100)) / 100;
-  const newCvrHigh = (cvr * (1 + (cvrLift * 1.3) / 100)) / 100;
-
-  const projectedLow = newVisitorsLow * newCvrLow * aov;
-  const projectedMid = newVisitorsMid * newCvrMid * aov;
-  const projectedHigh = newVisitorsHigh * newCvrHigh * aov;
-
-  document.getElementById('currentRevenue').textContent = fmtMoney(currentRevenue);
-  document.getElementById('projLow').textContent = fmtMoney(projectedLow);
-  document.getElementById('projMid').textContent = fmtMoney(projectedMid);
-  document.getElementById('projHigh').textContent = fmtMoney(projectedHigh);
-
-  if (revenueChart) {
-    revenueChart.data.datasets[0].data = [
-      Math.round(currentRevenue),
-      Math.round(projectedLow),
-      Math.round(projectedMid),
-      Math.round(projectedHigh)
-    ];
-    revenueChart.update();
-  }
-}
-
-if (document.body?.dataset?.page === 'estimator') {
-  window.updateEstimator = updateEstimator;
-  setTimeout(() => { initEstimatorChart(); updateEstimator(); }, 200);
-}
