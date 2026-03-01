@@ -3,650 +3,695 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Levant Digital Marketing | Metro Detroit Websites, Branding, SEO</title>
   <meta name="description" content="Levant Digital Marketing helps Metro Detroit businesses with website creation and redesign, branding and logos, SEO setup, and Google Business Profile posting support." />
   <meta name="theme-color" content="#10b981" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Levant Digital Marketing" />
   <meta property="og:description" content="Websites, branding, SEO, and Google Business Profile support for Metro Detroit businesses." />
   <meta property="og:type" content="website" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            emerald: {
-              50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',
-              500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b',950:'#022c22'
-            }
-          },
-          fontFamily: {
-            sans:['Space Grotesk','sans-serif'],
-            display:['Syne','sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-
-  <link rel="stylesheet" href="assets/style.css" />
-
-  <!-- FAQ JSON-LD (honest + good SEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do you guarantee #1 rankings?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. SEO depends on competition, industry, location, and budget. We focus on clean foundations and clear execution."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does “SEO-ready” mean?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Clean headings, metadata, internal linking, page structure, and performance best-practices to support indexing and usability."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you post on my Google Business Profile?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We can help with Google Business Profile posting support based on what you want posted and how often."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you redesign my current site?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We keep what works and improve structure, visuals, speed, and mobile experience."
-        }
-      }
+      {"@type":"Question","name":"Do you guarantee #1 rankings?","acceptedAnswer":{"@type":"Answer","text":"No. SEO depends on competition, industry, location, and budget. We focus on clean foundations and clear execution."}},
+      {"@type":"Question","name":"What does SEO-ready mean?","acceptedAnswer":{"@type":"Answer","text":"Clean headings, metadata, internal linking, page structure, and performance best-practices to support indexing and usability."}},
+      {"@type":"Question","name":"Can you post on my Google Business Profile?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can help with Google Business Profile posting support based on what you want posted and how often."}},
+      {"@type":"Question","name":"Can you redesign my current site?","acceptedAnswer":{"@type":"Answer","text":"Yes. We keep what works and improve structure, visuals, speed, and mobile experience."}}
     ]
   }
   </script>
+
+  <style>
+    :root {
+      --em: #10b981;
+      --em-light: #34d399;
+      --em-dim: #065f46;
+      --em-glow: rgba(16,185,129,0.18);
+      --black: #050505;
+      --surface: #0d0d0d;
+      --surface2: #141414;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0f0f0;
+      --muted: #6b7280;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--em); color: #000; }
+
+    /* NOISE */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 999; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+    }
+
+    /* CURSOR */
+    .cursor { position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
+    .cursor-dot { width: 8px; height: 8px; background: var(--em); border-radius: 50%; transform: translate(-50%,-50%); transition: transform 0.1s, opacity 0.2s; }
+    .cursor-ring { width: 36px; height: 36px; border: 1.5px solid rgba(16,185,129,0.5); border-radius: 50%; transform: translate(-50%,-50%); transition: transform 0.18s cubic-bezier(.22,.68,0,1.2), width 0.3s, height 0.3s; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 2rem; height: 68px;
+      display: flex; align-items: center;
+      background: rgba(5,5,5,0.75);
+      backdrop-filter: blur(18px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    nav.scrolled { background: rgba(5,5,5,0.96); }
+    .nav-inner { max-width: 1400px; width: 100%; margin: auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.02em; color: var(--text); text-decoration: none; line-height: 1; }
+    .nav-logo span { color: var(--em); }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+    .nav-link { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover { color: var(--em-light); }
+    .nav-cta {
+      font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.55rem 1.4rem; background: var(--em); color: #000; font-weight: 500;
+      text-decoration: none; transition: all 0.2s;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    }
+    .nav-cta:hover { background: var(--em-light); transform: translateY(-1px); }
+    .nav-estimator {
+      font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.5rem 1.3rem; border: 1px solid rgba(16,185,129,0.4); color: var(--em-light);
+      text-decoration: none; transition: all 0.2s;
+    }
+    .nav-estimator:hover { background: rgba(16,185,129,0.1); border-color: var(--em); }
+    #menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--text); }
+    #mobile-menu { display: none; position: fixed; inset: 0; background: var(--black); z-index: 90; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    #mobile-menu.open { display: flex; }
+    .mobile-link { font-family: var(--font-display); font-size: 3.5rem; color: var(--text); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .mobile-link:hover { color: var(--em); }
+    #close-menu { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; color: var(--text); font-size: 2rem; line-height: 1; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      #menu-btn { display: block; }
+    }
+
+    /* HERO */
+    .hero { min-height: 100vh; padding-top: 68px; display: grid; place-items: center; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 40%, rgba(16,185,129,0.11) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 85% 70%, rgba(16,185,129,0.05) 0%, transparent 55%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(16,185,129,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.05) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 90%);
+      animation: grid-drift 22s linear infinite;
+    }
+    @keyframes grid-drift { from { background-position: 0 0; } to { background-position: 0 64px; } }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1400px; width: 100%; margin: auto;
+      padding: 5rem 2rem 4rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+
+    .hero-eyebrow { display: flex; align-items: center; gap: 1rem; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--em); margin-bottom: 1.5rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 3rem; height: 1px; background: var(--em); flex-shrink: 0; }
+
+    .hero-h1 { font-family: var(--font-display); font-size: clamp(4.5rem, 8.5vw, 8.5rem); line-height: 0.92; letter-spacing: 0.01em; color: var(--text); }
+    .hero-h1 .outline { -webkit-text-stroke: 1.5px var(--em); color: transparent; }
+    .hero-h1 .em { color: var(--em); }
+
+    .hero-sub { font-size: 1rem; line-height: 1.75; color: var(--muted); max-width: 32rem; margin-top: 1.5rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 2.2rem; background: var(--em); color: #000;
+      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.2s;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transform: translateX(-100%); transition: transform 0.4s; }
+    .btn-primary:hover { background: var(--em-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(16,185,129,0.3); }
+    .btn-primary:hover::after { transform: translateX(100%); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.85rem 2.1rem; border: 1px solid rgba(16,185,129,0.35); color: var(--em-light);
+      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(16,185,129,0.08); border-color: var(--em); transform: translateY(-2px); }
+
+    .status-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; background: rgba(16,185,129,0.07); border: 1px solid rgba(16,185,129,0.2); font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--em-light); margin-bottom: 1.5rem; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--em); animation: pulse-dot 2s ease-in-out infinite; flex-shrink: 0; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.4)} }
+
+    /* Hero card */
+    .hero-card { background: var(--surface); border: 1px solid var(--border); position: relative; overflow: hidden; }
+    .hero-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--em), transparent); }
+    .card-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); background: rgba(16,185,129,0.03); }
+    .card-dots { display: flex; gap: 6px; }
+    .card-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .card-dots span:nth-child(1) { background: #ff5f57; }
+    .card-dots span:nth-child(2) { background: #febc2e; }
+    .card-dots span:nth-child(3) { background: #28c840; }
+    .card-title-bar { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
+    .card-body { padding: 1.5rem 2rem 0; }
+    .capability-row { display: grid; grid-template-columns: 2rem 2rem 1fr; gap: 1rem; align-items: flex-start; padding: 1.1rem 0; border-bottom: 1px solid var(--border); transition: padding 0.2s; }
+    .capability-row:last-child { border-bottom: none; }
+    .cap-number { font-family: var(--font-mono); font-size: 0.62rem; color: var(--em); letter-spacing: 0.1em; margin-top: 4px; }
+    .cap-icon { width: 2rem; height: 2rem; display: grid; place-items: center; border: 1px solid rgba(16,185,129,0.22); flex-shrink: 0; }
+    .cap-icon svg { width: 13px; height: 13px; stroke: var(--em-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .cap-name { font-size: 0.82rem; font-weight: 500; color: var(--text); }
+    .cap-desc { font-size: 0.75rem; color: var(--muted); margin-top: 2px; line-height: 1.5; }
+    .card-footer { padding: 1.5rem 2rem 2rem; display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+    /* Hero chips */
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+    .chip { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.8rem; border: 1px solid var(--border); color: var(--muted); }
+
+    /* MARQUEE */
+    .marquee-wrap { border-top: 2px solid #000; border-bottom: 2px solid #000; background: var(--em); overflow: hidden; padding: 0.85rem 0; }
+    .marquee-track { display: inline-flex; animation: marquee 30s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-item { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.2rem); letter-spacing: 0.02em; text-transform: uppercase; color: #000; padding: 0 2rem; white-space: nowrap; }
+    .marquee-sep { color: rgba(0,0,0,0.3); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* SECTIONS */
+    .section { padding: 7rem 2rem; }
+    .section-inner { max-width: 1400px; margin: auto; }
+    .section-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--em); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem; }
+    .section-label::after { content: ''; display: block; width: 2rem; height: 1px; background: var(--em); }
+    .section-h2 { font-family: var(--font-display); font-size: clamp(2.8rem, 5.5vw, 5rem); line-height: 0.95; letter-spacing: 0.01em; color: var(--text); }
+    .section-h2 .em { color: var(--em); }
+    .section-h2 .outline { -webkit-text-stroke: 1px rgba(16,185,129,0.55); color: transparent; }
+
+    /* CAP GRID */
+    .cap-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); margin-top: 4rem; }
+    .cap-tile { background: var(--surface); padding: 2.5rem; position: relative; overflow: hidden; transition: background 0.3s; }
+    .cap-tile:hover { background: var(--surface2); }
+    .cap-tile::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--em), transparent); transform: scaleX(0); transition: transform 0.4s; }
+    .cap-tile:hover::after { transform: scaleX(1); }
+    .cap-tile-num { font-family: var(--font-display); font-size: 5rem; line-height: 1; color: rgba(16,185,129,0.06); position: absolute; top: 1.5rem; right: 1.5rem; pointer-events: none; }
+    .cap-tile-icon { width: 3rem; height: 3rem; border: 1px solid rgba(16,185,129,0.25); display: grid; place-items: center; margin-bottom: 1.5rem; }
+    .cap-tile-icon svg { width: 18px; height: 18px; stroke: var(--em-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .cap-tile-title { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.02em; color: var(--text); margin-bottom: 0.8rem; }
+    .cap-tile-desc { font-size: 0.87rem; line-height: 1.7; color: var(--muted); }
+    .cap-tile-list { margin-top: 1.5rem; list-style: none; }
+    .cap-tile-list li { font-size: 0.78rem; color: var(--muted); padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.6rem; }
+    .cap-tile-list li:last-child { border-bottom: none; }
+    .cap-tile-list li::before { content: '→'; color: var(--em); font-size: 0.7rem; flex-shrink: 0; }
+    .cap-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--em-light); text-decoration: none; transition: gap 0.2s; }
+    .cap-link:hover { gap: 0.8rem; color: var(--em); }
+
+    /* PROCESS */
+    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; margin-top: 4rem; }
+    .process-step { display: grid; grid-template-columns: 3rem 1fr; gap: 1.5rem; padding: 2rem 0; border-bottom: 1px solid var(--border); }
+    .process-step:first-child { padding-top: 0; }
+    .process-step:last-child { border-bottom: none; }
+    .step-num { font-family: var(--font-display); font-size: 3rem; line-height: 1; color: rgba(16,185,129,0.18); transition: color 0.2s; margin-top: -4px; }
+    .process-step:hover .step-num { color: var(--em); }
+    .step-title { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.02em; color: var(--text); margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.87rem; line-height: 1.7; color: var(--muted); }
+    .process-aside { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; position: sticky; top: 7rem; overflow: hidden; }
+    .process-aside::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--em), transparent); }
+    .aside-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--em); border: 1px solid rgba(16,185,129,0.2); padding: 0.4rem 0.8rem; margin-bottom: 1.5rem; }
+    .aside-big { font-family: var(--font-display); font-size: 3.5rem; line-height: 1; color: var(--text); margin-bottom: 0.6rem; }
+    .aside-label { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+    .aside-divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
+    .mini-list { list-style: none; }
+    .mini-list li { font-size: 0.82rem; color: var(--muted); padding: 0.6rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.7rem; }
+    .mini-list li:last-child { border-bottom: none; }
+    .mini-check { width: 1.1rem; height: 1.1rem; flex-shrink: 0; border: 1px solid rgba(16,185,129,0.4); display: grid; place-items: center; font-size: 0.55rem; color: var(--em); }
+
+    /* FAQ */
+    .faq-header { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-top: 4rem; }
+    .faq-item { background: var(--surface); padding: 2rem 2.5rem; transition: background 0.2s; }
+    .faq-item:hover { background: var(--surface2); }
+    .faq-q { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-bottom: 0.7rem; display: flex; align-items: flex-start; gap: 0.8rem; }
+    .faq-q-mark { font-family: var(--font-mono); font-size: 0.62rem; color: var(--em); margin-top: 4px; flex-shrink: 0; letter-spacing: 0.05em; }
+    .faq-a { font-size: 0.87rem; line-height: 1.75; color: var(--muted); }
+
+    /* CTA */
+    .cta-section { padding: 7rem 2rem; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(16,185,129,0.07) 0%, transparent 70%); }
+    .cta-inner { max-width: 1400px; margin: auto; position: relative; z-index: 1; }
+    .cta-box { border: 1px solid rgba(16,185,129,0.18); background: var(--surface); padding: 4rem 5rem; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; position: relative; overflow: hidden; }
+    .cta-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--em), transparent); }
+    .cta-box::after { content: 'LEVANT'; font-family: var(--font-display); font-size: 13rem; line-height: 1; color: rgba(16,185,129,0.025); position: absolute; right: -0.5rem; bottom: -2rem; pointer-events: none; letter-spacing: 0; }
+    .cta-h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 0.95; letter-spacing: 0.01em; color: var(--text); }
+    .cta-sub { font-size: 0.93rem; color: var(--muted); margin-top: 1rem; line-height: 1.7; }
+    .cta-actions { display: flex; flex-direction: column; gap: 0.8rem; align-items: flex-end; }
+
+    /* FOOTER */
+    footer { background: #000; border-top: 1px solid var(--border); padding: 3rem 2rem; }
+    .footer-inner { max-width: 1400px; margin: auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.02em; }
+    .footer-logo span { color: var(--em); }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a { font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--em-light); }
+    .footer-copy { font-size: 0.72rem; color: var(--muted); font-family: var(--font-mono); }
+
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .cap-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .process-aside { position: static; }
+      .cta-box { grid-template-columns: 1fr; }
+      .cta-actions { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+      .faq-header { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .cap-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .hero-h1 { font-size: 4.2rem; }
+      .cta-box { padding: 2.5rem 2rem; }
+      .section { padding: 5rem 1.5rem; }
+    }
+  </style>
 </head>
 
-<body class="font-sans antialiased selection:bg-emerald-500 selection:text-white bg-neutral-950 text-white">
-
-  <!-- Decorative layers -->
-  <div class="grain" aria-hidden="true"></div>
-  <div class="cursor-dot hidden md:block" aria-hidden="true"></div>
-  <div class="cursor-outline hidden md:block" aria-hidden="true"></div>
+<body>
+  <div class="cursor cursor-dot" id="cursorDot" style="display:none"></div>
+  <div class="cursor cursor-ring" id="cursorRing" style="display:none"></div>
 
   <!-- NAV -->
-  <nav class="fixed w-full z-50 text-white py-4 px-4 sm:px-8 bg-black/70 backdrop-blur-md border-b border-white/5">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="index.html" class="font-display text-2xl font-bold tracking-tighter hover:text-emerald-300 transition-colors">
-        LEVANT<span class="text-emerald-500">.</span>
-      </a>
-
-      <div class="hidden lg:flex items-center gap-6">
-        <a href="index.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">HOME</a>
-        <a href="services.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">SERVICES</a>
-        <a href="work.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">WORK</a>
-        <a href="estimator.html" class="nav-link px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-200 hover:bg-emerald-500 hover:text-black transition-all btn-shine">
-          <span class="flex items-center gap-2">
-            <i data-lucide="sparkles" class="w-4 h-4"></i> ESTIMATOR
-          </span>
-        </a>
-        <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2 rounded-full text-sm font-bold transition-all btn-shine">
-          CONTACT
-        </a>
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">LEVANT<span>.</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="work.html" class="nav-link">Work</a>
+        <a href="estimator.html" class="nav-estimator">Estimator</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
-
-      <button id="menu-btn" class="lg:hidden text-white" aria-label="Open menu">
-        <i data-lucide="menu" class="w-6 h-6"></i>
+      <button id="menu-btn" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </nav>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-6 lg:hidden">
-    <button id="close-menu" class="absolute top-6 right-6 text-white" aria-label="Close menu">
-      <i data-lucide="x" class="w-8 h-8"></i>
-    </button>
-    <a href="index.html" class="text-3xl font-display font-bold text-white hover:text-emerald-300 transition-colors mobile-link">HOME</a>
-    <a href="services.html" class="text-3xl font-display font-bold text-white hover:text-emerald-300 transition-colors mobile-link">SERVICES</a>
-    <a href="work.html" class="text-3xl font-display font-bold text-white hover:text-emerald-300 transition-colors mobile-link">WORK</a>
-    <a href="estimator.html" class="text-3xl font-display font-bold text-emerald-200 hover:text-emerald-300 transition-colors mobile-link">ESTIMATOR</a>
-    <a href="contact.html" class="text-3xl font-display font-bold text-emerald-200 hover:text-emerald-300 transition-colors mobile-link">CONTACT</a>
+  <div id="mobile-menu">
+    <button id="close-menu" aria-label="Close menu">✕</button>
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="services.html" class="mobile-link">Services</a>
+    <a href="work.html" class="mobile-link">Work</a>
+    <a href="estimator.html" class="mobile-link" style="color:var(--em-light)">Estimator</a>
+    <a href="contact.html" class="mobile-link" style="color:var(--em-light)">Contact</a>
   </div>
 
   <!-- HERO -->
-  <header class="relative min-h-screen pt-24 overflow-hidden flex items-center">
-    <!-- Aurora blobs -->
-    <div class="aurora" aria-hidden="true">
-      <div class="aurora-blob bg-emerald-600 w-96 h-96 top-0 left-0"></div>
-      <div class="aurora-blob bg-teal-500 w-72 h-72 bottom-0 right-0" style="animation-delay:-5s;"></div>
-      <div class="aurora-blob bg-green-400 w-64 h-64 top-1/2 left-1/2" style="animation-delay:-10s;"></div>
-    </div>
+  <header class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
 
-    <!-- 3D monogram mount -->
-    <div class="hero-3d" data-three="monogram" aria-hidden="true"></div>
-
-    <!-- Grid overlay -->
-    <div class="absolute inset-0 opacity-20" aria-hidden="true"
-      style="background-image:
-        linear-gradient(rgba(16,185,129,0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(16,185,129,0.12) 1px, transparent 1px);
-      background-size: 54px 54px;">
-    </div>
-
-    <!-- Animated “signal lines” (pure CSS) -->
-    <div class="absolute inset-0 pointer-events-none opacity-50" aria-hidden="true">
-      <svg class="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="sig" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#10b981" stop-opacity="0.0"/>
-            <stop offset="0.45" stop-color="#10b981" stop-opacity="0.20"/>
-            <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.10"/>
-            <stop offset="1" stop-color="#10b981" stop-opacity="0.0"/>
-          </linearGradient>
-        </defs>
-        <path d="M0,620 C220,520 420,700 680,610 C900,535 1030,440 1200,520" fill="none" stroke="url(#sig)" stroke-width="2"/>
-        <path d="M0,510 C260,420 450,580 710,500 C960,425 1040,300 1200,380" fill="none" stroke="url(#sig)" stroke-width="1.5"/>
-        <path d="M0,710 C220,610 430,770 700,690 C930,620 1070,520 1200,610" fill="none" stroke="url(#sig)" stroke-width="1.5"/>
-      </svg>
-    </div>
-
-    <!-- Vignette -->
-    <div class="absolute inset-0" aria-hidden="true"
-      style="background:
-        radial-gradient(circle at 40% 35%, rgba(16,185,129,0.18), transparent 55%),
-        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.06), transparent 55%),
-        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.70));">
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-
-        <!-- Copy -->
-        <div class="lg:col-span-7">
-          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-200 text-sm font-mono tracking-wider">
-            Metro Detroit • Websites • Branding • SEO • Google Business Profile
-          </span>
-
-          <h1 class="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight mt-6">
-            BUILT TO LOOK <span class="text-stroke">EXPENSIVE</span><br />
-            BUILT TO WORK.
-          </h1>
-
-          <p class="text-gray-200/80 text-lg md:text-xl mt-6 leading-relaxed max-w-2xl">
-            Levant Digital Marketing builds modern websites, clean branding, and SEO-ready structure —
-            so customers can find you, trust you, and take action.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4 mt-10">
-            <a href="contact.html"
-               class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all shadow-2xl shadow-emerald-500/20 btn-shine">
-              Get a Quote <i data-lucide="arrow-right" class="w-5 h-5"></i>
-            </a>
-            <a href="work.html"
-               class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
-              See Work <i data-lucide="external-link" class="w-5 h-5"></i>
-            </a>
-          </div>
-
-          <!-- “Capability chips” (no fake stats) -->
-          <div class="mt-10 flex flex-wrap gap-2">
-            <span class="px-3 py-2 rounded-full text-xs border border-white/10 bg-white/5 text-gray-200/80">Mobile-first layout</span>
-            <span class="px-3 py-2 rounded-full text-xs border border-white/10 bg-white/5 text-gray-200/80">Fast page performance</span>
-            <span class="px-3 py-2 rounded-full text-xs border border-white/10 bg-white/5 text-gray-200/80">Clear messaging + sections</span>
-            <span class="px-3 py-2 rounded-full text-xs border border-white/10 bg-white/5 text-gray-200/80">SEO foundations + GBP support</span>
-          </div>
-
-          <p class="text-xs text-gray-500 mt-6">
-            No fake claims. No “#1 guaranteed.” Just strong execution and clear deliverables.
-          </p>
+      <!-- LEFT COPY -->
+      <div>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          Taking new projects — Metro Detroit
         </div>
-
-        <!-- Right-side “brand console” -->
-        <div class="lg:col-span-5 hidden lg:block">
-          <div class="soft-card border-pulse rounded-3xl p-8 bg-black/25">
-            <div class="flex items-center justify-between">
-              <div class="text-sm text-gray-400">Built in Metro Detroit</div>
-              <div class="inline-flex items-center gap-2 text-emerald-200 text-sm font-semibold">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span> Taking new projects
-              </div>
-            </div>
-
-            <div class="mt-7 grid grid-cols-2 gap-4">
-              <div class="pro-card rounded-2xl p-5">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
-                    <i data-lucide="layout" class="w-5 h-5 text-emerald-200"></i>
-                  </div>
-                  <div class="font-semibold">Structure</div>
-                </div>
-                <p class="text-sm text-gray-400 mt-3">Pages and flow that guide visitors to action.</p>
-              </div>
-
-              <div class="pro-card rounded-2xl p-5">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
-                    <i data-lucide="sparkles" class="w-5 h-5 text-emerald-200"></i>
-                  </div>
-                  <div class="font-semibold">Visuals</div>
-                </div>
-                <p class="text-sm text-gray-400 mt-3">A consistent look across web + brand assets.</p>
-              </div>
-
-              <div class="pro-card rounded-2xl p-5">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
-                    <i data-lucide="search" class="w-5 h-5 text-emerald-200"></i>
-                  </div>
-                  <div class="font-semibold">SEO</div>
-                </div>
-                <p class="text-sm text-gray-400 mt-3">Foundations: headings, metadata, internal links.</p>
-              </div>
-
-              <div class="pro-card rounded-2xl p-5">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
-                    <i data-lucide="map-pin" class="w-5 h-5 text-emerald-200"></i>
-                  </div>
-                  <div class="font-semibold">Local</div>
-                </div>
-                <p class="text-sm text-gray-400 mt-3">Metro Detroit presence + Google Business support.</p>
-              </div>
-            </div>
-
-            <div class="mt-7 flex gap-3 flex-wrap">
-              <a href="services.html" class="inline-flex items-center gap-2 px-5 py-3 border border-emerald-500/55 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
-                Services <i data-lucide="layers" class="w-5 h-5"></i>
-              </a>
-              <a href="estimator.html" class="inline-flex items-center gap-2 px-5 py-3 bg-emerald-500 text-black rounded-full font-bold hover:scale-105 transition-all btn-shine">
-                Estimator <i data-lucide="calculator" class="w-5 h-5"></i>
-              </a>
-            </div>
-
-            <div class="mt-6 text-xs text-gray-500">
-              Want the 3D to match your exact logo? Upload an SVG and we’ll match the monogram shape.
-            </div>
-          </div>
+        <div class="hero-eyebrow">Digital Marketing Agency</div>
+        <h1 class="hero-h1">
+          BUILT<br>TO LOOK<br>
+          <span class="outline">EXPENSIVE</span><br>
+          BUILT TO <span class="em">WORK.</span>
+        </h1>
+        <p class="hero-sub">
+          Levant Digital Marketing builds modern websites, clean branding, and SEO-ready structure — so customers can find you, trust you, and take action.
+        </p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn-primary">
+            Get a Quote
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="work.html" class="btn-ghost">
+            See Our Work
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
-
+        <div class="hero-chips">
+          <span class="chip">Mobile-first</span>
+          <span class="chip">Fast performance</span>
+          <span class="chip">Clear messaging</span>
+          <span class="chip">SEO foundations</span>
+          <span class="chip">GBP support</span>
+        </div>
+        <p style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.08em;color:var(--muted);margin-top:1.5rem">
+          ✦ No fake claims. No "#1 guaranteed." Just strong execution and clear deliverables.
+        </p>
       </div>
+
+      <!-- RIGHT: CONSOLE CARD -->
+      <div class="hero-card">
+        <div class="card-header">
+          <div class="card-dots"><span></span><span></span><span></span></div>
+          <div class="card-title-bar">levant.capabilities — v2026</div>
+        </div>
+        <div class="card-body">
+          <div class="capability-row">
+            <div class="cap-number">01</div>
+            <div class="cap-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div>
+              <div class="cap-name">Website Creation &amp; Redesign</div>
+              <div class="cap-desc">Pages and flow that guide visitors to action. Mobile-first, fast, structured.</div>
+            </div>
+          </div>
+          <div class="capability-row">
+            <div class="cap-number">02</div>
+            <div class="cap-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <div class="cap-name">Branding + Graphic Design</div>
+              <div class="cap-desc">Logos and visual assets for a consistent look everywhere.</div>
+            </div>
+          </div>
+          <div class="capability-row">
+            <div class="cap-number">03</div>
+            <div class="cap-icon">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <div>
+              <div class="cap-name">SEO Foundations</div>
+              <div class="cap-desc">Headings, metadata, internal links, and technical readiness.</div>
+            </div>
+          </div>
+          <div class="capability-row">
+            <div class="cap-number">04</div>
+            <div class="cap-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="cap-name">Google Business Profile</div>
+              <div class="cap-desc">Posting support + local presence across Metro Detroit.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="services.html" class="btn-ghost" style="font-size:0.63rem;padding:0.55rem 1.2rem">All Services</a>
+          <a href="estimator.html" class="btn-primary" style="font-size:0.63rem;padding:0.55rem 1.2rem">Try Estimator</a>
+        </div>
+      </div>
+
     </div>
   </header>
 
   <!-- MARQUEE -->
-  <div class="py-8 bg-emerald-500 text-black overflow-hidden border-y-4 border-black">
-    <div class="marquee-container font-display text-4xl md:text-6xl font-bold uppercase tracking-tighter">
-      <div class="marquee-content">
-        <span class="mx-8">Website Creation</span><span class="mx-8 text-stroke" style="-webkit-text-stroke-color:black;">•</span>
-        <span class="mx-8">Website Redesign</span><span class="mx-8 text-stroke" style="-webkit-text-stroke-color:black;">•</span>
-        <span class="mx-8">Logo Design</span><span class="mx-8 text-stroke" style="-webkit-text-stroke-color:black;">•</span>
-        <span class="mx-8">Graphic Design</span><span class="mx-8 text-stroke" style="-webkit-text-stroke-color:black;">•</span>
-        <span class="mx-8">SEO Setup</span><span class="mx-8 text-stroke" style="-webkit-text-stroke-color:black;">•</span>
-        <span class="mx-8">Google Business Profile</span><span class="mx-8 text-stroke" style="-webkit-text-stroke-color:black;">•</span>
-        <span class="mx-8">Website Creation</span><span class="mx-8 text-stroke" style="-webkit-text-stroke-color:black;">•</span>
-        <span class="mx-8">Website Redesign</span><span class="mx-8 text-stroke" style="-webkit-text-stroke-color:black;">•</span>
-      </div>
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Website Creation</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">Website Redesign</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">Logo Design</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">Graphic Design</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">SEO Setup</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">Google Business Profile</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">Website Creation</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">Website Redesign</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">Logo Design</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">Graphic Design</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">SEO Setup</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
+      <span class="marquee-item">Google Business Profile</span>
+      <span class="marquee-item marquee-sep"> ◆ </span>
     </div>
   </div>
 
-  <main class="bg-neutral-950">
+  <main>
 
-    <!-- CAPABILITIES (visual “posters”) -->
-    <section class="py-24 section-divider">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-end justify-between gap-6 flex-wrap">
-          <div class="max-w-2xl">
-            <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">Capabilities</span>
-            <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">
-              A clean website is step one. A <span class="text-emerald-200">system</span> is the goal.
-            </h2>
-            <p class="text-gray-400 mt-4 text-lg">
-              This page shows what you actually offer — clearly — without fluff.
-            </p>
-          </div>
-          <a href="services.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
-            See services <i data-lucide="arrow-right" class="w-5 h-5"></i>
-          </a>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-6 mt-12">
-          <!-- Poster 1 -->
-          <div class="soft-card rounded-3xl p-7 overflow-hidden relative">
-            <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full opacity-30"
-                 style="background: radial-gradient(circle, rgba(16,185,129,.35), transparent 65%);"></div>
-
-            <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-2xl icon-tile flex items-center justify-center">
-                <i data-lucide="monitor-smartphone" class="w-5 h-5 text-emerald-200"></i>
-              </div>
-              <h3 class="font-display text-xl font-bold">Website Creation</h3>
-            </div>
-
-            <p class="text-gray-400 mt-3">
-              Multi-page builds designed to look premium, load fast, and guide visitors toward a clear action.
-            </p>
-
-            <ul class="text-sm text-gray-400 mt-5 space-y-2">
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Home + services + contact structure</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Mobile-first layout & accessibility basics</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Clean sections, strong hierarchy</li>
-            </ul>
-
-            <div class="mt-6">
-              <a href="services.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
-                Learn more <i data-lucide="arrow-right" class="w-5 h-5"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Poster 2 -->
-          <div class="soft-card rounded-3xl p-7 overflow-hidden relative">
-            <div class="absolute -bottom-20 -left-20 w-72 h-72 rounded-full opacity-25"
-                 style="background: radial-gradient(circle, rgba(255,255,255,.12), transparent 65%);"></div>
-
-            <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-2xl icon-tile flex items-center justify-center">
-                <i data-lucide="pen-tool" class="w-5 h-5 text-emerald-200"></i>
-              </div>
-              <h3 class="font-display text-xl font-bold">Branding + Graphics</h3>
-            </div>
-
-            <p class="text-gray-400 mt-3">
-              Logos, brand visuals, and graphic assets that make your business look consistent everywhere.
-            </p>
-
-            <ul class="text-sm text-gray-400 mt-5 space-y-2">
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Logo design + variations</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Social/website graphics (as needed)</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Clean, modern style system</li>
-            </ul>
-
-            <div class="mt-6">
-              <a href="contact.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
-                Get a quote <i data-lucide="arrow-right" class="w-5 h-5"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Poster 3 -->
-          <div class="soft-card rounded-3xl p-7 overflow-hidden relative">
-            <div class="absolute -top-20 left-10 w-72 h-72 rounded-full opacity-25"
-                 style="background: radial-gradient(circle, rgba(16,185,129,.22), transparent 65%);"></div>
-
-            <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-2xl icon-tile flex items-center justify-center">
-                <i data-lucide="search" class="w-5 h-5 text-emerald-200"></i>
-              </div>
-              <h3 class="font-display text-xl font-bold">SEO + Google Business</h3>
-            </div>
-
-            <p class="text-gray-400 mt-3">
-              SEO foundations + Google Business Profile posting support so you’re set up for visibility and trust.
-            </p>
-
-            <ul class="text-sm text-gray-400 mt-5 space-y-2">
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> On-page structure (titles, headings, meta)</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Internal linking + technical readiness</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> GBP posting support based on your plan</li>
-            </ul>
-
-            <div class="mt-6">
-              <a href="services.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
-                See how it works <i data-lucide="arrow-right" class="w-5 h-5"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <p class="text-xs text-gray-500 mt-8">
-          Note: Every industry is different. We focus on execution and clarity; outcomes vary by competition, location, and budget.
-        </p>
-      </div>
-    </section>
-
-    <!-- 3D DEVICES SECTION -->
-    <section class="py-24 border-t border-white/5 section-divider">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-5">
-          <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">Visual Preview</span>
-          <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">
-            A website that feels like a <span class="text-emerald-200">product</span>.
-          </h2>
-          <p class="text-gray-400 mt-4 text-lg">
-            Desktop gets interactive 3D. Mobile stays lightweight by design — so performance stays clean.
-          </p>
-
-          <div class="mt-8 space-y-4">
-            <div class="pro-card rounded-2xl p-6">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
-                  <i data-lucide="zap" class="w-5 h-5 text-emerald-200"></i>
-                </div>
-                <div class="font-semibold">Motion that feels expensive</div>
-              </div>
-              <p class="text-gray-400 text-sm mt-3">Subtle depth + micro-interactions without harming load times.</p>
-            </div>
-
-            <div class="pro-card rounded-2xl p-6">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
-                  <i data-lucide="shield" class="w-5 h-5 text-emerald-200"></i>
-                </div>
-                <div class="font-semibold">Built for real clients</div>
-              </div>
-              <p class="text-gray-400 text-sm mt-3">No misleading claims. Just clear scope and deliverables.</p>
-            </div>
-          </div>
-
-          <div class="mt-10 flex gap-4 flex-wrap">
-            <a href="work.html" class="inline-flex items-center gap-2 px-7 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all btn-shine">
-              See Work <i data-lucide="arrow-right" class="w-5 h-5"></i>
-            </a>
-            <a href="services.html" class="inline-flex items-center gap-2 px-7 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
-              Services <i data-lucide="layers" class="w-5 h-5"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="lg:col-span-7">
-          <div class="inline-3d border-pulse" data-three="devices" aria-hidden="true"></div>
-          <div class="mt-4 text-xs text-gray-500">
-            Tip: 3D is desktop-only by default to keep mobile flawless. If you want mobile to show a static “3D render” image instead, I’ll add a fallback.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="py-24 border-t border-white/5 section-divider">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-10 items-start">
+    <!-- CAPABILITIES -->
+    <section class="section" style="border-top:1px solid var(--border)">
+      <div class="section-inner">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end" class="reveal">
           <div>
-            <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">How it works</span>
-            <h2 class="font-display text-4xl md:text-5xl font-bold">Simple process. Clean deliverables.</h2>
-            <p class="text-gray-400 mt-4 text-lg">
-              We build a plan, then design and ship. No confusing jargon. No fake guarantees.
-            </p>
-            <div class="mt-10 flex gap-4 flex-wrap">
-              <a href="estimator.html" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all btn-shine">
-                Try the estimator <i data-lucide="calculator" class="w-5 h-5"></i>
-              </a>
-              <a href="work.html" class="inline-flex items-center gap-2 px-6 py-3 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
-                View projects <i data-lucide="arrow-right" class="w-5 h-5"></i>
-              </a>
+            <div class="section-label">Capabilities</div>
+            <h2 class="section-h2">A CLEAN SITE<br>IS STEP ONE.<br>A <span class="em">SYSTEM</span><br>IS THE GOAL.</h2>
+          </div>
+          <div>
+            <p style="font-size:0.95rem;line-height:1.8;color:var(--muted);max-width:26rem">Every service supports the others — your website, brand, and search presence working as one unified system.</p>
+            <a href="services.html" class="cap-link" style="margin-top:1.5rem">View all services →</a>
+          </div>
+        </div>
+
+        <div class="cap-grid reveal" style="transition-delay:0.12s">
+          <div class="cap-tile">
+            <div class="cap-tile-num">01</div>
+            <div class="cap-tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <h3 class="cap-tile-title">Website Creation</h3>
+            <p class="cap-tile-desc">Multi-page builds designed to look premium, load fast, and guide visitors toward a clear action.</p>
+            <ul class="cap-tile-list">
+              <li>Home + services + contact structure</li>
+              <li>Mobile-first layout &amp; accessibility</li>
+              <li>Clean sections, strong hierarchy</li>
+            </ul>
+            <a href="services.html" class="cap-link">Learn more →</a>
+          </div>
+          <div class="cap-tile">
+            <div class="cap-tile-num">02</div>
+            <div class="cap-tile-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <h3 class="cap-tile-title">Branding + Graphics</h3>
+            <p class="cap-tile-desc">Logos, brand visuals, and graphic assets that make your business look consistent everywhere.</p>
+            <ul class="cap-tile-list">
+              <li>Logo design + variations</li>
+              <li>Social + website graphics</li>
+              <li>Clean, modern style system</li>
+            </ul>
+            <a href="contact.html" class="cap-link">Get a quote →</a>
+          </div>
+          <div class="cap-tile">
+            <div class="cap-tile-num">03</div>
+            <div class="cap-tile-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+            <h3 class="cap-tile-title">SEO + Google Business</h3>
+            <p class="cap-tile-desc">SEO foundations and Google Business Profile support so you're set up for visibility and trust.</p>
+            <ul class="cap-tile-list">
+              <li>On-page structure (titles, meta)</li>
+              <li>Internal linking + tech readiness</li>
+              <li>GBP posting support</li>
+            </ul>
+            <a href="services.html" class="cap-link">See how it works →</a>
+          </div>
+        </div>
+
+        <p style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.08em;color:var(--muted);margin-top:2rem">✦ Outcomes vary by industry, competition, and budget. We focus on clean execution and transparency.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" style="border-top:1px solid var(--border)">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-label">How It Works</div>
+          <h2 class="section-h2">SIMPLE PROCESS.<br><span class="outline">CLEAN</span> DELIVERABLES.</h2>
+        </div>
+
+        <div class="process-grid reveal" style="transition-delay:0.12s">
+          <div>
+            <div class="process-step">
+              <div class="step-num">01</div>
+              <div>
+                <div class="step-title">Strategy + Content Map</div>
+                <p class="step-desc">We outline your pages, sections, messaging, and calls-to-action. Everything is aligned before a single line of code is written.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">02</div>
+              <div>
+                <div class="step-title">Design + Build</div>
+                <p class="step-desc">Modern visuals, responsive layouts, fast load times. Every section earns its place. No bloat.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">03</div>
+              <div>
+                <div class="step-title">SEO + Google Business</div>
+                <p class="step-desc">On-page basics — titles, headings, metadata — plus GBP posting support based on your plan.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">04</div>
+              <div>
+                <div class="step-title">Launch + Handoff</div>
+                <p class="step-desc">Clean handoff with all assets. You own everything. Ongoing support available on request.</p>
+              </div>
             </div>
           </div>
 
-          <div class="gradient-border spotlight-card p-8" onmousemove="handleSpotlight(event, this)" onmouseleave="clearSpotlight(this)">
-            <div class="rounded-2xl bg-neutral-950 border border-white/10 p-8">
-              <div class="space-y-6">
-                <div class="pro-card rounded-2xl p-6">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
-                      <i data-lucide="map" class="w-5 h-5 text-emerald-200"></i>
-                    </div>
-                    <div class="font-semibold">1) Strategy + content map</div>
-                  </div>
-                  <p class="text-gray-400 text-sm mt-3">Pages, sections, messaging, and calls-to-action.</p>
-                </div>
-
-                <div class="pro-card rounded-2xl p-6">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
-                      <i data-lucide="layout-template" class="w-5 h-5 text-emerald-200"></i>
-                    </div>
-                    <div class="font-semibold">2) Design + build</div>
-                  </div>
-                  <p class="text-gray-400 text-sm mt-3">Modern visuals, responsive layout, fast load times.</p>
-                </div>
-
-                <div class="pro-card rounded-2xl p-6">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
-                      <i data-lucide="search-check" class="w-5 h-5 text-emerald-200"></i>
-                    </div>
-                    <div class="font-semibold">3) SEO + Google Business support</div>
-                  </div>
-                  <p class="text-gray-400 text-sm mt-3">On-page basics + GBP posting support (as requested).</p>
-                </div>
-              </div>
-
-              <p class="text-xs text-gray-500 mt-8">
-                Outcomes vary by industry, competition, and budget. We focus on clean execution and transparency.
-              </p>
-            </div>
+          <div class="process-aside">
+            <div class="aside-badge"><span class="status-dot"></span>Currently available</div>
+            <div class="aside-big">Metro<br>Detroit<br>Based.</div>
+            <p class="aside-label">Serving businesses across Metro Detroit and beyond. Direct communication — no outsourcing, no runaround.</p>
+            <div class="aside-divider"></div>
+            <ul class="mini-list">
+              <li><span class="mini-check">✓</span> Clear scope before work begins</li>
+              <li><span class="mini-check">✓</span> No inflated claims or fake guarantees</li>
+              <li><span class="mini-check">✓</span> You own all assets on delivery</li>
+              <li><span class="mini-check">✓</span> Transparent pricing and timelines</li>
+            </ul>
+            <div class="aside-divider"></div>
+            <a href="estimator.html" class="btn-primary" style="width:100%;justify-content:center">
+              Try the Estimator
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="py-24 border-t border-white/5 section-divider">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-end justify-between gap-6 flex-wrap">
-          <div class="max-w-2xl">
-            <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">FAQ</span>
-            <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">Straight answers. No fluff.</h2>
-            <p class="text-gray-400 mt-4 text-lg">This helps clients understand the work before they even contact you.</p>
+    <section class="section" style="border-top:1px solid var(--border)">
+      <div class="section-inner">
+        <div class="faq-header reveal">
+          <div>
+            <div class="section-label">FAQ</div>
+            <h2 class="section-h2">STRAIGHT<br>ANSWERS.<br><span class="em">NO FLUFF.</span></h2>
           </div>
-          <a href="contact.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
-            Ask a question <i data-lucide="message-square" class="w-5 h-5"></i>
-          </a>
+          <div>
+            <p style="font-size:0.93rem;line-height:1.8;color:var(--muted);max-width:26rem">We'd rather give you real expectations upfront than promise the moon and deliver a flashlight.</p>
+            <a href="contact.html" class="cap-link" style="margin-top:1.5rem">Ask us anything →</a>
+          </div>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-6 mt-12">
-          <div class="pro-card rounded-2xl p-7">
-            <div class="flex items-start gap-3">
-              <i data-lucide="help-circle" class="w-5 h-5 text-emerald-200 mt-0.5"></i>
-              <div>
-                <div class="font-semibold">Do you guarantee #1 rankings?</div>
-                <p class="text-gray-400 text-sm mt-2">
-                  No. SEO depends on competition, industry, location, and budget. We focus on solid foundations and clear execution.
-                </p>
-              </div>
-            </div>
+        <div class="faq-grid reveal" style="transition-delay:0.1s">
+          <div class="faq-item">
+            <div class="faq-q"><span class="faq-q-mark">Q —</span>Do you guarantee #1 rankings?</div>
+            <p class="faq-a">No. SEO depends on competition, industry, location, and budget. We focus on solid foundations and transparent execution. Anyone guaranteeing #1 is selling you something.</p>
           </div>
-
-          <div class="pro-card rounded-2xl p-7">
-            <div class="flex items-start gap-3">
-              <i data-lucide="help-circle" class="w-5 h-5 text-emerald-200 mt-0.5"></i>
-              <div>
-                <div class="font-semibold">What does “SEO-ready” mean?</div>
-                <p class="text-gray-400 text-sm mt-2">
-                  Clean headings, metadata, internal links, page structure, performance best-practices, and indexing readiness.
-                </p>
-              </div>
-            </div>
+          <div class="faq-item">
+            <div class="faq-q"><span class="faq-q-mark">Q —</span>What does "SEO-ready" actually mean?</div>
+            <p class="faq-a">Clean headings, metadata, internal links, page structure, performance best-practices, and indexing readiness. It's the foundation — not a full ongoing campaign.</p>
           </div>
-
-          <div class="pro-card rounded-2xl p-7">
-            <div class="flex items-start gap-3">
-              <i data-lucide="help-circle" class="w-5 h-5 text-emerald-200 mt-0.5"></i>
-              <div>
-                <div class="font-semibold">Can you post on my Google Business Profile?</div>
-                <p class="text-gray-400 text-sm mt-2">
-                  Yes — we can help with posting support and consistency, based on what you want posted and how often.
-                </p>
-              </div>
-            </div>
+          <div class="faq-item">
+            <div class="faq-q"><span class="faq-q-mark">Q —</span>Can you post on my Google Business Profile?</div>
+            <p class="faq-a">Yes — we handle GBP posting support and consistency based on what you want and how often. We set up a plan that makes sense for your business.</p>
           </div>
-
-          <div class="pro-card rounded-2xl p-7">
-            <div class="flex items-start gap-3">
-              <i data-lucide="help-circle" class="w-5 h-5 text-emerald-200 mt-0.5"></i>
-              <div>
-                <div class="font-semibold">Can you redesign my current site?</div>
-                <p class="text-gray-400 text-sm mt-2">
-                  Yes — we keep what’s working and improve structure, visuals, speed, and mobile experience.
-                </p>
-              </div>
-            </div>
+          <div class="faq-item">
+            <div class="faq-q"><span class="faq-q-mark">Q —</span>Can you redesign my existing site?</div>
+            <p class="faq-a">Absolutely. We keep what's working and improve structure, visuals, speed, and mobile experience. You don't have to start from zero.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-24 border-t border-white/5 section-divider">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="pro-card rounded-3xl p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+    <div class="cta-section">
+      <div class="cta-inner reveal">
+        <div class="cta-box">
           <div>
-            <h2 class="font-display text-4xl md:text-5xl font-bold">Ready to upgrade your presence?</h2>
-            <p class="text-gray-400 mt-3 text-lg">Tell us what you need and we’ll reply with a clear plan and quote.</p>
+            <div class="section-label" style="margin-bottom:0.8rem">Ready when you are</div>
+            <h2 class="cta-h2">READY TO UPGRADE<br>YOUR PRESENCE?</h2>
+            <p class="cta-sub">Tell us what you need. We'll respond with a clear plan and quote. No pressure, no jargon.</p>
           </div>
-          <div class="flex gap-4 flex-wrap">
-            <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all btn-shine">
-              Contact <i data-lucide="send" class="w-5 h-5"></i>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn-primary">
+              Contact Us
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </a>
-            <a href="work.html" class="inline-flex items-center gap-2 px-7 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
-              See work <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            <a href="work.html" class="btn-ghost">
+              See Work
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
         </div>
-
-        <noscript>
-          <div class="mt-6 text-sm text-gray-400">
-            JavaScript is disabled, so interactive icons and 3D effects won’t load — but the site still works.
-          </div>
-        </noscript>
       </div>
-    </section>
+    </div>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-black border-t border-white/10 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="font-display text-2xl font-bold">LEVANT<span class="text-emerald-500">.</span></div>
-
-      <div class="flex gap-8 text-sm text-gray-400 flex-wrap justify-center">
-        <a href="index.html" class="hover:text-emerald-200 transition-colors">Home</a>
-        <a href="services.html" class="hover:text-emerald-200 transition-colors">Services</a>
-        <a href="work.html" class="hover:text-emerald-200 transition-colors">Work</a>
-        <a href="estimator.html" class="hover:text-emerald-200 transition-colors">Estimator</a>
-        <a href="contact.html" class="hover:text-emerald-200 transition-colors">Contact</a>
-      </div>
-
-      <div class="text-gray-500 text-sm">© 2026 Levant Digital Marketing. All rights reserved.</div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">LEVANT<span>.</span></div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="estimator.html">Estimator</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
     </div>
   </footer>
 
-  <script src="assets/app.js"></script>
+  <script>
+    // Custom cursor (fine pointer/desktop only)
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (window.matchMedia('(pointer: fine)').matches) {
+      dot.style.display = 'block'; ring.style.display = 'block';
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+      const tick = () => {
+        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+        rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+        requestAnimationFrame(tick);
+      };
+      tick();
+
+      // Scale ring on hoverable elements
+      document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => { ring.style.width = '52px'; ring.style.height = '52px'; ring.style.borderColor = 'var(--em)'; });
+        el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = 'rgba(16,185,129,0.5)'; });
+      });
+    }
+
+    // Nav scroll effect
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    // Mobile menu
+    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
+    document.getElementById('close-menu').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
+
+    // Scroll reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
