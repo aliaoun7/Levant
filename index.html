@@ -39,19 +39,60 @@
     }
   </script>
 
-  <!-- Your CSS file -->
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- FAQ JSON-LD (honest + good SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you guarantee #1 rankings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. SEO depends on competition, industry, location, and budget. We focus on clean foundations and clear execution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does “SEO-ready” mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Clean headings, metadata, internal linking, page structure, and performance best-practices to support indexing and usability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you post on my Google Business Profile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We can help with Google Business Profile posting support based on what you want posted and how often."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you redesign my current site?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We keep what works and improve structure, visuals, speed, and mobile experience."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="font-sans antialiased selection:bg-emerald-500 selection:text-white bg-neutral-950 text-white">
 
   <!-- Decorative layers -->
-  <div class="grain"></div>
-  <div class="cursor-dot hidden md:block"></div>
-  <div class="cursor-outline hidden md:block"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot hidden md:block" aria-hidden="true"></div>
+  <div class="cursor-outline hidden md:block" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <nav class="fixed w-full z-50 text-white py-4 px-4 sm:px-8 bg-black/80 backdrop-blur-md border-b border-white/5">
+  <nav class="fixed w-full z-50 text-white py-4 px-4 sm:px-8 bg-black/70 backdrop-blur-md border-b border-white/5">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <a href="index.html" class="font-display text-2xl font-bold tracking-tighter hover:text-emerald-300 transition-colors">
         LEVANT<span class="text-emerald-500">.</span>
@@ -61,12 +102,12 @@
         <a href="index.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">HOME</a>
         <a href="services.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">SERVICES</a>
         <a href="work.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">WORK</a>
-        <a href="estimator.html" class="nav-link px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-200 hover:bg-emerald-500 hover:text-black transition-all">
+        <a href="estimator.html" class="nav-link px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-200 hover:bg-emerald-500 hover:text-black transition-all btn-shine">
           <span class="flex items-center gap-2">
             <i data-lucide="sparkles" class="w-4 h-4"></i> ESTIMATOR
           </span>
         </a>
-        <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2 rounded-full text-sm font-bold transition-all">
+        <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2 rounded-full text-sm font-bold transition-all btn-shine">
           CONTACT
         </a>
       </div>
@@ -91,28 +132,47 @@
 
   <!-- HERO -->
   <header class="relative min-h-screen pt-24 overflow-hidden flex items-center">
-
-    <!-- Aurora blobs (your CSS already animates these) -->
+    <!-- Aurora blobs -->
     <div class="aurora" aria-hidden="true">
       <div class="aurora-blob bg-emerald-600 w-96 h-96 top-0 left-0"></div>
       <div class="aurora-blob bg-teal-500 w-72 h-72 bottom-0 right-0" style="animation-delay:-5s;"></div>
       <div class="aurora-blob bg-green-400 w-64 h-64 top-1/2 left-1/2" style="animation-delay:-10s;"></div>
     </div>
 
-    <!-- ✅ 3D MONOGRAM MOUNT (desktop renders here) -->
+    <!-- 3D monogram mount -->
     <div class="hero-3d" data-three="monogram" aria-hidden="true"></div>
 
     <!-- Grid overlay -->
     <div class="absolute inset-0 opacity-20" aria-hidden="true"
-      style="background-image: linear-gradient(rgba(16,185,129,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.12) 1px, transparent 1px);
+      style="background-image:
+        linear-gradient(rgba(16,185,129,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,185,129,0.12) 1px, transparent 1px);
       background-size: 54px 54px;">
     </div>
 
-    <!-- Subtle vignette -->
+    <!-- Animated “signal lines” (pure CSS) -->
+    <div class="absolute inset-0 pointer-events-none opacity-50" aria-hidden="true">
+      <svg class="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="sig" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#10b981" stop-opacity="0.0"/>
+            <stop offset="0.45" stop-color="#10b981" stop-opacity="0.20"/>
+            <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.10"/>
+            <stop offset="1" stop-color="#10b981" stop-opacity="0.0"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,620 C220,520 420,700 680,610 C900,535 1030,440 1200,520" fill="none" stroke="url(#sig)" stroke-width="2"/>
+        <path d="M0,510 C260,420 450,580 710,500 C960,425 1040,300 1200,380" fill="none" stroke="url(#sig)" stroke-width="1.5"/>
+        <path d="M0,710 C220,610 430,770 700,690 C930,620 1070,520 1200,610" fill="none" stroke="url(#sig)" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <!-- Vignette -->
     <div class="absolute inset-0" aria-hidden="true"
-      style="background: radial-gradient(circle at 40% 35%, rgba(16,185,129,0.18), transparent 55%),
-             radial-gradient(circle at 70% 70%, rgba(255,255,255,0.06), transparent 55%),
-             linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));">
+      style="background:
+        radial-gradient(circle at 40% 35%, rgba(16,185,129,0.18), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.06), transparent 55%),
+        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.70));">
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
@@ -125,8 +185,8 @@
           </span>
 
           <h1 class="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight mt-6">
-            BUILD A <span class="text-stroke">PREMIUM</span><br />
-            DIGITAL PRESENCE.
+            BUILT TO LOOK <span class="text-stroke">EXPENSIVE</span><br />
+            BUILT TO WORK.
           </h1>
 
           <p class="text-gray-200/80 text-lg md:text-xl mt-6 leading-relaxed max-w-2xl">
@@ -136,45 +196,21 @@
 
           <div class="flex flex-col sm:flex-row gap-4 mt-10">
             <a href="contact.html"
-               class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all shadow-2xl shadow-emerald-500/20">
+               class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all shadow-2xl shadow-emerald-500/20 btn-shine">
               Get a Quote <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
             <a href="work.html"
-               class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
+               class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
               See Work <i data-lucide="external-link" class="w-5 h-5"></i>
             </a>
           </div>
 
-          <div class="grid sm:grid-cols-3 gap-4 mt-12">
-            <div class="pro-card rounded-2xl p-5">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
-                  <i data-lucide="monitor-smartphone" class="w-5 h-5 text-emerald-200"></i>
-                </div>
-                <div class="font-semibold">Websites</div>
-              </div>
-              <p class="text-sm text-gray-400 mt-3">Mobile-first builds that feel premium and stay fast.</p>
-            </div>
-
-            <div class="pro-card rounded-2xl p-5">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
-                  <i data-lucide="palette" class="w-5 h-5 text-emerald-200"></i>
-                </div>
-                <div class="font-semibold">Branding</div>
-              </div>
-              <p class="text-sm text-gray-400 mt-3">Logos + graphics that make you look established.</p>
-            </div>
-
-            <div class="pro-card rounded-2xl p-5">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
-                  <i data-lucide="search" class="w-5 h-5 text-emerald-200"></i>
-                </div>
-                <div class="font-semibold">SEO + GBP</div>
-              </div>
-              <p class="text-sm text-gray-400 mt-3">On-page structure + Google Business posting support.</p>
-            </div>
+          <!-- “Capability chips” (no fake stats) -->
+          <div class="mt-10 flex flex-wrap gap-2">
+            <span class="px-3 py-2 rounded-full text-xs border border-white/10 bg-white/5 text-gray-200/80">Mobile-first layout</span>
+            <span class="px-3 py-2 rounded-full text-xs border border-white/10 bg-white/5 text-gray-200/80">Fast page performance</span>
+            <span class="px-3 py-2 rounded-full text-xs border border-white/10 bg-white/5 text-gray-200/80">Clear messaging + sections</span>
+            <span class="px-3 py-2 rounded-full text-xs border border-white/10 bg-white/5 text-gray-200/80">SEO foundations + GBP support</span>
           </div>
 
           <p class="text-xs text-gray-500 mt-6">
@@ -182,45 +218,63 @@
           </p>
         </div>
 
-        <!-- Right-side “brand panel” (still honest, but looks insane) -->
+        <!-- Right-side “brand console” -->
         <div class="lg:col-span-5 hidden lg:block">
-          <div class="pro-card rounded-3xl p-8 border border-white/10 bg-black/25 backdrop-blur-xl">
+          <div class="soft-card border-pulse rounded-3xl p-8 bg-black/25">
             <div class="flex items-center justify-between">
               <div class="text-sm text-gray-400">Built in Metro Detroit</div>
               <div class="inline-flex items-center gap-2 text-emerald-200 text-sm font-semibold">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span> Available for new projects
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span> Taking new projects
               </div>
             </div>
 
-            <div class="mt-8 space-y-5">
-              <div class="flex items-start gap-3">
-                <i data-lucide="check" class="w-5 h-5 text-emerald-200 mt-0.5"></i>
-                <div>
-                  <div class="font-semibold">Multi-page structure</div>
-                  <div class="text-sm text-gray-400">Clear navigation, clean hierarchy, and better conversion flow.</div>
+            <div class="mt-7 grid grid-cols-2 gap-4">
+              <div class="pro-card rounded-2xl p-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
+                    <i data-lucide="layout" class="w-5 h-5 text-emerald-200"></i>
+                  </div>
+                  <div class="font-semibold">Structure</div>
                 </div>
+                <p class="text-sm text-gray-400 mt-3">Pages and flow that guide visitors to action.</p>
               </div>
-              <div class="flex items-start gap-3">
-                <i data-lucide="check" class="w-5 h-5 text-emerald-200 mt-0.5"></i>
-                <div>
-                  <div class="font-semibold">Brand-ready visuals</div>
-                  <div class="text-sm text-gray-400">Design system + graphics that look consistent everywhere.</div>
+
+              <div class="pro-card rounded-2xl p-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
+                    <i data-lucide="sparkles" class="w-5 h-5 text-emerald-200"></i>
+                  </div>
+                  <div class="font-semibold">Visuals</div>
                 </div>
+                <p class="text-sm text-gray-400 mt-3">A consistent look across web + brand assets.</p>
               </div>
-              <div class="flex items-start gap-3">
-                <i data-lucide="check" class="w-5 h-5 text-emerald-200 mt-0.5"></i>
-                <div>
-                  <div class="font-semibold">SEO-ready foundations</div>
-                  <div class="text-sm text-gray-400">Headings, metadata, internal links, and technical readiness.</div>
+
+              <div class="pro-card rounded-2xl p-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
+                    <i data-lucide="search" class="w-5 h-5 text-emerald-200"></i>
+                  </div>
+                  <div class="font-semibold">SEO</div>
                 </div>
+                <p class="text-sm text-gray-400 mt-3">Foundations: headings, metadata, internal links.</p>
+              </div>
+
+              <div class="pro-card rounded-2xl p-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-emerald-200"></i>
+                  </div>
+                  <div class="font-semibold">Local</div>
+                </div>
+                <p class="text-sm text-gray-400 mt-3">Metro Detroit presence + Google Business support.</p>
               </div>
             </div>
 
-            <div class="mt-8 flex gap-3 flex-wrap">
-              <a href="services.html" class="inline-flex items-center gap-2 px-5 py-3 border border-emerald-500/55 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
+            <div class="mt-7 flex gap-3 flex-wrap">
+              <a href="services.html" class="inline-flex items-center gap-2 px-5 py-3 border border-emerald-500/55 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
                 Services <i data-lucide="layers" class="w-5 h-5"></i>
               </a>
-              <a href="estimator.html" class="inline-flex items-center gap-2 px-5 py-3 bg-emerald-500 text-black rounded-full font-bold hover:scale-105 transition-all">
+              <a href="estimator.html" class="inline-flex items-center gap-2 px-5 py-3 bg-emerald-500 text-black rounded-full font-bold hover:scale-105 transition-all btn-shine">
                 Estimator <i data-lucide="calculator" class="w-5 h-5"></i>
               </a>
             </div>
@@ -253,117 +307,174 @@
 
   <main class="bg-neutral-950">
 
-    <!-- WHAT WE DO -->
-    <section class="py-24">
+    <!-- CAPABILITIES (visual “posters”) -->
+    <section class="py-24 section-divider">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between gap-6 flex-wrap">
           <div class="max-w-2xl">
-            <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">What We Do</span>
+            <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">Capabilities</span>
             <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">
-              Everything you need to look <span class="text-emerald-200">credible</span> online.
+              A clean website is step one. A <span class="text-emerald-200">system</span> is the goal.
             </h2>
             <p class="text-gray-400 mt-4 text-lg">
-              Clear messaging, clean visuals, strong structure, and a site that loads fast on phones.
+              This page shows what you actually offer — clearly — without fluff.
             </p>
           </div>
           <a href="services.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
-            See all services <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            See services <i data-lucide="arrow-right" class="w-5 h-5"></i>
           </a>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          <div class="pro-card spotlight-card rounded-2xl p-7" onmousemove="handleSpotlight(event, this)" onmouseleave="clearSpotlight(this)">
-            <h3 class="font-display text-xl font-bold">Website creation</h3>
-            <p class="text-gray-400 mt-2">A modern multi-page site with clear sections and a clean user flow.</p>
-            <ul class="text-sm text-gray-400 mt-4 space-y-2">
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Mobile-first layout</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Fast, lightweight code</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Clear call-to-action flow</li>
+        <div class="grid lg:grid-cols-3 gap-6 mt-12">
+          <!-- Poster 1 -->
+          <div class="soft-card rounded-3xl p-7 overflow-hidden relative">
+            <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full opacity-30"
+                 style="background: radial-gradient(circle, rgba(16,185,129,.35), transparent 65%);"></div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-2xl icon-tile flex items-center justify-center">
+                <i data-lucide="monitor-smartphone" class="w-5 h-5 text-emerald-200"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold">Website Creation</h3>
+            </div>
+
+            <p class="text-gray-400 mt-3">
+              Multi-page builds designed to look premium, load fast, and guide visitors toward a clear action.
+            </p>
+
+            <ul class="text-sm text-gray-400 mt-5 space-y-2">
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Home + services + contact structure</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Mobile-first layout & accessibility basics</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Clean sections, strong hierarchy</li>
             </ul>
+
+            <div class="mt-6">
+              <a href="services.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
+                Learn more <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </a>
+            </div>
           </div>
 
-          <div class="pro-card spotlight-card rounded-2xl p-7" onmousemove="handleSpotlight(event, this)" onmouseleave="clearSpotlight(this)">
-            <h3 class="font-display text-xl font-bold">Redesign + modernization</h3>
-            <p class="text-gray-400 mt-2">Keep what works, upgrade what doesn’t — layout, copy, and performance.</p>
-            <ul class="text-sm text-gray-400 mt-4 space-y-2">
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Cleaner sections</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Better navigation</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Mobile improvements</li>
+          <!-- Poster 2 -->
+          <div class="soft-card rounded-3xl p-7 overflow-hidden relative">
+            <div class="absolute -bottom-20 -left-20 w-72 h-72 rounded-full opacity-25"
+                 style="background: radial-gradient(circle, rgba(255,255,255,.12), transparent 65%);"></div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-2xl icon-tile flex items-center justify-center">
+                <i data-lucide="pen-tool" class="w-5 h-5 text-emerald-200"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold">Branding + Graphics</h3>
+            </div>
+
+            <p class="text-gray-400 mt-3">
+              Logos, brand visuals, and graphic assets that make your business look consistent everywhere.
+            </p>
+
+            <ul class="text-sm text-gray-400 mt-5 space-y-2">
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Logo design + variations</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Social/website graphics (as needed)</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Clean, modern style system</li>
             </ul>
+
+            <div class="mt-6">
+              <a href="contact.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
+                Get a quote <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </a>
+            </div>
           </div>
 
-          <div class="pro-card spotlight-card rounded-2xl p-7" onmousemove="handleSpotlight(event, this)" onmouseleave="clearSpotlight(this)">
-            <h3 class="font-display text-xl font-bold">Branding + design</h3>
-            <p class="text-gray-400 mt-2">Logos, graphics, and consistency across your website and listings.</p>
-            <ul class="text-sm text-gray-400 mt-4 space-y-2">
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Logo + variations</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Brand colors + type</li>
-              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Social graphics (optional)</li>
+          <!-- Poster 3 -->
+          <div class="soft-card rounded-3xl p-7 overflow-hidden relative">
+            <div class="absolute -top-20 left-10 w-72 h-72 rounded-full opacity-25"
+                 style="background: radial-gradient(circle, rgba(16,185,129,.22), transparent 65%);"></div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-2xl icon-tile flex items-center justify-center">
+                <i data-lucide="search" class="w-5 h-5 text-emerald-200"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold">SEO + Google Business</h3>
+            </div>
+
+            <p class="text-gray-400 mt-3">
+              SEO foundations + Google Business Profile posting support so you’re set up for visibility and trust.
+            </p>
+
+            <ul class="text-sm text-gray-400 mt-5 space-y-2">
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> On-page structure (titles, headings, meta)</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> Internal linking + technical readiness</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-200 mt-0.5"></i> GBP posting support based on your plan</li>
             </ul>
+
+            <div class="mt-6">
+              <a href="services.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
+                See how it works <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </a>
+            </div>
           </div>
         </div>
+
+        <p class="text-xs text-gray-500 mt-8">
+          Note: Every industry is different. We focus on execution and clarity; outcomes vary by competition, location, and budget.
+        </p>
       </div>
     </section>
 
-    <!-- ✅ 3D DEVICES SECTION (the "surprise" visual) -->
-    <section class="py-24 border-t border-white/5">
+    <!-- 3D DEVICES SECTION -->
+    <section class="py-24 border-t border-white/5 section-divider">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
-
         <div class="lg:col-span-5">
-          <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">Design Preview</span>
+          <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">Visual Preview</span>
           <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">
-            Your brand presented like a <span class="text-emerald-200">premium product</span>.
+            A website that feels like a <span class="text-emerald-200">product</span>.
           </h2>
           <p class="text-gray-400 mt-4 text-lg">
-            This is the look: clean, modern, high-end. On desktop you get interactive 3D. On mobile, we keep it lightweight so everything stays smooth.
+            Desktop gets interactive 3D. Mobile stays lightweight by design — so performance stays clean.
           </p>
 
           <div class="mt-8 space-y-4">
             <div class="pro-card rounded-2xl p-6">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
                   <i data-lucide="zap" class="w-5 h-5 text-emerald-200"></i>
                 </div>
                 <div class="font-semibold">Motion that feels expensive</div>
               </div>
-              <p class="text-gray-400 text-sm mt-3">Subtle animations + depth without hurting performance.</p>
+              <p class="text-gray-400 text-sm mt-3">Subtle depth + micro-interactions without harming load times.</p>
             </div>
 
             <div class="pro-card rounded-2xl p-6">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
                   <i data-lucide="shield" class="w-5 h-5 text-emerald-200"></i>
                 </div>
                 <div class="font-semibold">Built for real clients</div>
               </div>
-              <p class="text-gray-400 text-sm mt-3">No fake numbers, no misleading claims—just clean deliverables.</p>
+              <p class="text-gray-400 text-sm mt-3">No misleading claims. Just clear scope and deliverables.</p>
             </div>
           </div>
 
           <div class="mt-10 flex gap-4 flex-wrap">
-            <a href="work.html" class="inline-flex items-center gap-2 px-7 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all">
+            <a href="work.html" class="inline-flex items-center gap-2 px-7 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all btn-shine">
               See Work <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
-            <a href="services.html" class="inline-flex items-center gap-2 px-7 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
+            <a href="services.html" class="inline-flex items-center gap-2 px-7 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
               Services <i data-lucide="layers" class="w-5 h-5"></i>
             </a>
           </div>
         </div>
 
         <div class="lg:col-span-7">
-          <!-- ✅ This is where the 3D devices render (desktop) -->
-          <div class="inline-3d" data-three="devices" aria-hidden="true"></div>
-
+          <div class="inline-3d border-pulse" data-three="devices" aria-hidden="true"></div>
           <div class="mt-4 text-xs text-gray-500">
-            Tip: 3D is desktop-only by default to keep mobile flawless. If you want mobile to show a static “3D render” image instead, tell me and I’ll add the fallback.
+            Tip: 3D is desktop-only by default to keep mobile flawless. If you want mobile to show a static “3D render” image instead, I’ll add a fallback.
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="py-24 border-t border-white/5">
+    <section class="py-24 border-t border-white/5 section-divider">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-10 items-start">
           <div>
@@ -373,10 +484,10 @@
               We build a plan, then design and ship. No confusing jargon. No fake guarantees.
             </p>
             <div class="mt-10 flex gap-4 flex-wrap">
-              <a href="estimator.html" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all">
+              <a href="estimator.html" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all btn-shine">
                 Try the estimator <i data-lucide="calculator" class="w-5 h-5"></i>
               </a>
-              <a href="work.html" class="inline-flex items-center gap-2 px-6 py-3 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
+              <a href="work.html" class="inline-flex items-center gap-2 px-6 py-3 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
                 View projects <i data-lucide="arrow-right" class="w-5 h-5"></i>
               </a>
             </div>
@@ -387,7 +498,7 @@
               <div class="space-y-6">
                 <div class="pro-card rounded-2xl p-6">
                   <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                    <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
                       <i data-lucide="map" class="w-5 h-5 text-emerald-200"></i>
                     </div>
                     <div class="font-semibold">1) Strategy + content map</div>
@@ -397,7 +508,7 @@
 
                 <div class="pro-card rounded-2xl p-6">
                   <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                    <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
                       <i data-lucide="layout-template" class="w-5 h-5 text-emerald-200"></i>
                     </div>
                     <div class="font-semibold">2) Design + build</div>
@@ -407,7 +518,7 @@
 
                 <div class="pro-card rounded-2xl p-6">
                   <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                    <div class="w-10 h-10 rounded-xl icon-tile flex items-center justify-center">
                       <i data-lucide="search-check" class="w-5 h-5 text-emerald-200"></i>
                     </div>
                     <div class="font-semibold">3) SEO + Google Business support</div>
@@ -425,18 +536,14 @@
       </div>
     </section>
 
-    <!-- FAQ (helpful SEO, still honest) -->
-    <section class="py-24 border-t border-white/5">
+    <!-- FAQ -->
+    <section class="py-24 border-t border-white/5 section-divider">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between gap-6 flex-wrap">
           <div class="max-w-2xl">
             <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">FAQ</span>
-            <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">
-              Straight answers. No fluff.
-            </h2>
-            <p class="text-gray-400 mt-4 text-lg">
-              This section helps clients understand the work before they even contact you.
-            </p>
+            <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">Straight answers. No fluff.</h2>
+            <p class="text-gray-400 mt-4 text-lg">This helps clients understand the work before they even contact you.</p>
           </div>
           <a href="contact.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
             Ask a question <i data-lucide="message-square" class="w-5 h-5"></i>
@@ -492,12 +599,11 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-24 border-t border-white/5">
+    <section class="py-24 border-t border-white/5 section-divider">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="pro-card rounded-3xl p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
@@ -505,14 +611,20 @@
             <p class="text-gray-400 mt-3 text-lg">Tell us what you need and we’ll reply with a clear plan and quote.</p>
           </div>
           <div class="flex gap-4 flex-wrap">
-            <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all">
+            <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all btn-shine">
               Contact <i data-lucide="send" class="w-5 h-5"></i>
             </a>
-            <a href="work.html" class="inline-flex items-center gap-2 px-7 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
+            <a href="work.html" class="inline-flex items-center gap-2 px-7 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all btn-shine">
               See work <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
           </div>
         </div>
+
+        <noscript>
+          <div class="mt-6 text-sm text-gray-400">
+            JavaScript is disabled, so interactive icons and 3D effects won’t load — but the site still works.
+          </div>
+        </noscript>
       </div>
     </section>
 
@@ -535,7 +647,6 @@
     </div>
   </footer>
 
-  <!-- Your JS file -->
   <script src="assets/app.js"></script>
 </body>
 </html>
