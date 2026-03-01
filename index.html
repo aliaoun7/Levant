@@ -92,12 +92,12 @@
       clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
     }
     .nav-cta:hover { background: var(--em-light); transform: translateY(-1px); }
-    .nav-estimator {
+    .nav-audit {
       font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
       padding: 0.5rem 1.3rem; border: 1px solid rgba(16,185,129,0.4); color: var(--em-light);
       text-decoration: none; transition: all 0.2s;
     }
-    .nav-estimator:hover { background: rgba(16,185,129,0.1); border-color: var(--em); }
+    .nav-audit:hover { background: rgba(16,185,129,0.1); border-color: var(--em); }
     #menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--text); }
     #mobile-menu { display: none; position: fixed; inset: 0; background: var(--black); z-index: 90; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
     #mobile-menu.open { display: flex; }
@@ -313,7 +313,7 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="services.html" class="nav-link">Services</a>
         <a href="work.html" class="nav-link">Work</a>
-        <a href="estimator.html" class="nav-estimator">Estimator</a>
+        <a href="audit.html" class="nav-audit">Free Audit</a>
         <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
       <button id="menu-btn" aria-label="Open menu">
@@ -328,7 +328,7 @@
     <a href="index.html" class="mobile-link">Home</a>
     <a href="services.html" class="mobile-link">Services</a>
     <a href="work.html" class="mobile-link">Work</a>
-    <a href="estimator.html" class="mobile-link" style="color:var(--em-light)">Estimator</a>
+    <a href="audit.html" class="mobile-link" style="color:var(--em-light)">Free Audit</a>
     <a href="contact.html" class="mobile-link" style="color:var(--em-light)">Contact</a>
   </div>
 
@@ -424,7 +424,7 @@
         </div>
         <div class="card-footer">
           <a href="services.html" class="btn-ghost" style="font-size:0.63rem;padding:0.55rem 1.2rem">All Services</a>
-          <a href="estimator.html" class="btn-primary" style="font-size:0.63rem;padding:0.55rem 1.2rem">Try Estimator</a>
+          <a href="audit.html" class="btn-primary" style="font-size:0.63rem;padding:0.55rem 1.2rem">Free Audit</a>
         </div>
       </div>
 
@@ -572,9 +572,9 @@
               <li><span class="mini-check">✓</span> Transparent pricing and timelines</li>
             </ul>
             <div class="aside-divider"></div>
-            <a href="estimator.html" class="btn-primary" style="width:100%;justify-content:center">
-              Try the Estimator
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+            <a href="audit.html" class="btn-primary" style="width:100%;justify-content:center">
+              Get a Free Audit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
             </a>
           </div>
         </div>
@@ -648,7 +648,7 @@
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="work.html">Work</a>
-        <a href="estimator.html">Estimator</a>
+        <a href="audit.html">Free Audit</a>
         <a href="contact.html">Contact</a>
       </nav>
       <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
@@ -656,7 +656,6 @@
   </footer>
 
   <script>
-    // Custom cursor (fine pointer/desktop only)
     const dot = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
     if (window.matchMedia('(pointer: fine)').matches) {
@@ -670,24 +669,19 @@
         requestAnimationFrame(tick);
       };
       tick();
-
-      // Scale ring on hoverable elements
       document.querySelectorAll('a, button').forEach(el => {
         el.addEventListener('mouseenter', () => { ring.style.width = '52px'; ring.style.height = '52px'; ring.style.borderColor = 'var(--em)'; });
         el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = 'rgba(16,185,129,0.5)'; });
       });
     }
 
-    // Nav scroll effect
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
 
-    // Mobile menu
     document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
     document.getElementById('close-menu').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
     document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
 
-    // Scroll reveal
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
     }, { threshold: 0.07 });
