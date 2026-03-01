@@ -6,6 +6,12 @@
 
   <title>Services | Levant Digital Marketing</title>
   <meta name="description" content="Levant Digital Marketing helps Metro Detroit businesses with website creation and redesign, branding and logos, graphic design, SEO setup, and Google Business Profile posting support." />
+  <meta name="theme-color" content="#10b981" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Services | Levant Digital Marketing" />
+  <meta property="og:description" content="Websites, branding, graphics, SEO setup, and Google Business Profile support for Metro Detroit businesses." />
+  <meta property="og:type" content="website" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -36,7 +42,7 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 
-<body class="font-sans antialiased selection:bg-emerald-500 selection:text-white">
+<body class="font-sans antialiased selection:bg-emerald-500 selection:text-white bg-neutral-950 text-white">
   <div class="grain"></div>
   <div class="cursor-dot hidden md:block"></div>
   <div class="cursor-outline hidden md:block"></div>
@@ -44,15 +50,15 @@
   <!-- NAV -->
   <nav class="fixed w-full z-50 text-white py-4 px-4 sm:px-8 bg-black/80 backdrop-blur-md border-b border-white/5">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="index.html" class="font-display text-2xl font-bold tracking-tighter hover:text-emerald-400 transition-colors">
+      <a href="index.html" class="font-display text-2xl font-bold tracking-tighter hover:text-emerald-300 transition-colors">
         LEVANT<span class="text-emerald-500">.</span>
       </a>
 
       <div class="hidden lg:flex items-center gap-6">
-        <a href="index.html" class="nav-link text-sm font-medium hover:text-emerald-400 transition-colors">HOME</a>
-        <a href="services.html" class="nav-link text-sm font-medium text-emerald-300">SERVICES</a>
-        <a href="work.html" class="nav-link text-sm font-medium hover:text-emerald-400 transition-colors">WORK</a>
-        <a href="estimator.html" class="nav-link px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-300 hover:bg-emerald-500 hover:text-black transition-all">
+        <a href="index.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">HOME</a>
+        <a href="services.html" class="nav-link text-sm font-medium text-emerald-300 active">SERVICES</a>
+        <a href="work.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">WORK</a>
+        <a href="estimator.html" class="nav-link px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-200 hover:bg-emerald-500 hover:text-black transition-all">
           <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4"></i> ESTIMATOR</span>
         </a>
         <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2 rounded-full text-sm font-bold transition-all">CONTACT</a>
@@ -74,102 +80,156 @@
     <a href="contact.html" class="text-3xl font-display font-bold text-emerald-300 mobile-link">CONTACT</a>
   </div>
 
-  <!-- HERO -->
-  <header class="relative pt-24 bg-neutral-950 overflow-hidden">
-    <!-- visuals -->
-    <div class="aurora">
+  <!-- HERO (more cinematic + monogram 3D mount on desktop) -->
+  <header class="relative pt-24 overflow-hidden">
+    <div class="aurora" aria-hidden="true">
       <div class="aurora-blob bg-emerald-600 w-96 h-96 top-0 left-0"></div>
       <div class="aurora-blob bg-teal-500 w-80 h-80 bottom-0 right-0" style="animation-delay:-6s;"></div>
       <div class="aurora-blob bg-green-400 w-72 h-72 top-1/2 left-1/2" style="animation-delay:-12s;"></div>
     </div>
-    <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(16,185,129,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.10) 1px, transparent 1px); background-size: 58px 58px;"></div>
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(900px 500px at 20% 10%, rgba(16,185,129,0.18), transparent 60%), radial-gradient(700px 400px at 85% 35%, rgba(16,185,129,0.12), transparent 55%);"></div>
+
+    <!-- desktop-only monogram 3D -->
+    <div class="hero-3d" data-three="monogram" aria-hidden="true"></div>
+
+    <div class="absolute inset-0 opacity-20" aria-hidden="true"
+      style="background-image: linear-gradient(rgba(16,185,129,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.10) 1px, transparent 1px);
+      background-size: 58px 58px;"></div>
+
+    <!-- “light sweep” svg overlay -->
+    <svg class="absolute inset-0 w-full h-full opacity-[0.15] pointer-events-none" viewBox="0 0 1200 700" fill="none" aria-hidden="true">
+      <path d="M-50 520 C 200 380, 420 650, 760 450 C 980 320, 1100 370, 1260 260" stroke="rgba(16,185,129,0.8)" stroke-width="2" />
+      <path d="M-20 610 C 240 430, 420 700, 780 520 C 1020 400, 1100 430, 1280 330" stroke="rgba(255,255,255,0.35)" stroke-width="1" />
+      <circle cx="760" cy="450" r="5" fill="rgba(16,185,129,0.85)"/>
+      <circle cx="780" cy="520" r="4" fill="rgba(255,255,255,0.35)"/>
+    </svg>
+
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+      style="background:
+        radial-gradient(900px 500px at 15% 10%, rgba(16,185,129,0.20), transparent 60%),
+        radial-gradient(700px 450px at 85% 35%, rgba(16,185,129,0.12), transparent 55%),
+        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.75));">
+    </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7">
           <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-200 text-sm font-mono tracking-wider">
-            Metro Detroit • Clear deliverables • Premium visuals
+            Metro Detroit • Clear scope • Premium visuals
           </span>
 
           <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight mt-6">
-            SERVICES THAT MAKE YOU LOOK<br/>
-            <span class="text-emerald-200">LEGIT</span> ONLINE.
+            SERVICES BUILT FOR<br />
+            <span class="text-stroke">CREDIBILITY</span> & CONVERSION.
           </h1>
 
-          <p class="text-gray-300/80 text-lg md:text-xl mt-6 leading-relaxed max-w-2xl">
-            Websites, branding, graphics, SEO setup, and Google Business Profile support — built with clean design, strong structure, and smooth performance.
+          <p class="text-gray-200/80 text-lg md:text-xl mt-6 leading-relaxed max-w-2xl">
+            Websites, branding, graphics, SEO setup, and Google Business Profile support — designed to make you look established and help customers take action.
           </p>
 
           <div class="mt-10 flex gap-4 flex-wrap">
             <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all shadow-2xl shadow-emerald-500/20">
               Request a Quote <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
-            <a href="work.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
-              See Work <i data-lucide="external-link" class="w-5 h-5"></i>
+            <a href="#services" class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
+              Explore Services <i data-lucide="chevron-down" class="w-5 h-5"></i>
             </a>
           </div>
 
+          <div class="mt-10 grid sm:grid-cols-3 gap-4">
+            <div class="pro-card rounded-2xl p-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                  <i data-lucide="monitor-smartphone" class="w-5 h-5 text-emerald-200"></i>
+                </div>
+                <div class="font-semibold">Web</div>
+              </div>
+              <p class="text-sm text-gray-400 mt-3">Modern pages, clear hierarchy, mobile-first.</p>
+            </div>
+            <div class="pro-card rounded-2xl p-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                  <i data-lucide="pen-tool" class="w-5 h-5 text-emerald-200"></i>
+                </div>
+                <div class="font-semibold">Brand</div>
+              </div>
+              <p class="text-sm text-gray-400 mt-3">Logos + a system that stays consistent.</p>
+            </div>
+            <div class="pro-card rounded-2xl p-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                  <i data-lucide="search" class="w-5 h-5 text-emerald-200"></i>
+                </div>
+                <div class="font-semibold">SEO / GBP</div>
+              </div>
+              <p class="text-sm text-gray-400 mt-3">Foundations + profile posting support.</p>
+            </div>
+          </div>
+
           <p class="text-xs text-gray-500 mt-6">
-            No fake guarantees. Results depend on industry, competition, content, and consistency.
+            No fake guarantees. Results vary by competition, content, and time.
           </p>
         </div>
 
-        <!-- Visual panel + 3D mount (desktop) -->
+        <!-- Right: “Service Map” visual -->
         <div class="lg:col-span-5">
           <div class="gradient-border p-6 md:p-7">
             <div class="rounded-2xl bg-neutral-950 border border-white/10 p-6 md:p-7 relative overflow-hidden">
-              <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(600px 300px at 50% 0%, rgba(16,185,129,0.14), transparent 60%);"></div>
+              <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(700px 340px at 50% 0%, rgba(16,185,129,0.14), transparent 60%);"></div>
 
               <div class="flex items-center justify-between">
-                <div class="text-gray-400 text-sm">Service stack</div>
-                <div class="text-emerald-200 font-bold text-sm">Built for credibility</div>
+                <div class="text-gray-400 text-sm">Service map</div>
+                <div class="text-emerald-200 font-bold text-sm">What you get</div>
               </div>
 
-              <!-- 3D mount: renders “devices” on desktop (your app.js supports this) -->
-              <div class="mt-5 rounded-2xl border border-white/10 bg-black/30 overflow-hidden">
-                <div class="w-full h-[320px] md:h-[360px] relative">
-                  <!-- If 3D is allowed (desktop), your app.js injects a canvas here -->
-                  <div class="absolute inset-0" data-three="devices" aria-hidden="true"></div>
+              <div class="mt-6 space-y-3">
+                <div class="pro-card rounded-2xl p-4 flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                    <i data-lucide="layout-template" class="w-5 h-5 text-emerald-200"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold">Website creation / redesign</div>
+                    <div class="text-sm text-gray-400">Structure, layout, mobile, speed.</div>
+                  </div>
+                </div>
 
-                  <!-- Mobile fallback (since your app.js intentionally disables 3D on phones) -->
-                  <div class="absolute inset-0 flex items-center justify-center md:hidden">
-                    <div class="text-center px-6">
-                      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-200 text-sm font-mono">
-                        <i data-lucide="sparkles" class="w-4 h-4"></i> Visual-first builds
-                      </div>
-                      <p class="text-gray-400 text-sm mt-3">
-                        3D visuals render on desktop for performance. Mobile stays ultra-smooth.
-                      </p>
-                    </div>
+                <div class="pro-card rounded-2xl p-4 flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                    <i data-lucide="palette" class="w-5 h-5 text-emerald-200"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold">Branding + logo</div>
+                    <div class="text-sm text-gray-400">A look that feels established.</div>
+                  </div>
+                </div>
+
+                <div class="pro-card rounded-2xl p-4 flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                    <i data-lucide="layers" class="w-5 h-5 text-emerald-200"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold">Graphic design</div>
+                    <div class="text-sm text-gray-400">Web + social + posts (as needed).</div>
+                  </div>
+                </div>
+
+                <div class="pro-card rounded-2xl p-4 flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-emerald-200"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold">Google Business support</div>
+                    <div class="text-sm text-gray-400">Posting support + consistency.</div>
                   </div>
                 </div>
               </div>
 
-              <div class="mt-6 grid grid-cols-2 gap-3">
-                <div class="pro-card rounded-2xl p-4">
-                  <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
-                      <i data-lucide="rocket" class="w-4 h-4 text-emerald-200"></i>
-                    </div>
-                    <div class="text-sm font-semibold">Fast UI</div>
-                  </div>
-                  <div class="text-xs text-gray-400 mt-2">Lightweight layout & animations.</div>
-                </div>
-                <div class="pro-card rounded-2xl p-4">
-                  <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
-                      <i data-lucide="layout-template" class="w-4 h-4 text-emerald-200"></i>
-                    </div>
-                    <div class="text-sm font-semibold">Clean structure</div>
-                  </div>
-                  <div class="text-xs text-gray-400 mt-2">Pages built for clarity & flow.</div>
-                </div>
+              <div class="mt-6 text-xs text-gray-500">
+                Want this to match your exact logo monogram? Upload an SVG and we’ll match it.
               </div>
-
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </header>
@@ -192,24 +252,27 @@
 
   <main class="bg-neutral-950">
 
-    <!-- SERVICE GRID (high visual) -->
-    <section class="py-24">
+    <!-- SERVICES (more visual + “modules”) -->
+    <section id="services" class="py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between gap-6 flex-wrap">
           <div class="max-w-2xl">
-            <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">What we offer</span>
+            <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">Services</span>
             <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">
-              A complete online presence — built to <span class="text-emerald-200">stand out</span>.
+              Pick what you need — or stack for a <span class="text-emerald-200">full presence</span>.
             </h2>
             <p class="text-gray-400 mt-4 text-lg">
-              Pick what you need, or stack services for the strongest overall presence.
+              Clear deliverables, premium visuals, and a site that stays smooth on mobile.
             </p>
           </div>
+          <a href="contact.html" class="inline-flex items-center gap-2 text-emerald-200 font-semibold hover:gap-3 transition-all">
+            Start a project <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-6 mt-12">
 
-          <!-- Website Creation / Redesign -->
+          <!-- Website Creation / Redesign (big) -->
           <div class="lg:col-span-7 pro-card spotlight-card rounded-3xl p-8 md:p-10"
                onmousemove="handleSpotlight(event, this)" onmouseleave="clearSpotlight(this)">
             <div class="flex items-start justify-between gap-8 flex-wrap">
@@ -220,34 +283,37 @@
                   </div>
                   <div>
                     <h3 class="font-display text-2xl md:text-3xl font-bold">Website creation & redesign</h3>
-                    <p class="text-gray-400 mt-1">Premium layout, clean flow, fast performance.</p>
+                    <p class="text-gray-400 mt-1">Modern layout, clear flow, strong performance.</p>
                   </div>
                 </div>
 
                 <div class="mt-6 grid sm:grid-cols-2 gap-4">
-                  <div class="soft-card rounded-2xl p-5">
+                  <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                     <div class="flex items-center gap-2 font-semibold">
                       <i data-lucide="layout-dashboard" class="w-4 h-4 text-emerald-200"></i> Multi-page structure
                     </div>
-                    <p class="text-gray-400 text-sm mt-2">Clear pages that guide visitors to take action.</p>
+                    <p class="text-gray-400 text-sm mt-2">Home, Services, Work, Contact — built for clarity.</p>
                   </div>
-                  <div class="soft-card rounded-2xl p-5">
+
+                  <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                     <div class="flex items-center gap-2 font-semibold">
-                      <i data-lucide="zap" class="w-4 h-4 text-emerald-200"></i> Smooth animations
+                      <i data-lucide="zap" class="w-4 h-4 text-emerald-200"></i> Smooth motion
                     </div>
-                    <p class="text-gray-400 text-sm mt-2">Micro-interactions that feel expensive (without slowing mobile).</p>
+                    <p class="text-gray-400 text-sm mt-2">Micro-interactions that feel expensive (not heavy).</p>
                   </div>
-                  <div class="soft-card rounded-2xl p-5">
+
+                  <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                     <div class="flex items-center gap-2 font-semibold">
                       <i data-lucide="smartphone" class="w-4 h-4 text-emerald-200"></i> Mobile-first
                     </div>
-                    <p class="text-gray-400 text-sm mt-2">Typography, spacing, and navigation designed for phones.</p>
+                    <p class="text-gray-400 text-sm mt-2">Spacing, type, and navigation designed for phones.</p>
                   </div>
-                  <div class="soft-card rounded-2xl p-5">
+
+                  <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                     <div class="flex items-center gap-2 font-semibold">
                       <i data-lucide="gauge" class="w-4 h-4 text-emerald-200"></i> Performance-focused
                     </div>
-                    <p class="text-gray-400 text-sm mt-2">Lightweight assets and clean structure for speed.</p>
+                    <p class="text-gray-400 text-sm mt-2">Clean structure + optimized assets for speed.</p>
                   </div>
                 </div>
 
@@ -261,24 +327,24 @@
                 </div>
               </div>
 
-              <!-- visual mini-ui -->
-              <div class="hidden md:block w-[280px]">
+              <!-- Visual “UI” panel -->
+              <div class="hidden md:block w-[300px]">
                 <div class="rounded-3xl border border-white/10 bg-black/30 overflow-hidden">
                   <div class="p-4 border-b border-white/10 flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-red-500"></span>
                     <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
                     <span class="w-3 h-3 rounded-full bg-green-500"></span>
-                    <div class="ml-auto text-xs font-mono text-gray-500">preview</div>
+                    <div class="ml-auto text-xs font-mono text-gray-500">layout system</div>
                   </div>
                   <div class="p-5 space-y-3">
-                    <div class="h-3 rounded bg-white/10 w-3/4"></div>
+                    <div class="h-3 rounded bg-white/10 w-4/5"></div>
                     <div class="h-3 rounded bg-white/10 w-full"></div>
                     <div class="h-3 rounded bg-white/10 w-5/6"></div>
                     <div class="mt-4 rounded-2xl border border-emerald-500/25 bg-emerald-500/10 p-4">
                       <div class="flex items-center gap-2 text-sm font-semibold text-emerald-200">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Premium UI polish
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Premium polish
                       </div>
-                      <div class="text-xs text-gray-400 mt-2">Hover details • clean spacing • strong hierarchy</div>
+                      <div class="text-xs text-gray-400 mt-2">Hierarchy • spacing • conversion flow</div>
                     </div>
                   </div>
                 </div>
@@ -296,35 +362,35 @@
               </div>
               <div>
                 <h3 class="font-display text-2xl md:text-3xl font-bold">Branding & logo design</h3>
-                <p class="text-gray-400 mt-1">Look consistent everywhere customers see you.</p>
+                <p class="text-gray-400 mt-1">Consistency across web, social, and Google.</p>
               </div>
             </div>
 
             <div class="mt-6 grid grid-cols-2 gap-4">
-              <div class="soft-card rounded-2xl p-5">
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                 <div class="font-semibold flex items-center gap-2"><i data-lucide="type" class="w-4 h-4 text-emerald-200"></i> Typography</div>
-                <p class="text-gray-400 text-sm mt-2">Font pairing that looks clean and modern.</p>
+                <p class="text-gray-400 text-sm mt-2">Font pairing that feels modern and clean.</p>
               </div>
-              <div class="soft-card rounded-2xl p-5">
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                 <div class="font-semibold flex items-center gap-2"><i data-lucide="palette" class="w-4 h-4 text-emerald-200"></i> Color system</div>
-                <p class="text-gray-400 text-sm mt-2">Consistent colors across web + socials.</p>
+                <p class="text-gray-400 text-sm mt-2">A consistent palette across assets.</p>
               </div>
-              <div class="soft-card rounded-2xl p-5">
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                 <div class="font-semibold flex items-center gap-2"><i data-lucide="stamp" class="w-4 h-4 text-emerald-200"></i> Logo variations</div>
-                <p class="text-gray-400 text-sm mt-2">Full logo + icon + small versions.</p>
+                <p class="text-gray-400 text-sm mt-2">Full logo + icon + small-size versions.</p>
               </div>
-              <div class="soft-card rounded-2xl p-5">
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                 <div class="font-semibold flex items-center gap-2"><i data-lucide="image" class="w-4 h-4 text-emerald-200"></i> Brand assets</div>
-                <p class="text-gray-400 text-sm mt-2">Graphics that match your new website.</p>
+                <p class="text-gray-400 text-sm mt-2">Graphics aligned with the site.</p>
               </div>
             </div>
 
             <div class="mt-7 rounded-2xl border border-white/10 bg-black/20 p-5">
               <div class="text-sm font-semibold text-emerald-200 flex items-center gap-2">
-                <i data-lucide="sparkles" class="w-4 h-4"></i> Visual consistency = trust
+                <i data-lucide="sparkles" class="w-4 h-4"></i> Visual consistency builds trust
               </div>
               <p class="text-gray-400 text-sm mt-2">
-                When your website, logo, and Google profile all match — you look established.
+                When your website, logo, and Google profile match — you look established.
               </p>
             </div>
           </div>
@@ -338,26 +404,26 @@
               </div>
               <div>
                 <h3 class="font-display text-2xl md:text-3xl font-bold">Graphic design</h3>
-                <p class="text-gray-400 mt-1">Clean graphics for web, social, and Google posts.</p>
+                <p class="text-gray-400 mt-1">Web graphics, social templates, and post visuals.</p>
               </div>
             </div>
 
             <div class="mt-6 grid sm:grid-cols-2 gap-4">
-              <div class="soft-card rounded-2xl p-5">
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                 <div class="font-semibold flex items-center gap-2"><i data-lucide="instagram" class="w-4 h-4 text-emerald-200"></i> Social visuals</div>
-                <p class="text-gray-400 text-sm mt-2">Templates that match your brand system.</p>
+                <p class="text-gray-400 text-sm mt-2">Templates aligned to your brand system.</p>
               </div>
-              <div class="soft-card rounded-2xl p-5">
-                <div class="font-semibold flex items-center gap-2"><i data-lucide="badge-check" class="w-4 h-4 text-emerald-200"></i> Promotional graphics</div>
-                <p class="text-gray-400 text-sm mt-2">Offers, announcements, and new services.</p>
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
+                <div class="font-semibold flex items-center gap-2"><i data-lucide="badge-check" class="w-4 h-4 text-emerald-200"></i> Promotions</div>
+                <p class="text-gray-400 text-sm mt-2">Announcements, offers, new services.</p>
               </div>
-              <div class="soft-card rounded-2xl p-5">
-                <div class="font-semibold flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-emerald-200"></i> Local branding</div>
-                <p class="text-gray-400 text-sm mt-2">Make your business feel “real” and local.</p>
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
+                <div class="font-semibold flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-emerald-200"></i> Local credibility</div>
+                <p class="text-gray-400 text-sm mt-2">Visual cues that make you feel real & local.</p>
               </div>
-              <div class="soft-card rounded-2xl p-5">
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                 <div class="font-semibold flex items-center gap-2"><i data-lucide="file-image" class="w-4 h-4 text-emerald-200"></i> Web-ready assets</div>
-                <p class="text-gray-400 text-sm mt-2">Optimized sizes so your site stays fast.</p>
+                <p class="text-gray-400 text-sm mt-2">Optimized sizes so the site stays fast.</p>
               </div>
             </div>
           </div>
@@ -371,26 +437,26 @@
               </div>
               <div>
                 <h3 class="font-display text-2xl md:text-3xl font-bold">SEO setup + Google Business support</h3>
-                <p class="text-gray-400 mt-1">Strong on-page foundation + consistent posting support.</p>
+                <p class="text-gray-400 mt-1">On-page foundations + consistent profile support.</p>
               </div>
             </div>
 
             <div class="mt-6 grid sm:grid-cols-2 gap-4">
-              <div class="soft-card rounded-2xl p-5">
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                 <div class="font-semibold flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-emerald-200"></i> On-page basics</div>
                 <p class="text-gray-400 text-sm mt-2">Headings, metadata, internal linking.</p>
               </div>
-              <div class="soft-card rounded-2xl p-5">
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                 <div class="font-semibold flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-emerald-200"></i> Local readiness</div>
                 <p class="text-gray-400 text-sm mt-2">Location targeting done the clean way.</p>
               </div>
-              <div class="soft-card rounded-2xl p-5">
-                <div class="font-semibold flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-200"></i> Indexing support</div>
-                <p class="text-gray-400 text-sm mt-2">Sitemaps + structure that’s easy for Google to crawl.</p>
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
+                <div class="font-semibold flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-200"></i> Crawl-friendly</div>
+                <p class="text-gray-400 text-sm mt-2">Sitemaps + structure that’s easy to crawl.</p>
               </div>
-              <div class="soft-card rounded-2xl p-5">
+              <div class="pro-card rounded-2xl p-5 border border-white/10 bg-black/20">
                 <div class="font-semibold flex items-center gap-2"><i data-lucide="megaphone" class="w-4 h-4 text-emerald-200"></i> GBP posting</div>
-                <p class="text-gray-400 text-sm mt-2">Posting support to keep your profile active.</p>
+                <p class="text-gray-400 text-sm mt-2">Posting support to keep you active.</p>
               </div>
             </div>
 
@@ -399,11 +465,64 @@
                 <i data-lucide="info" class="w-4 h-4"></i> Transparent note
               </div>
               <p class="text-gray-400 text-sm mt-2">
-                SEO is competitive. We build strong foundations, but rankings depend on market competition, content, and time.
+                SEO is competitive. We build strong foundations, but rankings depend on competition, content, and time.
               </p>
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL “DEVICE” SECTION (3D on desktop) -->
+    <section class="py-24 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5">
+          <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">Visual preview</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">
+            Make your business feel like a <span class="text-emerald-200">premium product</span>.
+          </h2>
+          <p class="text-gray-400 mt-4 text-lg">
+            Desktop gets interactive 3D. Mobile stays lightweight so scrolling is flawless.
+          </p>
+
+          <div class="mt-8 grid gap-4">
+            <div class="pro-card rounded-2xl p-6 border border-white/10 bg-black/20">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                  <i data-lucide="zap" class="w-5 h-5 text-emerald-200"></i>
+                </div>
+                <div class="font-semibold">Motion that feels expensive</div>
+              </div>
+              <p class="text-gray-400 text-sm mt-3">Subtle, controlled animations — not messy or slow.</p>
+            </div>
+
+            <div class="pro-card rounded-2xl p-6 border border-white/10 bg-black/20">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+                  <i data-lucide="shield" class="w-5 h-5 text-emerald-200"></i>
+                </div>
+                <div class="font-semibold">Real deliverables</div>
+              </div>
+              <p class="text-gray-400 text-sm mt-3">No fake “guarantees.” Clear scope and execution.</p>
+            </div>
+          </div>
+
+          <div class="mt-10 flex gap-4 flex-wrap">
+            <a href="work.html" class="inline-flex items-center gap-2 px-7 py-4 bg-emerald-500 text-black font-bold rounded-full hover:scale-105 transition-all">
+              See work <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+            <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-4 border border-emerald-500/60 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
+              Get a quote <i data-lucide="send" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="inline-3d" data-three="devices" aria-hidden="true"></div>
+          <div class="mt-4 text-xs text-gray-500">
+            3D renders desktop-only by default (your app.js does this) to keep mobile smooth.
+          </div>
         </div>
       </div>
     </section>
@@ -414,9 +533,9 @@
         <div class="grid lg:grid-cols-12 gap-10 items-start">
           <div class="lg:col-span-5">
             <span class="text-emerald-200 font-mono text-sm tracking-widest uppercase block mb-3">Process</span>
-            <h2 class="font-display text-4xl md:text-5xl font-bold">Simple steps. Clean deliverables.</h2>
+            <h2 class="font-display text-4xl md:text-5xl font-bold">Simple steps. Clear scope.</h2>
             <p class="text-gray-400 mt-4 text-lg">
-              A straightforward approach that keeps projects moving and expectations clear.
+              Keep it moving, keep it clean, keep expectations clear.
             </p>
 
             <div class="mt-8 flex gap-3 flex-wrap">
@@ -433,17 +552,17 @@
             <div class="gradient-border p-8">
               <div class="rounded-2xl bg-neutral-950 border border-white/10 p-8">
                 <div class="space-y-5">
-                  <div class="pro-card rounded-2xl p-6">
+                  <div class="pro-card rounded-2xl p-6 border border-white/10 bg-black/20">
                     <div class="flex items-center gap-3">
                       <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
                         <i data-lucide="map" class="w-5 h-5 text-emerald-200"></i>
                       </div>
                       <div class="font-semibold">1) Strategy + content map</div>
                     </div>
-                    <p class="text-gray-400 text-sm mt-3">Pages, sections, messaging, and calls-to-action.</p>
+                    <p class="text-gray-400 text-sm mt-3">Pages, sections, messaging, calls-to-action.</p>
                   </div>
 
-                  <div class="pro-card rounded-2xl p-6">
+                  <div class="pro-card rounded-2xl p-6 border border-white/10 bg-black/20">
                     <div class="flex items-center gap-3">
                       <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
                         <i data-lucide="layout-template" class="w-5 h-5 text-emerald-200"></i>
@@ -453,7 +572,7 @@
                     <p class="text-gray-400 text-sm mt-3">Modern visuals, responsive layout, fast load times.</p>
                   </div>
 
-                  <div class="pro-card rounded-2xl p-6">
+                  <div class="pro-card rounded-2xl p-6 border border-white/10 bg-black/20">
                     <div class="flex items-center gap-3">
                       <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
                         <i data-lucide="search-check" class="w-5 h-5 text-emerald-200"></i>
@@ -487,31 +606,31 @@
         </div>
 
         <div class="grid lg:grid-cols-2 gap-6 mt-12">
-          <div class="pro-card rounded-3xl p-7">
+          <div class="pro-card rounded-3xl p-7 border border-white/10 bg-black/20">
             <div class="font-semibold flex items-center gap-2"><i data-lucide="help-circle" class="w-4 h-4 text-emerald-200"></i> Do you guarantee #1 rankings?</div>
             <p class="text-gray-400 text-sm mt-3">
-              No. SEO depends on competition, search intent, content, and time. We focus on building a strong on-page foundation and a clean structure.
+              No. SEO depends on competition, search intent, content, and time. We focus on solid foundations and clean execution.
             </p>
           </div>
 
-          <div class="pro-card rounded-3xl p-7">
+          <div class="pro-card rounded-3xl p-7 border border-white/10 bg-black/20">
             <div class="font-semibold flex items-center gap-2"><i data-lucide="help-circle" class="w-4 h-4 text-emerald-200"></i> Can you redesign my current website?</div>
             <p class="text-gray-400 text-sm mt-3">
               Yes. We keep what works and upgrade layout, messaging, mobile experience, and performance.
             </p>
           </div>
 
-          <div class="pro-card rounded-3xl p-7">
+          <div class="pro-card rounded-3xl p-7 border border-white/10 bg-black/20">
             <div class="font-semibold flex items-center gap-2"><i data-lucide="help-circle" class="w-4 h-4 text-emerald-200"></i> Do you handle Google Business posting?</div>
             <p class="text-gray-400 text-sm mt-3">
-              Yes — posting support is available so your profile stays active and consistent.
+              Yes — posting support is available, based on what you want posted and how often.
             </p>
           </div>
 
-          <div class="pro-card rounded-3xl p-7">
+          <div class="pro-card rounded-3xl p-7 border border-white/10 bg-black/20">
             <div class="font-semibold flex items-center gap-2"><i data-lucide="help-circle" class="w-4 h-4 text-emerald-200"></i> Will the site be mobile friendly?</div>
             <p class="text-gray-400 text-sm mt-3">
-              Yes. Everything is designed mobile-first. 3D effects run on desktop only to keep phones fast.
+              Yes. Everything is mobile-first. 3D runs on desktop only to keep phones fast.
             </p>
           </div>
         </div>
@@ -521,9 +640,9 @@
     <!-- CTA -->
     <section class="py-24 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="pro-card rounded-3xl p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div class="pro-card rounded-3xl p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border border-white/10 bg-black/20">
           <div>
-            <h2 class="font-display text-4xl md:text-5xl font-bold">Want a presence that actually stands out?</h2>
+            <h2 class="font-display text-4xl md:text-5xl font-bold">Ready to upgrade your presence?</h2>
             <p class="text-gray-400 mt-3 text-lg">Tell us what you need and we’ll respond with a clear plan and quote.</p>
           </div>
           <div class="flex gap-4 flex-wrap">
