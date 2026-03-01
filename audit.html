@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Free Audit | Levant Digital Marketing</title>
+  <meta name="description" content="Get a free website, Google Business Profile, SEO, and branding audit for your Metro Detroit business. No pressure. Just clarity." />
+  <meta name="theme-color" content="#10b981" />
+
+  <meta property="og:title" content="Free Audit | Levant Digital Marketing" />
+  <meta property="og:description" content="Free website, GBP, SEO & branding audit for Metro Detroit businesses." />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',
+              600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b',950:'#022c22'
+            }
+          },
+          fontFamily: {
+            sans: ['Space Grotesk','sans-serif'],
+            display: ['Syne','sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <style>
+    /* ── Grain ── */
+    .grain {
+      position:fixed; inset:0; z-index:999; pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity:0.55;
+    }
+
+    /* ── Aurora ── */
+    .aurora { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .aurora-blob {
+      position:absolute; border-radius:9999px; filter:blur(80px); opacity:0.18;
+      animation: aurora-drift 18s ease-in-out infinite alternate;
+    }
+    @keyframes aurora-drift {
+      0%   { transform:translate(0,0) scale(1); }
+      33%  { transform:translate(40px,-30px) scale(1.08); }
+      66%  { transform:translate(-25px,20px) scale(0.95); }
+      100% { transform:translate(15px,-45px) scale(1.05); }
+    }
+
+    /* ── Cursor ── */
+    .cursor-dot {
+      width:8px; height:8px; background:#10b981; border-radius:50%;
+      position:fixed; top:0; left:0; pointer-events:none; z-index:9999;
+      transform:translate(-50%,-50%);
+    }
+    .cursor-outline {
+      width:36px; height:36px; border:1.5px solid rgba(16,185,129,0.5); border-radius:50%;
+      position:fixed; top:0; left:0; pointer-events:none; z-index:9998;
+      transform:translate(-50%,-50%); transition:all .18s ease;
+    }
+
+    /* ── Nav link ── */
+    .nav-link { position:relative; }
+    .nav-link::after {
+      content:''; position:absolute; bottom:-4px; left:0; width:0; height:1.5px;
+      background:#10b981; transition:width .3s ease;
+    }
+    .nav-link:hover::after, .nav-link.active::after { width:100%; }
+
+    /* ── Glass card ── */
+    .glass-card {
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.07);
+      backdrop-filter:blur(12px);
+      transition:border-color .3s, background .3s, transform .3s, box-shadow .3s;
+    }
+    .glass-card:hover {
+      border-color:rgba(16,185,129,0.25);
+      background:rgba(16,185,129,0.04);
+      transform:translateY(-2px);
+      box-shadow:0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(16,185,129,0.1);
+    }
+
+    /* ── Gradient border ── */
+    .gradient-border {
+      background:linear-gradient(135deg, rgba(16,185,129,0.4), rgba(16,185,129,0.05), rgba(255,255,255,0.05));
+      padding:1px; border-radius:28px;
+    }
+
+    /* ── Badge ── */
+    .badge {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:4px 12px; border-radius:9999px;
+      background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2);
+      font-size:0.75rem; font-weight:600; letter-spacing:0.08em;
+      color:#a7f3d0; text-transform:uppercase;
+    }
+
+    /* ── Text gradient ── */
+    .text-gradient {
+      background:linear-gradient(135deg, #34d399, #10b981, #6ee7b7);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+
+    /* ── Text stroke ── */
+    .text-stroke { -webkit-text-stroke:2px rgba(16,185,129,0.8); color:transparent; }
+
+    /* ── Divider ── */
+    .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(16,185,129,0.3),transparent); }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity:0; transform:translateY(28px);
+      transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* ── Glow pulse ── */
+    @keyframes glow-pulse {
+      0%,100% { box-shadow:0 0 20px rgba(16,185,129,0.3),0 0 40px rgba(16,185,129,0.1); }
+      50%      { box-shadow:0 0 40px rgba(16,185,129,0.5),0 0 80px rgba(16,185,129,0.2); }
+    }
+    .glow-btn { animation:glow-pulse 3s ease-in-out infinite; }
+
+    /* ── Form inputs ── */
+    .form-input {
+      width:100%;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:14px;
+      padding:14px 18px;
+      color:white;
+      font-family:'Space Grotesk',sans-serif;
+      font-size:0.95rem;
+      outline:none;
+      transition:border-color .25s, background .25s, box-shadow .25s;
+      -webkit-appearance:none;
+    }
+    .form-input::placeholder { color:rgba(255,255,255,0.25); }
+    .form-input:focus {
+      border-color:rgba(16,185,129,0.5);
+      background:rgba(16,185,129,0.04);
+      box-shadow:0 0 0 3px rgba(16,185,129,0.1);
+    }
+    textarea.form-input { resize:vertical; min-height:120px; }
+    select.form-input option { background:#111; color:white; }
+
+    /* ── Audit check items ── */
+    .audit-item {
+      display:flex; align-items:flex-start; gap:14px;
+      padding:18px 20px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.07);
+      border-radius:18px;
+      transition:border-color .3s, background .3s;
+    }
+    .audit-item:hover {
+      border-color:rgba(16,185,129,0.25);
+      background:rgba(16,185,129,0.04);
+    }
+    .audit-icon {
+      width:42px; height:42px; border-radius:12px; flex-shrink:0;
+      background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.2);
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    /* ── Step number ── */
+    .step-badge {
+      width:32px; height:32px; border-radius:50%; flex-shrink:0;
+      background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.3);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Syne',sans-serif; font-weight:700; font-size:0.8rem;
+      color:#34d399;
+    }
+
+    /* ── Form success state ── */
+    #form-success {
+      display:none;
+      text-align:center; padding:48px 24px;
+    }
+    #form-success.visible { display:block; }
+
+    /* ── Spotlight ── */
+    .spotlight-card { position:relative; overflow:hidden; }
+    .spotlight-card::before {
+      content:''; position:absolute; inset:0; opacity:0;
+      background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(16,185,129,0.07), transparent 60%);
+      transition:opacity .4s; pointer-events:none; z-index:0; border-radius:inherit;
+    }
+    .spotlight-card:hover::before { opacity:1; }
+    .spotlight-card > * { position:relative; z-index:1; }
+
+    /* ── Floating label animation ── */
+    .field-group { position:relative; }
+    .field-label {
+      display:block; font-size:0.8rem; font-weight:600;
+      color:rgba(255,255,255,0.45); letter-spacing:0.06em;
+      text-transform:uppercase; margin-bottom:8px;
+    }
+
+    /* ── Marquee ── */
+    .marquee-container { display:flex; overflow:hidden; white-space:nowrap; }
+    .marquee-content { display:flex; animation:marquee-scroll 32s linear infinite; }
+    @keyframes marquee-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* ── Checkmark SVG icon helper ── */
+    svg { display:inline-block; }
+  </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-emerald-500 selection:text-white bg-neutral-950 text-white overflow-x-hidden">
+  <div class="grain"></div>
+  <div class="cursor-dot hidden md:block"></div>
+  <div class="cursor-outline hidden md:block"></div>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="fixed w-full z-50 text-white py-4 px-4 sm:px-8 bg-black/80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="font-display text-2xl font-bold tracking-tighter hover:text-emerald-300 transition-colors">
+        LEVANT<span class="text-emerald-500">.</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-6">
+        <a href="index.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">HOME</a>
+        <a href="services.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">SERVICES</a>
+        <a href="work.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">WORK</a>
+        <a href="audit.html" class="nav-link px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-200 hover:bg-emerald-500 hover:text-black transition-all active">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            FREE AUDIT
+          </span>
+        </a>
+        <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2 rounded-full text-sm font-bold transition-all">CONTACT</a>
+      </div>
+      <button id="menu-btn" class="lg:hidden text-white" aria-label="Open menu">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-6 lg:hidden">
+    <button id="close-menu" class="absolute top-6 right-6 text-white" aria-label="Close menu">
+      <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <a href="index.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
+    <a href="services.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors">SERVICES</a>
+    <a href="work.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors">WORK</a>
+    <a href="audit.html" class="text-3xl font-display font-bold text-emerald-300">FREE AUDIT</a>
+    <a href="contact.html" class="text-3xl font-display font-bold text-emerald-300">CONTACT</a>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <header class="relative pt-24 overflow-hidden min-h-[85vh] flex flex-col justify-center">
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora-blob bg-emerald-600 w-[500px] h-[500px] -top-20 -left-20"></div>
+      <div class="aurora-blob bg-teal-500 w-[400px] h-[400px] bottom-0 right-0" style="animation-delay:-6s;"></div>
+      <div class="aurora-blob bg-green-400 w-[350px] h-[350px] top-1/2 left-1/3" style="animation-delay:-12s;"></div>
+    </div>
+
+    <!-- Grid -->
+    <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true"
+      style="background-image:linear-gradient(rgba(16,185,129,1) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,1) 1px,transparent 1px);background-size:64px 64px;"></div>
+
+    <!-- Vignette -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+      style="background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(16,185,129,0.12),transparent 70%),linear-gradient(to bottom,transparent 60%,rgba(0,0,0,0.95) 100%);"></div>
+
+    <!-- Decorative SVG -->
+    <svg class="absolute inset-0 w-full h-full opacity-[0.1] pointer-events-none" viewBox="0 0 1400 700" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+      <path d="M-100 500 C 300 340,500 600,900 400 C 1100 280,1300 320,1500 200" stroke="rgba(16,185,129,1)" stroke-width="1.5"/>
+      <circle cx="900" cy="400" r="6" fill="rgba(16,185,129,1)"/>
+      <g opacity="0.4">
+        <line x1="1200" y1="0" x2="1400" y2="200" stroke="rgba(16,185,129,0.5)" stroke-width="1"/>
+        <line x1="1250" y1="0" x2="1400" y2="150" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+      </g>
+    </svg>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+      <div class="max-w-3xl reveal">
+        <div class="badge mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          100% Free · No obligation · Metro Detroit
+        </div>
+
+        <h1 class="font-display text-5xl md:text-6xl xl:text-7xl font-bold leading-[0.92] tracking-tight mb-6">
+          LET'S SEE WHAT<br/>
+          YOUR BUSINESS<br/>
+          <span class="text-gradient">LOOKS LIKE</span><br/>
+          <span class="text-stroke">RIGHT NOW.</span>
+        </h1>
+
+        <p class="text-gray-300/75 text-lg md:text-xl leading-relaxed max-w-xl mb-10">
+          Submit your info and we'll review your website, Google Business Profile, SEO health, and branding — then send you a professional report with a clear breakdown of where you rank on Google, what's working, and exactly what needs to be fixed.
+        </p>
+
+        <div class="flex gap-4 flex-wrap">
+          <a href="#audit-form" class="glow-btn inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-black font-bold rounded-full hover:bg-emerald-400 hover:scale-105 transition-all">
+            Get my free audit
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <a href="services.html" class="inline-flex items-center gap-2 px-8 py-4 border border-emerald-500/50 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
+            See our services
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style="background:linear-gradient(to bottom,transparent,#0a0a0a);"></div>
+  </header>
+
+  <!-- ═══════════ MARQUEE ═══════════ -->
+  <div class="py-5 overflow-hidden border-y border-emerald-500/30 bg-emerald-500">
+    <div class="marquee-container font-display text-4xl md:text-5xl font-bold uppercase tracking-tighter text-black">
+      <div class="marquee-content select-none">
+        <span class="mx-8">Website Review</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">GBP Audit</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">SEO Health Check</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">Branding Review</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">100% Free</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">No Obligation</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">Website Review</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">GBP Audit</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">SEO Health Check</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">Branding Review</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">100% Free</span><span class="mx-6 opacity-50">✦</span>
+        <span class="mx-8">No Obligation</span><span class="mx-6 opacity-50">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="bg-neutral-950">
+
+    <!-- ═══════════ WHAT WE REVIEW ═══════════ -->
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal mb-14">
+          <span class="text-emerald-400 font-mono text-xs tracking-[0.25em] uppercase block mb-4">What's included</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-4">
+            Four areas. One clear picture.
+          </h2>
+          <p class="text-gray-400 text-lg max-w-xl">
+            We look at everything a customer sees before they decide to trust you.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4 reveal">
+
+          <div class="audit-item spotlight-card" onmousemove="handleSpotlight(event,this)" onmouseleave="clearSpotlight(this)">
+            <div class="audit-icon">
+              <svg class="w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"/><path d="M10 19v-3.96 3.15"/><path d="M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg>
+            </div>
+            <div>
+              <div class="font-display text-lg font-bold mb-1">Website review</div>
+              <p class="text-gray-500 text-sm leading-relaxed">Layout, messaging, mobile experience, load speed, and conversion clarity. Does your site make people want to reach out?</p>
+            </div>
+          </div>
+
+          <div class="audit-item spotlight-card" onmousemove="handleSpotlight(event,this)" onmouseleave="clearSpotlight(this)">
+            <div class="audit-icon">
+              <svg class="w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="font-display text-lg font-bold mb-1">Google Business Profile review</div>
+              <p class="text-gray-500 text-sm leading-relaxed">Profile completeness, category setup, posting activity, photos, and how you appear in local search results.</p>
+            </div>
+          </div>
+
+          <div class="audit-item spotlight-card" onmousemove="handleSpotlight(event,this)" onmouseleave="clearSpotlight(this)">
+            <div class="audit-icon">
+              <svg class="w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <div>
+              <div class="font-display text-lg font-bold mb-1">SEO health check</div>
+              <p class="text-gray-500 text-sm leading-relaxed">On-page basics — title tags, headings, metadata, internal links, and whether your site is structured for Google to understand.</p>
+            </div>
+          </div>
+
+          <div class="audit-item spotlight-card" onmousemove="handleSpotlight(event,this)" onmouseleave="clearSpotlight(this)">
+            <div class="audit-icon">
+              <svg class="w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+            </div>
+            <div>
+              <div class="font-display text-lg font-bold mb-1">Branding &amp; visual review</div>
+              <p class="text-gray-500 text-sm leading-relaxed">Logo quality, color consistency, typography, and whether your visual identity looks established across your web presence.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DIVIDER ── -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="divider"></div></div>
+
+    <!-- ═══════════ HOW IT WORKS ═══════════ -->
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-14 items-center">
+
+          <div class="lg:col-span-5 reveal">
+            <span class="text-emerald-400 font-mono text-xs tracking-[0.25em] uppercase block mb-4">How it works</span>
+            <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-4">
+              Simple.<br/>Fast.<br/><span class="text-gradient">No pressure.</span>
+            </h2>
+            <p class="text-gray-400 text-lg">
+              Fill out the form, we do the work, you get clarity. That's it.
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 reveal" style="transition-delay:.15s">
+            <div class="gradient-border">
+              <div class="rounded-[27px] bg-neutral-950 p-8 space-y-4">
+
+                <div class="glass-card rounded-2xl p-5 flex items-start gap-4">
+                  <div class="step-badge">01</div>
+                  <div>
+                    <div class="font-semibold mb-1">Fill out the form below</div>
+                    <p class="text-gray-500 text-sm">Share your business name, website URL, and what you're trying to improve. Takes less than 2 minutes.</p>
+                  </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 flex items-start gap-4">
+                  <div class="step-badge">02</div>
+                  <div>
+                    <div class="font-semibold mb-1">We review everything</div>
+                    <p class="text-gray-500 text-sm">We manually go through your website, Google Business Profile, SEO structure, and branding — no automated tools, real eyes on your business.</p>
+                  </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 flex items-start gap-4">
+                  <div class="step-badge">03</div>
+                  <div>
+                    <div class="font-semibold mb-1">You get a professional report</div>
+                    <p class="text-gray-500 text-sm">We send you a clean, professional report showing where you currently rank on Google, what's strong, what's hurting you, and exactly what needs to be fixed — prioritized and clear.</p>
+                  </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 flex items-start gap-4">
+                  <div class="step-badge">04</div>
+                  <div>
+                    <div class="font-semibold mb-1">You decide what's next</div>
+                    <p class="text-gray-500 text-sm">No obligation. If you want help fixing things, we're here. If not, the audit is yours to keep and act on whenever.</p>
+                  </div>
+                </div>
+
+                <div class="pt-2 border-t border-white/5">
+                  <p class="text-xs text-gray-600 font-mono">Turnaround is typically 2–3 business days.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DIVIDER ── -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="divider"></div></div>
+
+    <!-- ═══════════ FORM ═══════════ -->
+    <section id="audit-form" class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-14 items-start">
+
+          <!-- Left: context -->
+          <div class="lg:col-span-5 reveal">
+            <span class="text-emerald-400 font-mono text-xs tracking-[0.25em] uppercase block mb-4">Request your audit</span>
+            <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-6">
+              Tell us about<br/>your business.
+            </h2>
+            <p class="text-gray-400 text-lg mb-10">
+              The more context you give us, the more useful your audit will be. Takes 2 minutes.
+            </p>
+
+            <!-- Trust signals -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-3 text-sm text-gray-400">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                Completely free — no credit card, no catch
+              </div>
+              <div class="flex items-center gap-3 text-sm text-gray-400">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                Professional report — not a generic automated scan
+              </div>
+              <div class="flex items-center gap-3 text-sm text-gray-400">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                See exactly where you rank on Google right now
+              </div>
+              <div class="flex items-center gap-3 text-sm text-gray-400">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                No obligation to hire us — the report is yours to keep
+              </div>
+              <div class="flex items-center gap-3 text-sm text-gray-400">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                Results back in 2–3 business days
+              </div>
+            </div>
+
+            <!-- Urgency note -->
+            <div class="mt-10 glass-card rounded-2xl p-5">
+              <div class="flex items-center gap-2 text-sm font-semibold text-emerald-300 mb-2">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                Limited availability
+              </div>
+              <p class="text-gray-500 text-sm">We take on a limited number of audits each week to keep the quality high. If the form is open, spots are available.</p>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="lg:col-span-7 reveal" style="transition-delay:.15s">
+            <div class="gradient-border">
+              <div class="rounded-[27px] bg-neutral-950 p-8 md:p-10">
+
+                <!-- Success state -->
+                <div id="form-success">
+                  <div class="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <h3 class="font-display text-3xl font-bold mb-3">You're on the list.</h3>
+                  <p class="text-gray-400 text-lg mb-6">We'll review your business and send your professional report — including your Google ranking and a clear breakdown of what to fix — within 2–3 business days. Keep an eye on your inbox.</p>
+                  <a href="services.html" class="inline-flex items-center gap-2 px-6 py-3 border border-emerald-500/50 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all text-sm">
+                    Browse our services
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+
+                <!-- Form -->
+                <form id="audit-form-el" class="space-y-6" novalidate>
+
+                  <div class="grid sm:grid-cols-2 gap-5">
+                    <div class="field-group">
+                      <label class="field-label" for="name">Your name</label>
+                      <input type="text" id="name" name="name" placeholder="Alex Johnson" class="form-input" required />
+                    </div>
+                    <div class="field-group">
+                      <label class="field-label" for="email">Email address</label>
+                      <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" class="form-input" required />
+                    </div>
+                  </div>
+
+                  <div class="field-group">
+                    <label class="field-label" for="business">Business name</label>
+                    <input type="text" id="business" name="business" placeholder="Your Business Name" class="form-input" required />
+                  </div>
+
+                  <div class="field-group">
+                    <label class="field-label" for="website">Website URL <span class="normal-case font-normal text-gray-600">(if you have one)</span></label>
+                    <input type="url" id="website" name="website" placeholder="https://yourbusiness.com" class="form-input" />
+                  </div>
+
+                  <div class="field-group">
+                    <label class="field-label" for="industry">Industry / type of business</label>
+                    <select id="industry" name="industry" class="form-input" required>
+                      <option value="" disabled selected>Select your industry</option>
+                      <option>Home services (plumbing, HVAC, electrical…)</option>
+                      <option>Construction / contracting</option>
+                      <option>Auto / automotive</option>
+                      <option>Health & wellness</option>
+                      <option>Food & beverage / restaurant</option>
+                      <option>Retail / e-commerce</option>
+                      <option>Professional services (law, finance, real estate…)</option>
+                      <option>Beauty / personal care</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+
+                  <div class="field-group">
+                    <label class="field-label" for="goal">What's your biggest challenge right now?</label>
+                    <textarea id="goal" name="goal" placeholder="e.g. Not showing up on Google, website looks outdated, not getting enough leads..." class="form-input"></textarea>
+                  </div>
+
+                  <div class="field-group">
+                    <label class="field-label">What areas do you want reviewed?</label>
+                    <div class="grid sm:grid-cols-2 gap-3 mt-1">
+                      <label class="audit-checkbox flex items-center gap-3 p-4 rounded-2xl border border-white/8 bg-white/2 cursor-pointer hover:border-emerald-500/30 hover:bg-emerald-500/4 transition-all">
+                        <input type="checkbox" name="areas" value="website" class="sr-only peer" checked />
+                        <div class="w-5 h-5 rounded-md border border-white/20 bg-white/5 peer-checked:bg-emerald-500 peer-checked:border-emerald-500 flex items-center justify-center transition-all flex-shrink-0">
+                          <svg class="w-3 h-3 text-black hidden peer-checked:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="text-sm font-medium">Website review</span>
+                      </label>
+                      <label class="audit-checkbox flex items-center gap-3 p-4 rounded-2xl border border-white/8 bg-white/2 cursor-pointer hover:border-emerald-500/30 hover:bg-emerald-500/4 transition-all">
+                        <input type="checkbox" name="areas" value="gbp" class="sr-only peer" checked />
+                        <div class="w-5 h-5 rounded-md border border-white/20 bg-white/5 peer-checked:bg-emerald-500 peer-checked:border-emerald-500 flex items-center justify-center transition-all flex-shrink-0">
+                          <svg class="w-3 h-3 text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="text-sm font-medium">Google Business Profile</span>
+                      </label>
+                      <label class="audit-checkbox flex items-center gap-3 p-4 rounded-2xl border border-white/8 bg-white/2 cursor-pointer hover:border-emerald-500/30 hover:bg-emerald-500/4 transition-all">
+                        <input type="checkbox" name="areas" value="seo" class="sr-only peer" checked />
+                        <div class="w-5 h-5 rounded-md border border-white/20 bg-white/5 peer-checked:bg-emerald-500 peer-checked:border-emerald-500 flex items-center justify-center transition-all flex-shrink-0">
+                          <svg class="w-3 h-3 text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="text-sm font-medium">SEO health check</span>
+                      </label>
+                      <label class="audit-checkbox flex items-center gap-3 p-4 rounded-2xl border border-white/8 bg-white/2 cursor-pointer hover:border-emerald-500/30 hover:bg-emerald-500/4 transition-all">
+                        <input type="checkbox" name="areas" value="branding" class="sr-only peer" checked />
+                        <div class="w-5 h-5 rounded-md border border-white/20 bg-white/5 peer-checked:bg-emerald-500 peer-checked:border-emerald-500 flex items-center justify-center transition-all flex-shrink-0">
+                          <svg class="w-3 h-3 text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="text-sm font-medium">Branding &amp; visual review</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Error msg -->
+                  <p id="form-error" class="text-red-400 text-sm hidden">Please fill in all required fields.</p>
+
+                  <button type="submit" id="submit-btn" class="glow-btn w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-emerald-500 text-black font-bold rounded-full hover:bg-emerald-400 transition-all text-base">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    Send my free audit request
+                  </button>
+
+                  <p class="text-xs text-gray-600 text-center">
+                    No spam. No sales pressure. Just a real audit of your business.
+                  </p>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ CTA ═══════════ -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="relative overflow-hidden rounded-3xl reveal">
+          <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(16,185,129,0.12) 0%,rgba(16,185,129,0.03) 50%,transparent 100%);"></div>
+          <div class="absolute inset-0 border border-emerald-500/20 rounded-3xl pointer-events-none"></div>
+          <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(16,185,129,0.5),transparent);"></div>
+          <div class="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-emerald-600 opacity-10 blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+            <div class="max-w-xl">
+              <span class="badge mb-4">Rather talk first?</span>
+              <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-4">
+                Prefer to reach out directly?
+              </h2>
+              <p class="text-gray-400 text-lg">Skip the form and send us a message. We'll get back to you with next steps.</p>
+            </div>
+            <div class="flex gap-4 flex-wrap flex-shrink-0">
+              <a href="contact.html" class="glow-btn inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-black font-bold rounded-full hover:bg-emerald-400 hover:scale-105 transition-all">
+                Contact us
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              </a>
+              <a href="services.html" class="inline-flex items-center gap-2 px-8 py-4 border border-emerald-500/50 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
+                See services
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="bg-black border-t border-white/8 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="font-display text-2xl font-bold">LEVANT<span class="text-emerald-500">.</span></div>
+      <div class="flex gap-8 text-sm text-gray-500 flex-wrap justify-center">
+        <a href="index.html" class="hover:text-emerald-300 transition-colors">Home</a>
+        <a href="services.html" class="hover:text-emerald-300 transition-colors">Services</a>
+        <a href="work.html" class="hover:text-emerald-300 transition-colors">Work</a>
+        <a href="audit.html" class="text-emerald-300">Free Audit</a>
+        <a href="contact.html" class="hover:text-emerald-300 transition-colors">Contact</a>
+      </div>
+      <div class="text-gray-600 text-sm">© 2026 Levant Digital Marketing.</div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+
+  <script>
+    // ── Cursor ──
+    const dot = document.querySelector('.cursor-dot');
+    const outline = document.querySelector('.cursor-outline');
+    document.addEventListener('mousemove', e => {
+      if (dot) { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; }
+      if (outline) { outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px'; }
+    });
+
+    // ── Spotlight ──
+    function handleSpotlight(e, el) {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    }
+    function clearSpotlight(el) {
+      el.style.setProperty('--mx', '50%');
+      el.style.setProperty('--my', '50%');
+    }
+
+    // ── Mobile menu ──
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn?.addEventListener('click', () => mobileMenu.style.transform = 'translateX(0)');
+    closeBtn?.addEventListener('click', () => mobileMenu.style.transform = 'translateX(100%)');
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.style.transform = 'translateX(100%)'));
+
+    // ── Scroll reveal ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Checkbox visual toggle ──
+    document.querySelectorAll('.audit-checkbox input[type=checkbox]').forEach(cb => {
+      const box = cb.nextElementSibling;
+      const checkmark = box.querySelector('svg');
+      const updateState = () => {
+        if (cb.checked) {
+          box.classList.add('bg-emerald-500','border-emerald-500');
+          box.classList.remove('bg-white/5','border-white/20');
+          checkmark.classList.remove('hidden');
+          cb.closest('label').classList.add('border-emerald-500/40','bg-emerald-500/6');
+          cb.closest('label').classList.remove('border-white/8','bg-white/2');
+        } else {
+          box.classList.remove('bg-emerald-500','border-emerald-500');
+          box.classList.add('bg-white/5','border-white/20');
+          checkmark.classList.add('hidden');
+          cb.closest('label').classList.remove('border-emerald-500/40','bg-emerald-500/6');
+          cb.closest('label').classList.add('border-white/8','bg-white/2');
+        }
+      };
+      updateState(); // init
+      cb.addEventListener('change', updateState);
+    });
+
+    // ── Form submit ──
+    document.getElementById('audit-form-el').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const business = document.getElementById('business').value.trim();
+      const industry = document.getElementById('industry').value;
+      const errorEl = document.getElementById('form-error');
+
+      if (!name || !email || !business || !industry) {
+        errorEl.classList.remove('hidden');
+        return;
+      }
+      errorEl.classList.add('hidden');
+
+      // Swap form for success
+      this.style.display = 'none';
+      document.getElementById('form-success').classList.add('visible');
+    });
+  </script>
+</body>
+</html>
