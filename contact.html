@@ -9,13 +9,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans:['Space Grotesk','sans-serif'], display:['Syne','sans-serif'] },
+          fontFamily: { sans:['DM Sans','sans-serif'], display:['Bebas Neue','sans-serif'], mono:['JetBrains Mono','monospace'] }
           colors: {
             emerald: { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b',950:'#022c22' }
           }
@@ -117,7 +117,7 @@
       border-radius:14px;
       padding:15px 18px;
       color:white;
-      font-family:'Space Grotesk',sans-serif;
+      font-family:'DM Sans',sans-serif;
       font-size:0.95rem;
       outline:none;
       transition:border-color .25s, background .25s, box-shadow .25s;
@@ -165,8 +165,7 @@
     /* ── Big decorative letter ── */
     .deco-letter {
       position:absolute;
-      font-family:'Syne',sans-serif;
-      font-weight:800;
+      font-family:'Bebas Neue',sans-serif;
       line-height:1;
       -webkit-text-stroke:1px rgba(16,185,129,0.06);
       color:transparent;
