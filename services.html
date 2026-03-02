@@ -7,458 +7,642 @@
   <meta name="description" content="Levant Digital Marketing helps Metro Detroit businesses with website creation, branding, SEO, and Google Business Profile support." />
   <meta name="theme-color" content="#10b981" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { emerald: { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b',950:'#022c22' } },
-          fontFamily: { sans:['Space Grotesk','sans-serif'], display:['Syne','sans-serif'] }
-        }
-      }
-    }
-  </script>
-
-  <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    .grain { position:fixed;inset:0;z-index:999;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");opacity:0.55; }
-    .cursor-dot { width:8px;height:8px;background:#10b981;border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
-    .cursor-outline { width:36px;height:36px;border:1.5px solid rgba(16,185,129,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease; }
-
-    .nav-link { position:relative;color:rgba(255,255,255,0.65);transition:color .2s; }
-    .nav-link::after { content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:#10b981;transition:width .3s; }
-    .nav-link:hover::after { width:100%; }
-    .nav-link:hover { color:#6ee7b7; }
-
-    .badge { display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:9999px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;color:#a7f3d0;text-transform:uppercase; }
-    .text-gradient { background:linear-gradient(135deg,#34d399,#10b981,#6ee7b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
-
-    .reveal { opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1); }
-    .reveal.visible { opacity:1;transform:none; }
-
-    .aurora { position:absolute;inset:0;overflow:hidden;pointer-events:none; }
-    .aurora-blob { position:absolute;border-radius:9999px;filter:blur(90px);opacity:0.13;animation:adrift 20s ease-in-out infinite alternate; }
-    @keyframes adrift { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(30px,-20px) scale(1.06)} 100%{transform:translate(-15px,15px) scale(0.96)} }
-
-    .marquee-wrap { display:flex;overflow:hidden;white-space:nowrap; }
-    .marquee-track { display:flex;animation:marquee 32s linear infinite; }
-    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-
-    /* ── Service rows ── */
-    .svc-row { display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:7rem 0;border-bottom:1px solid rgba(255,255,255,0.05); }
-    .svc-row:last-child { border-bottom:none; }
-    @media(max-width:900px) {
-      .svc-row { grid-template-columns:1fr;gap:3rem;padding:4rem 0; }
-      .svc-visual { display:none; }
+    :root {
+      --em: #10b981;
+      --em-light: #34d399;
+      --em-dim: #065f46;
+      --em-glow: rgba(16,185,129,0.18);
+      --black: #050505;
+      --surface: #0d0d0d;
+      --surface2: #141414;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0f0f0;
+      --muted: #6b7280;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
-    .svc-number { font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(6rem,10vw,9rem);line-height:1;-webkit-text-stroke:1px rgba(16,185,129,0.15);color:transparent;pointer-events:none;user-select:none;position:absolute;top:-1.5rem;right:0;transition:-webkit-text-stroke-color .4s; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body { font-family: var(--font-body); background: var(--black); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--em); color: #000; }
+
+    /* Noise */
+    body::before { content:''; position:fixed; inset:0; z-index:999; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); opacity:0.025; }
+
+    /* Cursor */
+    .cursor { position:fixed; pointer-events:none; z-index:9999; mix-blend-mode:difference; }
+    .cursor-dot { width:8px; height:8px; background:var(--em); border-radius:50%; transform:translate(-50%,-50%); }
+    .cursor-ring { width:36px; height:36px; border:1.5px solid rgba(16,185,129,0.5); border-radius:50%; transform:translate(-50%,-50%); transition:width .3s,height .3s; }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:0 2rem; height:90px; display:flex; align-items:center; background:rgba(5,5,5,0.75); backdrop-filter:blur(18px) saturate(1.4); border-bottom:1px solid var(--border); transition:background .3s; }
+    nav.scrolled { background:rgba(5,5,5,0.96); }
+    .nav-inner { max-width:1400px; width:100%; margin:auto; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { font-family:var(--font-display); font-size:2.4rem; letter-spacing:0.02em; color:var(--text); text-decoration:none; line-height:1; }
+    .nav-logo span { color:var(--em); }
+    .nav-links { display:flex; align-items:center; gap:2.5rem; }
+    .nav-link { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .nav-link:hover, .nav-link.active { color:var(--em-light); }
+    .nav-audit { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.7rem 1.6rem; border:1.5px solid rgba(16,185,129,0.5); color:var(--em-light); text-decoration:none; transition:all .2s; font-weight:600; display:flex; align-items:center; gap:0.5rem; }
+    .nav-audit:hover { background:rgba(16,185,129,0.1); border-color:var(--em); }
+    .nav-cta { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.85rem 2rem; background:var(--em); color:#000; font-weight:700; text-decoration:none; transition:all .2s; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+    .nav-cta:hover { background:var(--em-light); transform:translateY(-1px); }
+    #menu-btn { display:none; background:none; border:none; cursor:pointer; color:var(--text); padding:0.5rem; }
+    #mobile-menu { display:none; position:fixed; inset:0; background:var(--black); z-index:90; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
+    #mobile-menu.open { display:flex; }
+    .mobile-link { font-family:var(--font-display); font-size:clamp(3rem,10vw,5rem); color:var(--text); text-decoration:none; letter-spacing:0.04em; transition:color .2s; }
+    .mobile-link:hover { color:var(--em); }
+    #close-menu { position:absolute; top:1.5rem; right:1.5rem; background:none; border:none; cursor:pointer; color:var(--text); font-size:3rem; line-height:1; padding:0.5rem; }
+    @media(max-width:900px){ .nav-links{display:none;} #menu-btn{display:block;} }
+
+    /* Status pill */
+    .status-pill { display:inline-flex; align-items:center; gap:0.5rem; padding:0.4rem 0.9rem; background:rgba(16,185,129,0.07); border:1px solid rgba(16,185,129,0.2); font-family:var(--font-mono); font-size:0.63rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--em-light); margin-bottom:1.5rem; }
+    .status-dot { width:6px; height:6px; border-radius:50%; background:var(--em); animation:pulse-dot 2s ease-in-out infinite; flex-shrink:0; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.4)} }
+
+    /* HERO */
+    .hero { min-height:100vh; padding-top:90px; display:grid; place-items:center; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 15% 40%,rgba(16,185,129,0.11) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 85% 70%,rgba(16,185,129,0.05) 0%,transparent 55%); }
+    .hero-grid { position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(16,185,129,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,0.05) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 30%,transparent 90%); animation:grid-drift 22s linear infinite; }
+    @keyframes grid-drift { from{background-position:0 0} to{background-position:0 64px} }
+
+    .hero-inner { position:relative; z-index:2; max-width:1400px; width:100%; margin:auto; padding:5rem 2rem 4rem; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+
+    .hero-eyebrow { display:flex; align-items:center; gap:1rem; font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--em); margin-bottom:1.5rem; }
+    .hero-eyebrow::before { content:''; display:block; width:3rem; height:1px; background:var(--em); flex-shrink:0; }
+    .hero-h1 { font-family:var(--font-display); font-size:clamp(4rem,8vw,8rem); line-height:0.92; letter-spacing:0.01em; color:var(--text); }
+    .hero-h1 .em { color:var(--em); }
+    .hero-h1 .outline { -webkit-text-stroke:1.5px var(--em); color:transparent; }
+    .hero-sub { font-size:1rem; line-height:1.75; color:var(--muted); max-width:32rem; margin-top:1.5rem; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:1rem; margin-top:2.5rem; }
+
+    .btn-primary { display:inline-flex; align-items:center; gap:0.6rem; padding:0.9rem 2.2rem; background:var(--em); color:#000; font-family:var(--font-mono); font-size:0.72rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; transition:all .2s; clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%); position:relative; overflow:hidden; }
+    .btn-primary::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent); transform:translateX(-100%); transition:transform .4s; }
+    .btn-primary:hover { background:var(--em-light); transform:translateY(-2px); box-shadow:0 12px 40px rgba(16,185,129,0.3); }
+    .btn-primary:hover::after { transform:translateX(100%); }
+    .btn-ghost { display:inline-flex; align-items:center; gap:0.6rem; padding:0.85rem 2.1rem; border:1px solid rgba(16,185,129,0.35); color:var(--em-light); font-family:var(--font-mono); font-size:0.72rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; transition:all .2s; }
+    .btn-ghost:hover { background:rgba(16,185,129,0.08); border-color:var(--em); transform:translateY(-2px); }
+
+    /* SERVICE MAP CARD (hero right) */
+    .service-map-card { background:var(--surface); border:1px solid var(--border); position:relative; overflow:hidden; }
+    .service-map-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--em),transparent); }
+    .card-header { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.5rem; border-bottom:1px solid var(--border); background:rgba(16,185,129,0.03); }
+    .card-header-label { font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); }
+    .card-header-badge { font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.8rem; border:1px solid rgba(16,185,129,0.25); color:var(--em-light); }
+
+    .svc-map-row { display:flex; align-items:center; gap:1rem; padding:1rem 1.5rem; border-bottom:1px solid var(--border); transition:background .2s; cursor:default; }
+    .svc-map-row:last-child { border-bottom:none; }
+    .svc-map-row:hover { background:rgba(16,185,129,0.04); }
+    .svc-map-icon { width:2.2rem; height:2.2rem; display:grid; place-items:center; border:1px solid rgba(16,185,129,0.2); flex-shrink:0; }
+    .svc-map-icon svg { width:13px; height:13px; stroke:var(--em-light); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .svc-map-name { font-size:0.85rem; font-weight:500; color:var(--text); flex:1; }
+    .svc-map-sub { font-size:0.72rem; color:var(--muted); margin-top:2px; }
+    .svc-map-arrow { color:var(--em); font-size:0.8rem; opacity:0.5; transition:opacity .2s; flex-shrink:0; }
+    .svc-map-row:hover .svc-map-arrow { opacity:1; }
+    .card-footer-note { padding:1rem 1.5rem; font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.08em; color:var(--muted); border-top:1px solid var(--border); }
+
+    /* MARQUEE */
+    .marquee-wrap { border-top:2px solid #000; border-bottom:2px solid #000; background:var(--em); overflow:hidden; padding:0.85rem 0; }
+    .marquee-track { display:inline-flex; animation:marquee 32s linear infinite; }
+    .marquee-item { font-family:var(--font-display); font-size:clamp(2rem,4.5vw,3.2rem); letter-spacing:0.02em; text-transform:uppercase; color:#000; padding:0 2rem; white-space:nowrap; }
+    .marquee-sep { color:rgba(0,0,0,0.3); }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* SERVICES SECTION */
+    .section { padding:7rem 2rem; }
+    .section-inner { max-width:1400px; margin:auto; }
+    .section-label { font-family:var(--font-mono); font-size:0.66rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--em); display:flex; align-items:center; gap:0.8rem; margin-bottom:1.2rem; }
+    .section-label::after { content:''; display:block; width:2rem; height:1px; background:var(--em); }
+
+    /* Service rows */
+    .svc-row { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; padding:7rem 0; border-bottom:1px solid var(--border); }
+    .svc-row:last-child { border-bottom:none; }
+    @media(max-width:900px) { .svc-row{grid-template-columns:1fr;gap:3rem;padding:4rem 0;} .svc-visual{display:none;} }
+
+    .svc-number { font-family:var(--font-display); font-size:clamp(6rem,10vw,9rem); line-height:1; -webkit-text-stroke:1px rgba(16,185,129,0.15); color:transparent; pointer-events:none; user-select:none; position:absolute; top:-1.5rem; right:0; transition:-webkit-text-stroke-color .4s; }
     .svc-content:hover .svc-number { -webkit-text-stroke-color:rgba(16,185,129,0.3); }
 
-    .svc-tag { display:inline-flex;align-items:center;gap:6px;padding:3px 12px;border-radius:9999px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;color:#6ee7b7;text-transform:uppercase;margin-bottom:1.5rem; }
-    .svc-headline { font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,3.5vw,2.8rem);line-height:1.05;letter-spacing:-0.02em;color:white;margin-bottom:1.25rem; }
-    .svc-desc { font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.42);margin-bottom:2rem;max-width:38rem; }
+    .svc-tag { display:inline-flex; align-items:center; gap:6px; padding:3px 12px; border:1px solid rgba(16,185,129,0.2); font-family:var(--font-mono); font-size:0.62rem; font-weight:500; letter-spacing:0.1em; color:var(--em-light); text-transform:uppercase; margin-bottom:1.5rem; }
+    .svc-headline { font-family:var(--font-display); font-size:clamp(2.8rem,4.5vw,4.5rem); line-height:0.95; letter-spacing:0.02em; color:var(--text); margin-bottom:1.25rem; }
+    .svc-desc { font-size:0.95rem; line-height:1.8; color:var(--muted); margin-bottom:2rem; max-width:38rem; }
 
-    .svc-items { list-style:none;margin-bottom:2.5rem; }
-    .svc-items li { display:flex;align-items:center;gap:12px;padding:0.65rem 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.92rem;color:rgba(255,255,255,0.52); }
+    .svc-items { list-style:none; margin-bottom:2.5rem; }
+    .svc-items li { display:flex; align-items:center; gap:12px; padding:0.6rem 0; border-bottom:1px solid var(--border); font-size:0.87rem; color:var(--muted); }
     .svc-items li:last-child { border-bottom:none; }
-    .svc-items li svg { flex-shrink:0;color:#10b981; }
+    .svc-items li::before { content:'→'; color:var(--em); font-size:0.75rem; flex-shrink:0; }
 
-    .svc-cta { display:flex;gap:12px;flex-wrap:wrap; }
-    .btn-p { display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#10b981;color:black;font-weight:700;border-radius:9999px;font-size:0.875rem;text-decoration:none;transition:all .2s; }
-    .btn-p:hover { background:#34d399;transform:translateY(-1px); }
-    .btn-g { display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:1px solid rgba(16,185,129,0.4);color:#6ee7b7;font-weight:600;border-radius:9999px;font-size:0.875rem;text-decoration:none;transition:all .2s; }
-    .btn-g:hover { background:rgba(16,185,129,0.08);border-color:#10b981; }
+    .svc-cta { display:flex; gap:0.8rem; flex-wrap:wrap; }
 
-    .svc-visual { position:relative;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center; }
-    .svc-visual-inner { width:85%; }
+    /* Visual panels */
+    .svc-visual { position:relative; border:1px solid var(--border); background:var(--surface); overflow:hidden; display:flex; align-items:center; justify-content:center; min-height:320px; }
+    .svc-visual::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--em),transparent); }
+    .svc-visual-inner { width:80%; padding:1.5rem 0; }
 
-    @keyframes glow-pulse { 0%,100%{box-shadow:0 0 20px rgba(16,185,129,0.3),0 0 40px rgba(16,185,129,0.1)} 50%{box-shadow:0 0 40px rgba(16,185,129,0.5),0 0 80px rgba(16,185,129,0.2)} }
-    .glow-btn { animation:glow-pulse 3s ease-in-out infinite; }
+    /* Browser mockup */
+    .browser { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:0; overflow:hidden; }
+    .browser-bar { display:flex; align-items:center; gap:6px; padding:0.7rem 1rem; border-bottom:1px solid var(--border); background:rgba(16,185,129,0.02); }
+    .browser-dot { width:9px; height:9px; border-radius:50%; }
+    .browser-url { flex:1; margin-left:0.5rem; background:rgba(255,255,255,0.04); border:1px solid var(--border); padding:3px 10px; font-family:var(--font-mono); font-size:0.6rem; color:var(--muted); }
+    .browser-body { padding:1rem; }
 
-    .cta-card { position:relative;overflow:hidden;border-radius:28px;border:1px solid rgba(16,185,129,0.15);background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.02)); }
-    .cta-card::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,0.5),transparent); }
+    /* CTA section */
+    .cta-box { border:1px solid rgba(16,185,129,0.18); background:var(--surface); padding:4rem 5rem; display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:center; position:relative; overflow:hidden; }
+    .cta-box::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--em),transparent); }
+    .cta-box::after { content:'LEVANT'; font-family:var(--font-display); font-size:13rem; line-height:1; color:rgba(16,185,129,0.025); position:absolute; right:-0.5rem; bottom:-2rem; pointer-events:none; }
+    @media(max-width:900px){ .cta-box{grid-template-columns:1fr;padding:2.5rem 2rem;} }
+    .cta-h2 { font-family:var(--font-display); font-size:clamp(2.5rem,5vw,4.5rem); line-height:0.95; letter-spacing:0.01em; color:var(--text); margin-bottom:0.8rem; }
+    .cta-sub { font-size:0.93rem; color:var(--muted); line-height:1.7; }
+    .cta-actions { display:flex; flex-direction:column; gap:0.8rem; align-items:flex-end; }
+    @media(max-width:900px){ .cta-actions{align-items:flex-start;flex-direction:row;flex-wrap:wrap;} }
 
-    #mobile-menu { transition:transform .5s cubic-bezier(.76,0,.24,1); }
+    /* Reveal */
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    /* Responsive */
+    @media(max-width:1100px){ .hero-inner{grid-template-columns:1fr;gap:3rem;} }
+    @media(max-width:700px){ .hero-h1{font-size:4.2rem;} .section{padding:5rem 1.5rem;} }
+
+    /* Footer */
+    footer { background:#000; border-top:1px solid var(--border); padding:3rem 2rem; }
+    .footer-inner { max-width:1400px; margin:auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; }
+    .footer-logo { font-family:var(--font-display); font-size:2rem; letter-spacing:0.02em; }
+    .footer-logo span { color:var(--em); }
+    .footer-links { display:flex; gap:2rem; flex-wrap:wrap; }
+    .footer-links a { font-family:var(--font-mono); font-size:0.63rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .footer-links a:hover { color:var(--em-light); }
+    .footer-copy { font-size:0.72rem; color:var(--muted); font-family:var(--font-mono); }
   </style>
 </head>
 
-<body class="font-sans antialiased selection:bg-emerald-500 selection:text-white bg-neutral-950 text-white overflow-x-hidden">
-  <div class="grain"></div>
-  <div class="cursor-dot hidden md:block"></div>
-  <div class="cursor-outline hidden md:block"></div>
+<body>
+  <div class="cursor cursor-dot" id="cursorDot" style="display:none"></div>
+  <div class="cursor cursor-ring" id="cursorRing" style="display:none"></div>
 
   <!-- NAV -->
-  <nav class="fixed w-full z-50 py-5 px-4 sm:px-8 bg-black/80 backdrop-blur-md border-b border-white/5">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="index.html" class="font-display text-2xl font-bold tracking-tighter hover:text-emerald-300 transition-colors">LEVANT<span class="text-emerald-500">.</span></a>
-      <div class="hidden lg:flex items-center gap-7">
-        <a href="index.html" class="nav-link text-sm font-medium">HOME</a>
-        <a href="services.html" class="nav-link text-sm font-medium text-emerald-300">SERVICES</a>
-        <a href="work.html" class="nav-link text-sm font-medium">WORK</a>
-        <a href="audit.html" class="px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-200 hover:bg-emerald-500 hover:text-black transition-all flex items-center gap-2">
-          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-          FREE AUDIT
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">LEVANT<span>.</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="work.html" class="nav-link">Work</a>
+        <a href="audit.html" class="nav-audit">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          Free Audit
         </a>
-        <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-all">CONTACT</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
-      <button id="menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
-        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      <button id="menu-btn" aria-label="Open menu">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </nav>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform translate-x-full flex flex-col justify-center items-center gap-6 lg:hidden">
-    <button id="close-menu" class="absolute top-6 right-6 text-white p-2">
-      <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-    </button>
-    <a href="index.html" class="text-4xl font-display font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
-    <a href="services.html" class="text-4xl font-display font-bold text-emerald-300">SERVICES</a>
-    <a href="work.html" class="text-4xl font-display font-bold text-white hover:text-emerald-400 transition-colors">WORK</a>
-    <a href="audit.html" class="text-4xl font-display font-bold text-emerald-300">FREE AUDIT</a>
-    <a href="contact.html" class="text-4xl font-display font-bold text-emerald-300">CONTACT</a>
+  <div id="mobile-menu">
+    <button id="close-menu" aria-label="Close menu">✕</button>
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="services.html" class="mobile-link" style="color:var(--em-light)">Services</a>
+    <a href="work.html" class="mobile-link">Work</a>
+    <a href="audit.html" class="mobile-link" style="color:var(--em-light)">Free Audit</a>
+    <a href="contact.html" class="mobile-link" style="color:var(--em-light)">Contact</a>
   </div>
 
   <!-- HERO -->
-  <header class="relative pt-36 pb-24 overflow-hidden">
-    <div class="aurora" aria-hidden="true">
-      <div class="aurora-blob bg-emerald-700 w-[500px] h-[500px] -top-20 -left-20"></div>
-      <div class="aurora-blob bg-teal-600 w-80 h-80 top-10 right-10" style="animation-delay:-9s"></div>
-    </div>
-    <div class="absolute inset-0 opacity-[0.05]" style="background-image:linear-gradient(rgba(16,185,129,1) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,1) 1px,transparent 1px);background-size:64px 64px;"></div>
-    <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 60%,#0a0a0a 100%);"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-      <div class="badge mb-8"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>5 core services · Metro Detroit</div>
-      <h1 class="font-display font-bold leading-[0.88] tracking-tight mb-8">
-        <span class="block text-6xl md:text-7xl xl:text-8xl text-white">EVERYTHING</span>
-        <span class="block text-6xl md:text-7xl xl:text-8xl text-white">YOUR BUSINESS</span>
-        <span class="block text-6xl md:text-7xl xl:text-8xl text-gradient">NEEDS ONLINE.</span>
-      </h1>
-      <p class="text-gray-400 text-xl leading-relaxed max-w-2xl">From your first website to your Google ranking — we handle the digital side so you can focus on running your business.</p>
+  <header class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+
+      <!-- LEFT -->
+      <div>
+        <div class="status-pill"><span class="status-dot"></span>Metro Detroit · Clear Scope · Premium Visuals</div>
+        <div class="hero-eyebrow">What We Do</div>
+        <h1 class="hero-h1">
+          SERVICES<br>BUILT FOR<br>
+          <span class="em">CREDIBILITY</span><br>
+          <span class="outline">&amp; CONVERSION.</span>
+        </h1>
+        <p class="hero-sub">Websites, branding, graphics, SEO setup, and Google Business Profile support — designed to make you look established and help customers take action.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn-primary">
+            Request a Quote
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#services" class="btn-ghost">
+            Explore Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Service Map Card -->
+      <div class="service-map-card">
+        <div class="card-header">
+          <span class="card-header-label">Service Map</span>
+          <span class="card-header-badge">What You Get</span>
+        </div>
+
+        <div class="svc-map-row">
+          <div class="svc-map-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div style="flex:1">
+            <div class="svc-map-name">Website creation / redesign</div>
+            <div class="svc-map-sub">Structure · layout · mobile · speed</div>
+          </div>
+          <span class="svc-map-arrow">→</span>
+        </div>
+
+        <div class="svc-map-row">
+          <div class="svc-map-icon">
+            <svg viewBox="0 0 24 24"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <div style="flex:1">
+            <div class="svc-map-name">Branding + logo design</div>
+            <div class="svc-map-sub">A look that feels established</div>
+          </div>
+          <span class="svc-map-arrow">→</span>
+        </div>
+
+        <div class="svc-map-row">
+          <div class="svc-map-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div style="flex:1">
+            <div class="svc-map-name">Graphic design</div>
+            <div class="svc-map-sub">Web + social + posts as needed</div>
+          </div>
+          <span class="svc-map-arrow">→</span>
+        </div>
+
+        <div class="svc-map-row">
+          <div class="svc-map-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <div style="flex:1">
+            <div class="svc-map-name">SEO setup</div>
+            <div class="svc-map-sub">On-page foundations done right</div>
+          </div>
+          <span class="svc-map-arrow">→</span>
+        </div>
+
+        <div class="svc-map-row">
+          <div class="svc-map-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div style="flex:1">
+            <div class="svc-map-name">Google Business support</div>
+            <div class="svc-map-sub">Posting + profile consistency</div>
+          </div>
+          <span class="svc-map-arrow">→</span>
+        </div>
+
+        <div class="card-footer-note">Stack services for a full presence — or pick what you need.</div>
+      </div>
+
     </div>
   </header>
 
   <!-- MARQUEE -->
-  <div class="py-4 overflow-hidden border-y border-emerald-500/25 bg-emerald-500">
-    <div class="marquee-wrap font-display text-4xl md:text-5xl font-bold uppercase tracking-tighter text-black">
-      <div class="marquee-track select-none">
-        <span class="mx-8">Website Creation</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Website Redesign</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Branding</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Logo Design</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">SEO Setup</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Google Business Profile</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Website Creation</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Website Redesign</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Branding</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Logo Design</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">SEO Setup</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Google Business Profile</span><span class="mx-6 opacity-40">✦</span>
-      </div>
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Website Creation</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Website Redesign</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Logo Design</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Graphic Design</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">SEO Setup</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Google Business Profile</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Website Creation</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Website Redesign</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Logo Design</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Graphic Design</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">SEO Setup</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Google Business Profile</span><span class="marquee-item marquee-sep"> ✦ </span>
     </div>
   </div>
 
   <!-- SERVICES -->
-  <main class="bg-neutral-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main id="services">
+    <div class="section" style="border-top:1px solid var(--border)">
+      <div class="section-inner">
+        <div class="section-label reveal">Our Services</div>
 
-      <!-- 01 Website Creation -->
-      <div class="svc-row reveal">
-        <div class="svc-content relative">
-          <span class="svc-number">01</span>
-          <span class="svc-tag">Most popular</span>
-          <h2 class="svc-headline">Website Creation<br>&amp; Redesign</h2>
-          <p class="svc-desc">A modern site that looks premium, loads fast, and turns visitors into customers. Built mobile-first, every time.</p>
-          <ul class="svc-items">
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Multi-page structure with clear conversion flow</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mobile-first layout and fast performance</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Clean sections, strong visual hierarchy</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>You own all assets on delivery</li>
-          </ul>
-          <div class="svc-cta">
-            <a href="work.html" class="btn-p">View work <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-            <a href="contact.html" class="btn-g">Get a quote</a>
+        <!-- 01 Website Creation -->
+        <div class="svc-row reveal">
+          <div class="svc-content" style="position:relative">
+            <span class="svc-number">01</span>
+            <span class="svc-tag">Most popular</span>
+            <h2 class="svc-headline">Website Creation<br>&amp; Redesign</h2>
+            <p class="svc-desc">A modern site that looks premium, loads fast, and turns visitors into customers. Built mobile-first, every time.</p>
+            <ul class="svc-items">
+              <li>Multi-page structure with clear conversion flow</li>
+              <li>Mobile-first layout and fast performance</li>
+              <li>Clean sections, strong visual hierarchy</li>
+              <li>You own all assets on delivery</li>
+            </ul>
+            <div class="svc-cta">
+              <a href="work.html" class="btn-primary">View work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              <a href="contact.html" class="btn-ghost">Get a quote</a>
+            </div>
           </div>
-        </div>
-        <div class="svc-visual">
-          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/8 to-transparent"></div>
-          <div class="svc-visual-inner">
-            <div class="rounded-2xl bg-black/60 border border-white/10 overflow-hidden">
-              <div class="px-4 py-3 border-b border-white/8 flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500/70"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500/70"></span>
-                <span class="w-3 h-3 rounded-full bg-emerald-500/70"></span>
-                <div class="flex-1 mx-4 bg-white/5 rounded-full h-5 flex items-center px-3"><span class="text-xs text-gray-600 font-mono">yoursite.com</span></div>
-              </div>
-              <div class="p-4 space-y-3">
-                <div class="h-24 rounded-xl bg-gradient-to-br from-emerald-500/12 to-transparent border border-emerald-500/12 flex items-end p-3">
-                  <div class="space-y-1.5 w-full">
-                    <div class="h-2.5 bg-white/25 rounded-full w-3/4"></div>
-                    <div class="h-2 bg-white/12 rounded-full w-1/2"></div>
+          <div class="svc-visual">
+            <div class="absolute inset-0" style="background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(16,185,129,0.06),transparent)"></div>
+            <div class="svc-visual-inner">
+              <div class="browser">
+                <div class="browser-bar">
+                  <div class="browser-dot" style="background:#ff5f57"></div>
+                  <div class="browser-dot" style="background:#febc2e"></div>
+                  <div class="browser-dot" style="background:#28c840"></div>
+                  <div class="browser-url">yoursite.com</div>
+                </div>
+                <div class="browser-body" style="display:flex;flex-direction:column;gap:10px">
+                  <div style="height:64px;background:linear-gradient(135deg,rgba(16,185,129,0.1),transparent);border:1px solid rgba(16,185,129,0.12);display:flex;align-items:flex-end;padding:10px">
+                    <div style="display:flex;flex-direction:column;gap:4px;width:100%">
+                      <div style="height:8px;background:rgba(255,255,255,0.2);border-radius:2px;width:60%"></div>
+                      <div style="height:6px;background:rgba(255,255,255,0.1);border-radius:2px;width:40%"></div>
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+                    <div style="height:44px;background:rgba(255,255,255,0.03);border:1px solid var(--border)"></div>
+                    <div style="height:44px;background:rgba(255,255,255,0.03);border:1px solid var(--border)"></div>
+                    <div style="height:44px;background:rgba(255,255,255,0.03);border:1px solid var(--border)"></div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:5px">
+                    <div style="height:6px;background:rgba(255,255,255,0.07);border-radius:2px;width:100%"></div>
+                    <div style="height:6px;background:rgba(255,255,255,0.07);border-radius:2px;width:80%"></div>
+                    <div style="height:6px;background:rgba(255,255,255,0.07);border-radius:2px;width:90%"></div>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <div style="height:28px;flex:1;background:rgba(16,185,129,0.2);border:1px solid rgba(16,185,129,0.3)"></div>
+                    <div style="height:28px;flex:1;background:rgba(255,255,255,0.04);border:1px solid var(--border)"></div>
                   </div>
                 </div>
-                <div class="grid grid-cols-3 gap-2">
-                  <div class="h-14 rounded-lg bg-white/4 border border-white/6"></div>
-                  <div class="h-14 rounded-lg bg-white/4 border border-white/6"></div>
-                  <div class="h-14 rounded-lg bg-white/4 border border-white/6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 Branding -->
+        <div class="svc-row reveal" style="transition-delay:.05s">
+          <div class="svc-visual" style="order:2">
+            <div class="absolute inset-0" style="background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(16,185,129,0.05),transparent)"></div>
+            <div class="svc-visual-inner" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem">
+              <div style="width:80px;height:80px;border:1px solid rgba(16,185,129,0.25);display:grid;place-items:center;background:rgba(16,185,129,0.06)">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--em-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+              </div>
+              <div style="display:flex;gap:8px">
+                <div style="width:36px;height:36px;background:var(--em)"></div>
+                <div style="width:36px;height:36px;background:var(--em-dim)"></div>
+                <div style="width:36px;height:36px;background:#f0f0f0"></div>
+                <div style="width:36px;height:36px;background:#2a2a2a"></div>
+                <div style="width:36px;height:36px;background:#050505;border:1px solid var(--border)"></div>
+              </div>
+              <div style="text-align:center">
+                <div style="font-family:var(--font-display);font-size:2rem;letter-spacing:0.05em;color:var(--text)">LEVANT</div>
+                <div style="font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:4px">Digital Marketing</div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-content" style="position:relative;order:1">
+            <span class="svc-number">02</span>
+            <span class="svc-tag">Identity</span>
+            <h2 class="svc-headline">Branding &amp;<br>Logo Design</h2>
+            <p class="svc-desc">A logo and brand system that makes your business look legitimate and consistent everywhere customers find you.</p>
+            <ul class="svc-items">
+              <li>Logo design with multiple variations</li>
+              <li>Color palette and typography system</li>
+              <li>Consistent look across web and print</li>
+              <li>All source files delivered to you</li>
+            </ul>
+            <div class="svc-cta">
+              <a href="contact.html" class="btn-primary">Get a quote</a>
+              <a href="work.html" class="btn-ghost">See examples</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 Graphic Design -->
+        <div class="svc-row reveal" style="transition-delay:.08s">
+          <div class="svc-content" style="position:relative">
+            <span class="svc-number">03</span>
+            <span class="svc-tag">Visual assets</span>
+            <h2 class="svc-headline">Graphic<br>Design</h2>
+            <p class="svc-desc">Social media graphics, flyers, banners, and business materials — designed to match your brand and get noticed.</p>
+            <ul class="svc-items">
+              <li>Social media graphics and templates</li>
+              <li>Flyers, banners, and print materials</li>
+              <li>On-brand visuals that look professional</li>
+              <li>Fast turnaround on individual assets</li>
+            </ul>
+            <div class="svc-cta">
+              <a href="contact.html" class="btn-primary">Get a quote</a>
+            </div>
+          </div>
+          <div class="svc-visual">
+            <div class="absolute inset-0" style="background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(16,185,129,0.05),transparent)"></div>
+            <div class="svc-visual-inner" style="display:flex;flex-direction:column;gap:10px">
+              <div style="background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(16,185,129,0.03));border:1px solid rgba(16,185,129,0.18);padding:14px;display:flex;align-items:center;gap:12px">
+                <div style="width:36px;height:36px;background:rgba(16,185,129,0.25);flex-shrink:0"></div>
+                <div style="display:flex;flex-direction:column;gap:5px;flex:1">
+                  <div style="height:8px;background:rgba(255,255,255,0.2);width:70%"></div>
+                  <div style="height:6px;background:rgba(255,255,255,0.1);width:45%"></div>
                 </div>
-                <div class="space-y-2">
-                  <div class="h-2 rounded-full bg-white/8 w-full"></div>
-                  <div class="h-2 rounded-full bg-white/8 w-4/5"></div>
-                  <div class="h-2 rounded-full bg-white/8 w-5/6"></div>
-                </div>
-                <div class="flex gap-2">
-                  <div class="h-8 rounded-full bg-emerald-500/30 border border-emerald-500/30 flex-1"></div>
-                  <div class="h-8 rounded-full bg-white/5 border border-white/8 w-1/2"></div>
+              </div>
+              <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);padding:14px;display:flex;align-items:center;gap:12px">
+                <div style="width:36px;height:36px;background:rgba(255,255,255,0.07);flex-shrink:0"></div>
+                <div style="display:flex;flex-direction:column;gap:5px;flex:1">
+                  <div style="height:8px;background:rgba(255,255,255,0.15);width:80%"></div>
+                  <div style="height:6px;background:rgba(255,255,255,0.08);width:55%"></div>
                 </div>
               </div>
+              <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);padding:14px;display:flex;align-items:center;gap:12px">
+                <div style="width:36px;height:36px;background:rgba(255,255,255,0.07);flex-shrink:0"></div>
+                <div style="display:flex;flex-direction:column;gap:5px;flex:1">
+                  <div style="height:8px;background:rgba(255,255,255,0.15);width:60%"></div>
+                  <div style="height:6px;background:rgba(255,255,255,0.08);width:40%"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- 02 Branding -->
-      <div class="svc-row reveal" style="transition-delay:.05s">
-        <div class="svc-visual order-2 lg:order-1">
-          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent"></div>
-          <div class="svc-visual-inner flex flex-col items-center gap-6">
-            <div class="w-28 h-28 rounded-3xl border border-emerald-500/25 bg-emerald-500/8 flex items-center justify-center">
-              <svg class="w-14 h-14 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-            </div>
-            <div class="flex gap-2">
-              <div class="w-10 h-10 rounded-xl bg-emerald-500"></div>
-              <div class="w-10 h-10 rounded-xl bg-emerald-800"></div>
-              <div class="w-10 h-10 rounded-xl bg-neutral-100"></div>
-              <div class="w-10 h-10 rounded-xl bg-neutral-700"></div>
-              <div class="w-10 h-10 rounded-xl bg-neutral-950 border border-white/10"></div>
-            </div>
-            <div class="text-center">
-              <div class="font-display text-3xl font-bold text-white tracking-tight">LEVANT</div>
-              <div class="text-xs text-gray-600 tracking-[0.3em] uppercase mt-1">Digital Marketing</div>
-            </div>
-          </div>
-        </div>
-        <div class="svc-content relative order-1 lg:order-2">
-          <span class="svc-number">02</span>
-          <span class="svc-tag">Identity</span>
-          <h2 class="svc-headline">Branding &amp;<br>Logo Design</h2>
-          <p class="svc-desc">A logo and brand system that makes your business look legitimate and consistent everywhere customers find you.</p>
-          <ul class="svc-items">
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Logo design with multiple variations</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Color palette and typography system</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Consistent look across web and print</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>All source files delivered to you</li>
-          </ul>
-          <div class="svc-cta">
-            <a href="contact.html" class="btn-p">Get a quote</a>
-            <a href="work.html" class="btn-g">See examples</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 03 Graphic Design -->
-      <div class="svc-row reveal" style="transition-delay:.08s">
-        <div class="svc-content relative">
-          <span class="svc-number">03</span>
-          <span class="svc-tag">Visual assets</span>
-          <h2 class="svc-headline">Graphic<br>Design</h2>
-          <p class="svc-desc">Social media graphics, flyers, banners, and business materials — designed to match your brand and get noticed.</p>
-          <ul class="svc-items">
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Social media graphics and templates</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Flyers, banners, and print materials</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>On-brand visuals that look professional</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Fast turnaround on individual assets</li>
-          </ul>
-          <div class="svc-cta">
-            <a href="contact.html" class="btn-p">Get a quote</a>
-          </div>
-        </div>
-        <div class="svc-visual">
-          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/6 to-transparent"></div>
-          <div class="svc-visual-inner space-y-3">
-            <div class="rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-900/20 border border-emerald-500/20 p-5 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-xl bg-emerald-500/30 flex-shrink-0"></div>
-              <div class="space-y-1.5 flex-1">
-                <div class="h-2.5 bg-white/25 rounded-full w-3/4"></div>
-                <div class="h-2 bg-white/12 rounded-full w-1/2"></div>
+        <!-- 04 SEO -->
+        <div class="svc-row reveal" style="transition-delay:.1s">
+          <div class="svc-visual" style="order:2">
+            <div class="absolute inset-0" style="background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(16,185,129,0.05),transparent)"></div>
+            <div class="svc-visual-inner" style="display:flex;flex-direction:column;gap:10px">
+              <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);padding:12px">
+                <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);margin-bottom:6px">yoursite.com</div>
+                <div style="height:8px;background:rgba(100,150,255,0.35);width:70%;margin-bottom:8px"></div>
+                <div style="height:5px;background:rgba(255,255,255,0.08);width:100%;margin-bottom:4px"></div>
+                <div style="height:5px;background:rgba(255,255,255,0.08);width:85%"></div>
               </div>
-            </div>
-            <div class="rounded-2xl bg-white/3 border border-white/8 p-5 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-xl bg-white/10 flex-shrink-0"></div>
-              <div class="space-y-1.5 flex-1">
-                <div class="h-2.5 bg-white/20 rounded-full w-4/5"></div>
-                <div class="h-2 bg-white/10 rounded-full w-2/3"></div>
-              </div>
-            </div>
-            <div class="rounded-2xl bg-white/3 border border-white/8 p-5 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-xl bg-white/10 flex-shrink-0"></div>
-              <div class="space-y-1.5 flex-1">
-                <div class="h-2.5 bg-white/20 rounded-full w-2/3"></div>
-                <div class="h-2 bg-white/10 rounded-full w-1/2"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 04 SEO -->
-      <div class="svc-row reveal" style="transition-delay:.1s">
-        <div class="svc-visual order-2 lg:order-1">
-          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent"></div>
-          <div class="svc-visual-inner space-y-3">
-            <div class="rounded-xl bg-white/3 border border-white/8 p-4">
-              <div class="text-xs text-gray-600 font-mono mb-1">yoursite.com</div>
-              <div class="h-2.5 bg-blue-400/40 rounded w-3/4 mb-1.5"></div>
-              <div class="space-y-1">
-                <div class="h-1.5 bg-white/10 rounded w-full"></div>
-                <div class="h-1.5 bg-white/10 rounded w-5/6"></div>
-              </div>
-            </div>
-            <div class="rounded-xl border border-emerald-500/20 bg-emerald-500/8 p-4 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              </div>
-              <div>
-                <div class="text-xs text-emerald-300 font-semibold">Google visibility</div>
-                <div class="text-xs text-gray-500 mt-0.5">Clean structure · proper metadata</div>
-              </div>
-            </div>
-            <div class="rounded-xl bg-white/3 border border-white/8 p-4 space-y-2.5">
-              <div class="flex justify-between text-xs text-gray-500"><span>Page structure</span><span class="text-emerald-400">✓ Good</span></div>
-              <div class="flex justify-between text-xs text-gray-500"><span>Meta titles</span><span class="text-emerald-400">✓ Set</span></div>
-              <div class="flex justify-between text-xs text-gray-500"><span>Internal links</span><span class="text-emerald-400">✓ Clean</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="svc-content relative order-1 lg:order-2">
-          <span class="svc-number">04</span>
-          <span class="svc-tag">Visibility</span>
-          <h2 class="svc-headline">SEO<br>Foundations</h2>
-          <p class="svc-desc">We set up the technical basics that help Google understand and index your site. Not a magic bullet — a solid foundation.</p>
-          <ul class="svc-items">
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>On-page structure — headings, metadata, titles</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Internal linking and page hierarchy</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Technical readiness for Google indexing</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>No fake guarantees — transparent expectations</li>
-          </ul>
-          <div class="svc-cta">
-            <a href="audit.html" class="btn-p">Get free audit <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></a>
-            <a href="contact.html" class="btn-g">Get a quote</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 05 Google Business Profile -->
-      <div class="svc-row reveal" style="transition-delay:.12s">
-        <div class="svc-content relative">
-          <span class="svc-number">05</span>
-          <span class="svc-tag">Local presence</span>
-          <h2 class="svc-headline">Google Business<br>Profile</h2>
-          <p class="svc-desc">Your Google Business Profile is often the first thing customers see. We keep it active, complete, and working for you.</p>
-          <ul class="svc-items">
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Profile setup and full optimization</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Regular posting support on your schedule</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Photos, categories, and business info</li>
-            <li><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Local search presence across Metro Detroit</li>
-          </ul>
-          <div class="svc-cta">
-            <a href="contact.html" class="btn-p">Get a quote</a>
-            <a href="audit.html" class="btn-g">Free GBP audit</a>
-          </div>
-        </div>
-        <div class="svc-visual">
-          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/6 to-transparent"></div>
-          <div class="svc-visual-inner space-y-3">
-            <div class="rounded-2xl bg-white/3 border border-white/10 p-5">
-              <div class="flex items-start gap-3 mb-4">
-                <div class="w-12 h-12 rounded-xl bg-emerald-500/25 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);padding:12px;display:flex;align-items:center;gap:12px">
+                <div style="width:36px;height:36px;border:1px solid rgba(16,185,129,0.25);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--em-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                 </div>
                 <div>
-                  <div class="h-2.5 bg-white/25 rounded w-28 mb-1.5"></div>
-                  <div class="h-2 bg-white/10 rounded w-20"></div>
+                  <div style="font-size:0.78rem;font-weight:500;color:var(--em-light)">Google visibility</div>
+                  <div style="font-family:var(--font-mono);font-size:0.58rem;color:var(--muted);margin-top:2px">Clean structure · proper metadata</div>
                 </div>
               </div>
-              <div class="flex items-center gap-1 mb-3">
-                <span class="text-yellow-400 text-sm">★★★★★</span>
-                <span class="text-xs text-gray-500 ml-1">4.9 · 48 reviews</span>
-              </div>
-              <div class="flex gap-2">
-                <div class="h-7 rounded-full bg-emerald-500/20 border border-emerald-500/25 flex-1"></div>
-                <div class="h-7 rounded-full bg-white/5 border border-white/8 flex-1"></div>
+              <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);padding:12px;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.6rem;color:var(--muted)"><span>Page structure</span><span style="color:var(--em)">✓ Good</span></div>
+                <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.6rem;color:var(--muted)"><span>Meta titles</span><span style="color:var(--em)">✓ Set</span></div>
+                <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.6rem;color:var(--muted)"><span>Internal links</span><span style="color:var(--em)">✓ Clean</span></div>
               </div>
             </div>
-            <div class="rounded-xl border border-emerald-500/20 bg-emerald-500/8 p-3.5 flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
-              <div>
-                <div class="text-xs text-emerald-300 font-semibold">Profile active &amp; posting</div>
-                <div class="text-xs text-gray-600 mt-0.5">Last post: 2 days ago</div>
+          </div>
+          <div class="svc-content" style="position:relative;order:1">
+            <span class="svc-number">04</span>
+            <span class="svc-tag">Visibility</span>
+            <h2 class="svc-headline">SEO<br>Foundations</h2>
+            <p class="svc-desc">We set up the technical basics that help Google understand and index your site. Not a magic bullet — a solid foundation.</p>
+            <ul class="svc-items">
+              <li>On-page structure — headings, metadata, titles</li>
+              <li>Internal linking and page hierarchy</li>
+              <li>Technical readiness for Google indexing</li>
+              <li>No fake guarantees — transparent expectations</li>
+            </ul>
+            <div class="svc-cta">
+              <a href="audit.html" class="btn-primary">Get free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></a>
+              <a href="contact.html" class="btn-ghost">Get a quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 Google Business Profile -->
+        <div class="svc-row reveal" style="transition-delay:.12s">
+          <div class="svc-content" style="position:relative">
+            <span class="svc-number">05</span>
+            <span class="svc-tag">Local presence</span>
+            <h2 class="svc-headline">Google Business<br>Profile</h2>
+            <p class="svc-desc">Your Google Business Profile is often the first thing customers see. We keep it active, complete, and working for you.</p>
+            <ul class="svc-items">
+              <li>Profile setup and full optimization</li>
+              <li>Regular posting support on your schedule</li>
+              <li>Photos, categories, and business info</li>
+              <li>Local search presence across Metro Detroit</li>
+            </ul>
+            <div class="svc-cta">
+              <a href="contact.html" class="btn-primary">Get a quote</a>
+              <a href="audit.html" class="btn-ghost">Free GBP audit</a>
+            </div>
+          </div>
+          <div class="svc-visual">
+            <div class="absolute inset-0" style="background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(16,185,129,0.05),transparent)"></div>
+            <div class="svc-visual-inner" style="display:flex;flex-direction:column;gap:10px">
+              <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);padding:16px">
+                <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px">
+                  <div style="width:44px;height:44px;border:1px solid rgba(16,185,129,0.2);display:grid;place-items:center;flex-shrink:0;background:rgba(16,185,129,0.06)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--em-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div>
+                    <div style="height:8px;background:rgba(255,255,255,0.2);width:120px;margin-bottom:5px"></div>
+                    <div style="height:6px;background:rgba(255,255,255,0.1);width:80px"></div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px">
+                  <span style="color:#facc15;font-size:0.85rem">★★★★★</span>
+                  <span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--muted)">4.9 · 48 reviews</span>
+                </div>
+                <div style="display:flex;gap:6px">
+                  <div style="height:28px;flex:1;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.25)"></div>
+                  <div style="height:28px;flex:1;background:rgba(255,255,255,0.03);border:1px solid var(--border)"></div>
+                </div>
+              </div>
+              <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);padding:12px;display:flex;align-items:center;gap:10px">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--em);animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0"></div>
+                <div>
+                  <div style="font-size:0.78rem;font-weight:500;color:var(--em-light)">Profile active &amp; posting</div>
+                  <div style="font-family:var(--font-mono);font-size:0.58rem;color:var(--muted);margin-top:2px">Last post: 2 days ago</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
 
     <!-- CTA -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 reveal">
-      <div class="cta-card p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-        <div>
-          <div class="badge mb-5">Ready when you are</div>
-          <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-4">Not sure where<br>to start?</h2>
-          <p class="text-gray-500 text-lg max-w-md">Get a free professional audit. We'll show you exactly where you rank on Google and what needs to be fixed — no obligation.</p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-4 flex-shrink-0">
-          <a href="audit.html" class="glow-btn inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-black font-bold rounded-full hover:bg-emerald-400 hover:scale-105 transition-all">
-            Get free audit
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-          </a>
-          <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 border border-emerald-500/50 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
-            Contact us
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+    <div class="section" style="padding-top:0">
+      <div class="section-inner reveal">
+        <div class="cta-box">
+          <div>
+            <div class="section-label" style="margin-bottom:0.8rem">Ready when you are</div>
+            <h2 class="cta-h2">NOT SURE<br>WHERE TO START?</h2>
+            <p class="cta-sub">Get a free professional audit. We'll show you exactly where you rank on Google and what needs to be fixed — no obligation.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="audit.html" class="btn-primary">
+              Get Free Audit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </a>
+            <a href="contact.html" class="btn-ghost">Contact Us</a>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-black border-t border-white/8 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="font-display text-2xl font-bold">LEVANT<span class="text-emerald-500">.</span></div>
-      <div class="flex gap-8 text-sm text-gray-500 flex-wrap justify-center">
-        <a href="index.html" class="hover:text-emerald-300 transition-colors">Home</a>
-        <a href="services.html" class="text-emerald-300">Services</a>
-        <a href="work.html" class="hover:text-emerald-300 transition-colors">Work</a>
-        <a href="audit.html" class="hover:text-emerald-300 transition-colors">Free Audit</a>
-        <a href="contact.html" class="hover:text-emerald-300 transition-colors">Contact</a>
-      </div>
-      <div class="text-gray-600 text-sm">© 2026 Levant Digital Marketing.</div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">LEVANT<span>.</span></div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html" style="color:var(--em-light)">Services</a>
+        <a href="work.html">Work</a>
+        <a href="audit.html">Free Audit</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
     </div>
   </footer>
 
-  <script src="assets/app.js"></script>
   <script>
-    const dot = document.querySelector('.cursor-dot');
-    const outline = document.querySelector('.cursor-outline');
-    document.addEventListener('mousemove', e => {
-      if (dot) { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; }
-      if (outline) { outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px'; }
-    });
-    document.getElementById('menu-btn')?.addEventListener('click', () => document.getElementById('mobile-menu').style.transform = 'translateX(0)');
-    document.getElementById('close-menu')?.addEventListener('click', () => document.getElementById('mobile-menu').style.transform = 'translateX(100%)');
-    document.getElementById('mobile-menu')?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => document.getElementById('mobile-menu').style.transform = 'translateX(100%)'));
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Cursor
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (window.matchMedia('(pointer:fine)').matches) {
+      dot.style.display = 'block'; ring.style.display = 'block';
+      let mx=0,my=0,rx=0,ry=0;
+      document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+      const tick = () => {
+        dot.style.left=mx+'px'; dot.style.top=my+'px';
+        rx+=(mx-rx)*0.13; ry+=(my-ry)*0.13;
+        ring.style.left=rx+'px'; ring.style.top=ry+'px';
+        requestAnimationFrame(tick);
+      };
+      tick();
+      document.querySelectorAll('a,button').forEach(el => {
+        el.addEventListener('mouseenter', () => { ring.style.width='52px'; ring.style.height='52px'; ring.style.borderColor='var(--em)'; });
+        el.addEventListener('mouseleave', () => { ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='rgba(16,185,129,0.5)'; });
+      });
+    }
+
+    // Nav scroll
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive:true });
+
+    // Mobile menu
+    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
+    document.getElementById('close-menu').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
+
+    // Reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }});
+    }, { threshold:0.07 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
 </body>
 </html>
