@@ -5,540 +5,453 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Levant Digital Marketing</title>
   <meta name="description" content="Contact Levant Digital Marketing for website creation, redesign, branding, logos, SEO, and Google Business Profile posting." />
+  <meta name="theme-color" content="#10b981" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans:['DM Sans','sans-serif'], display:['Bebas Neue','sans-serif'], mono:['JetBrains Mono','monospace'] }
-          colors: {
-            emerald: { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b',950:'#022c22' }
-          }
-        }
-      }
-    }
-  </script>
-
-  <link rel="stylesheet" href="assets/style.css" />
-
   <style>
-    /* ── Grain ── */
-    .grain {
-      position:fixed; inset:0; z-index:999; pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-      opacity:0.55;
+    :root {
+      --em: #10b981;
+      --em-light: #34d399;
+      --em-dim: #065f46;
+      --em-glow: rgba(16,185,129,0.18);
+      --black: #050505;
+      --surface: #0d0d0d;
+      --surface2: #141414;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0f0f0;
+      --muted: #6b7280;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
-    /* ── Cursor ── */
-    .cursor-dot {
-      width:8px; height:8px; background:#10b981; border-radius:50%;
-      position:fixed; top:0; left:0; pointer-events:none; z-index:9999;
-      transform:translate(-50%,-50%);
-    }
-    .cursor-outline {
-      width:36px; height:36px; border:1.5px solid rgba(16,185,129,0.5); border-radius:50%;
-      position:fixed; top:0; left:0; pointer-events:none; z-index:9998;
-      transform:translate(-50%,-50%); transition:all .18s ease;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body { font-family: var(--font-body); background: var(--black); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--em); color: #000; }
 
-    /* ── Nav link ── */
-    .nav-link { position:relative; color:rgba(255,255,255,0.7); }
-    .nav-link::after {
-      content:''; position:absolute; bottom:-4px; left:0; width:0; height:1.5px;
-      background:#10b981; transition:width .3s ease;
-    }
-    .nav-link:hover::after { width:100%; }
-    .nav-link:hover { color:#6ee7b7; }
+    /* Noise */
+    body::before { content:''; position:fixed; inset:0; z-index:999; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); opacity:0.025; }
 
-    /* ── Badge ── */
-    .badge {
-      display:inline-flex; align-items:center; gap:6px;
-      padding:4px 12px; border-radius:9999px;
-      background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2);
-      font-size:0.75rem; font-weight:600; letter-spacing:0.08em;
-      color:#a7f3d0; text-transform:uppercase;
-    }
+    /* Cursor */
+    .cursor { position:fixed; pointer-events:none; z-index:9999; mix-blend-mode:difference; }
+    .cursor-dot { width:8px; height:8px; background:var(--em); border-radius:50%; transform:translate(-50%,-50%); }
+    .cursor-ring { width:36px; height:36px; border:1.5px solid rgba(16,185,129,0.5); border-radius:50%; transform:translate(-50%,-50%); transition:width .3s,height .3s; }
 
-    /* ── Text gradient ── */
-    .text-gradient {
-      background:linear-gradient(135deg,#34d399,#10b981,#6ee7b7);
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-    }
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:0 2rem; height:90px; display:flex; align-items:center; background:rgba(5,5,5,0.75); backdrop-filter:blur(18px) saturate(1.4); border-bottom:1px solid var(--border); transition:background .3s; }
+    nav.scrolled { background:rgba(5,5,5,0.96); }
+    .nav-inner { max-width:1400px; width:100%; margin:auto; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { font-family:var(--font-display); font-size:2.4rem; letter-spacing:0.02em; color:var(--text); text-decoration:none; line-height:1; }
+    .nav-logo span { color:var(--em); }
+    .nav-links { display:flex; align-items:center; gap:2.5rem; }
+    .nav-link { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .nav-link:hover { color:var(--em-light); }
+    .nav-audit { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.7rem 1.6rem; border:1.5px solid rgba(16,185,129,0.5); color:var(--em-light); text-decoration:none; transition:all .2s; font-weight:600; display:flex; align-items:center; gap:0.5rem; }
+    .nav-audit:hover { background:rgba(16,185,129,0.1); border-color:var(--em); }
+    .nav-cta { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.85rem 2rem; background:var(--em); color:#000; font-weight:700; text-decoration:none; transition:all .2s; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+    .nav-cta:hover { background:var(--em-light); transform:translateY(-1px); }
+    #menu-btn { display:none; background:none; border:none; cursor:pointer; color:var(--text); padding:0.5rem; }
+    #mobile-menu { display:none; position:fixed; inset:0; background:var(--black); z-index:90; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
+    #mobile-menu.open { display:flex; }
+    .mobile-link { font-family:var(--font-display); font-size:clamp(3rem,10vw,5rem); color:var(--text); text-decoration:none; letter-spacing:0.04em; transition:color .2s; }
+    .mobile-link:hover { color:var(--em); }
+    #close-menu { position:absolute; top:1.5rem; right:1.5rem; background:none; border:none; cursor:pointer; color:var(--text); font-size:3rem; line-height:1; padding:0.5rem; }
+    @media(max-width:900px){ .nav-links{display:none;} #menu-btn{display:block;} }
 
-    /* ── Text stroke ── */
-    .text-stroke { -webkit-text-stroke:2px rgba(16,185,129,0.7); color:transparent; }
+    /* HERO */
+    .hero { min-height:100vh; padding-top:90px; display:grid; place-items:center; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 15% 40%,rgba(16,185,129,0.11) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 85% 70%,rgba(16,185,129,0.05) 0%,transparent 55%); }
+    .hero-grid { position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(16,185,129,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,0.05) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 30%,transparent 90%); animation:grid-drift 22s linear infinite; }
+    @keyframes grid-drift { from{background-position:0 0} to{background-position:0 64px} }
 
-    /* ── Reveal ── */
-    .reveal {
-      opacity:0; transform:translateY(24px);
-      transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
-    }
-    .reveal.visible { opacity:1; transform:translateY(0); }
+    .hero-inner { position:relative; z-index:2; max-width:1400px; width:100%; margin:auto; padding:5rem 2rem 4rem; }
 
-    /* ── Aurora ── */
-    .aurora { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
-    .aurora-blob {
-      position:absolute; border-radius:9999px; filter:blur(90px); opacity:0.15;
-      animation:aurora-drift 20s ease-in-out infinite alternate;
-    }
-    @keyframes aurora-drift {
-      0%   { transform:translate(0,0) scale(1); }
-      50%  { transform:translate(40px,-30px) scale(1.08); }
-      100% { transform:translate(-20px,20px) scale(0.95); }
-    }
+    .status-pill { display:inline-flex; align-items:center; gap:0.5rem; padding:0.4rem 0.9rem; background:rgba(16,185,129,0.07); border:1px solid rgba(16,185,129,0.2); font-family:var(--font-mono); font-size:0.63rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--em-light); margin-bottom:1.5rem; }
+    .status-dot { width:6px; height:6px; border-radius:50%; background:var(--em); animation:pulse-dot 2s ease-in-out infinite; flex-shrink:0; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.4)} }
 
-    /* ── Gradient border ── */
-    .gradient-border {
-      background:linear-gradient(135deg,rgba(16,185,129,0.45),rgba(16,185,129,0.05),rgba(255,255,255,0.04));
-      padding:1px; border-radius:28px;
-    }
+    .hero-eyebrow { display:flex; align-items:center; gap:1rem; font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--em); margin-bottom:1.5rem; }
+    .hero-eyebrow::before { content:''; display:block; width:3rem; height:1px; background:var(--em); flex-shrink:0; }
 
-    /* ── Glass card ── */
-    .glass-card {
-      background:rgba(255,255,255,0.025);
-      border:1px solid rgba(255,255,255,0.07);
-      transition:border-color .3s, background .3s;
-    }
-    .glass-card:hover {
-      border-color:rgba(16,185,129,0.2);
-      background:rgba(16,185,129,0.03);
-    }
+    .hero-h1 { font-family:var(--font-display); font-size:clamp(5rem,12vw,11rem); line-height:0.92; letter-spacing:0.01em; color:var(--text); margin-bottom:1.5rem; }
+    .hero-h1 .em { color:var(--em); }
+    .hero-h1 .outline { -webkit-text-stroke:1.5px var(--em); color:transparent; }
+    .hero-sub { font-size:1rem; line-height:1.75; color:var(--muted); max-width:32rem; }
 
-    /* ── Form inputs ── */
-    .form-input {
-      width:100%;
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.09);
-      border-radius:14px;
-      padding:15px 18px;
-      color:white;
-      font-family:'DM Sans',sans-serif;
-      font-size:0.95rem;
-      outline:none;
-      transition:border-color .25s, background .25s, box-shadow .25s;
-      -webkit-appearance:none;
-    }
-    .form-input::placeholder { color:rgba(255,255,255,0.2); }
-    .form-input:focus {
-      border-color:rgba(16,185,129,0.5);
-      background:rgba(16,185,129,0.04);
-      box-shadow:0 0 0 3px rgba(16,185,129,0.1);
-    }
+    /* Deco letter */
+    .deco-letter { position:absolute; font-family:var(--font-display); line-height:1; -webkit-text-stroke:1px rgba(16,185,129,0.06); color:transparent; pointer-events:none; user-select:none; font-size:clamp(16rem,35vw,30rem); bottom:-4rem; right:-2rem; }
+
+    /* MARQUEE */
+    .marquee-wrap { border-top:2px solid #000; border-bottom:2px solid #000; background:var(--em); overflow:hidden; padding:0.85rem 0; }
+    .marquee-track { display:inline-flex; animation:marquee 32s linear infinite; }
+    .marquee-item { font-family:var(--font-display); font-size:clamp(2rem,4.5vw,3.2rem); letter-spacing:0.02em; text-transform:uppercase; color:#000; padding:0 2rem; white-space:nowrap; }
+    .marquee-sep { color:rgba(0,0,0,0.3); }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* MAIN LAYOUT */
+    .main-inner { max-width:1400px; margin:auto; padding:6rem 2rem; display:grid; grid-template-columns:1fr 1.5fr; gap:6rem; align-items:start; }
+    @media(max-width:1024px){ .main-inner{grid-template-columns:1fr;gap:4rem;} }
+    @media(max-width:600px){ .main-inner{padding:4rem 1.5rem;} }
+
+    /* LEFT PANEL */
+    .section-label { font-family:var(--font-mono); font-size:0.66rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--em); display:flex; align-items:center; gap:0.8rem; margin-bottom:1.5rem; }
+    .section-label::after { content:''; display:block; width:2rem; height:1px; background:var(--em); }
+
+    .step-row { display:flex; align-items:flex-start; gap:1rem; padding:1rem 0; border-bottom:1px solid var(--border); }
+    .step-row:last-child { border-bottom:none; }
+    .step-row:hover { padding-left:4px; transition:padding-left .3s; }
+    .step-icon { width:44px; height:44px; flex-shrink:0; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:center; }
+    .step-icon svg { width:18px; height:18px; stroke:var(--em-light); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .step-title { font-size:0.9rem; font-weight:600; color:var(--text); margin-bottom:4px; }
+    .step-desc { font-size:0.82rem; line-height:1.65; color:var(--muted); }
+
+    .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(16,185,129,0.25),transparent); margin:2.5rem 0; }
+
+    .contact-card { display:flex; align-items:center; gap:1rem; padding:1rem; border:1px solid var(--border); background:var(--surface); margin-bottom:0.75rem; transition:border-color .2s; }
+    .contact-card:hover { border-color:rgba(16,185,129,0.25); }
+    .contact-card-icon { width:44px; height:44px; flex-shrink:0; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:center; }
+    .contact-card-icon svg { width:18px; height:18px; stroke:var(--em-light); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .contact-card-label { font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
+    .contact-card-value { font-size:0.875rem; font-weight:500; color:var(--text); }
+
+    .audit-nudge { border:1px solid rgba(16,185,129,0.2); background:rgba(16,185,129,0.05); padding:1rem 1.25rem; margin-top:2rem; }
+    .audit-nudge-label { font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--em); margin-bottom:0.5rem; display:flex; align-items:center; gap:6px; }
+    .audit-nudge p { font-size:0.82rem; color:var(--muted); line-height:1.6; margin-bottom:0.75rem; }
+    .audit-nudge a { font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--em-light); text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+    .audit-nudge a:hover { color:var(--em); }
+
+    /* RIGHT PANEL: FORM */
+    .form-wrap { border:1px solid rgba(16,185,129,0.2); background:var(--surface); position:relative; }
+    .form-wrap::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--em),transparent); }
+    .form-header { padding:1.5rem 2rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .form-header-title { font-family:var(--font-display); font-size:1.8rem; letter-spacing:0.02em; color:var(--text); }
+    .open-badge { display:flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--em-light); }
+    .open-badge span { width:6px; height:6px; border-radius:50%; background:var(--em); animation:pulse-dot 2s ease-in-out infinite; }
+    .form-body { padding:2rem; }
+
+    .field-group { margin-bottom:1.25rem; }
+    .field-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem; }
+    @media(max-width:600px){ .field-row{grid-template-columns:1fr;} }
+    .field-label { display:block; font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:8px; }
+    .field-label span { text-transform:none; font-family:var(--font-body); letter-spacing:0; color:var(--muted); }
+    .form-input { width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); padding:13px 16px; color:var(--text); font-family:var(--font-body); font-size:0.9rem; outline:none; transition:border-color .25s,background .25s,box-shadow .25s; -webkit-appearance:none; border-radius:0; }
+    .form-input::placeholder { color:rgba(255,255,255,0.18); }
+    .form-input:focus { border-color:rgba(16,185,129,0.5); background:rgba(16,185,129,0.04); box-shadow:0 0 0 3px rgba(16,185,129,0.08); }
     textarea.form-input { resize:vertical; min-height:130px; }
     select.form-input option { background:#111; color:white; }
-    .field-label {
-      display:block; font-size:0.72rem; font-weight:600;
-      color:rgba(255,255,255,0.35); letter-spacing:0.1em;
-      text-transform:uppercase; margin-bottom:8px;
-    }
 
-    /* ── Glow pulse ── */
-    @keyframes glow-pulse {
-      0%,100% { box-shadow:0 0 20px rgba(16,185,129,0.3),0 0 40px rgba(16,185,129,0.1); }
-      50%      { box-shadow:0 0 40px rgba(16,185,129,0.5),0 0 80px rgba(16,185,129,0.2); }
-    }
-    .glow-btn { animation:glow-pulse 3s ease-in-out infinite; }
+    .btn-submit { width:100%; display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:1.1rem 2rem; background:var(--em); color:#000; font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; border:none; cursor:pointer; transition:all .2s; clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%); position:relative; overflow:hidden; }
+    .btn-submit::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent); transform:translateX(-100%); transition:transform .4s; }
+    .btn-submit:hover { background:var(--em-light); }
+    .btn-submit:hover::after { transform:translateX(100%); }
+    @keyframes glow-pulse { 0%,100%{box-shadow:0 0 20px rgba(16,185,129,0.3),0 0 40px rgba(16,185,129,0.1)} 50%{box-shadow:0 0 40px rgba(16,185,129,0.5),0 0 80px rgba(16,185,129,0.2)} }
+    .btn-submit { animation:glow-pulse 3s ease-in-out infinite; }
 
-    /* ── Divider ── */
-    .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(16,185,129,0.25),transparent); }
+    .form-note { font-family:var(--font-mono); font-size:0.58rem; letter-spacing:0.06em; color:var(--muted); text-align:center; margin-top:1rem; line-height:1.7; }
 
-    /* ── Contact info items ── */
-    .contact-item {
-      display:flex; align-items:flex-start; gap:16px;
-      padding:20px 0;
-      border-bottom:1px solid rgba(255,255,255,0.05);
-      transition:padding-left .3s;
-    }
-    .contact-item:hover { padding-left:4px; }
-    .contact-item:last-child { border-bottom:none; }
-    .contact-icon {
-      width:44px; height:44px; border-radius:12px; flex-shrink:0;
-      background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2);
-      display:flex; align-items:center; justify-content:center;
-    }
-
-    /* ── Big decorative letter ── */
-    .deco-letter {
-      position:absolute;
-      font-family:'Bebas Neue',sans-serif;
-      line-height:1;
-      -webkit-text-stroke:1px rgba(16,185,129,0.06);
-      color:transparent;
-      pointer-events:none;
-      user-select:none;
-    }
-
-    /* ── Success state ── */
-    #form-success { display:none; text-align:center; padding:48px 24px; }
+    /* Success state */
+    #form-success { display:none; padding:4rem 2rem; text-align:center; }
     #form-success.visible { display:block; }
+    .success-h { font-family:var(--font-display); font-size:3rem; letter-spacing:0.02em; color:var(--em); margin-bottom:0.5rem; }
+    .success-p { font-size:0.9rem; color:var(--muted); line-height:1.7; }
 
-    /* Mobile menu */
-    #mobile-menu { transition:transform .5s cubic-bezier(.76,0,.24,1); }
+    /* Form error */
+    #form-error { font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.08em; color:#f87171; margin-bottom:1rem; display:none; }
+    #form-error.show { display:block; }
 
-    /* ── Marquee ── */
-    .marquee-container { display:flex; overflow:hidden; white-space:nowrap; }
-    .marquee-content { display:flex; animation:marquee-scroll 30s linear infinite; }
-    @keyframes marquee-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    /* Reveal */
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    /* Footer */
+    footer { background:#000; border-top:1px solid var(--border); padding:3rem 2rem; }
+    .footer-inner { max-width:1400px; margin:auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; }
+    .footer-logo { font-family:var(--font-display); font-size:2rem; letter-spacing:0.02em; }
+    .footer-logo span { color:var(--em); }
+    .footer-links { display:flex; gap:2rem; flex-wrap:wrap; }
+    .footer-links a { font-family:var(--font-mono); font-size:0.63rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .footer-links a:hover { color:var(--em-light); }
+    .footer-copy { font-size:0.72rem; color:var(--muted); font-family:var(--font-mono); }
   </style>
 </head>
 
-<body class="font-sans antialiased selection:bg-emerald-500 selection:text-white bg-neutral-950 text-white overflow-x-hidden">
-  <div class="grain"></div>
-  <div class="cursor-dot hidden md:block"></div>
-  <div class="cursor-outline hidden md:block"></div>
+<body>
+  <div class="cursor cursor-dot" id="cursorDot" style="display:none"></div>
+  <div class="cursor cursor-ring" id="cursorRing" style="display:none"></div>
 
-  <!-- ═══════════ NAV ═══════════ -->
-  <nav class="fixed w-full z-50 text-white py-4 px-4 sm:px-8 bg-black/80 backdrop-blur-md border-b border-white/5">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="index.html" class="font-display text-2xl font-bold tracking-tighter hover:text-emerald-300 transition-colors">
-        LEVANT<span class="text-emerald-500">.</span>
-      </a>
-      <div class="hidden lg:flex items-center gap-6">
-        <a href="index.html" class="nav-link text-sm font-medium">HOME</a>
-        <a href="services.html" class="nav-link text-sm font-medium">SERVICES</a>
-        <a href="work.html" class="nav-link text-sm font-medium">WORK</a>
-        <a href="audit.html" class="nav-link px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-200 hover:bg-emerald-500 hover:text-black transition-all">
-          <span class="flex items-center gap-2">
-            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-            FREE AUDIT
-          </span>
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">LEVANT<span>.</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="work.html" class="nav-link">Work</a>
+        <a href="audit.html" class="nav-audit">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          Free Audit
         </a>
-        <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2 rounded-full text-sm font-bold transition-all">CONTACT</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
-      <button id="menu-btn" class="lg:hidden text-white" aria-label="Open menu">
-        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      <button id="menu-btn" aria-label="Open menu">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </nav>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform translate-x-full flex flex-col justify-center items-center gap-6 lg:hidden">
-    <button id="close-menu" class="absolute top-6 right-6 text-white">
-      <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-    </button>
-    <a href="index.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
-    <a href="services.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors">SERVICES</a>
-    <a href="work.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors">WORK</a>
-    <a href="audit.html" class="text-3xl font-display font-bold text-emerald-300">FREE AUDIT</a>
-    <a href="contact.html" class="text-3xl font-display font-bold text-emerald-300">CONTACT</a>
+  <div id="mobile-menu">
+    <button id="close-menu" aria-label="Close menu">✕</button>
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="services.html" class="mobile-link">Services</a>
+    <a href="work.html" class="mobile-link">Work</a>
+    <a href="audit.html" class="mobile-link" style="color:var(--em-light)">Free Audit</a>
+    <a href="contact.html" class="mobile-link" style="color:var(--em-light)">Contact</a>
   </div>
 
-  <!-- ═══════════ HERO ═══════════ -->
-  <header class="relative pt-32 pb-20 overflow-hidden">
-    <div class="aurora" aria-hidden="true">
-      <div class="aurora-blob bg-emerald-600 w-[600px] h-[600px] -top-32 -left-32"></div>
-      <div class="aurora-blob bg-teal-500 w-[400px] h-[400px] top-0 right-0" style="animation-delay:-7s;"></div>
-    </div>
-
-    <!-- Grid -->
-    <div class="absolute inset-0 opacity-[0.06]" style="background-image:linear-gradient(rgba(16,185,129,1) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,1) 1px,transparent 1px);background-size:64px 64px;"></div>
-
-    <!-- Vignette -->
-    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 90% 60% at 30% 0%,rgba(16,185,129,0.1),transparent 65%),linear-gradient(to bottom,transparent 50%,#0a0a0a 100%);"></div>
-
-    <!-- Big decorative text -->
-    <div class="deco-letter text-[20rem] md:text-[28rem] bottom-[-4rem] right-[-2rem]" aria-hidden="true">C</div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal">
-        <div class="badge mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          Taking new projects · Metro Detroit
-        </div>
-
-        <h1 class="font-display font-bold leading-[0.88] tracking-tight mb-8">
-          <span class="block text-7xl md:text-8xl xl:text-9xl text-white">LET'S</span>
-          <span class="block text-7xl md:text-8xl xl:text-9xl text-gradient">BUILD.</span>
-        </h1>
-
-        <p class="text-gray-400 text-xl leading-relaxed max-w-lg">
-          Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote.
-        </p>
-      </div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="deco-letter" aria-hidden="true">C</div>
+    <div class="hero-inner reveal">
+      <div class="status-pill"><span class="status-dot"></span>Taking new projects · Metro Detroit</div>
+      <div class="hero-eyebrow">Get In Touch</div>
+      <h1 class="hero-h1">
+        LET'S<br><span class="em">BUILD.</span>
+      </h1>
+      <p class="hero-sub">Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote.</p>
     </div>
   </header>
 
-  <!-- ═══════════ MARQUEE ═══════════ -->
-  <div class="py-4 overflow-hidden border-y border-emerald-500/25 bg-emerald-500">
-    <div class="marquee-container font-display text-4xl md:text-5xl font-bold uppercase tracking-tighter text-black">
-      <div class="marquee-content select-none">
-        <span class="mx-8">Website Creation</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Branding</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">SEO Setup</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Google Business</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Free Audit</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Metro Detroit</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Website Creation</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Branding</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">SEO Setup</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Google Business</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Free Audit</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Metro Detroit</span><span class="mx-6 opacity-40">✦</span>
-      </div>
+  <!-- MARQUEE -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Website Creation</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Branding</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">SEO Setup</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Google Business</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Free Audit</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Metro Detroit</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Website Creation</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Branding</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">SEO Setup</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Google Business</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Free Audit</span><span class="marquee-item marquee-sep"> ✦ </span>
+      <span class="marquee-item">Metro Detroit</span><span class="marquee-item marquee-sep"> ✦ </span>
     </div>
   </div>
 
-  <!-- ═══════════ MAIN ═══════════ -->
-  <main class="bg-neutral-950 py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-12 items-start">
+  <!-- MAIN -->
+  <main style="background:var(--black)">
+    <div class="main-inner">
 
-        <!-- ── LEFT: Info panel ── -->
-        <div class="lg:col-span-4 reveal">
+      <!-- LEFT: Info -->
+      <div class="reveal">
+        <div class="section-label">What happens next</div>
 
-          <!-- What to expect -->
-          <div class="mb-10">
-            <span class="text-emerald-400 font-mono text-xs tracking-[0.25em] uppercase block mb-4">What happens next</span>
-            <div class="space-y-0">
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg class="w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-                </div>
-                <div>
-                  <div class="font-semibold mb-0.5">You send a message</div>
-                  <p class="text-gray-500 text-sm leading-relaxed">Tell us what you're trying to build or fix. A few sentences is enough to get started.</p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg class="w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                </div>
-                <div>
-                  <div class="font-semibold mb-0.5">We respond fast</div>
-                  <p class="text-gray-500 text-sm leading-relaxed">No automated replies. A real person reviews your project and gets back to you directly.</p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg class="w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                </div>
-                <div>
-                  <div class="font-semibold mb-0.5">You get a clear quote</div>
-                  <p class="text-gray-500 text-sm leading-relaxed">Transparent scope, honest pricing, and a timeline. No surprises.</p>
-                </div>
-              </div>
-            </div>
+        <div class="step-row">
+          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></div>
+          <div>
+            <div class="step-title">You send a message</div>
+            <p class="step-desc">Tell us what you're trying to build or fix. A few sentences is enough to get started.</p>
           </div>
-
-          <div class="divider mb-10"></div>
-
-          <!-- Contact details -->
-          <div class="mb-10">
-            <span class="text-emerald-400 font-mono text-xs tracking-[0.25em] uppercase block mb-6">Direct contact</span>
-            <div class="space-y-4">
-              <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
-                <div class="contact-icon">
-                  <svg class="w-4 h-4 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                </div>
-                <div>
-                  <div class="text-xs text-gray-500 uppercase tracking-wider mb-0.5">Email</div>
-                  <div class="font-semibold text-sm">your@email.com</div>
-                </div>
-              </div>
-              <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
-                <div class="contact-icon">
-                  <svg class="w-4 h-4 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </div>
-                <div>
-                  <div class="text-xs text-gray-500 uppercase tracking-wider mb-0.5">Phone</div>
-                  <div class="font-semibold text-sm">(Your phone number)</div>
-                </div>
-              </div>
-              <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
-                <div class="contact-icon">
-                  <svg class="w-4 h-4 text-emerald-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <div>
-                  <div class="text-xs text-gray-500 uppercase tracking-wider mb-0.5">Location</div>
-                  <div class="font-semibold text-sm">Metro Detroit, MI</div>
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="step-row">
+          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div>
+            <div class="step-title">We respond fast</div>
+            <p class="step-desc">No automated replies. A real person reviews your project and gets back to you directly.</p>
           </div>
-
-          <!-- Free audit nudge -->
-          <div class="relative overflow-hidden rounded-2xl border border-emerald-500/20 p-5" style="background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.02));">
-            <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(16,185,129,0.4),transparent);"></div>
-            <div class="flex items-center gap-2 text-sm font-semibold text-emerald-300 mb-2">
-              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-              Not ready to commit?
-            </div>
-            <p class="text-gray-500 text-xs leading-relaxed mb-3">Get a free professional audit first — see exactly where you rank on Google and what needs fixing.</p>
-            <a href="audit.html" class="inline-flex items-center gap-2 text-emerald-300 text-xs font-bold hover:gap-3 transition-all">
-              Get free audit
-              <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
+        </div>
+        <div class="step-row">
+          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div>
+            <div class="step-title">You get a clear quote</div>
+            <p class="step-desc">Transparent scope, honest pricing, and a timeline. No surprises.</p>
           </div>
         </div>
 
-        <!-- ── RIGHT: Form ── -->
-        <div class="lg:col-span-8 reveal" style="transition-delay:.12s">
-          <div class="gradient-border">
-            <div class="rounded-[27px] bg-neutral-950 p-8 md:p-12 relative overflow-hidden">
-              <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(600px 400px at 80% 0%,rgba(16,185,129,0.05),transparent 60%);"></div>
+        <div class="divider"></div>
 
-              <!-- Success state -->
-              <div id="form-success">
-                <div class="w-20 h-20 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mx-auto mb-8">
-                  <svg class="w-10 h-10 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-                <h3 class="font-display text-4xl font-bold mb-3">Message sent.</h3>
-                <p class="text-gray-400 text-lg mb-8 max-w-md mx-auto">We'll review your project and get back to you with a clear plan and quote. Usually within 1 business day.</p>
-                <a href="work.html" class="inline-flex items-center gap-2 px-6 py-3 border border-emerald-500/40 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all text-sm">
-                  Browse our work
-                  <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-              </div>
+        <div class="section-label">Direct contact</div>
 
-              <!-- Form -->
-              <form id="contact-form" class="relative z-10" novalidate>
-                <div class="flex items-center justify-between mb-10">
-                  <h2 class="font-display text-3xl md:text-4xl font-bold">Project request</h2>
-                  <div class="badge">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Open for work
-                  </div>
-                </div>
-
-                <!-- Row 1: Name + Email -->
-                <div class="grid sm:grid-cols-2 gap-5 mb-5">
-                  <div>
-                    <label class="field-label" for="name">Your name</label>
-                    <input type="text" id="name" name="name" placeholder="Alex Johnson" class="form-input" required />
-                  </div>
-                  <div>
-                    <label class="field-label" for="email">Email address</label>
-                    <input type="email" id="email" name="email" placeholder="you@business.com" class="form-input" required />
-                  </div>
-                </div>
-
-                <!-- Row 2: Business + Phone -->
-                <div class="grid sm:grid-cols-2 gap-5 mb-5">
-                  <div>
-                    <label class="field-label" for="business">Business name</label>
-                    <input type="text" id="business" name="business" placeholder="Your Business Name" class="form-input" />
-                  </div>
-                  <div>
-                    <label class="field-label" for="phone">Phone <span class="normal-case font-normal text-gray-600">(optional)</span></label>
-                    <input type="tel" id="phone" name="phone" placeholder="(313) 555-0000" class="form-input" />
-                  </div>
-                </div>
-
-                <!-- Row 3: Service + Budget -->
-                <div class="grid sm:grid-cols-2 gap-5 mb-5">
-                  <div>
-                    <label class="field-label" for="service">Service needed</label>
-                    <select id="service" name="service" class="form-input" required>
-                      <option value="" disabled selected>Select a service…</option>
-                      <option>Website Creation</option>
-                      <option>Website Redesign</option>
-                      <option>Branding + Logo Design</option>
-                      <option>Graphic Design</option>
-                      <option>SEO Setup</option>
-                      <option>Google Business Profile</option>
-                      <option>Full package (multiple services)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label class="field-label" for="budget">Approximate budget</label>
-                    <select id="budget" name="budget" class="form-input">
-                      <option value="" disabled selected>Select a range…</option>
-                      <option>Under $1,000</option>
-                      <option>$1,000 – $3,000</option>
-                      <option>$3,000 – $7,500</option>
-                      <option>$7,500+</option>
-                      <option>Not sure yet</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- Message -->
-                <div class="mb-8">
-                  <label class="field-label" for="message">Tell us about your project</label>
-                  <textarea id="message" name="message" class="form-input" placeholder="What are you trying to build, redesign, or improve? The more context the better — we'll use this to put together a clear plan."></textarea>
-                </div>
-
-                <!-- Error -->
-                <p id="form-error" class="text-red-400 text-sm mb-4 hidden">Please fill in your name, email, and service.</p>
-
-                <!-- Submit -->
-                <button type="submit" class="glow-btn w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-emerald-500 text-black font-bold rounded-2xl hover:bg-emerald-400 transition-all text-base tracking-wide">
-                  <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-                  Send project request
-                </button>
-
-                <p class="text-xs text-gray-600 text-center mt-4">
-                  No spam. No pressure. We'll respond with a real plan and honest pricing.
-                  <br>Connect this form to <span class="text-gray-500">Formspree</span> or <span class="text-gray-500">Netlify Forms</span> to receive submissions.
-                </p>
-              </form>
-
-            </div>
+        <div class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">your@email.com</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.59 3.38 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.08 6.08l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <div class="contact-card-label">Phone</div>
+            <div class="contact-card-value">(Your phone number)</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="contact-card-label">Location</div>
+            <div class="contact-card-value">Metro Detroit, MI</div>
           </div>
         </div>
 
+        <div class="audit-nudge">
+          <div class="audit-nudge-label">
+            <span style="width:6px;height:6px;border-radius:50%;background:var(--em);display:inline-block"></span>
+            Not sure where to start?
+          </div>
+          <p>Get a free audit first — we'll show you exactly where you rank on Google and what needs fixing before you commit to anything.</p>
+          <a href="audit.html">
+            Get your free audit
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
       </div>
+
+      <!-- RIGHT: Form -->
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="form-wrap">
+          <div class="form-header">
+            <div class="form-header-title">Project Request</div>
+            <div class="open-badge"><span></span>Open for work</div>
+          </div>
+
+          <div id="form-success">
+            <div class="success-h">MESSAGE SENT.</div>
+            <p class="success-p">We'll review your project and get back to you with a clear plan and honest quote.</p>
+          </div>
+
+          <form id="contact-form">
+            <div class="form-body">
+              <div class="field-row">
+                <div>
+                  <label class="field-label" for="name">Full name</label>
+                  <input type="text" id="name" name="name" placeholder="Your Name" class="form-input" required />
+                </div>
+                <div>
+                  <label class="field-label" for="email">Email address</label>
+                  <input type="email" id="email" name="email" placeholder="you@business.com" class="form-input" required />
+                </div>
+              </div>
+              <div class="field-row">
+                <div>
+                  <label class="field-label" for="business">Business name</label>
+                  <input type="text" id="business" name="business" placeholder="Your Business Name" class="form-input" />
+                </div>
+                <div>
+                  <label class="field-label" for="phone">Phone <span>(optional)</span></label>
+                  <input type="tel" id="phone" name="phone" placeholder="(313) 555-0000" class="form-input" />
+                </div>
+              </div>
+              <div class="field-row">
+                <div>
+                  <label class="field-label" for="service">Service needed</label>
+                  <select id="service" name="service" class="form-input" required>
+                    <option value="" disabled selected>Select a service…</option>
+                    <option>Website Creation</option>
+                    <option>Website Redesign</option>
+                    <option>Branding + Logo Design</option>
+                    <option>Graphic Design</option>
+                    <option>SEO Setup</option>
+                    <option>Google Business Profile</option>
+                    <option>Full package (multiple services)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="field-label" for="budget">Approximate budget</label>
+                  <select id="budget" name="budget" class="form-input">
+                    <option value="" disabled selected>Select a range…</option>
+                    <option>Under $1,000</option>
+                    <option>$1,000 – $3,000</option>
+                    <option>$3,000 – $7,500</option>
+                    <option>$7,500+</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="message">Tell us about your project</label>
+                <textarea id="message" name="message" class="form-input" placeholder="What are you trying to build, redesign, or improve? The more context the better."></textarea>
+              </div>
+
+              <div id="form-error">Please fill in your name, email, and service.</div>
+
+              <button type="submit" class="btn-submit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                Send Project Request
+              </button>
+
+              <p class="form-note">No spam. No pressure. We'll respond with a real plan and honest pricing.<br>Connect this form to Formspree or Netlify Forms to receive submissions.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+
     </div>
   </main>
 
-  <!-- ═══════════ FOOTER ═══════════ -->
-  <footer class="bg-black border-t border-white/8 py-12 mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="font-display text-2xl font-bold">LEVANT<span class="text-emerald-500">.</span></div>
-      <div class="flex gap-8 text-sm text-gray-500 flex-wrap justify-center">
-        <a href="index.html" class="hover:text-emerald-300 transition-colors">Home</a>
-        <a href="services.html" class="hover:text-emerald-300 transition-colors">Services</a>
-        <a href="work.html" class="hover:text-emerald-300 transition-colors">Work</a>
-        <a href="audit.html" class="hover:text-emerald-300 transition-colors">Free Audit</a>
-        <a href="contact.html" class="text-emerald-300">Contact</a>
-      </div>
-      <div class="text-gray-600 text-sm">© 2026 Levant Digital Marketing.</div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">LEVANT<span>.</span></div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="audit.html">Free Audit</a>
+        <a href="contact.html" style="color:var(--em-light)">Contact</a>
+      </nav>
+      <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
     </div>
   </footer>
 
-  <script src="assets/app.js"></script>
-
   <script>
-    // ── Cursor ──
-    const dot = document.querySelector('.cursor-dot');
-    const outline = document.querySelector('.cursor-outline');
-    document.addEventListener('mousemove', e => {
-      if (dot) { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; }
-      if (outline) { outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px'; }
-    });
+    // Cursor
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (window.matchMedia('(pointer:fine)').matches) {
+      dot.style.display = 'block'; ring.style.display = 'block';
+      let mx=0,my=0,rx=0,ry=0;
+      document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+      const tick = () => {
+        dot.style.left=mx+'px'; dot.style.top=my+'px';
+        rx+=(mx-rx)*0.13; ry+=(my-ry)*0.13;
+        ring.style.left=rx+'px'; ring.style.top=ry+'px';
+        requestAnimationFrame(tick);
+      };
+      tick();
+    }
 
-    // ── Mobile menu ──
-    const menuBtn = document.getElementById('menu-btn');
-    const closeBtn = document.getElementById('close-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn?.addEventListener('click', () => mobileMenu.style.transform = 'translateX(0)');
-    closeBtn?.addEventListener('click', () => mobileMenu.style.transform = 'translateX(100%)');
-    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.style.transform = 'translateX(100%)'));
+    // Nav scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive:true });
 
-    // ── Scroll reveal ──
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Mobile menu
+    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
+    document.getElementById('close-menu').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
 
-    // ── Form submit ──
+    // Reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }});
+    }, { threshold:0.07 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Form
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const service = document.getElementById('service').value;
-      const errorEl = document.getElementById('form-error');
-
-      if (!name || !email || !service) {
-        errorEl.classList.remove('hidden');
-        return;
-      }
-      errorEl.classList.add('hidden');
+      const err = document.getElementById('form-error');
+      if (!name || !email || !service) { err.classList.add('show'); return; }
+      err.classList.remove('show');
       this.style.display = 'none';
       document.getElementById('form-success').classList.add('visible');
     });
