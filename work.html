@@ -4,20 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Work | Levant Digital Marketing</title>
+  <meta property="og:description" content="Real work. Live sites. See what we build for Metro Detroit businesses." />
   <meta name="description" content="Portfolio: live websites built by Levant Digital Marketing for Metro Detroit businesses." />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Work | Levant Digital Marketing" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Work | Levant Digital Marketing" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: { emerald: { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b',950:'#022c22' } },
-          fontFamily: { sans:['Space Grotesk','sans-serif'], display:['Syne','sans-serif'] }
+          fontFamily: { sans:['DM Sans','sans-serif'], display:['Bebas Neue','sans-serif'], mono:['JetBrains Mono','monospace'] }
         }
       }
     }
@@ -82,6 +87,7 @@
     /* ── Marquee ── */
     .marquee-container { display:flex; overflow:hidden; white-space:nowrap; }
     .marquee-content { display:flex; animation:marquee-scroll 32s linear infinite; }
+    @media(max-width:640px){.project-card{height:60vw!important;min-height:300px!important;}.project-title{font-size:1.6rem!important;}.project-desc{display:none;}}
     @keyframes marquee-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
     /* ══════════════════════════════════
@@ -138,7 +144,7 @@
     .project-content {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      padding: 2.5rem;
+      padding: 1.5rem;
       z-index: 10;
     }
 
@@ -146,7 +152,7 @@
     .project-num {
       position: absolute;
       top: 1.5rem; right: 2rem;
-      font-family: 'Syne', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(5rem, 10vw, 8rem);
       font-weight: 800;
       line-height: 1;
@@ -174,7 +180,7 @@
 
     /* Title */
     .project-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 800;
       line-height: 1;
@@ -280,6 +286,53 @@
 
     /* Mobile menu */
     #mobile-menu { transition: transform .5s cubic-bezier(.76,0,.24,1); }
+  
+    /* ═══════════════════════════════════════
+       MOBILE-FIRST OVERRIDES — production ready
+    ═══════════════════════════════════════ */
+
+    /* Sticky bottom CTA bar — mobile only */
+    .mob-cta-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(5,5,5,0.97); backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(16,185,129,0.25);
+      padding: 0.85rem 1.25rem;
+      padding-bottom: calc(0.85rem + env(safe-area-inset-bottom));
+    }
+    .mob-cta-bar-inner { display: flex; gap: 0.75rem; }
+    .mob-cta-bar a {
+      flex: 1; text-align: center; padding: 0.85rem 0.5rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: 9999px; transition: all 0.2s;
+      min-height: 48px; display: flex; align-items: center; justify-content: center;
+    }
+    .mob-cta-primary { background: #10b981; color: #000; }
+    .mob-cta-secondary { border: 1.5px solid rgba(16,185,129,0.5); color: #6ee7b7; }
+
+    @media (max-width: 768px) {
+      .mob-cta-bar { display: block; }
+      /* Add bottom padding so content isn't hidden behind bar */
+      body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+      /* Nav height shrink */
+      nav, #main-nav { height: 60px !important; }
+      .nav-logo, a.nav-logo { font-size: 1.8rem !important; }
+      /* Safe area top padding */
+      .hero, section:first-of-type { padding-top: calc(60px + 1rem) !important; }
+      /* Touch target minimum */
+      a, button { min-height: 44px; }
+      /* Footer padding */
+      footer { padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
+    }
+
+    @media (max-width: 480px) {
+      /* Prevent text overflow on tiny screens */
+      h1, h2, h3 { word-break: break-word; overflow-wrap: break-word; }
+      /* Section padding */
+      section, .section { padding-left: 1.1rem !important; padding-right: 1.1rem !important; }
+    }
+
   </style>
 </head>
 
