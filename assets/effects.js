@@ -222,10 +222,10 @@
           blob.style.transform = `translateY(${sy * rate}px)`;
         });
 
-        // Hero text very subtle lift (0.15x)
+        // Hero text very subtle lift (0.12x)
         if (heroText && sy < window.innerHeight) {
           heroText.style.transform = `translateY(${sy * 0.12}px)`;
-          heroText.style.opacity = 1 - (sy / (window.innerHeight * 0.85));
+          heroText.style.opacity = '1';
         }
 
         ticking = false;
