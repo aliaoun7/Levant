@@ -1,691 +1,733 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Levant Digital Marketing | Metro Detroit Websites, Branding, SEO</title>
-  <meta name="description" content="Levant Digital Marketing helps Metro Detroit businesses with website creation and redesign, branding and logos, SEO setup, and Google Business Profile posting support." />
-  <meta name="theme-color" content="#10b981" />
-  <meta property="og:title" content="Levant Digital Marketing" />
-  <meta property="og:description" content="Websites, branding, SEO, and Google Business Profile support for Metro Detroit businesses." />
-  <meta property="og:type" content="website" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {"@type":"Question","name":"Do you guarantee #1 rankings?","acceptedAnswer":{"@type":"Answer","text":"No. SEO depends on competition, industry, location, and budget. We focus on clean foundations and clear execution."}},
-      {"@type":"Question","name":"What does SEO-ready mean?","acceptedAnswer":{"@type":"Answer","text":"Clean headings, metadata, internal linking, page structure, and performance best-practices to support indexing and usability."}},
-      {"@type":"Question","name":"Can you post on my Google Business Profile?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can help with Google Business Profile posting support based on what you want posted and how often."}},
-      {"@type":"Question","name":"Can you redesign my current site?","acceptedAnswer":{"@type":"Answer","text":"Yes. We keep what works and improve structure, visuals, speed, and mobile experience."}}
-    ]
-  }
-  </script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Levant Digital Marketing | Metro Detroit Websites, Branding & SEO</title>
+  <meta name="description" content="Levant Digital Marketing builds modern websites, clean branding, and SEO-ready structure for Metro Detroit businesses."/>
+  <meta name="theme-color" content="#10b981"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['DM Sans','sans-serif'],display:['Bebas Neue','sans-serif'],mono:['JetBrains Mono','monospace']},colors:{em:'#10b981','em-light':'#34d399','em-dim':'#065f46'}}}}</script>
 
   <style>
-    :root {
-      --em: #10b981;
-      --em-light: #34d399;
-      --em-dim: #065f46;
-      --em-glow: rgba(16,185,129,0.18);
-      --black: #050505;
-      --surface: #0d0d0d;
-      --surface2: #141414;
-      --border: rgba(255,255,255,0.07);
-      --text: #f0f0f0;
-      --muted: #6b7280;
-      --font-display: 'Bebas Neue', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-    }
+    :root{--em:#10b981;--em-l:#34d399;--em-d:#065f46;--bg:#050505;--s1:#0a0a0a;--s2:#111;--bd:rgba(255,255,255,0.07);--tx:#f0f0f0;--mu:#6b7280;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    ::selection{background:var(--em);color:#000;}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; }
-    body {
-      font-family: var(--font-body);
-      background: var(--black);
-      color: var(--text);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    ::selection { background: var(--em); color: #000; }
+    /* GRAIN */
+    body::after{content:'';position:fixed;inset:0;z-index:997;pointer-events:none;opacity:.028;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
-    /* NOISE */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 999; pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.025;
-    }
+    /* CURSOR — desktop only */
+    #c-dot,#c-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);border-radius:50%;}
+    #c-dot{width:7px;height:7px;background:var(--em);mix-blend-mode:difference;}
+    #c-ring{width:34px;height:34px;border:1.5px solid rgba(16,185,129,.45);transition:width .25s,height .25s,border-color .25s;}
 
-    /* CURSOR */
-    .cursor { position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
-    .cursor-dot { width: 8px; height: 8px; background: var(--em); border-radius: 50%; transform: translate(-50%,-50%); transition: transform 0.1s, opacity 0.2s; }
-    .cursor-ring { width: 36px; height: 36px; border: 1.5px solid rgba(16,185,129,0.5); border-radius: 50%; transform: translate(-50%,-50%); transition: transform 0.18s cubic-bezier(.22,.68,0,1.2), width 0.3s, height 0.3s; }
+    /* GRID BG */
+    .grid-bg{position:absolute;inset:0;pointer-events:none;
+      background-image:linear-gradient(rgba(16,185,129,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,.04) 1px,transparent 1px);
+      background-size:72px 72px;}
+
+    /* BLOBS */
+    .blob{position:absolute;border-radius:9999px;filter:blur(110px);pointer-events:none;}
 
     /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0 2rem; height: 90px;
-      display: flex; align-items: center;
-      background: rgba(5,5,5,0.75);
-      backdrop-filter: blur(18px) saturate(1.4);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
-    }
-    nav.scrolled { background: rgba(5,5,5,0.96); }
-    .nav-inner { max-width: 1400px; width: 100%; margin: auto; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: var(--font-display); font-size: 2.4rem; letter-spacing: 0.02em; color: var(--text); text-decoration: none; line-height: 1; }
-    .nav-logo span { color: var(--em); }
-    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
-    .nav-link { font-family: var(--font-mono); font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .nav-link:hover { color: var(--em-light); }
-    .nav-cta {
-      font-family: var(--font-mono); font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.75rem 1.8rem; background: var(--em); color: #000; font-weight: 700;
-      text-decoration: none; transition: all 0.2s; border-radius: 9999px;
-    }
-    .nav-cta:hover { background: var(--em-light); transform: translateY(-1px); }
-    .nav-audit {
-      font-family: var(--font-mono); font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.7rem 1.6rem; border: 1.5px solid rgba(16,185,129,0.5); color: var(--em-light);
-      text-decoration: none; transition: all 0.2s; font-weight: 600; border-radius: 9999px;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .nav-audit:hover { background: rgba(16,185,129,0.1); border-color: var(--em); }
-    #menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--text); padding: 0.5rem; }
-    #mobile-menu { display: none; position: fixed; inset: 0; background: var(--black); z-index: 90; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
-    #mobile-menu.open { display: flex; }
-    .mobile-link { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 5rem); color: var(--text); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-    .mobile-link:hover { color: var(--em); }
-    #close-menu { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; color: var(--text); font-size: 3rem; line-height: 1; padding: 0.5rem; }
+    #main-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;padding:0 1.5rem;background:rgba(5,5,5,.7);backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--bd);transition:background .3s;}
+    #main-nav.solid{background:rgba(5,5,5,.97);}
+    .nav-inner{max-width:1340px;width:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;color:var(--tx);text-decoration:none;line-height:1;}
+    .nav-logo em{color:var(--em);font-style:normal;}
+    .nav-lnk{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;position:relative;}
+    .nav-lnk::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--em);transition:width .3s;}
+    .nav-lnk:hover,.nav-lnk.active{color:var(--em-l);}
+    .nav-lnk:hover::after,.nav-lnk.active::after{width:100%;}
+    .btn-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border-radius:9999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;}
+    .btn-pill-out{padding:.55rem 1.3rem;border:1.5px solid rgba(16,185,129,.45);color:var(--em-l);font-weight:600;}
+    .btn-pill-out:hover{background:rgba(16,185,129,.1);border-color:var(--em);}
+    .btn-pill-solid{padding:.6rem 1.5rem;background:var(--em);color:#000;font-weight:700;}
+    .btn-pill-solid:hover{background:var(--em-l);transform:translateY(-1px);}
+    #mob-btn{display:none;background:none;border:none;cursor:pointer;color:var(--tx);padding:.4rem;}
+    #mob-menu{display:none;position:fixed;inset:0;background:#000;z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;}
+    #mob-menu.open{display:flex;}
+    .mob-lnk{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,9vw,4.5rem);color:var(--tx);text-decoration:none;transition:color .2s;letter-spacing:.04em;}
+    .mob-lnk:hover{color:var(--em);}
+    #mob-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;cursor:pointer;color:var(--tx);font-size:2.5rem;line-height:1;padding:.4rem;}
+    @media(max-width:960px){#mob-btn{display:block;}.nav-links{display:none!important;}}
 
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      #menu-btn { display: block; }
-    }
-
-    /* HERO */
-    .hero { min-height: 100vh; padding-top: 90px; display: grid; place-items: center; position: relative; overflow: hidden; }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 15% 40%, rgba(16,185,129,0.11) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 85% 70%, rgba(16,185,129,0.05) 0%, transparent 55%);
-    }
-    .hero-grid {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: linear-gradient(rgba(16,185,129,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.05) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 90%);
-      animation: grid-drift 22s linear infinite;
-    }
-    @keyframes grid-drift { from { background-position: 0 0; } to { background-position: 0 64px; } }
-
-    .hero-inner {
-      position: relative; z-index: 2;
-      max-width: 1400px; width: 100%; margin: auto;
-      padding: 5rem 2rem 4rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-    }
-
-    .hero-eyebrow { display: flex; align-items: center; gap: 1rem; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--em); margin-bottom: 1.5rem; }
-    .hero-eyebrow::before { content: ''; display: block; width: 3rem; height: 1px; background: var(--em); flex-shrink: 0; }
-
-    .hero-h1 { font-family: var(--font-display); font-size: clamp(4.5rem, 8.5vw, 8.5rem); line-height: 0.92; letter-spacing: 0.01em; color: var(--text); }
-    .hero-h1 .outline { -webkit-text-stroke: 1.5px var(--em); color: transparent; }
-    .hero-h1 .em { color: var(--em); }
-
-    .hero-sub { font-size: 1rem; line-height: 1.75; color: var(--muted); max-width: 32rem; margin-top: 1.5rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
-
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.9rem 2.2rem; background: var(--em); color: #000;
-      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-      text-decoration: none; transition: all 0.2s;
-      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-      position: relative; overflow: hidden;
-    }
-    .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transform: translateX(-100%); transition: transform 0.4s; }
-    .btn-primary:hover { background: var(--em-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(16,185,129,0.3); }
-    .btn-primary:hover::after { transform: translateX(100%); }
-
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.85rem 2.1rem; border: 1px solid rgba(16,185,129,0.35); color: var(--em-light);
-      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-      text-decoration: none; transition: all 0.2s;
-    }
-    .btn-ghost:hover { background: rgba(16,185,129,0.08); border-color: var(--em); transform: translateY(-2px); }
-
-    .status-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; background: rgba(16,185,129,0.07); border: 1px solid rgba(16,185,129,0.2); font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--em-light); margin-bottom: 1.5rem; }
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--em); animation: pulse-dot 2s ease-in-out infinite; flex-shrink: 0; }
-    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.4)} }
-
-    /* Hero card */
-    .hero-card { background: var(--surface); border: 1px solid var(--border); position: relative; overflow: hidden; }
-    .hero-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--em), transparent); }
-    .card-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); background: rgba(16,185,129,0.03); }
-    .card-dots { display: flex; gap: 6px; }
-    .card-dots span { width: 10px; height: 10px; border-radius: 50%; }
-    .card-dots span:nth-child(1) { background: #ff5f57; }
-    .card-dots span:nth-child(2) { background: #febc2e; }
-    .card-dots span:nth-child(3) { background: #28c840; }
-    .card-title-bar { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
-    .card-body { padding: 1.5rem 2rem 0; }
-    .capability-row { display: grid; grid-template-columns: 2rem 2rem 1fr; gap: 1rem; align-items: flex-start; padding: 1.1rem 0; border-bottom: 1px solid var(--border); transition: padding 0.2s; }
-    .capability-row:last-child { border-bottom: none; }
-    .cap-number { font-family: var(--font-mono); font-size: 0.62rem; color: var(--em); letter-spacing: 0.1em; margin-top: 4px; }
-    .cap-icon { width: 2rem; height: 2rem; display: grid; place-items: center; border: 1px solid rgba(16,185,129,0.22); flex-shrink: 0; }
-    .cap-icon svg { width: 13px; height: 13px; stroke: var(--em-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .cap-name { font-size: 0.82rem; font-weight: 500; color: var(--text); }
-    .cap-desc { font-size: 0.75rem; color: var(--muted); margin-top: 2px; line-height: 1.5; }
-    .card-footer { padding: 1.5rem 2rem 2rem; display: flex; flex-wrap: wrap; gap: 0.8rem; }
-
-    /* Hero chips */
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
-    .chip { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.8rem; border: 1px solid var(--border); color: var(--muted); }
+    /* HERO WORD REVEAL */
+    .word-wrap{overflow:hidden;display:inline-block;}
+    .word-inner{display:inline-block;animation:slideUp .85s cubic-bezier(.16,1,.3,1) both;}
+    @keyframes slideUp{from{transform:translateY(110%);}to{transform:translateY(0);}}
 
     /* MARQUEE */
-    .marquee-wrap { border-top: 2px solid #000; border-bottom: 2px solid #000; background: var(--em); overflow: hidden; padding: 0.85rem 0; }
-    .marquee-track { display: inline-flex; animation: marquee 30s linear infinite; }
-    .marquee-track:hover { animation-play-state: paused; }
-    .marquee-item { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.2rem); letter-spacing: 0.02em; text-transform: uppercase; color: #000; padding: 0 2rem; white-space: nowrap; }
-    .marquee-sep { color: rgba(0,0,0,0.3); }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .mq-track{display:inline-flex;animation:mq 30s linear infinite;}
+    .mq-track:hover{animation-play-state:paused;}
+    @keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-    /* SECTIONS */
-    .section { padding: 7rem 2rem; }
-    .section-inner { max-width: 1400px; margin: auto; }
-    .section-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--em); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem; }
-    .section-label::after { content: ''; display: block; width: 2rem; height: 1px; background: var(--em); }
-    .section-h2 { font-family: var(--font-display); font-size: clamp(2.8rem, 5.5vw, 5rem); line-height: 0.95; letter-spacing: 0.01em; color: var(--text); }
-    .section-h2 .em { color: var(--em); }
-    .section-h2 .outline { -webkit-text-stroke: 1px rgba(16,185,129,0.55); color: transparent; }
+    /* REVEAL ON SCROLL */
+    .rv{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+    .rv.on{opacity:1;transform:none;}
+    .rv-l{opacity:0;transform:translateX(-36px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+    .rv-l.on{opacity:1;transform:none;}
+    .rv-r{opacity:0;transform:translateX(36px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+    .rv-r.on{opacity:1;transform:none;}
 
-    /* CAP GRID */
-    .cap-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); margin-top: 4rem; }
-    .cap-tile { background: var(--surface); padding: 2.5rem; position: relative; overflow: hidden; transition: background 0.3s; }
-    .cap-tile:hover { background: var(--surface2); }
-    .cap-tile::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--em), transparent); transform: scaleX(0); transition: transform 0.4s; }
-    .cap-tile:hover::after { transform: scaleX(1); }
-    .cap-tile-num { font-family: var(--font-display); font-size: 5rem; line-height: 1; color: rgba(16,185,129,0.06); position: absolute; top: 1.5rem; right: 1.5rem; pointer-events: none; }
-    .cap-tile-icon { width: 3rem; height: 3rem; border: 1px solid rgba(16,185,129,0.25); display: grid; place-items: center; margin-bottom: 1.5rem; }
-    .cap-tile-icon svg { width: 18px; height: 18px; stroke: var(--em-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .cap-tile-title { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.02em; color: var(--text); margin-bottom: 0.8rem; }
-    .cap-tile-desc { font-size: 0.87rem; line-height: 1.7; color: var(--muted); }
-    .cap-tile-list { margin-top: 1.5rem; list-style: none; }
-    .cap-tile-list li { font-size: 0.78rem; color: var(--muted); padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.6rem; }
-    .cap-tile-list li:last-child { border-bottom: none; }
-    .cap-tile-list li::before { content: '→'; color: var(--em); font-size: 0.7rem; flex-shrink: 0; }
-    .cap-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--em-light); text-decoration: none; transition: gap 0.2s; }
-    .cap-link:hover { gap: 0.8rem; color: var(--em); }
+    /* SERVICE CARD */
+    .svc{border:1px solid var(--bd);background:var(--s1);padding:1.75rem;transition:border-color .3s,transform .3s,background .3s;position:relative;overflow:hidden;cursor:default;}
+    .svc::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--cx,50%) var(--cy,50%),rgba(16,185,129,.08),transparent 60%);opacity:0;transition:opacity .4s;}
+    .svc:hover{border-color:rgba(16,185,129,.35);transform:translateY(-5px);background:var(--s2);}
+    .svc:hover::before{opacity:1;}
+    .svc-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;color:rgba(16,185,129,.07);position:absolute;top:.5rem;right:1rem;pointer-events:none;transition:color .3s;}
+    .svc:hover .svc-num{color:rgba(16,185,129,.15);}
+    .svc-icon{width:44px;height:44px;border:1px solid rgba(16,185,129,.22);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;transition:background .3s;}
+    .svc:hover .svc-icon{background:rgba(16,185,129,.1);}
 
-    /* PROCESS */
-    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; margin-top: 4rem; }
-    .process-step { display: grid; grid-template-columns: 3rem 1fr; gap: 1.5rem; padding: 2rem 0; border-bottom: 1px solid var(--border); }
-    .process-step:first-child { padding-top: 0; }
-    .process-step:last-child { border-bottom: none; }
-    .step-num { font-family: var(--font-display); font-size: 3rem; line-height: 1; color: rgba(16,185,129,0.18); transition: color 0.2s; margin-top: -4px; }
-    .process-step:hover .step-num { color: var(--em); }
-    .step-title { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.02em; color: var(--text); margin-bottom: 0.5rem; }
-    .step-desc { font-size: 0.87rem; line-height: 1.7; color: var(--muted); }
-    .process-aside { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; position: sticky; top: 7rem; overflow: hidden; }
-    .process-aside::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--em), transparent); }
-    .aside-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--em); border: 1px solid rgba(16,185,129,0.2); padding: 0.4rem 0.8rem; margin-bottom: 1.5rem; }
-    .aside-big { font-family: var(--font-display); font-size: 3.5rem; line-height: 1; color: var(--text); margin-bottom: 0.6rem; }
-    .aside-label { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
-    .aside-divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
-    .mini-list { list-style: none; }
-    .mini-list li { font-size: 0.82rem; color: var(--muted); padding: 0.6rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.7rem; }
-    .mini-list li:last-child { border-bottom: none; }
-    .mini-check { width: 1.1rem; height: 1.1rem; flex-shrink: 0; border: 1px solid rgba(16,185,129,0.4); display: grid; place-items: center; font-size: 0.55rem; color: var(--em); }
+    /* STAT */
+    .stat-n{font-family:'Bebas Neue',sans-serif;line-height:1;color:var(--em);}
 
-    /* FAQ */
-    .faq-header { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-top: 4rem; }
-    .faq-item { background: var(--surface); padding: 2rem 2.5rem; transition: background 0.2s; }
-    .faq-item:hover { background: var(--surface2); }
-    .faq-q { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-bottom: 0.7rem; display: flex; align-items: flex-start; gap: 0.8rem; }
-    .faq-q-mark { font-family: var(--font-mono); font-size: 0.62rem; color: var(--em); margin-top: 4px; flex-shrink: 0; letter-spacing: 0.05em; }
-    .faq-a { font-size: 0.87rem; line-height: 1.75; color: var(--muted); }
+    /* PROCESS DOT LINE */
+    .proc-dot{width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;position:relative;z-index:1;}
 
-    /* CTA */
-    .cta-section { padding: 7rem 2rem; position: relative; overflow: hidden; }
-    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(16,185,129,0.07) 0%, transparent 70%); }
-    .cta-inner { max-width: 1400px; margin: auto; position: relative; z-index: 1; }
-    .cta-box { border: 1px solid rgba(16,185,129,0.18); background: var(--surface); padding: 4rem 5rem; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; position: relative; overflow: hidden; }
-    .cta-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--em), transparent); }
-    .cta-box::after { content: 'LEVANT'; font-family: var(--font-display); font-size: 13rem; line-height: 1; color: rgba(16,185,129,0.025); position: absolute; right: -0.5rem; bottom: -2rem; pointer-events: none; letter-spacing: 0; }
-    .cta-h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 0.95; letter-spacing: 0.01em; color: var(--text); }
-    .cta-sub { font-size: 0.93rem; color: var(--muted); margin-top: 1rem; line-height: 1.7; }
-    .cta-actions { display: flex; flex-direction: column; gap: 0.8rem; align-items: flex-end; }
+    /* FAQ ACCORDION */
+    .faq-item{border-bottom:1px solid var(--bd);}
+    .faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 0;cursor:pointer;font-weight:600;font-size:1rem;gap:1rem;}
+    .faq-q:hover{color:var(--em-l);}
+    .faq-icon{flex-shrink:0;transition:transform .3s;font-size:1.1rem;color:var(--em);}
+    .faq-item.open .faq-icon{transform:rotate(45deg);}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .4s cubic-bezier(.16,1,.3,1);}
+    .faq-body p{padding-bottom:1.4rem;color:var(--mu);line-height:1.75;font-size:.93rem;}
 
-    /* FOOTER */
-    footer { background: #000; border-top: 1px solid var(--border); padding: 3rem 2rem; }
-    .footer-inner { max-width: 1400px; margin: auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-    .footer-logo { font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.02em; }
-    .footer-logo span { color: var(--em); }
-    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .footer-links a { font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--em-light); }
-    .footer-copy { font-size: 0.72rem; color: var(--muted); font-family: var(--font-mono); }
+    /* GLOW PULSE */
+    @keyframes glow-p{0%,100%{box-shadow:0 0 25px rgba(16,185,129,.25);}50%{box-shadow:0 0 55px rgba(16,185,129,.5);}}
+    .glow{animation:glow-p 3s ease-in-out infinite;}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(1.6);}}
+    .pdot{animation:pulse-dot 2s ease-in-out infinite;}
 
-    /* ANIMATIONS */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    /* SCROLL INDICATOR */
+    @keyframes scroll-line{0%{transform:scaleY(1);opacity:1;}100%{transform:scaleY(0);opacity:0;transform-origin:top;}}
+    .scroll-ind::after{content:'';display:block;width:1px;height:44px;background:linear-gradient(to bottom,var(--em),transparent);margin:.5rem auto 0;animation:scroll-line 1.8s ease-in-out infinite;}
 
-    /* RESPONSIVE */
-    @media (max-width: 1100px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .cap-grid { grid-template-columns: 1fr 1fr; }
-      .process-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .process-aside { position: static; }
-      .cta-box { grid-template-columns: 1fr; }
-      .cta-actions { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
-      .faq-header { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 700px) {
-      .cap-grid { grid-template-columns: 1fr; }
-      .faq-grid { grid-template-columns: 1fr; }
-      .hero-h1 { font-size: 4.2rem; }
-      .cta-box { padding: 2.5rem 2rem; }
-      .section { padding: 5rem 1.5rem; }
-    }
+    /* LIVE SITE CARD */
+    .live-card{border:1px solid var(--bd);background:var(--s1);overflow:hidden;transition:border-color .35s,transform .35s;text-decoration:none;display:block;}
+    .live-card:hover{border-color:rgba(16,185,129,.4);transform:translateY(-4px);}
+
+    /* UTILITY */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+    .fade-up{animation:fadeUp .7s cubic-bezier(.16,1,.3,1) both;}
   </style>
 </head>
-
 <body>
-  <div class="cursor cursor-dot" id="cursorDot" style="display:none"></div>
-  <div class="cursor cursor-ring" id="cursorRing" style="display:none"></div>
+  <!-- CURSORS (desktop) -->
+  <div id="c-dot"></div>
+  <div id="c-ring"></div>
 
-  <!-- NAV -->
+  <!-- ══════ NAV ══════ -->
   <nav id="main-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">LEVANT<span>.</span></a>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="work.html" class="nav-link">Work</a>
-        <a href="audit.html" class="nav-audit">Free Audit</a>
-        <a href="contact.html" class="nav-cta">Contact Us</a>
+      <a href="index.html" class="nav-logo">LEVANT<em>.</em></a>
+      <div class="nav-links" style="display:flex;align-items:center;gap:2.2rem;">
+        <a href="index.html" class="nav-lnk active">Home</a>
+        <a href="services.html" class="nav-lnk">Services</a>
+        <a href="work.html" class="nav-lnk">Work</a>
+        <a href="audit.html" class="btn-pill btn-pill-out">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          Free Audit
+        </a>
+        <a href="contact.html" class="btn-pill btn-pill-solid">Contact</a>
       </div>
-      <button id="menu-btn" aria-label="Open menu">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <button id="mob-btn" aria-label="Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </nav>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu">
-    <button id="close-menu" aria-label="Close menu">✕</button>
-    <a href="index.html" class="mobile-link">Home</a>
-    <a href="services.html" class="mobile-link">Services</a>
-    <a href="work.html" class="mobile-link">Work</a>
-    <a href="audit.html" class="mobile-link" style="color:var(--em-light)">Free Audit</a>
-    <a href="contact.html" class="mobile-link" style="color:var(--em-light)">Contact</a>
+  <div id="mob-menu">
+    <button id="mob-close">✕</button>
+    <a href="index.html" class="mob-lnk" style="color:var(--em)">Home</a>
+    <a href="services.html" class="mob-lnk">Services</a>
+    <a href="work.html" class="mob-lnk">Work</a>
+    <a href="audit.html" class="mob-lnk" style="color:var(--em-l)">Free Audit</a>
+    <a href="contact.html" class="mob-lnk" style="color:var(--em-l)">Contact</a>
   </div>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-inner">
+  <!-- ══════ HERO ══════ -->
+  <section style="min-height:100svh;padding-top:72px;position:relative;display:flex;align-items:center;overflow:hidden;">
+    <div class="grid-bg"></div>
+    <!-- Blobs -->
+    <div class="blob" style="width:700px;height:700px;background:radial-gradient(circle,rgba(16,185,129,.18),transparent 70%);top:-20%;left:-15%;"></div>
+    <div class="blob" style="width:500px;height:500px;background:radial-gradient(circle,rgba(20,184,166,.1),transparent 70%);bottom:-15%;right:-10%;"></div>
+    <!-- Vignette bottom -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;z-index:2;"></div>
 
-      <!-- LEFT COPY -->
-      <div>
-        <div class="status-pill">
-          <span class="status-dot"></span>
-          Taking new projects — Metro Detroit
-        </div>
-        <div class="hero-eyebrow">Digital Marketing Agency</div>
-        <h1 class="hero-h1">
-          WE<br>BUILD<br>
-          <span class="outline">DIGITAL</span><br>
-          <span class="em">EMPIRES .</span>
-        </h1>
-        <p class="hero-sub">
-          Levant Digital Marketing builds modern websites, clean branding, and SEO-ready structure — so customers can find you, trust you, and take action.
-        </p>
-        <div class="hero-actions">
-          <a href="contact.html" class="btn-primary">
-            Get a Quote
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="work.html" class="btn-ghost">
-            See Our Work
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-        <div class="hero-chips">
-          <span class="chip">Mobile-first</span>
-          <span class="chip">Fast performance</span>
-          <span class="chip">Clear messaging</span>
-          <span class="chip">SEO foundations</span>
-          <span class="chip">GBP support</span>
-        </div>
-        <p style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.08em;color:var(--muted);margin-top:1.5rem">
-          ✦ No fake claims. No "#1 guaranteed." Just strong execution and clear deliverables.
-        </p>
-      </div>
+    <div style="position:relative;z-index:3;width:100%;max-width:1340px;margin:auto;padding:4rem 1.5rem 6rem;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
 
-      <!-- RIGHT: CONSOLE CARD -->
-      <div class="hero-card">
-        <div class="card-header">
-          <div class="card-dots"><span></span><span></span><span></span></div>
-          <div class="card-title-bar">levant.capabilities — v2026</div>
-        </div>
-        <div class="card-body">
-          <div class="capability-row">
-            <div class="cap-number">01</div>
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            </div>
-            <div>
-              <div class="cap-name">Website Creation &amp; Redesign</div>
-              <div class="cap-desc">Pages and flow that guide visitors to action. Mobile-first, fast, structured.</div>
-            </div>
-          </div>
-          <div class="capability-row">
-            <div class="cap-number">02</div>
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            </div>
-            <div>
-              <div class="cap-name">Branding + Graphic Design</div>
-              <div class="cap-desc">Logos and visual assets for a consistent look everywhere.</div>
-            </div>
-          </div>
-          <div class="capability-row">
-            <div class="cap-number">03</div>
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-            </div>
-            <div>
-              <div class="cap-name">SEO Foundations</div>
-              <div class="cap-desc">Headings, metadata, internal links, and technical readiness.</div>
-            </div>
-          </div>
-          <div class="capability-row">
-            <div class="cap-number">04</div>
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="cap-name">Google Business Profile</div>
-              <div class="cap-desc">Posting support + local presence across Metro Detroit.</div>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="services.html" class="btn-ghost" style="font-size:0.63rem;padding:0.55rem 1.2rem">All Services</a>
-          <a href="audit.html" class="btn-primary" style="font-size:0.63rem;padding:0.55rem 1.2rem">Free Audit</a>
-        </div>
-      </div>
-
-    </div>
-  </header>
-
-  <!-- MARQUEE -->
-  <div class="marquee-wrap" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="marquee-item">Website Creation</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">Website Redesign</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">Logo Design</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">Graphic Design</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">SEO Setup</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">Google Business Profile</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">Website Creation</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">Website Redesign</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">Logo Design</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">Graphic Design</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">SEO Setup</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-      <span class="marquee-item">Google Business Profile</span>
-      <span class="marquee-item marquee-sep"> ◆ </span>
-    </div>
-  </div>
-
-  <main>
-
-    <!-- CAPABILITIES -->
-    <section class="section" style="border-top:1px solid var(--border)">
-      <div class="section-inner">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end" class="reveal">
-          <div>
-            <div class="section-label">Capabilities</div>
-            <h2 class="section-h2">A CLEAN SITE<br>IS STEP ONE.<br>A <span class="em">SYSTEM</span><br>IS THE GOAL.</h2>
-          </div>
-          <div>
-            <p style="font-size:0.95rem;line-height:1.8;color:var(--muted);max-width:26rem">Every service supports the others — your website, brand, and search presence working as one unified system.</p>
-            <a href="services.html" class="cap-link" style="margin-top:1.5rem">View all services →</a>
-          </div>
-        </div>
-
-        <div class="cap-grid reveal" style="transition-delay:0.12s">
-          <div class="cap-tile">
-            <div class="cap-tile-num">01</div>
-            <div class="cap-tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <h3 class="cap-tile-title">Website Creation</h3>
-            <p class="cap-tile-desc">Multi-page builds designed to look premium, load fast, and guide visitors toward a clear action.</p>
-            <ul class="cap-tile-list">
-              <li>Home + services + contact structure</li>
-              <li>Mobile-first layout &amp; accessibility</li>
-              <li>Clean sections, strong hierarchy</li>
-            </ul>
-            <a href="services.html" class="cap-link">Learn more →</a>
-          </div>
-          <div class="cap-tile">
-            <div class="cap-tile-num">02</div>
-            <div class="cap-tile-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-            <h3 class="cap-tile-title">Branding + Graphics</h3>
-            <p class="cap-tile-desc">Logos, brand visuals, and graphic assets that make your business look consistent everywhere.</p>
-            <ul class="cap-tile-list">
-              <li>Logo design + variations</li>
-              <li>Social + website graphics</li>
-              <li>Clean, modern style system</li>
-            </ul>
-            <a href="contact.html" class="cap-link">Get a quote →</a>
-          </div>
-          <div class="cap-tile">
-            <div class="cap-tile-num">03</div>
-            <div class="cap-tile-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
-            <h3 class="cap-tile-title">SEO + Google Business</h3>
-            <p class="cap-tile-desc">SEO foundations and Google Business Profile support so you're set up for visibility and trust.</p>
-            <ul class="cap-tile-list">
-              <li>On-page structure (titles, meta)</li>
-              <li>Internal linking + tech readiness</li>
-              <li>GBP posting support</li>
-            </ul>
-            <a href="services.html" class="cap-link">See how it works →</a>
-          </div>
-        </div>
-
-        <p style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.08em;color:var(--muted);margin-top:2rem">✦ Outcomes vary by industry, competition, and budget. We focus on clean execution and transparency.</p>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section" style="border-top:1px solid var(--border)">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-label">How It Works</div>
-          <h2 class="section-h2">SIMPLE PROCESS.<br><span class="outline">CLEAN</span> DELIVERABLES.</h2>
-        </div>
-
-        <div class="process-grid reveal" style="transition-delay:0.12s">
-          <div>
-            <div class="process-step">
-              <div class="step-num">01</div>
-              <div>
-                <div class="step-title">Strategy + Content Map</div>
-                <p class="step-desc">We outline your pages, sections, messaging, and calls-to-action. Everything is aligned before a single line of code is written.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <div class="step-num">02</div>
-              <div>
-                <div class="step-title">Design + Build</div>
-                <p class="step-desc">Modern visuals, responsive layouts, fast load times. Every section earns its place. No bloat.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <div class="step-num">03</div>
-              <div>
-                <div class="step-title">SEO + Google Business</div>
-                <p class="step-desc">On-page basics — titles, headings, metadata — plus GBP posting support based on your plan.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <div class="step-num">04</div>
-              <div>
-                <div class="step-title">Launch + Handoff</div>
-                <p class="step-desc">Clean handoff with all assets. You own everything. Ongoing support available on request.</p>
-              </div>
-            </div>
+        <!-- LEFT -->
+        <div>
+          <!-- Badge -->
+          <div class="fade-up" style="animation-delay:.1s;display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;border:1px solid rgba(16,185,129,.25);background:rgba(16,185,129,.05);margin-bottom:2rem;">
+            <span class="pdot" style="width:7px;height:7px;border-radius:50%;background:var(--em);flex-shrink:0;"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--em-l);">Taking new projects · Metro Detroit</span>
           </div>
 
-          <div class="process-aside">
-            <div class="aside-badge"><span class="status-dot"></span>Currently available</div>
-            <div class="aside-big">Metro<br>Detroit<br>Based.</div>
-            <p class="aside-label">Serving businesses across Metro Detroit and beyond. Direct communication — no outsourcing, no runaround.</p>
-            <div class="aside-divider"></div>
-            <ul class="mini-list">
-              <li><span class="mini-check">✓</span> Clear scope before work begins</li>
-              <li><span class="mini-check">✓</span> No inflated claims or fake guarantees</li>
-              <li><span class="mini-check">✓</span> You own all assets on delivery</li>
-              <li><span class="mini-check">✓</span> Transparent pricing and timelines</li>
-            </ul>
-            <div class="aside-divider"></div>
-            <a href="audit.html" class="btn-primary" style="width:100%;justify-content:center">
-              Get a Free Audit
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+          <!-- Headline -->
+          <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(5.5rem,13vw,10.5rem);line-height:.92;letter-spacing:.02em;margin-bottom:1.5rem;">
+            <div><span class="word-wrap"><span class="word-inner" style="animation-delay:.05s;">WE</span></span></div>
+            <div><span class="word-wrap"><span class="word-inner" style="animation-delay:.18s;">BUILD</span></span></div>
+            <div><span class="word-wrap"><span class="word-inner" style="animation-delay:.3s;-webkit-text-stroke:2px var(--em);color:transparent;">DIGITAL</span></span></div>
+            <div><span class="word-wrap"><span class="word-inner" style="animation-delay:.42s;color:var(--em);">EMPIRES.</span></span></div>
+          </h1>
 
-    <!-- FAQ -->
-    <section class="section" style="border-top:1px solid var(--border)">
-      <div class="section-inner">
-        <div class="faq-header reveal">
-          <div>
-            <div class="section-label">FAQ</div>
-            <h2 class="section-h2">STRAIGHT<br>ANSWERS.<br><span class="em">NO FLUFF.</span></h2>
-          </div>
-          <div>
-            <p style="font-size:0.93rem;line-height:1.8;color:var(--muted);max-width:26rem">We'd rather give you real expectations upfront than promise the moon and deliver a flashlight.</p>
-            <a href="contact.html" class="cap-link" style="margin-top:1.5rem">Ask us anything →</a>
-          </div>
-        </div>
+          <p class="fade-up" style="animation-delay:.65s;font-size:1.05rem;line-height:1.8;color:var(--mu);max-width:30rem;margin-bottom:2.2rem;">
+            Modern websites, clean branding, and SEO foundations — built for Metro Detroit businesses that are serious about their online presence.
+          </p>
 
-        <div class="faq-grid reveal" style="transition-delay:0.1s">
-          <div class="faq-item">
-            <div class="faq-q"><span class="faq-q-mark">Q —</span>Do you guarantee #1 rankings?</div>
-            <p class="faq-a">No. SEO depends on competition, industry, location, and budget. We focus on solid foundations and transparent execution. Anyone guaranteeing #1 is selling you something.</p>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q"><span class="faq-q-mark">Q —</span>What does "SEO-ready" actually mean?</div>
-            <p class="faq-a">Clean headings, metadata, internal links, page structure, performance best-practices, and indexing readiness. It's the foundation — not a full ongoing campaign.</p>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q"><span class="faq-q-mark">Q —</span>Can you post on my Google Business Profile?</div>
-            <p class="faq-a">Yes — we handle GBP posting support and consistency based on what you want and how often. We set up a plan that makes sense for your business.</p>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q"><span class="faq-q-mark">Q —</span>Can you redesign my existing site?</div>
-            <p class="faq-a">Absolutely. We keep what's working and improve structure, visuals, speed, and mobile experience. You don't have to start from zero.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <div class="cta-section">
-      <div class="cta-inner reveal">
-        <div class="cta-box">
-          <div>
-            <div class="section-label" style="margin-bottom:0.8rem">Ready when you are</div>
-            <h2 class="cta-h2">READY TO UPGRADE<br>YOUR PRESENCE?</h2>
-            <p class="cta-sub">Tell us what you need. We'll respond with a clear plan and quote. No pressure, no jargon.</p>
-          </div>
-          <div class="cta-actions">
-            <a href="contact.html" class="btn-primary">
-              Contact Us
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            </a>
-            <a href="work.html" class="btn-ghost">
-              See Work
+          <!-- CTA row -->
+          <div class="fade-up" style="animation-delay:.8s;display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:2.5rem;">
+            <a href="contact.html" class="glow btn-pill btn-pill-solid" style="padding:.9rem 2.2rem;font-size:.75rem;">
+              Get a Free Quote
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+            <a href="work.html" class="btn-pill btn-pill-out" style="padding:.85rem 2rem;font-size:.75rem;">
+              See Our Work
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+          <!-- Trust chips -->
+          <div class="fade-up" style="animation-delay:.95s;display:flex;flex-wrap:wrap;gap:.5rem;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:.3rem .8rem;border:1px solid rgba(255,255,255,.07);">✦ Mobile-first</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:.3rem .8rem;border:1px solid rgba(255,255,255,.07);">✦ SEO-ready</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:.3rem .8rem;border:1px solid rgba(255,255,255,.07);">✦ You own everything</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:.3rem .8rem;border:1px solid rgba(255,255,255,.07);">✦ No fake guarantees</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: Terminal-style capability card -->
+        <div class="rv-r" style="animation-delay:.3s;">
+          <div style="border:1px solid rgba(16,185,129,.2);background:rgba(10,10,10,.95);position:relative;overflow:hidden;">
+            <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--em),transparent);"></div>
+
+            <!-- Terminal header -->
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid var(--bd);background:rgba(16,185,129,.03);">
+              <div style="display:flex;gap:6px;">
+                <span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;"></span>
+                <span style="width:11px;height:11px;border-radius:50%;background:#febc2e;"></span>
+                <span style="width:11px;height:11px;border-radius:50%;background:#28c840;"></span>
+              </div>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;color:var(--mu);">levant.agency — services</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--em);letter-spacing:.08em;">● LIVE</span>
+            </div>
+
+            <!-- Stats row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--bd);">
+              <div style="padding:1.1rem 1.4rem;border-right:1px solid var(--bd);">
+                <div class="stat-n" style="font-size:3rem;">100%</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:.2rem;">Mobile-first</div>
+              </div>
+              <div style="padding:1.1rem 1.4rem;border-right:1px solid var(--bd);">
+                <div class="stat-n" style="font-size:3rem;color:var(--tx);">5</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:.2rem;">Services</div>
+              </div>
+              <div style="padding:1.1rem 1.4rem;">
+                <div class="stat-n" style="font-size:3rem;color:var(--tx);">0</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:.2rem;">Fake claims</div>
+              </div>
+            </div>
+
+            <!-- Service list -->
+            <div id="svc-list">
+              <a href="services.html" class="svc-row" style="display:flex;align-items:center;gap:1rem;padding:.95rem 1.5rem;border-bottom:1px solid var(--bd);text-decoration:none;transition:background .2s;color:var(--tx);" onmouseenter="this.style.background='rgba(16,185,129,.05)'" onmouseleave="this.style.background='transparent'">
+                <div style="width:30px;height:30px;border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                </div>
+                <div style="flex:1;"><div style="font-size:.88rem;font-weight:500;">Website Creation &amp; Redesign</div><div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mu);margin-top:2px;letter-spacing:.06em;">Structure · mobile · performance</div></div>
+                <span style="color:var(--em);font-size:.8rem;">→</span>
+              </a>
+              <a href="services.html" class="svc-row" style="display:flex;align-items:center;gap:1rem;padding:.95rem 1.5rem;border-bottom:1px solid var(--bd);text-decoration:none;transition:background .2s;color:var(--tx);" onmouseenter="this.style.background='rgba(16,185,129,.05)'" onmouseleave="this.style.background='transparent'">
+                <div style="width:30px;height:30px;border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+                </div>
+                <div style="flex:1;"><div style="font-size:.88rem;font-weight:500;">Branding + Logo Design</div><div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mu);margin-top:2px;letter-spacing:.06em;">Identity · consistency · presence</div></div>
+                <span style="color:var(--em);font-size:.8rem;">→</span>
+              </a>
+              <a href="services.html" class="svc-row" style="display:flex;align-items:center;gap:1rem;padding:.95rem 1.5rem;border-bottom:1px solid var(--bd);text-decoration:none;transition:background .2s;color:var(--tx);" onmouseenter="this.style.background='rgba(16,185,129,.05)'" onmouseleave="this.style.background='transparent'">
+                <div style="width:30px;height:30px;border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </div>
+                <div style="flex:1;"><div style="font-size:.88rem;font-weight:500;">SEO Foundations</div><div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mu);margin-top:2px;letter-spacing:.06em;">Headings · meta · local visibility</div></div>
+                <span style="color:var(--em);font-size:.8rem;">→</span>
+              </a>
+              <a href="services.html" class="svc-row" style="display:flex;align-items:center;gap:1rem;padding:.95rem 1.5rem;text-decoration:none;transition:background .2s;color:var(--tx);" onmouseenter="this.style.background='rgba(16,185,129,.05)'" onmouseleave="this.style.background='transparent'">
+                <div style="width:30px;height:30px;border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div style="flex:1;"><div style="font-size:.88rem;font-weight:500;">Google Business Profile</div><div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mu);margin-top:2px;letter-spacing:.06em;">Local presence · posting support</div></div>
+                <span style="color:var(--em);font-size:.8rem;">→</span>
+              </a>
+            </div>
+
+            <!-- Footer -->
+            <div style="display:flex;gap:.75rem;padding:1rem 1.5rem;border-top:1px solid var(--bd);">
+              <a href="services.html" class="btn-pill btn-pill-out" style="flex:1;justify-content:center;font-size:.63rem;padding:.6rem .8rem;">All Services</a>
+              <a href="audit.html" class="btn-pill btn-pill-solid glow" style="flex:1;justify-content:center;font-size:.63rem;padding:.6rem .8rem;">Free Audit</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-ind fade-up" style="animation-delay:1.4s;position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);text-align:center;display:none;" id="scroll-hint">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══════ MARQUEE ══════ -->
+  <div style="background:var(--em);border-top:2px solid #000;border-bottom:2px solid #000;overflow:hidden;padding:.8rem 0;">
+    <div style="display:flex;overflow:hidden;white-space:nowrap;">
+      <div class="mq-track" aria-hidden="true">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">WEBSITE CREATION</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">BRANDING</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">SEO SETUP</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">GOOGLE BUSINESS</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">METRO DETROIT</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">WEBSITE CREATION</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">BRANDING</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">SEO SETUP</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">GOOGLE BUSINESS</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">METRO DETROIT</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ WHY LEVANT ══════ -->
+  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
+    <div style="max-width:1340px;margin:auto;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+        <div class="rv-l">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;">
+            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>Why Levant
+          </div>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7.5vw,7rem);line-height:.93;letter-spacing:.02em;margin-bottom:1.5rem;">
+            YOUR BUSINESS<br>DESERVES TO<br><span style="color:var(--em);">LOOK THE PART.</span>
+          </h2>
+          <p style="font-size:1rem;line-height:1.8;color:var(--mu);max-width:32rem;margin-bottom:2rem;">
+            Most Metro Detroit businesses are invisible online — bad websites, no branding, zero Google presence. We fix all of it. Clearly scoped, honestly priced, built to last.
+          </p>
+          <a href="contact.html" style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em-l);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:gap .2s;" onmouseenter="this.style.gap='.9rem'" onmouseleave="this.style.gap='.5rem'">
+            Start a project →
+          </a>
+        </div>
+
+        <div class="rv" style="transition-delay:.1s;display:flex;flex-direction:column;gap:1rem;">
+          <div class="svc" style="padding:1.5rem;">
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div><div style="font-weight:600;margin-bottom:.3rem;">Transparent from day one</div><p style="font-size:.87rem;color:var(--mu);line-height:1.7;">Clear scope, fixed pricing, no surprise invoices. You know exactly what you're getting before we start.</p></div>
+            </div>
+          </div>
+          <div class="svc" style="padding:1.5rem;">
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div><div style="font-weight:600;margin-bottom:.3rem;">Real people. No outsourcing.</div><p style="font-size:.87rem;color:var(--mu);line-height:1.7;">Direct communication with whoever is actually building your project. No middlemen, no overseas runaround.</p></div>
+            </div>
+          </div>
+          <div class="svc" style="padding:1.5rem;">
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div style="font-weight:600;margin-bottom:.3rem;">Everything you own on delivery</div><p style="font-size:.87rem;color:var(--mu);line-height:1.7;">All source files, code, and accounts are yours the moment we hand off. Nothing held hostage.</p></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-  </main>
+  <!-- ══════ SERVICES ══════ -->
+  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
+    <div style="max-width:1340px;margin:auto;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3.5rem;" class="rv">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;">
+            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>What We Do
+          </div>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6.5vw,6rem);line-height:.93;letter-spacing:.02em;">FIVE SERVICES.<br><span style="color:var(--em);">ONE GOAL.</span></h2>
+        </div>
+        <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.4rem;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">View all services →</a>
+      </div>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">LEVANT<span>.</span></div>
-      <nav class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="work.html">Work</a>
-        <a href="audit.html">Free Audit</a>
-        <a href="contact.html">Contact</a>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;">
+        <div class="svc rv" style="transition-delay:.04s">
+          <div class="svc-num">01</div>
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">Website Creation &amp; Redesign</h3>
+          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">Modern, mobile-first sites built to guide visitors toward action. Fast, structured, and conversion-focused.</p>
+          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+        </div>
+        <div class="svc rv" style="transition-delay:.08s">
+          <div class="svc-num">02</div>
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></div>
+          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">Branding + Logo Design</h3>
+          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">An identity system that makes your business look established, consistent, and credible everywhere.</p>
+          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+        </div>
+        <div class="svc rv" style="transition-delay:.12s">
+          <div class="svc-num">03</div>
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">Graphic Design</h3>
+          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">Social graphics, flyers, banners, and print materials — all on-brand and built to get noticed.</p>
+          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+        </div>
+        <div class="svc rv" style="transition-delay:.16s">
+          <div class="svc-num">04</div>
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">SEO Foundations</h3>
+          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">Headings, metadata, internal links, and technical readiness. The foundation that helps Google find you.</p>
+          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+        </div>
+        <div class="svc rv" style="transition-delay:.2s">
+          <div class="svc-num">05</div>
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">Google Business Profile</h3>
+          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">Setup, optimization, and posting support. Keep your local presence active, complete, and consistent.</p>
+          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+        </div>
+        <!-- CTA card -->
+        <div class="rv" style="transition-delay:.24s;border:1px solid rgba(16,185,129,.25);background:rgba(16,185,129,.04);padding:1.75rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--em),transparent);"></div>
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em);margin-bottom:1rem;">Not sure where to start?</div>
+            <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;line-height:.95;letter-spacing:.02em;margin-bottom:.8rem;">GET A FREE AUDIT FIRST.</h3>
+            <p style="font-size:.87rem;color:var(--mu);line-height:1.7;">We'll show you exactly where you rank on Google and what needs fixing — zero commitment.</p>
+          </div>
+          <a href="audit.html" class="glow btn-pill btn-pill-solid" style="margin-top:1.5rem;justify-content:center;padding:.9rem;">
+            Get Free Audit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ WORK / LIVE SITES ══════ -->
+  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
+    <div style="max-width:1340px;margin:auto;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3.5rem;" class="rv">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;">
+            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>Our Work
+          </div>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6.5vw,6rem);line-height:.93;letter-spacing:.02em;">REAL WORK.<br><span style="color:var(--em);">LIVE SITES.</span></h2>
+        </div>
+        <a href="work.html" style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.4rem;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Full portfolio →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+        <a href="https://barringtonridge.us" target="_blank" rel="noopener" class="live-card rv" style="transition-delay:.06s;">
+          <div style="height:190px;background:linear-gradient(135deg,rgba(16,185,129,.09),rgba(16,185,129,.02));border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <div class="grid-bg" style="opacity:.5;"></div>
+            <div style="text-align:center;position:relative;z-index:1;">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;margin-bottom:.3rem;">BARRINGTON RIDGE</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);">barringtonridge.us</div>
+            </div>
+            <div style="position:absolute;top:12px;left:14px;display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--em);">
+              <span class="pdot" style="width:6px;height:6px;border-radius:50%;background:var(--em);"></span>LIVE
+            </div>
+          </div>
+          <div style="padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+            <div>
+              <div style="font-weight:600;margin-bottom:.25rem;">Barrington Ridge</div>
+              <div style="font-size:.83rem;color:var(--mu);">Real estate website — mobile-first, clean, conversion-focused</div>
+            </div>
+            <svg style="flex-shrink:0;color:var(--em);transition:transform .2s;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+        </a>
+        <a href="https://lieblichsgarage.com" target="_blank" rel="noopener" class="live-card rv" style="transition-delay:.12s;">
+          <div style="height:190px;background:linear-gradient(135deg,rgba(16,185,129,.09),rgba(16,185,129,.02));border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <div class="grid-bg" style="opacity:.5;"></div>
+            <div style="text-align:center;position:relative;z-index:1;">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;margin-bottom:.3rem;">LIEBLICH'S GARAGE</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);">lieblichsgarage.com</div>
+            </div>
+            <div style="position:absolute;top:12px;left:14px;display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--em);">
+              <span class="pdot" style="width:6px;height:6px;border-radius:50%;background:var(--em);"></span>LIVE
+            </div>
+          </div>
+          <div style="padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+            <div>
+              <div style="font-weight:600;margin-bottom:.25rem;">Lieblich's Garage</div>
+              <div style="font-size:.83rem;color:var(--mu);">Automotive website — local SEO, Google Business integration</div>
+            </div>
+            <svg style="flex-shrink:0;color:var(--em);transition:transform .2s;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ PROCESS ══════ -->
+  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
+    <div style="max-width:1340px;margin:auto;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+        <div class="rv-l">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;">
+            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>How It Works
+          </div>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6.5vw,6rem);line-height:.93;letter-spacing:.02em;margin-bottom:1.5rem;">SIMPLE.<br>CLEAR.<br><span style="color:var(--em);">NO GUESSING.</span></h2>
+          <p style="font-size:1rem;line-height:1.8;color:var(--mu);max-width:28rem;">We keep the process tight so you always know where things stand. No disappearing acts, no scope creep, no surprises.</p>
+        </div>
+        <div class="rv" style="transition-delay:.1s;">
+          <!-- Step 1 -->
+          <div style="display:flex;gap:1.4rem;padding-bottom:2.5rem;position:relative;">
+            <div style="position:relative;flex-shrink:0;">
+              <div style="width:46px;height:46px;background:var(--em);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#000;">01</span>
+              </div>
+              <div style="position:absolute;left:22px;top:46px;bottom:-20px;width:1px;background:linear-gradient(to bottom,var(--em),rgba(16,185,129,.1));"></div>
+            </div>
+            <div style="padding-top:.4rem;">
+              <div style="font-weight:600;font-size:1.05rem;margin-bottom:.5rem;">Free audit &amp; discovery</div>
+              <p style="font-size:.9rem;color:var(--mu);line-height:1.75;">We review your current presence, find the gaps, and show you exactly what needs to change — before you spend a dollar.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div style="display:flex;gap:1.4rem;padding-bottom:2.5rem;position:relative;">
+            <div style="position:relative;flex-shrink:0;">
+              <div style="width:46px;height:46px;border:1px solid rgba(16,185,129,.3);background:var(--s1);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--em);">02</span>
+              </div>
+              <div style="position:absolute;left:22px;top:46px;bottom:-20px;width:1px;background:linear-gradient(to bottom,rgba(16,185,129,.25),rgba(16,185,129,.05));"></div>
+            </div>
+            <div style="padding-top:.4rem;">
+              <div style="font-weight:600;font-size:1.05rem;margin-bottom:.5rem;">Clear scope + quote</div>
+              <p style="font-size:.9rem;color:var(--mu);line-height:1.75;">A written breakdown of exactly what we'll build, what it costs, and when it's done. No vague estimates.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div style="display:flex;gap:1.4rem;padding-bottom:2.5rem;position:relative;">
+            <div style="position:relative;flex-shrink:0;">
+              <div style="width:46px;height:46px;border:1px solid rgba(16,185,129,.3);background:var(--s1);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--em);">03</span>
+              </div>
+              <div style="position:absolute;left:22px;top:46px;bottom:-20px;width:1px;background:linear-gradient(to bottom,rgba(16,185,129,.15),rgba(16,185,129,.02));"></div>
+            </div>
+            <div style="padding-top:.4rem;">
+              <div style="font-weight:600;font-size:1.05rem;margin-bottom:.5rem;">We build it right</div>
+              <p style="font-size:.9rem;color:var(--mu);line-height:1.75;">Design, dev, branding, SEO — we handle the execution while keeping you updated throughout. No ghosting.</p>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div style="display:flex;gap:1.4rem;">
+            <div style="flex-shrink:0;">
+              <div style="width:46px;height:46px;border:1px solid rgba(16,185,129,.3);background:var(--s1);display:flex;align-items:center;justify-content:center;">
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--em);">04</span>
+              </div>
+            </div>
+            <div style="padding-top:.4rem;">
+              <div style="font-weight:600;font-size:1.05rem;margin-bottom:.5rem;">Launch + full handoff</div>
+              <p style="font-size:.9rem;color:var(--mu);line-height:1.75;">Code, files, accounts, logins — all yours. Nothing locked down. Ongoing support available when you need it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ FAQ ══════ -->
+  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
+    <div style="max-width:1340px;margin:auto;">
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start;">
+        <div class="rv-l">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;">
+            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>FAQ
+          </div>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6.5vw,6rem);line-height:.93;letter-spacing:.02em;margin-bottom:1.5rem;">STRAIGHT<br>ANSWERS.<br><span style="color:var(--em);">NO FLUFF.</span></h2>
+          <p style="font-size:.93rem;color:var(--mu);line-height:1.8;max-width:26rem;">We'd rather give you real expectations upfront than promise the moon and deliver a flashlight.</p>
+        </div>
+        <div class="rv" style="transition-delay:.1s;">
+          <div class="faq-item open">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Do you guarantee #1 Google rankings?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-body" style="max-height:200px;">
+              <p>No. Anyone guaranteeing #1 rankings is selling you something. SEO depends on competition, industry, and budget. We focus on clean foundations and honest execution that supports long-term visibility.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              What does "SEO-ready" actually mean?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-body">
+              <p>Proper headings, metadata, page structure, internal linking, and indexing readiness. It's the technical foundation — not a full ongoing SEO campaign. But it's what most businesses are missing.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Can you redesign my existing site?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-body">
+              <p>Absolutely. We keep what's working and improve structure, visuals, speed, and mobile experience. You don't need to start from zero — we can work with what you have.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              How long does a website take?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-body">
+              <p>Most projects are completed in 2–4 weeks depending on scope. We give you a clear timeline before work begins so there are never any surprises on delivery date.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Do I own everything when it's done?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-body">
+              <p>Yes. All source files, code, brand assets, and account access are transferred to you on delivery. Nothing is held back or kept hostage behind a subscription.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ CTA BANNER ══════ -->
+  <section style="padding:7rem 1.5rem;">
+    <div style="max-width:1340px;margin:auto;" class="rv">
+      <div style="position:relative;border:1px solid rgba(16,185,129,.22);background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(16,185,129,.01));overflow:hidden;padding:4.5rem 3.5rem;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--em),transparent);"></div>
+        <!-- Ghost type -->
+        <div style="position:absolute;right:-1rem;bottom:-3rem;font-family:'Bebas Neue',sans-serif;font-size:15rem;line-height:1;color:rgba(16,185,129,.04);pointer-events:none;user-select:none;">GO</div>
+        <!-- Blob -->
+        <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,rgba(16,185,129,.12),transparent 70%);top:-40%;right:-5%;"></div>
+
+        <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:3rem;">
+          <div style="max-width:600px;">
+            <div style="display:flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--em);margin-bottom:1.2rem;">
+              <span class="pdot" style="width:7px;height:7px;border-radius:50%;background:var(--em);flex-shrink:0;"></span>
+              Available now · Metro Detroit
+            </div>
+            <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);line-height:.93;letter-spacing:.02em;margin-bottom:1.2rem;">READY TO UPGRADE<br>YOUR PRESENCE?</h2>
+            <p style="font-size:1rem;color:var(--mu);line-height:1.8;max-width:42rem;">Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote. No pressure, no jargon — just a straight conversation about what will actually help.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.9rem;flex-shrink:0;">
+            <a href="contact.html" class="glow btn-pill btn-pill-solid" style="padding:1.1rem 2.8rem;font-size:.78rem;justify-content:center;">
+              Start a Project
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="audit.html" class="btn-pill btn-pill-out" style="padding:1rem 2.6rem;font-size:.75rem;justify-content:center;">
+              Get a Free Audit First
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer style="background:#000;border-top:1px solid var(--bd);padding:3rem 1.5rem;">
+    <div style="max-width:1340px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;">LEVANT<span style="color:var(--em);">.</span></div>
+      <nav style="display:flex;gap:2rem;flex-wrap:wrap;">
+        <a href="index.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em-l);text-decoration:none;">Home</a>
+        <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Services</a>
+        <a href="work.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Work</a>
+        <a href="audit.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Free Audit</a>
+        <a href="contact.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Contact</a>
       </nav>
-      <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--mu);">© 2026 Levant Digital Marketing.</div>
     </div>
   </footer>
 
   <script>
-    const dot = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-    if (window.matchMedia('(pointer: fine)').matches) {
-      dot.style.display = 'block'; ring.style.display = 'block';
-      let mx = 0, my = 0, rx = 0, ry = 0;
-      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-      const tick = () => {
-        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-        rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
-        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-        requestAnimationFrame(tick);
-      };
-      tick();
-      document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => { ring.style.width = '52px'; ring.style.height = '52px'; ring.style.borderColor = 'var(--em)'; });
-        el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = 'rgba(16,185,129,0.5)'; });
+    // ── Cursor ──
+    const dot=document.getElementById('c-dot'),ring=document.getElementById('c-ring');
+    if(window.matchMedia('(pointer:fine)').matches){
+      let mx=0,my=0,rx=0,ry=0;
+      document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+      (function tick(){dot.style.left=mx+'px';dot.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
+      document.querySelectorAll('a,button').forEach(el=>{
+        el.addEventListener('mouseenter',()=>{ring.style.width='50px';ring.style.height='50px';ring.style.borderColor='var(--em)';});
+        el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.borderColor='rgba(16,185,129,.45)';});
       });
+    } else {dot.style.display='none';ring.style.display='none';}
+
+    // ── Nav ──
+    const nav=document.getElementById('main-nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>50),{passive:true});
+
+    // ── Mobile menu ──
+    document.getElementById('mob-btn').addEventListener('click',()=>document.getElementById('mob-menu').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click',()=>document.getElementById('mob-menu').classList.remove('open'));
+    document.querySelectorAll('#mob-menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mob-menu').classList.remove('open')));
+
+    // ── Service card spotlight ──
+    document.querySelectorAll('.svc').forEach(c=>{
+      c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--cx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--cy',((e.clientY-r.top)/r.height*100)+'%');});
+    });
+
+    // ── Scroll reveal ──
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.07});
+    document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>io.observe(el));
+
+    // ── Show scroll hint on desktop ──
+    if(window.innerWidth>960)document.getElementById('scroll-hint').style.display='block';
+
+    // ── FAQ accordion ──
+    function toggleFaq(btn){
+      const item=btn.parentElement;
+      const body=item.querySelector('.faq-body');
+      const isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-body').style.maxHeight='0';});
+      if(!isOpen){item.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}
     }
 
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-
-    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
-    document.getElementById('close-menu').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
-    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
-
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
-    }, { threshold: 0.07 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    // ── Responsive: stack grid on mobile ──
+    function applyMobile(){
+      const isMob=window.innerWidth<768;
+      const isTab=window.innerWidth<1060;
+      // Hero grid
+      const heroGrid=document.querySelector('section [style*="grid-template-columns:1fr 1fr"]');
+      if(heroGrid)heroGrid.style.gridTemplateColumns=isTab?'1fr':'1fr 1fr';
+      // Services 3-col
+      const svcGrid=document.querySelector('[style*="grid-template-columns:repeat(3,1fr)"]');
+      if(svcGrid)svcGrid.style.gridTemplateColumns=isMob?'1fr':isTab?'1fr 1fr':'repeat(3,1fr)';
+      // Work 2-col
+      const workGrid=document.querySelector('.live-card')?.parentElement;
+      if(workGrid)workGrid.style.gridTemplateColumns=isMob?'1fr':'1fr 1fr';
+      // Why/Process/FAQ 2-col
+      document.querySelectorAll('[style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns:1fr 1.2fr"]').forEach(g=>{
+        if(g!==heroGrid)g.style.gridTemplateColumns=isTab?'1fr':g.getAttribute('data-cols')||'1fr 1fr';
+        if(!g.getAttribute('data-cols'))g.setAttribute('data-cols',g.style.gridTemplateColumns);
+      });
+      // CTA padding
+      const ctaInner=document.querySelector('[style*="padding:4.5rem 3.5rem"]');
+      if(ctaInner)ctaInner.style.padding=isMob?'2.5rem 1.5rem':'4.5rem 3.5rem';
+    }
+    applyMobile();
+    window.addEventListener('resize',applyMobile,{passive:true});
   </script>
   <script src="assets/effects.js"></script>
 </body>
