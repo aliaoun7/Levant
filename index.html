@@ -185,17 +185,76 @@
     html.light .svc:hover{background:var(--s2);}
     html.light .live-card{background:var(--s1);border-color:var(--bd);}
     html.light .ba-wrap{border-color:rgba(0,0,0,.12);}
-    html.light .logo-tile{background:var(--s1);border-color:var(--bd);}
     html.light footer{background:#e0e0d8;border-top-color:rgba(0,0,0,.09);}
     html.light #mob-menu{background:#f5f5f0;}
     html.light .mob-cta-bar{background:rgba(245,245,240,.97);border-top-color:rgba(16,185,129,.3);}
     html.light .faq-item{border-bottom-color:rgba(0,0,0,.09);}
     body,#main-nav,.svc,.live-card,.ba-wrap,.logo-tile,footer,section{transition:background .35s ease,color .35s ease,border-color .35s ease;}
     /* ── Theme toggle btn ── */
-    #theme-btn{width:38px;height:38px;border-radius:9999px;border:1.5px solid rgba(16,185,129,.35);background:transparent;cursor:pointer;color:#34d399;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
-    #theme-btn:hover{background:rgba(16,185,129,.1);border-color:#10b981;}
-    #theme-btn svg{width:16px;height:16px;transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
-    #theme-btn:hover svg{transform:rotate(20deg) scale(1.15);}
+    
+    
+    
+    
+
+  
+    /* ── UNIVERSAL NAV ── */
+    #gn{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;display:flex;align-items:center;padding:0 1.5rem;background:rgba(5,5,5,.75);backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.07);transition:background .3s;}
+    #gn.solid{background:rgba(5,5,5,.97);}
+    .gn-inner{max-width:1340px;width:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;}
+    .gn-logo{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;letter-spacing:.04em;color:#f0f0f0;text-decoration:none;line-height:1;flex-shrink:0;}
+    .gn-logo em{color:#10b981;font-style:normal;}
+    .gn-links{display:flex;align-items:center;gap:2rem;}
+    .gn-lnk{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;text-decoration:none;transition:color .2s;position:relative;}
+    .gn-lnk::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#10b981;transition:width .3s;}
+    .gn-lnk:hover,.gn-lnk.on{color:#34d399;}
+    .gn-lnk:hover::after,.gn-lnk.on::after{width:100%;}
+    .gn-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border-radius:9999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap;}
+    .gn-pill-out{padding:.5rem 1.2rem;border:1.5px solid rgba(16,185,129,.45);color:#34d399;font-weight:600;}
+    .gn-pill-out:hover{background:rgba(16,185,129,.1);border-color:#10b981;}
+    .gn-pill-solid{padding:.55rem 1.4rem;background:#10b981;color:#000;font-weight:700;}
+    .gn-pill-solid:hover{background:#34d399;transform:translateY(-1px);}
+    #gn-theme{width:36px;height:36px;border-radius:9999px;border:1.5px solid rgba(16,185,129,.35);background:transparent;cursor:pointer;color:#34d399;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;padding:0;}
+    #gn-theme:hover{background:rgba(16,185,129,.1);border-color:#10b981;}
+    #gn-theme svg{width:15px;height:15px;stroke:currentColor;transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
+    #gn-theme:hover svg{transform:rotate(22deg) scale(1.1);}
+    #gn-ham{display:none;background:none;border:none;cursor:pointer;color:#f0f0f0;padding:.3rem;flex-shrink:0;}
+    #gn-mob{display:none;position:fixed;inset:0;background:#050505;z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;}
+    #gn-mob.open{display:flex;}
+    #gn-mob-close{position:absolute;top:1.4rem;right:1.4rem;background:none;border:none;cursor:pointer;color:#f0f0f0;font-size:2.4rem;line-height:1;padding:.4rem;}
+    .gn-mob-lnk{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,9vw,4.2rem);color:#f0f0f0;text-decoration:none;transition:color .2s;letter-spacing:.04em;}
+    .gn-mob-lnk:hover,.gn-mob-lnk.on{color:#10b981;}
+    @media(max-width:900px){#gn-ham{display:block;}.gn-links{display:none!important;}}
+    html.light #gn{background:rgba(245,245,240,.85)!important;}
+    html.light #gn.solid{background:rgba(245,245,240,.98)!important;}
+    html.light .gn-logo{color:#0a0a0a;}
+    html.light #gn-mob{background:#f5f5f0;}
+    html.light .gn-mob-lnk{color:#0a0a0a;}
+    html.light #gn-ham{color:#0a0a0a;}
+
+  
+    /* ── BEFORE/AFTER SLIDER ── */
+    .ba-section{padding:7rem 1.5rem;border-bottom:1px solid var(--bd);}
+    .ba-wrap{position:relative;overflow:hidden;cursor:ew-resize;user-select:none;-webkit-user-select:none;border:1px solid var(--bd);aspect-ratio:16/7;min-height:260px;max-height:520px;}
+    .ba-wrap:hover{border-color:rgba(16,185,129,.3);}
+    .ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+    .ba-before-layer{position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;}
+    .ba-before-layer img{position:absolute;top:0;left:0;height:100%;width:auto;min-width:100%;max-width:none;object-fit:cover;}
+    .ba-divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#10b981;transform:translateX(-50%);pointer-events:none;box-shadow:0 0 14px rgba(16,185,129,.7);}
+    .ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#10b981;border:3px solid #fff;display:flex;align-items:center;justify-content:center;pointer-events:none;box-shadow:0 4px 20px rgba(16,185,129,.5);}
+    .ba-label{position:absolute;top:14px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.28rem .75rem;backdrop-filter:blur(8px);}
+    .ba-label-before{left:14px;background:rgba(5,5,5,.8);color:#f0f0f0;border:1px solid rgba(255,255,255,.12);}
+    .ba-label-after{right:14px;background:rgba(16,185,129,.9);color:#000;font-weight:700;}
+    /* ── LOGO WALL ── */
+    .lw-section{padding:4rem 1.5rem;border-bottom:1px solid var(--bd);overflow:hidden;}
+    .lw-outer{overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);}
+    .lw-track{display:flex;width:max-content;animation:lw-scroll 28s linear infinite;}
+    .lw-track:hover{animation-play-state:paused;}
+    @keyframes lw-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .lw-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;padding:.9rem 1.8rem;margin:0 .4rem;border:1px solid var(--bd);background:var(--s1);flex-shrink:0;transition:border-color .3s,background .3s;min-width:130px;}
+    .lw-tile:hover{border-color:rgba(16,185,129,.35);background:var(--s2);}
+    .lw-tile svg{color:var(--em);opacity:.75;flex-shrink:0;}
+    .lw-tile span{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);white-space:nowrap;}
+    html.light .lw-tile{background:var(--s1);border-color:var(--bd);}
 
   </style>
 </head>
@@ -204,34 +263,23 @@
   <div id="c-dot"></div>
   <div id="c-ring"></div>
 
-  <!-- ══════ NAV ══════ -->
-  <nav id="main-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">LEVANT<em>.</em></a>
-      <div class="nav-links" style="display:flex;align-items:center;gap:2.2rem;">
-        <a href="index.html" class="nav-lnk active">Home</a>
-        <a href="services.html" class="nav-lnk">Services</a>
-        <a href="work.html" class="nav-lnk">Work</a>
-        <a href="audit.html" class="btn-pill btn-pill-out">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-          Free Audit
-        </a>
-        <a href="contact.html" class="btn-pill btn-pill-solid">Contact</a>
+
+  <nav id="gn">
+    <div class="gn-inner">
+      <a href="index.html" class="gn-logo">LEVANT<em>.</em></a>
+      <div class="gn-links"><a href="index.html" class="gn-lnk on">Home</a><a href="services.html" class="gn-lnk">Services</a><a href="work.html" class="gn-lnk">Work</a>
+        <a href="audit.html" class="gn-pill gn-pill-out"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>Free Audit</a>
+        <a href="contact.html" class="gn-pill gn-pill-solid">Contact</a>
       </div>
-      <button id="mob-btn" aria-label="Menu">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+      <button id="gn-theme" aria-label="Toggle theme"><svg id="gn-theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
+      <button id="gn-ham" aria-label="Open menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </div>
   </nav>
-
-  <!-- MOBILE MENU -->
-  <div id="mob-menu">
-    <button id="mob-close">✕</button>
-    <a href="index.html" class="mob-lnk" style="color:var(--em)">Home</a>
-    <a href="services.html" class="mob-lnk">Services</a>
-    <a href="work.html" class="mob-lnk">Work</a>
-    <a href="audit.html" class="mob-lnk" style="color:var(--em-l)">Free Audit</a>
-    <a href="contact.html" class="mob-lnk" style="color:var(--em-l)">Contact</a>
+  <div id="gn-mob">
+    <button id="gn-mob-close">&#x2715;</button>
+    <a href="index.html" class="gn-mob-lnk on">Home</a><a href="services.html" class="gn-mob-lnk">Services</a><a href="work.html" class="gn-mob-lnk">Work</a>
+    <a href="audit.html"   class="gn-mob-lnk" style="color:#34d399">Free Audit</a>
+    <a href="contact.html" class="gn-mob-lnk" style="color:#34d399">Contact</a>
   </div>
 
   <!-- ══════ HERO ══════ -->
@@ -572,10 +620,10 @@
         </div>
         <p style="font-size:.93rem;color:var(--mu);line-height:1.7;max-width:28rem;">Drag the handle to see the difference a real web presence makes. This is what gets you clients instead of losing them.</p>
       </div>
-      <div class="ba-wrap rv" id="baSlider" style="aspect-ratio:16/7;min-height:260px;max-height:520px;" style="transition-delay:.1s">
-        <img class="ba-after" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=700&fit=crop&q=80" alt="After — modern website" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;"/>
+      <div class="ba-wrap rv" id="baSlider">
+        <img class="ba-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=700&fit=crop&q=80" alt="After — modern website"/>
         <div class="ba-before-layer" id="baBeforeLayer">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1400&h=700&fit=crop&q=80" alt="Before — outdated website" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.85) brightness(0.6) sepia(0.2);"/>
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1400&h=700&fit=crop&q=80" alt="Before — outdated website" style="filter:grayscale(.85) brightness(.6) sepia(.2);"/>
         </div>
         <div class="ba-divider" id="baDivider"></div>
         <div class="ba-handle" id="baHandle">
@@ -589,34 +637,34 @@
   </section>
 
   <!-- ══════ INDUSTRY LOGO WALL ══════ -->
-  <section class="logo-wall-section rv">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);text-align:center;margin-bottom:2rem;">Industries We Serve Across Metro Detroit</div>
-    <div style="overflow:hidden;white-space:nowrap;mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);">
-      <div class="logo-wall-track" aria-hidden="true">
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="logo-tile-label">Real Estate</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5"/></svg><span class="logo-tile-label">Automotive</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4"/></svg><span class="logo-tile-label">Restaurants</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="logo-tile-label">Contractors</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="logo-tile-label">Healthcare</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="logo-tile-label">Legal</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="logo-tile-label">Retail</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10" /><path d="M12 20V4" /><path d="M6 20v-6"/></svg><span class="logo-tile-label">Fitness</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="logo-tile-label">Beauty &amp; Wellness</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20v14H2z" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21"/></svg><span class="logo-tile-label">Tech</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="logo-tile-label">Home Services</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" /><line x1="6" y1="2" x2="6" y2="4" /><line x1="10" y1="2" x2="10" y2="4" /><line x1="14" y1="2" x2="14" y2="4"/></svg><span class="logo-tile-label">Food &amp; Beverage</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="logo-tile-label">Real Estate</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5"/></svg><span class="logo-tile-label">Automotive</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4"/></svg><span class="logo-tile-label">Restaurants</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="logo-tile-label">Contractors</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="logo-tile-label">Healthcare</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="logo-tile-label">Legal</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="logo-tile-label">Retail</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10" /><path d="M12 20V4" /><path d="M6 20v-6"/></svg><span class="logo-tile-label">Fitness</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="logo-tile-label">Beauty &amp; Wellness</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20v14H2z" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21"/></svg><span class="logo-tile-label">Tech</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="logo-tile-label">Home Services</span></div>
-        <div class="logo-tile"><svg class="logo-tile-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" /><line x1="6" y1="2" x2="6" y2="4" /><line x1="10" y1="2" x2="10" y2="4" /><line x1="14" y1="2" x2="14" y2="4"/></svg><span class="logo-tile-label">Food &amp; Beverage</span></div>
+  <section class="lw-section">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);text-align:center;margin-bottom:1.8rem;">Industries We Serve</div>
+    <div class="lw-outer">
+      <div class="lw-track" aria-hidden="true">
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="logo-tile-label">Real Estate</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5"/></svg><span class="logo-tile-label">Automotive</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4"/></svg><span class="logo-tile-label">Restaurants</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="logo-tile-label">Contractors</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="logo-tile-label">Healthcare</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="logo-tile-label">Legal</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="logo-tile-label">Retail</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10" /><path d="M12 20V4" /><path d="M6 20v-6"/></svg><span class="logo-tile-label">Fitness</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="logo-tile-label">Beauty &amp; Wellness</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20v14H2z" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21"/></svg><span class="logo-tile-label">Tech</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="logo-tile-label">Home Services</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" /><line x1="6" y1="2" x2="6" y2="4" /><line x1="10" y1="2" x2="10" y2="4" /><line x1="14" y1="2" x2="14" y2="4"/></svg><span class="logo-tile-label">Food &amp; Beverage</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="logo-tile-label">Real Estate</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5"/></svg><span class="logo-tile-label">Automotive</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4"/></svg><span class="logo-tile-label">Restaurants</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="logo-tile-label">Contractors</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="logo-tile-label">Healthcare</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="logo-tile-label">Legal</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="logo-tile-label">Retail</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10" /><path d="M12 20V4" /><path d="M6 20v-6"/></svg><span class="logo-tile-label">Fitness</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="logo-tile-label">Beauty &amp; Wellness</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20v14H2z" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21"/></svg><span class="logo-tile-label">Tech</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="logo-tile-label">Home Services</span></div>
+        <div class="lw-tile"><svg  width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" /><line x1="6" y1="2" x2="6" y2="4" /><line x1="10" y1="2" x2="10" y2="4" /><line x1="14" y1="2" x2="14" y2="4"/></svg><span class="logo-tile-label">Food &amp; Beverage</span></div>
       </div>
     </div>
   </section>
@@ -981,5 +1029,66 @@
   </script>
 
   <script src="assets/effects.js"></script>
+  <script>
+    (function(){
+      var nav=document.getElementById('gn');
+      if(nav)window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>40);},{passive:true});
+      var ham=document.getElementById('gn-ham'),mob=document.getElementById('gn-mob'),cls=document.getElementById('gn-mob-close');
+      if(ham&&mob){ham.addEventListener('click',function(){mob.classList.add('open');document.body.style.overflow='hidden';});}
+      if(cls&&mob){cls.addEventListener('click',function(){mob.classList.remove('open');document.body.style.overflow='';});}
+      if(mob){mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open');document.body.style.overflow='';});});}
+      var btn=document.getElementById('gn-theme'),icon=document.getElementById('gn-theme-icon');
+      var MOON='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+      var SUN='<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+      function applyTheme(m){
+        if(m==='light'){document.documentElement.classList.add('light');if(icon)icon.innerHTML=MOON;localStorage.setItem('levant-theme','light');}
+        else{document.documentElement.classList.remove('light');if(icon)icon.innerHTML=SUN;localStorage.setItem('levant-theme','dark');}
+      }
+      applyTheme(localStorage.getItem('levant-theme')==='light'?'light':'dark');
+      if(btn)btn.addEventListener('click',function(){applyTheme(document.documentElement.classList.contains('light')?'dark':'light');});
+    })();
+  </script>
+  <script>
+    // ── Before/After Slider ──
+    (function(){
+      var slider=document.getElementById('baSlider');
+      if(!slider)return;
+      var before=document.getElementById('baBeforeLayer');
+      var divider=document.getElementById('baDivider');
+      var handle=document.getElementById('baHandle');
+      var dragging=false;
+      function setPos(x){
+        var r=slider.getBoundingClientRect();
+        var p=Math.min(Math.max(((x-r.left)/r.width)*100,2),98);
+        before.style.width=p+'%';
+        divider.style.left=p+'%';
+        handle.style.left=p+'%';
+      }
+      // intro animation
+      var done=false;
+      var io=new IntersectionObserver(function(es){
+        if(es[0].isIntersecting&&!done){
+          done=true;
+          var dur='.85s cubic-bezier(.16,1,.3,1)';
+          before.style.transition='width '+dur;
+          divider.style.transition='left '+dur;
+          handle.style.transition='left '+dur;
+          before.style.width='8%';divider.style.left='8%';handle.style.left='8%';
+          setTimeout(function(){
+            before.style.width='50%';divider.style.left='50%';handle.style.left='50%';
+            setTimeout(function(){before.style.transition='';divider.style.transition='';handle.style.transition='';},900);
+          },250);
+          io.unobserve(slider);
+        }
+      },{threshold:0.3});
+      io.observe(slider);
+      slider.addEventListener('mousedown',function(e){dragging=true;setPos(e.clientX);e.preventDefault();});
+      window.addEventListener('mousemove',function(e){if(dragging)setPos(e.clientX);});
+      window.addEventListener('mouseup',function(){dragging=false;});
+      slider.addEventListener('touchstart',function(e){dragging=true;setPos(e.touches[0].clientX);},{passive:true});
+      window.addEventListener('touchmove',function(e){if(dragging)setPos(e.touches[0].clientX);},{passive:true});
+      window.addEventListener('touchend',function(){dragging=false;});
+    })();
+  </script>
 </body>
 </html>
