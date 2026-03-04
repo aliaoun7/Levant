@@ -62,13 +62,7 @@
     .nav-audit:hover { background:rgba(16,185,129,0.1); border-color:var(--em); }
     .nav-cta { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.75rem 1.8rem; background:var(--em); color:#000; font-weight:700; text-decoration:none; transition:all .2s; border-radius:9999px; }
     .nav-cta:hover { background:var(--em-light); transform:translateY(-1px); }
-    #menu-btn { display:none; background:none; border:none; cursor:pointer; color:var(--text); padding:0.5rem; }
-    #mobile-menu { display:none; position:fixed; inset:0; background:var(--black); z-index:90; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
-    #mobile-menu.open { display:flex; }
-    .mobile-link { font-family:var(--font-display); font-size:clamp(3rem,10vw,5rem); color:var(--text); text-decoration:none; letter-spacing:0.04em; transition:color .2s; }
-    .mobile-link:hover { color:var(--em); }
-    #close-menu { position:absolute; top:1.5rem; right:1.5rem; background:none; border:none; cursor:pointer; color:var(--text); font-size:3rem; line-height:1; padding:0.5rem; }
-    @media(max-width:900px){ .nav-links{display:none;} #menu-btn{display:block;} }
+    @media(max-width:900px){ .nav-links{display:none;} }
 
     /* Status pill */
     .status-pill { display:inline-flex; align-items:center; gap:0.5rem; padding:0.4rem 0.9rem; background:rgba(16,185,129,0.07); border:1px solid rgba(16,185,129,0.2); font-family:var(--font-mono); font-size:0.63rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--em-light); margin-bottom:1.5rem; }
@@ -312,26 +306,7 @@
     <a href="contact.html" class="gn-mob-lnk" style="color:#34d399">Contact</a>
   </div>
 
-      <button id="theme-btn" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
-      <button id="menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
-        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform translate-x-full flex flex-col justify-center items-center gap-6 lg:hidden" style="transition:transform .5s cubic-bezier(.76,0,.24,1)">
-    <button id="close-menu" class="absolute top-6 right-6 text-white p-2" aria-label="Close menu">
-      <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-    </button>
-    <a href="index.html" class="text-4xl font-display font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
-    <a href="services.html" class="text-4xl font-display font-bold text-white hover:text-emerald-400 transition-colors">SERVICES</a>
-    <a href="work.html" class="text-4xl font-display font-bold text-white hover:text-emerald-400 transition-colors">WORK</a>
-    <a href="audit.html" class="text-4xl font-display font-bold text-emerald-300">FREE AUDIT</a>
-    <a href="contact.html" class="text-4xl font-display font-bold text-emerald-300">CONTACT</a>
-  </div>
-
-<!-- HERO -->
+  <!-- HERO -->
   <header class="hero">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-inner">
@@ -727,7 +702,7 @@
     // Cursor
     const dot = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
-    if (window.matchMedia('(pointer:fine)').matches) {
+    if (dot && ring && window.matchMedia('(pointer:fine)').matches) {
       dot.style.display = 'block'; ring.style.display = 'block';
       let mx=0,my=0,rx=0,ry=0;
       document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
@@ -745,14 +720,12 @@
     }
 
     // Nav scroll
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive:true });
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive:true });
 
     // Mobile menu
     
     
-    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
-
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => 
     // Reveal
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }});
