@@ -10,18 +10,13 @@
 
   <meta property="og:title" content="Free Audit | Levant Digital Marketing" />
   <meta property="og:description" content="Free website, GBP, SEO & branding audit for Metro Detroit businesses." />
-  <meta property="og:site_name" content="Levant Digital Marketing" />
   <meta property="og:type" content="website" />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Free Audit | Levant Digital Marketing" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Free Audit | Levant Digital Marketing" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
@@ -223,104 +218,6 @@
 
     /* ── Checkmark SVG icon helper ── */
     svg { display:inline-block; }
-  
-    /* ═══════════════════════════════════════
-       MOBILE-FIRST OVERRIDES — production ready
-    ═══════════════════════════════════════ */
-
-    /* Sticky bottom CTA bar — mobile only */
-    .mob-cta-bar {
-      display: none;
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(5,5,5,0.97); backdrop-filter: blur(16px);
-      border-top: 1px solid rgba(16,185,129,0.25);
-      padding: 0.85rem 1.25rem;
-      padding-bottom: calc(0.85rem + env(safe-area-inset-bottom));
-    }
-    .mob-cta-bar-inner { display: flex; gap: 0.75rem; }
-    .mob-cta-bar a {
-      flex: 1; text-align: center; padding: 0.85rem 0.5rem;
-      font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
-      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      text-decoration: none; border-radius: 9999px; transition: all 0.2s;
-      min-height: 48px; display: flex; align-items: center; justify-content: center;
-    }
-    .mob-cta-primary { background: #10b981; color: #000; }
-    .mob-cta-secondary { border: 1.5px solid rgba(16,185,129,0.5); color: #6ee7b7; }
-
-    @media (max-width: 768px) {
-      .mob-cta-bar { display: block; }
-      /* Add bottom padding so content isn't hidden behind bar */
-      body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
-      /* Nav height shrink */
-      nav, #main-nav { height: 60px !important; }
-      .nav-logo, a.nav-logo { font-size: 1.8rem !important; }
-      /* Safe area top padding */
-      .hero, section:first-of-type { padding-top: calc(60px + 1rem) !important; }
-      /* Touch target minimum */
-      a, button { min-height: 44px; }
-      /* Footer padding */
-      footer { padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
-    }
-
-    @media (max-width: 480px) {
-      /* Prevent text overflow on tiny screens */
-      h1, h2, h3 { word-break: break-word; overflow-wrap: break-word; }
-      /* Section padding */
-      section, .section { padding-left: 1.1rem !important; padding-right: 1.1rem !important; }
-    }
-
-  
-    /* ═══════════ LIGHT MODE ═══════════ */
-    html.light{--black:#f5f5f0;--surface:#eeeee8;--surface2:#e4e4dc;--border:rgba(0,0,0,.09);--text:#0a0a0a;--muted:#5a5a5a;}
-    html.light body{background:#f5f5f0;color:#0a0a0a;}
-    html.light nav,html.light #main-nav{background:rgba(245,245,240,.88)!important;border-bottom-color:rgba(0,0,0,.08)!important;}
-    html.light footer{background:#e8e8e2;border-top-color:rgba(0,0,0,.09);}
-    html.light #mob-menu{background:#f5f5f0;}
-    html.light .mob-cta-bar{background:rgba(245,245,240,.97);}
-    html.light .reveal,.html.light .svc{border-color:rgba(0,0,0,.09);}
-    body,nav,footer,section,.svc,.reveal{transition:background .35s,color .35s,border-color .35s;}
-    /* theme toggle btn */
-    
-    
-    
-    
-
-  
-    /* ── UNIVERSAL NAV ── */
-    #gn{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;display:flex;align-items:center;padding:0 1.5rem;background:rgba(5,5,5,.75);backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.07);transition:background .3s;}
-    #gn.solid{background:rgba(5,5,5,.97);}
-    .gn-inner{max-width:1340px;width:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;}
-    .gn-logo{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;letter-spacing:.04em;color:#f0f0f0;text-decoration:none;line-height:1;flex-shrink:0;}
-    .gn-logo em{color:#10b981;font-style:normal;}
-    .gn-links{display:flex;align-items:center;gap:2rem;}
-    .gn-lnk{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;text-decoration:none;transition:color .2s;position:relative;}
-    .gn-lnk::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#10b981;transition:width .3s;}
-    .gn-lnk:hover,.gn-lnk.on{color:#34d399;}
-    .gn-lnk:hover::after,.gn-lnk.on::after{width:100%;}
-    .gn-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border-radius:9999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap;}
-    .gn-pill-out{padding:.5rem 1.2rem;border:1.5px solid rgba(16,185,129,.45);color:#34d399;font-weight:600;}
-    .gn-pill-out:hover{background:rgba(16,185,129,.1);border-color:#10b981;}
-    .gn-pill-solid{padding:.55rem 1.4rem;background:#10b981;color:#000;font-weight:700;}
-    .gn-pill-solid:hover{background:#34d399;transform:translateY(-1px);}
-    #gn-theme{width:36px;height:36px;border-radius:9999px;border:1.5px solid rgba(16,185,129,.35);background:transparent;cursor:pointer;color:#34d399;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;padding:0;}
-    #gn-theme:hover{background:rgba(16,185,129,.1);border-color:#10b981;}
-    #gn-theme svg{width:15px;height:15px;stroke:currentColor;transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
-    #gn-theme:hover svg{transform:rotate(22deg) scale(1.1);}
-    #gn-ham{display:none;background:none;border:none;cursor:pointer;color:#f0f0f0;padding:.3rem;flex-shrink:0;}
-    #gn-mob{display:none;position:fixed;inset:0;background:#050505;z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;}
-    #gn-mob.open{display:flex;}
-    #gn-mob-close{position:absolute;top:1.4rem;right:1.4rem;background:none;border:none;cursor:pointer;color:#f0f0f0;font-size:2.4rem;line-height:1;padding:.4rem;}
-    .gn-mob-lnk{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,9vw,4.2rem);color:#f0f0f0;text-decoration:none;transition:color .2s;letter-spacing:.04em;}
-    .gn-mob-lnk:hover,.gn-mob-lnk.on{color:#10b981;}
-    @media(max-width:900px){#gn-ham{display:block;}.gn-links{display:none!important;}}
-    html.light #gn{background:rgba(245,245,240,.85)!important;}
-    html.light #gn.solid{background:rgba(245,245,240,.98)!important;}
-    html.light .gn-logo{color:#0a0a0a;}
-    html.light #gn-mob{background:#f5f5f0;}
-    html.light .gn-mob-lnk{color:#0a0a0a;}
-    html.light #gn-ham{color:#0a0a0a;}
-
   </style>
 </head>
 
@@ -329,26 +226,43 @@
   <div class="cursor-dot hidden md:block"></div>
   <div class="cursor-outline hidden md:block"></div>
 
-
-  <nav id="gn">
-    <div class="gn-inner">
-      <a href="index.html" class="gn-logo">LEVANT<em>.</em></a>
-      <div class="gn-links"><a href="index.html" class="gn-lnk">Home</a><a href="services.html" class="gn-lnk">Services</a><a href="work.html" class="gn-lnk">Work</a>
-        <a href="audit.html" class="gn-pill gn-pill-out"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>Free Audit</a>
-        <a href="contact.html" class="gn-pill gn-pill-solid">Contact</a>
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="fixed w-full z-50 text-white py-4 px-4 sm:px-8 bg-black/80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="font-display text-2xl font-bold tracking-tighter hover:text-emerald-300 transition-colors">
+        LEVANT<span class="text-emerald-500">.</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-6">
+        <a href="index.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">HOME</a>
+        <a href="services.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">SERVICES</a>
+        <a href="work.html" class="nav-link text-sm font-medium hover:text-emerald-300 transition-colors">WORK</a>
+        <a href="audit.html" class="nav-link px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-200 hover:bg-emerald-500 hover:text-black transition-all active">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            FREE AUDIT
+          </span>
+        </a>
+        <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2 rounded-full text-sm font-bold transition-all">CONTACT</a>
       </div>
-      <button id="gn-theme" aria-label="Toggle theme"><svg id="gn-theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
-      <button id="gn-ham" aria-label="Open menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button id="menu-btn" class="lg:hidden text-white" aria-label="Open menu">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
     </div>
   </nav>
-  <div id="gn-mob">
-    <button id="gn-mob-close">&#x2715;</button>
-    <a href="index.html" class="gn-mob-lnk">Home</a><a href="services.html" class="gn-mob-lnk">Services</a><a href="work.html" class="gn-mob-lnk">Work</a>
-    <a href="audit.html"   class="gn-mob-lnk on" style="color:#34d399">Free Audit</a>
-    <a href="contact.html" class="gn-mob-lnk" style="color:#34d399">Contact</a>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-6 lg:hidden">
+    <button id="close-menu" class="absolute top-6 right-6 text-white" aria-label="Close menu">
+      <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <a href="index.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
+    <a href="services.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors">SERVICES</a>
+    <a href="work.html" class="text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors">WORK</a>
+    <a href="audit.html" class="text-3xl font-display font-bold text-emerald-300">FREE AUDIT</a>
+    <a href="contact.html" class="text-3xl font-display font-bold text-emerald-300">CONTACT</a>
   </div>
 
-<!-- ═══════════ HERO ═══════════ -->
+  <!-- ═══════════ HERO ═══════════ -->
   <header class="relative pt-24 overflow-hidden min-h-[85vh] flex flex-col justify-center">
     <div class="aurora" aria-hidden="true">
       <div class="aurora-blob bg-emerald-600 w-[500px] h-[500px] -top-20 -left-20"></div>
@@ -805,8 +719,13 @@
     }
 
     // ── Mobile menu ──
-    
-        
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn?.addEventListener('click', () => mobileMenu.style.transform = 'translateX(0)');
+    closeBtn?.addEventListener('click', () => mobileMenu.style.transform = 'translateX(100%)');
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.style.transform = 'translateX(100%)'));
+
     // ── Scroll reveal ──
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -857,24 +776,5 @@
     });
   </script>
   <script src="assets/effects.js"></script>
-  <script>
-    (function(){
-      var nav=document.getElementById('gn');
-      if(nav)window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>40);},{passive:true});
-      var ham=document.getElementById('gn-ham'),mob=document.getElementById('gn-mob'),cls=document.getElementById('gn-mob-close');
-      if(ham&&mob){ham.addEventListener('click',function(){mob.classList.add('open');document.body.style.overflow='hidden';});}
-      if(cls&&mob){cls.addEventListener('click',function(){mob.classList.remove('open');document.body.style.overflow='';});}
-      if(mob){mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open');document.body.style.overflow='';});});}
-      var btn=document.getElementById('gn-theme'),icon=document.getElementById('gn-theme-icon');
-      var MOON='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-      var SUN='<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
-      function applyTheme(m){
-        if(m==='light'){document.documentElement.classList.add('light');if(icon)icon.innerHTML=MOON;localStorage.setItem('levant-theme','light');}
-        else{document.documentElement.classList.remove('light');if(icon)icon.innerHTML=SUN;localStorage.setItem('levant-theme','dark');}
-      }
-      applyTheme(localStorage.getItem('levant-theme')==='light'?'light':'dark');
-      if(btn)btn.addEventListener('click',function(){applyTheme(document.documentElement.classList.contains('light')?'dark':'light');});
-    })();
-  </script>
 </body>
 </html>
