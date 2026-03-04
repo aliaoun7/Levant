@@ -246,10 +246,45 @@
     html.light .reveal,.html.light .svc{border-color:rgba(0,0,0,.09);}
     body,nav,footer,section,.svc,.reveal{transition:background .35s,color .35s,border-color .35s;}
     /* theme toggle btn */
-    #theme-btn{width:38px;height:38px;border-radius:9999px;border:1.5px solid rgba(16,185,129,.35);background:transparent;cursor:pointer;color:#34d399;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
-    #theme-btn:hover{background:rgba(16,185,129,.1);border-color:#10b981;}
-    #theme-btn svg{width:16px;height:16px;transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
-    #theme-btn:hover svg{transform:rotate(20deg) scale(1.15);}
+    
+    
+    
+    
+
+  
+    /* ── UNIVERSAL NAV ── */
+    #gn{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;display:flex;align-items:center;padding:0 1.5rem;background:rgba(5,5,5,.75);backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.07);transition:background .3s;}
+    #gn.solid{background:rgba(5,5,5,.97);}
+    .gn-inner{max-width:1340px;width:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;}
+    .gn-logo{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;letter-spacing:.04em;color:#f0f0f0;text-decoration:none;line-height:1;flex-shrink:0;}
+    .gn-logo em{color:#10b981;font-style:normal;}
+    .gn-links{display:flex;align-items:center;gap:2rem;}
+    .gn-lnk{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;text-decoration:none;transition:color .2s;position:relative;}
+    .gn-lnk::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#10b981;transition:width .3s;}
+    .gn-lnk:hover,.gn-lnk.on{color:#34d399;}
+    .gn-lnk:hover::after,.gn-lnk.on::after{width:100%;}
+    .gn-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border-radius:9999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap;}
+    .gn-pill-out{padding:.5rem 1.2rem;border:1.5px solid rgba(16,185,129,.45);color:#34d399;font-weight:600;}
+    .gn-pill-out:hover{background:rgba(16,185,129,.1);border-color:#10b981;}
+    .gn-pill-solid{padding:.55rem 1.4rem;background:#10b981;color:#000;font-weight:700;}
+    .gn-pill-solid:hover{background:#34d399;transform:translateY(-1px);}
+    #gn-theme{width:36px;height:36px;border-radius:9999px;border:1.5px solid rgba(16,185,129,.35);background:transparent;cursor:pointer;color:#34d399;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;padding:0;}
+    #gn-theme:hover{background:rgba(16,185,129,.1);border-color:#10b981;}
+    #gn-theme svg{width:15px;height:15px;stroke:currentColor;transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
+    #gn-theme:hover svg{transform:rotate(22deg) scale(1.1);}
+    #gn-ham{display:none;background:none;border:none;cursor:pointer;color:#f0f0f0;padding:.3rem;flex-shrink:0;}
+    #gn-mob{display:none;position:fixed;inset:0;background:#050505;z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;}
+    #gn-mob.open{display:flex;}
+    #gn-mob-close{position:absolute;top:1.4rem;right:1.4rem;background:none;border:none;cursor:pointer;color:#f0f0f0;font-size:2.4rem;line-height:1;padding:.4rem;}
+    .gn-mob-lnk{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,9vw,4.2rem);color:#f0f0f0;text-decoration:none;transition:color .2s;letter-spacing:.04em;}
+    .gn-mob-lnk:hover,.gn-mob-lnk.on{color:#10b981;}
+    @media(max-width:900px){#gn-ham{display:block;}.gn-links{display:none!important;}}
+    html.light #gn{background:rgba(245,245,240,.85)!important;}
+    html.light #gn.solid{background:rgba(245,245,240,.98)!important;}
+    html.light .gn-logo{color:#0a0a0a;}
+    html.light #gn-mob{background:#f5f5f0;}
+    html.light .gn-mob-lnk{color:#0a0a0a;}
+    html.light #gn-ham{color:#0a0a0a;}
 
   </style>
 </head>
@@ -258,22 +293,25 @@
   <div class="cursor cursor-dot" id="cursorDot" style="display:none"></div>
   <div class="cursor cursor-ring" id="cursorRing" style="display:none"></div>
 
-  <!-- NAV -->
-  <nav class="fixed w-full z-50 text-white py-5 px-4 sm:px-8 bg-black/80 backdrop-blur-md border-b border-white/5">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="index.html" class="font-display text-3xl font-bold tracking-tighter hover:text-emerald-300 transition-colors">
-        LEVANT<span class="text-emerald-500">.</span>
-      </a>
-      <div class="hidden lg:flex items-center gap-7">
-        <a href="index.html" class="nav-link text-sm font-medium">HOME</a>
-        <a href="services.html" class="nav-link text-sm font-medium text-emerald-300">SERVICES</a>
-        <a href="work.html" class="nav-link text-sm font-medium">WORK</a>
-        <a href="audit.html" class="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 rounded-full text-sm font-medium text-emerald-200 hover:bg-emerald-500 hover:text-black transition-all">
-          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-          FREE AUDIT
-        </a>
-        <a href="contact.html" class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-all">CONTACT</a>
+
+  <nav id="gn">
+    <div class="gn-inner">
+      <a href="index.html" class="gn-logo">LEVANT<em>.</em></a>
+      <div class="gn-links"><a href="index.html" class="gn-lnk">Home</a><a href="services.html" class="gn-lnk on">Services</a><a href="work.html" class="gn-lnk">Work</a>
+        <a href="audit.html" class="gn-pill gn-pill-out"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>Free Audit</a>
+        <a href="contact.html" class="gn-pill gn-pill-solid">Contact</a>
       </div>
+      <button id="gn-theme" aria-label="Toggle theme"><svg id="gn-theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
+      <button id="gn-ham" aria-label="Open menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </nav>
+  <div id="gn-mob">
+    <button id="gn-mob-close">&#x2715;</button>
+    <a href="index.html" class="gn-mob-lnk">Home</a><a href="services.html" class="gn-mob-lnk on">Services</a><a href="work.html" class="gn-mob-lnk">Work</a>
+    <a href="audit.html"   class="gn-mob-lnk" style="color:#34d399">Free Audit</a>
+    <a href="contact.html" class="gn-mob-lnk" style="color:#34d399">Contact</a>
+  </div>
+
       <button id="theme-btn" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
       <button id="menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
         <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -711,8 +749,8 @@
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive:true });
 
     // Mobile menu
-    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
-    document.getElementById('close-menu').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+    
+    
     document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
 
     // Reveal
@@ -722,5 +760,24 @@
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
   <script src="assets/effects.js"></script>
+  <script>
+    (function(){
+      var nav=document.getElementById('gn');
+      if(nav)window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>40);},{passive:true});
+      var ham=document.getElementById('gn-ham'),mob=document.getElementById('gn-mob'),cls=document.getElementById('gn-mob-close');
+      if(ham&&mob){ham.addEventListener('click',function(){mob.classList.add('open');document.body.style.overflow='hidden';});}
+      if(cls&&mob){cls.addEventListener('click',function(){mob.classList.remove('open');document.body.style.overflow='';});}
+      if(mob){mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open');document.body.style.overflow='';});});}
+      var btn=document.getElementById('gn-theme'),icon=document.getElementById('gn-theme-icon');
+      var MOON='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+      var SUN='<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+      function applyTheme(m){
+        if(m==='light'){document.documentElement.classList.add('light');if(icon)icon.innerHTML=MOON;localStorage.setItem('levant-theme','light');}
+        else{document.documentElement.classList.remove('light');if(icon)icon.innerHTML=SUN;localStorage.setItem('levant-theme','dark');}
+      }
+      applyTheme(localStorage.getItem('levant-theme')==='light'?'light':'dark');
+      if(btn)btn.addEventListener('click',function(){applyTheme(document.documentElement.classList.contains('light')?'dark':'light');});
+    })();
+  </script>
 </body>
 </html>
