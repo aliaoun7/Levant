@@ -597,9 +597,7 @@
 
     // ── Mobile menu ──
     
-    closeBtn?.addEventListener('click', () => mobileMenu.style.transform = 'translateX(100%)');
-    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.style.transform = 'translateX(100%)'));
-
+        
     // ── Scroll reveal ──
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
