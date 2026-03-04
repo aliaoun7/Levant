@@ -860,8 +860,7 @@
     } else {dot.style.display='none';ring.style.display='none';}
 
     // ── Nav ──
-    const nav=document.getElementById('main-nav');
-    window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>50),{passive:true});
+        window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>50),{passive:true});
 
     // ── Mobile menu ──
     document.getElementById('mob-btn').addEventListener('click',()=>document.getElementById('mob-menu').classList.add('open'));
