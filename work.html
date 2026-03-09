@@ -1,556 +1,1489 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Work | Levant Digital Marketing</title>
-  <meta name="description" content="Portfolio: live websites built by Levant Digital Marketing for Metro Detroit businesses." />
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta
+    name="description"
+    content="Explore live client work from Levant Digital Marketing, including premium website builds for Barrington Ridge and Lieblich's Garage."
+  />
+  <meta name="theme-color" content="#10b981" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { emerald: { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b',950:'#022c22' } },
-          fontFamily: { sans:['Space Grotesk','sans-serif'], display:['Syne','sans-serif'] }
-        }
-      }
-    }
-  </script>
-
-  <link rel="stylesheet" href="assets/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    /* ── Grain ── */
-    .grain {
-      position:fixed; inset:0; z-index:999; pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-      opacity:0.55;
+    :root{
+      --bg:#050505;
+      --surface:#0c0c0c;
+      --surface-2:#111111;
+      --surface-3:#171717;
+      --border:rgba(255,255,255,.08);
+      --border-soft:rgba(255,255,255,.05);
+      --text:#f5f5f5;
+      --muted:#8b949e;
+      --emerald:#10b981;
+      --emerald-light:#34d399;
+      --emerald-dark:#065f46;
+      --shadow:0 28px 80px rgba(0,0,0,.42);
+      --font-display:'Bebas Neue',sans-serif;
+      --font-body:'DM Sans',sans-serif;
+      --font-mono:'JetBrains Mono',monospace;
     }
 
-    /* ── Cursor ── */
-    .cursor-dot {
-      width:8px; height:8px; background:#10b981; border-radius:50%;
-      position:fixed; top:0; left:0; pointer-events:none; z-index:9999;
-      transform:translate(-50%,-50%);
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:var(--font-body);
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-    .cursor-outline {
-      width:36px; height:36px; border:1.5px solid rgba(16,185,129,0.5); border-radius:50%;
-      position:fixed; top:0; left:0; pointer-events:none; z-index:9998;
-      transform:translate(-50%,-50%); transition:all .18s ease;
+
+    a{color:inherit}
+    ::selection{background:var(--emerald);color:#000}
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      opacity:.02;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
     /* NAV */
-    #main-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;padding:0 1.5rem;background:rgba(5,5,5,.7);backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--border, rgba(255,255,255,0.07));transition:background .3s;}
-    #main-nav.solid{background:rgba(5,5,5,.97);}
-    .nav-inner{max-width:1340px;width:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;}
-    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;color:#f0f0f0;text-decoration:none;line-height:1;}
-    .nav-logo em{color:#10b981;font-style:normal;}
-    .nav-links{display:flex;align-items:center;gap:2.2rem;}
-    .nav-lnk{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;text-decoration:none;transition:color .2s;position:relative;}
-    .nav-lnk::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#10b981;transition:width .3s;}
-    .nav-lnk:hover,.nav-lnk.active{color:#34d399;}
-    .nav-lnk:hover::after,.nav-lnk.active::after{width:100%;}
-    .btn-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border-radius:9999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;}
-    .btn-pill-out{padding:.55rem 1.3rem;border:1.5px solid rgba(16,185,129,.45);color:#34d399;font-weight:600;}
-    .btn-pill-out:hover,.btn-pill-out.active{background:rgba(16,185,129,.1);border-color:#10b981;}
-    .btn-pill-solid{padding:.6rem 1.5rem;background:#10b981;color:#000;font-weight:700;}
-    .btn-pill-solid:hover,.btn-pill-solid.active{background:#34d399;transform:translateY(-1px);}
-    #mob-btn{display:none;background:none;border:none;cursor:pointer;color:#f0f0f0;padding:.4rem;}
-    #mob-menu{display:none;position:fixed;inset:0;background:#000;z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;}
-    #mob-menu.open{display:flex;}
-    .mob-lnk{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,9vw,4.5rem);color:#f0f0f0;text-decoration:none;transition:color .2s;letter-spacing:.04em;}
-    .mob-lnk:hover{color:#10b981;}
-    #mob-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;cursor:pointer;color:#f0f0f0;font-size:2.5rem;line-height:1;padding:.4rem;}
-    @media(max-width:960px){#mob-btn{display:block;}.nav-links{display:none!important;}}
-
-    /* ── Nav link underline ── */
-    .nav-link { position:relative; color: rgba(255,255,255,0.7); }
-    .nav-link::after {
-      content:''; position:absolute; bottom:-4px; left:0; width:0; height:1.5px;
-      background:#10b981; transition:width .3s ease;
-    }
-    .nav-link:hover::after { width:100%; }
-    .nav-link:hover { color: #6ee7b7; }
-
-    /* ── Badge ── */
-    .badge {
-      display:inline-flex; align-items:center; gap:6px;
-      padding:4px 12px; border-radius:9999px;
-      background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2);
-      font-size:0.75rem; font-weight:600; letter-spacing:0.08em;
-      color:#a7f3d0; text-transform:uppercase;
+    #main-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1000;
+      height:72px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background:rgba(5,5,5,.72);
+      backdrop-filter:blur(14px) saturate(1.2);
+      -webkit-backdrop-filter:blur(14px) saturate(1.2);
+      transition:background .25s ease,border-color .25s ease;
     }
 
-    /* ── Text gradient ── */
-    .text-gradient {
-      background:linear-gradient(135deg,#34d399,#10b981,#6ee7b7);
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    #main-nav.solid{
+      background:rgba(5,5,5,.94);
+      border-color:rgba(255,255,255,.08);
     }
 
-    /* ── Divider ── */
-    .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(16,185,129,0.3),transparent); }
-
-    /* ── Reveal ── */
-    .reveal {
-      opacity:0; transform:translateY(28px);
-      transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
-    }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-
-    /* ── Marquee ── */
-    .marquee-container { display:flex; overflow:hidden; white-space:nowrap; }
-    .marquee-content { display:flex; animation:marquee-scroll 32s linear infinite; }
-    @keyframes marquee-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-
-    /* ══════════════════════════════════
-       PROJECT CARD — the hero element
-    ══════════════════════════════════ */
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: #0a0a0a;
-      cursor: pointer;
-      transition: border-color .4s, box-shadow .4s;
-    }
-    .project-card:hover {
-      border-color: rgba(16,185,129,0.2);
-      box-shadow: 0 40px 120px rgba(0,0,0,0.6), 0 0 0 1px rgba(16,185,129,0.08);
+    .nav-inner{
+      max-width:1360px;
+      height:100%;
+      margin:auto;
+      padding:0 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
     }
 
-    /* Full-bleed image that fills the card */
-    .project-image {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .8s cubic-bezier(.16,1,.3,1), filter .5s;
-      filter: brightness(0.65) saturate(0.8);
-    }
-    .project-card:hover .project-image {
-      transform: scale(1.04);
-      filter: brightness(0.5) saturate(0.7);
+    .nav-logo{
+      text-decoration:none;
+      font-family:var(--font-display);
+      font-size:2.35rem;
+      line-height:1;
+      letter-spacing:.02em;
     }
 
-    /* Gradient overlay always present */
-    .project-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.95) 0%,
-        rgba(0,0,0,0.5) 40%,
-        rgba(0,0,0,0.1) 70%,
-        transparent 100%
-      );
-      transition: background .4s;
-    }
-    .project-card:hover .project-overlay {
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.98) 0%,
-        rgba(0,0,0,0.7) 50%,
-        rgba(0,0,0,0.3) 100%
-      );
+    .nav-logo span{color:var(--emerald)}
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:2rem;
     }
 
-    /* Content pinned to bottom of card */
-    .project-content {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 2.5rem;
-      z-index: 10;
+    .nav-lnk{
+      text-decoration:none;
+      font-family:var(--font-mono);
+      font-size:.72rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.58);
+      transition:color .2s ease;
     }
 
-    /* Project number — big ghost behind title */
-    .project-num {
-      position: absolute;
-      top: 1.5rem; right: 2rem;
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(5rem, 10vw, 8rem);
-      font-weight: 800;
-      line-height: 1;
-      -webkit-text-stroke: 1px rgba(16,185,129,0.12);
-      color: transparent;
-      pointer-events: none;
-      user-select: none;
-      transition: -webkit-text-stroke-color .4s;
-      z-index: 5;
-    }
-    .project-card:hover .project-num {
-      -webkit-text-stroke-color: rgba(16,185,129,0.22);
+    .nav-lnk:hover,
+    .nav-lnk.active{
+      color:var(--emerald-light);
     }
 
-    /* Tag pill */
-    .project-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 3px 10px; border-radius: 9999px;
-      background: rgba(16,185,129,0.12);
-      border: 1px solid rgba(16,185,129,0.25);
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
-      color: #6ee7b7; text-transform: uppercase;
-      margin-bottom: 0.75rem;
+    .btn-pill{
+      text-decoration:none;
+      font-family:var(--font-mono);
+      font-size:.7rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition:all .2s ease;
+      white-space:nowrap;
     }
 
-    /* Title */
-    .project-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      color: white;
-      transition: color .3s;
-      margin-bottom: 0.75rem;
-    }
-    .project-card:hover .project-title { color: #6ee7b7; }
+    .btn-pill:hover{transform:translateY(-1px)}
 
-    /* Description — hidden by default, reveals on hover */
-    .project-desc {
-      font-size: 0.95rem;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.55);
-      max-width: 42rem;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height .5s cubic-bezier(.16,1,.3,1), opacity .4s, margin .4s;
-      margin-bottom: 0;
-    }
-    .project-card:hover .project-desc {
-      max-height: 6rem;
-      opacity: 1;
-      margin-bottom: 1.5rem;
+    .btn-pill-out{
+      padding:.72rem 1.35rem;
+      border:1px solid rgba(255,255,255,.26);
+      color:var(--text);
+      background:transparent;
     }
 
-    /* Visit site button */
-    .project-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 22px;
-      background: rgba(16,185,129,0.15);
-      border: 1px solid rgba(16,185,129,0.4);
-      border-radius: 9999px;
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
-      color: #6ee7b7; text-transform: uppercase;
-      text-decoration: none;
-      transform: translateY(8px);
-      opacity: 0;
-      transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .35s, background .25s, color .25s;
-    }
-    .project-card:hover .project-btn {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .project-btn:hover {
-      background: #10b981;
-      border-color: #10b981;
-      color: black;
+    .btn-pill-out:hover{
+      border-color:rgba(16,185,129,.55);
+      color:var(--emerald-light);
+      background:rgba(16,185,129,.06);
     }
 
-    /* Top-right visit pill — always visible, fades on hover */
-    .project-visit-pill {
-      position: absolute; top: 1.5rem; left: 2rem;
-      z-index: 10;
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 14px;
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 9999px;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.6);
-      backdrop-filter: blur(8px);
-      text-decoration: none;
-      transition: background .3s, border-color .3s, color .3s, opacity .3s;
-    }
-    .project-card:hover .project-visit-pill {
-      background: rgba(16,185,129,0.15);
-      border-color: rgba(16,185,129,0.4);
-      color: #6ee7b7;
+    .btn-pill-solid{
+      padding:.78rem 1.5rem;
+      background:var(--emerald);
+      color:#000;
+      font-weight:700;
     }
 
-    /* ── CTA card ── */
-    .cta-card {
-      position: relative; overflow: hidden; border-radius: 28px;
-      border: 1px solid rgba(16,185,129,0.15);
-      background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(16,185,129,0.02));
-    }
-    .cta-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:1px;
-      background:linear-gradient(90deg,transparent,rgba(16,185,129,0.5),transparent);
+    .btn-pill-solid:hover{
+      background:var(--emerald-light);
     }
 
-    /* ── Glow pulse ── */
-    @keyframes glow-pulse {
-      0%,100% { box-shadow:0 0 20px rgba(16,185,129,0.25),0 0 40px rgba(16,185,129,0.08); }
-      50%      { box-shadow:0 0 40px rgba(16,185,129,0.45),0 0 80px rgba(16,185,129,0.15); }
-    }
-    .glow-btn { animation:glow-pulse 3s ease-in-out infinite; }
-
-    /* ── Aurora ── */
-    .aurora { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
-    .aurora-blob {
-      position:absolute; border-radius:9999px; filter:blur(80px); opacity:0.12;
-      animation:aurora-drift 18s ease-in-out infinite alternate;
-    }
-    @keyframes aurora-drift {
-      0%   { transform:translate(0,0) scale(1); }
-      50%  { transform:translate(30px,-20px) scale(1.05); }
-      100% { transform:translate(-20px,15px) scale(0.97); }
+    #mob-btn{
+      display:none;
+      width:44px;
+      height:44px;
+      border:0;
+      background:transparent;
+      cursor:pointer;
+      position:relative;
+      flex-shrink:0;
     }
 
-    /* Mobile menu */
-    #mobile-menu { transition: transform .5s cubic-bezier(.76,0,.24,1); }
+    #mob-btn span{
+      position:absolute;
+      left:10px;
+      right:10px;
+      height:2px;
+      background:var(--text);
+      transition:transform .25s ease,top .25s ease;
+    }
+
+    #mob-btn span:first-child{top:16px}
+    #mob-btn span:last-child{top:26px}
+
+    #mob-btn.open span:first-child{
+      top:21px;
+      transform:rotate(45deg);
+    }
+
+    #mob-btn.open span:last-child{
+      top:21px;
+      transform:rotate(-45deg);
+    }
+
+    #mob-menu{
+      position:fixed;
+      inset:72px 0 auto 0;
+      z-index:999;
+      display:none;
+      background:rgba(5,5,5,.98);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      padding:18px 24px 28px;
+    }
+
+    #mob-menu.open{display:block}
+
+    .mob-links{
+      display:flex;
+      flex-direction:column;
+      gap:.9rem;
+    }
+
+    .mob-lnk{
+      text-decoration:none;
+      font-family:var(--font-mono);
+      font-size:.8rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.72);
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .mob-lnk.active{color:var(--emerald-light)}
+
+    @media (max-width:980px){
+      .nav-links{display:none}
+      #mob-btn{display:block}
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      padding-top:72px;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(16,185,129,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(16,185,129,.04) 1px,transparent 1px);
+      background-size:58px 58px;
+      mask-image:radial-gradient(circle at center, black 28%, transparent 88%);
+      opacity:.7;
+      z-index:0;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 14% 24%, rgba(16,185,129,.16), transparent 24%),
+        radial-gradient(circle at 84% 72%, rgba(16,185,129,.08), transparent 22%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,.03), transparent 36%);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:1360px;
+      margin:auto;
+      padding:92px 24px 52px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+
+    .hero-eyebrow{
+      display:flex;
+      align-items:center;
+      gap:.85rem;
+      font-family:var(--font-mono);
+      font-size:.64rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--emerald);
+      margin-bottom:1rem;
+    }
+
+    .hero-eyebrow::before{
+      content:"";
+      width:42px;
+      height:1px;
+      background:var(--emerald);
+      display:block;
+    }
+
+    .hero h1{
+      font-family:var(--font-display);
+      font-size:clamp(4rem,8vw,7rem);
+      line-height:.9;
+      letter-spacing:.01em;
+      margin-bottom:1rem;
+      max-width:10ch;
+    }
+
+    .hero h1 span{
+      color:var(--emerald);
+    }
+
+    .hero p{
+      max-width:42rem;
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.9;
+    }
+
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      margin-top:1.4rem;
+    }
+
+    .hero-chip{
+      padding:.55rem .8rem;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.025);
+      color:rgba(255,255,255,.72);
+      font-family:var(--font-mono);
+      font-size:.58rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    @media (max-width:768px){
+      .hero-inner{
+        padding:56px 18px 34px;
+      }
+
+      .hero h1{
+        font-size:clamp(3rem,16vw,4.7rem);
+      }
+
+      .hero-grid{opacity:.45}
+    }
+
+    /* SECTION HEAD */
+    .section{
+      position:relative;
+      z-index:2;
+      max-width:1360px;
+      margin:auto;
+      padding:8px 24px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      font-family:var(--font-display);
+      font-size:clamp(2.7rem,5vw,4.2rem);
+      line-height:.95;
+      letter-spacing:.01em;
+    }
+
+    .section-head p{
+      max-width:32rem;
+      color:var(--muted);
+      font-size:.96rem;
+      line-height:1.85;
+    }
+
+    @media (max-width:900px){
+      .section{
+        padding:8px 18px 0;
+      }
+
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    /* PROJECTS */
+    .projects{
+      display:grid;
+      gap:30px;
+      padding-bottom:34px;
+    }
+
+    .work-card{
+      position:relative;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,#101010,#090909);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .work-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(16,185,129,.82),transparent);
+      opacity:.7;
+      z-index:2;
+    }
+
+    .work-inner{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      min-height:700px;
+    }
+
+    .work-visual{
+      position:relative;
+      padding:30px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 20% 22%, rgba(16,185,129,.12), transparent 26%),
+        radial-gradient(circle at 82% 78%, rgba(16,185,129,.08), transparent 24%),
+        linear-gradient(180deg,#101010,#090909);
+      border-right:1px solid rgba(255,255,255,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .work-content{
+      padding:36px 34px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:18px;
+    }
+
+    @media (max-width:1100px){
+      .work-inner{
+        grid-template-columns:1fr;
+      }
+
+      .work-visual{
+        border-right:0;
+        border-bottom:1px solid rgba(255,255,255,.06);
+        min-height:430px;
+      }
+    }
+
+    @media (max-width:768px){
+      .work-visual{
+        padding:18px;
+        min-height:320px;
+      }
+
+      .work-content{
+        padding:24px 18px;
+      }
+    }
+
+    .work-meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .work-num{
+      font-family:var(--font-mono);
+      font-size:.62rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .work-tag{
+      display:inline-flex;
+      padding:.45rem .7rem;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.025);
+      color:rgba(255,255,255,.74);
+      font-family:var(--font-mono);
+      font-size:.56rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .work-title{
+      font-family:var(--font-display);
+      font-size:clamp(2.6rem,5vw,4.4rem);
+      line-height:.92;
+      letter-spacing:.02em;
+    }
+
+    .work-sub{
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.85;
+      max-width:35rem;
+    }
+
+    .work-points{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px 20px;
+      margin-top:4px;
+    }
+
+    .work-point{
+      display:flex;
+      align-items:flex-start;
+      gap:.6rem;
+      color:rgba(255,255,255,.88);
+      font-size:.9rem;
+      line-height:1.75;
+    }
+
+    .work-point::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--emerald);
+      margin-top:.42rem;
+      flex-shrink:0;
+      box-shadow:0 0 14px rgba(16,185,129,.45);
+    }
+
+    .work-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:8px;
+    }
+
+    .btn-main,
+    .btn-ghost{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.55rem;
+      padding:.95rem 1.25rem;
+      font-family:var(--font-mono);
+      font-size:.67rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      transition:all .2s ease;
+    }
+
+    .btn-main{
+      background:var(--emerald);
+      color:#000;
+      font-weight:700;
+    }
+
+    .btn-main:hover{
+      background:var(--emerald-light);
+      transform:translateY(-1px);
+    }
+
+    .btn-ghost{
+      border:1px solid rgba(255,255,255,.16);
+      color:var(--text);
+      background:transparent;
+    }
+
+    .btn-ghost:hover{
+      border-color:rgba(16,185,129,.38);
+      color:var(--emerald-light);
+      background:rgba(16,185,129,.05);
+    }
+
+    .btn-main svg,
+    .btn-ghost svg{
+      width:14px;
+      height:14px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    @media (max-width:768px){
+      .work-points{
+        grid-template-columns:1fr;
+      }
+    }
+
+    /* REALISTIC VISUALS */
+    .scene{
+      position:relative;
+      width:min(100%,780px);
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .glow-orb{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(50px);
+      opacity:.46;
+      pointer-events:none;
+    }
+
+    .glow-orb.one{
+      width:220px;
+      height:220px;
+      top:10%;
+      left:6%;
+      background:rgba(16,185,129,.18);
+    }
+
+    .glow-orb.two{
+      width:280px;
+      height:280px;
+      bottom:5%;
+      right:5%;
+      background:rgba(255,255,255,.05);
+    }
+
+    .browser{
+      position:relative;
+      width:min(92%,650px);
+      border:1px solid rgba(255,255,255,.09);
+      background:#0d0d0d;
+      box-shadow:0 26px 70px rgba(0,0,0,.46);
+    }
+
+    .browser-top{
+      height:42px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background:#141414;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:0 12px;
+    }
+
+    .dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+    }
+
+    .dot.r{background:#ff5f57}
+    .dot.y{background:#febc2e}
+    .dot.g{background:#28c840}
+
+    .urlbar{
+      margin-left:10px;
+      flex:1;
+      height:24px;
+      border:1px solid rgba(255,255,255,.06);
+      background:#0b0b0b;
+      display:flex;
+      align-items:center;
+      padding:0 10px;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      color:#767676;
+      font-family:var(--font-mono);
+      font-size:.55rem;
+      letter-spacing:.08em;
+    }
+
+    .browser-body{
+      padding:16px;
+      display:grid;
+      gap:12px;
+      background:linear-gradient(180deg,#0f0f0f,#0a0a0a);
+    }
+
+    .site-hero{
+      position:relative;
+      border:1px solid rgba(255,255,255,.06);
+      min-height:160px;
+      padding:18px;
+      overflow:hidden;
+    }
+
+    .site-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.08), transparent 48%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.08), transparent 22%);
+      pointer-events:none;
+    }
+
+    .site-hero-inner{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      height:100%;
+    }
+
+    .site-kicker{
+      font-family:var(--font-mono);
+      font-size:.5rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.68);
+      margin-bottom:.5rem;
+    }
+
+    .site-title{
+      margin-bottom:.4rem;
+      color:#f5f5f5;
+    }
+
+    .site-copy{
+      width:70%;
+      display:grid;
+      gap:7px;
+    }
+
+    .bar{
+      height:8px;
+      background:rgba(255,255,255,.16);
+    }
+
+    .bar.sm{width:42%;height:6px;background:rgba(255,255,255,.11)}
+    .bar.md{width:58%}
+    .bar.lg{width:78%}
+
+    .grid-panels{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:12px;
+    }
+
+    .panel-large,
+    .stack > div{
+      border:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.025);
+    }
+
+    .panel-large{
+      min-height:180px;
+      padding:16px;
+      display:grid;
+      grid-template-rows:auto 1fr auto;
+      gap:12px;
+    }
+
+    .panel-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+    }
+
+    .tiny-chip{
+      font-family:var(--font-mono);
+      font-size:.45rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.62);
+      border:1px solid rgba(255,255,255,.08);
+      padding:.35rem .45rem;
+    }
+
+    .panel-block{
+      border:1px solid rgba(255,255,255,.05);
+      background:rgba(255,255,255,.03);
+      min-height:84px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:10px;
+    }
+
+    .panel-block strong{
+      display:block;
+      font-size:1rem;
+      letter-spacing:.02em;
+      margin-bottom:.2rem;
+    }
+
+    .panel-block small{
+      font-family:var(--font-mono);
+      font-size:.48rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .stack{
+      display:grid;
+      gap:12px;
+    }
+
+    .stack > div{
+      min-height:84px;
+      padding:12px;
+      display:flex;
+      align-items:flex-end;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .stack > div::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(255,255,255,.06), transparent 58%);
+      pointer-events:none;
+    }
+
+    .stack span{
+      position:relative;
+      z-index:2;
+      font-family:var(--font-mono);
+      font-size:.5rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.76);
+    }
+
+    .phone{
+      position:absolute;
+      width:182px;
+      height:364px;
+      right:-4px;
+      bottom:-10px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      background:#080808;
+      box-shadow:0 20px 50px rgba(0,0,0,.55);
+      overflow:hidden;
+    }
+
+    .phone-top{
+      height:26px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#111;
+    }
+
+    .phone-notch{
+      width:76px;
+      height:14px;
+      border-radius:999px;
+      background:#000;
+    }
+
+    .phone-body{
+      padding:12px;
+      display:grid;
+      gap:10px;
+    }
+
+    .phone-hero{
+      min-height:100px;
+      border:1px solid rgba(255,255,255,.06);
+      background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(16,185,129,.06));
+      padding:10px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .phone-grid{
+      display:grid;
+      gap:10px;
+    }
+
+    .phone-card{
+      min-height:48px;
+      border:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.025);
+    }
+
+    @media (max-width:768px){
+      .browser{
+        width:100%;
+      }
+
+      .phone{
+        display:none;
+      }
+    }
+
+    /* BARRINGTON */
+    .barrington .browser{
+      transform:perspective(1600px) rotateY(-10deg) rotateX(5deg);
+    }
+
+    .barrington .site-hero{
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.12), transparent 24%),
+        linear-gradient(135deg,#151515,#0d0d0d 52%,#18201b 100%);
+    }
+
+    .barrington .site-title{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:2.15rem;
+      line-height:1.02;
+      letter-spacing:.02em;
+    }
+
+    .barrington .panel-block{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)),
+        rgba(255,255,255,.02);
+    }
+
+    .barrington .stack > div:nth-child(1){
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.06), transparent 56%),
+        linear-gradient(180deg, #111, #161616);
+    }
+
+    .barrington .stack > div:nth-child(2){
+      background:
+        linear-gradient(135deg, rgba(16,185,129,.08), transparent 56%),
+        linear-gradient(180deg, #111, #141916);
+    }
+
+    .barrington .phone{
+      transform:rotate(8deg);
+    }
+
+    /* LIEBLICH */
+    .lieblich .browser{
+      transform:perspective(1600px) rotateY(10deg) rotateX(5deg);
+    }
+
+    .lieblich .site-hero{
+      background:
+        radial-gradient(circle at 20% 18%, rgba(16,185,129,.12), transparent 26%),
+        linear-gradient(135deg, #111, #0d0d0d 52%, #131313 100%);
+    }
+
+    .lieblich .site-title{
+      font-family:var(--font-display);
+      font-size:2.3rem;
+      line-height:.95;
+      letter-spacing:.03em;
+    }
+
+    .lieblich .panel-block{
+      background:
+        linear-gradient(180deg, rgba(16,185,129,.06), rgba(255,255,255,.02)),
+        rgba(255,255,255,.02);
+    }
+
+    .lieblich .stack > div:nth-child(1){
+      background:
+        linear-gradient(135deg, rgba(16,185,129,.1), transparent 60%),
+        linear-gradient(180deg, #111, #151515);
+    }
+
+    .lieblich .stack > div:nth-child(2){
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.06), transparent 56%),
+        linear-gradient(180deg, #111, #161616);
+    }
+
+    .lieblich .phone{
+      transform:rotate(-8deg);
+    }
+
+    /* CTA */
+    .cta-wrap{
+      max-width:1360px;
+      margin:auto;
+      padding:10px 24px 70px;
+      position:relative;
+      z-index:2;
+    }
+
+    .cta-box{
+      border:1px solid rgba(16,185,129,.18);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)),
+        rgba(10,10,10,.92);
+      padding:30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+      flex-wrap:wrap;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-box h3{
+      font-family:var(--font-display);
+      font-size:clamp(2.5rem,5vw,4rem);
+      line-height:.94;
+      margin-bottom:.55rem;
+    }
+
+    .cta-box p{
+      color:var(--muted);
+      line-height:1.8;
+      max-width:38rem;
+      font-size:.95rem;
+    }
+
+    .cta-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width:768px){
+      .cta-wrap{
+        padding:8px 18px 58px;
+      }
+
+      .cta-box{
+        padding:22px 18px;
+      }
+    }
+
+    /* FOOTER */
+    footer{
+      position:relative;
+      z-index:2;
+      background:#000;
+      border-top:1px solid var(--border);
+      padding:30px 24px 42px;
+    }
+
+    .footer-inner{
+      max-width:1360px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footer-logo{
+      font-family:var(--font-display);
+      font-size:2rem;
+      line-height:1;
+      letter-spacing:.02em;
+    }
+
+    .footer-logo span{color:var(--emerald)}
+
+    .footer-links{
+      display:flex;
+      gap:1rem 1.45rem;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .footer-links a{
+      text-decoration:none;
+      font-family:var(--font-mono);
+      font-size:.62rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.5);
+      transition:color .2s ease;
+    }
+
+    .footer-links a:hover{
+      color:var(--emerald-light);
+    }
+
+    .footer-copy{
+      font-family:var(--font-mono);
+      font-size:.62rem;
+      color:var(--muted);
+    }
+
+    @media (max-width:768px){
+      .footer-inner{
+        justify-content:center;
+        text-align:center;
+      }
+    }
+
+    /* REVEAL */
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    /* PERFORMANCE */
+    @media (max-width:768px){
+      html{scroll-behavior:auto}
+      #main-nav{
+        backdrop-filter:none;
+        -webkit-backdrop-filter:none;
+      }
+    }
   </style>
 </head>
+<body>
 
-<body class="font-sans antialiased selection:bg-emerald-500 selection:text-white bg-neutral-950 text-white overflow-x-hidden">
-  <div class="grain"></div>
-  <div class="cursor-dot hidden md:block"></div>
-  <div class="cursor-outline hidden md:block"></div>
-
-  <!-- ══════ NAV ══════ -->
-  <nav id="main-nav">
+  <header id="main-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">LEVANT<em>.</em></a>
-      <div class="nav-links">
+      <a href="index.html" class="nav-logo">LEVANT<span>.</span></a>
+
+      <nav class="nav-links">
         <a href="index.html" class="nav-lnk">Home</a>
         <a href="services.html" class="nav-lnk">Services</a>
         <a href="work.html" class="nav-lnk active">Work</a>
-        <a href="audit.html" class="btn-pill btn-pill-out">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-          Free Audit
-        </a>
+        <a href="audit.html" class="btn-pill btn-pill-out">Free Audit</a>
         <a href="contact.html" class="btn-pill btn-pill-solid">Contact</a>
-      </div>
-      <button id="mob-btn" aria-label="Menu">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </nav>
+
+      <button id="mob-btn" aria-label="Open menu">
+        <span></span>
+        <span></span>
       </button>
-    </div>
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <div id="mob-menu">
-    <button id="mob-close">✕</button>
-    <a href="index.html" class="mob-lnk">Home</a>
-    <a href="services.html" class="mob-lnk">Services</a>
-    <a href="work.html" class="mob-lnk" style="color:var(--em)">Work</a>
-    <a href="audit.html" class="mob-lnk" style="color:var(--em-light, var(--em-l))">Free Audit</a>
-    <a href="contact.html" class="mob-lnk" style="color:var(--em-light, var(--em-l))">Contact</a>
-  </div>
-
-  <!-- ═══════════ HERO ═══════════ -->
-  <header class="relative pt-32 pb-16 overflow-hidden">
-    <div class="aurora" aria-hidden="true">
-      <div class="aurora-blob bg-emerald-700 w-96 h-96 -top-10 -left-20"></div>
-      <div class="aurora-blob bg-teal-600 w-72 h-72 top-20 right-0" style="animation-delay:-8s;"></div>
-    </div>
-    <div class="absolute inset-0 opacity-[0.05]" style="background-image:linear-gradient(rgba(16,185,129,1) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,1) 1px,transparent 1px);background-size:64px 64px;"></div>
-    <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 60%,#0a0a0a 100%);"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-      <div class="badge mb-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        Real websites · Live links · Metro Detroit
-      </div>
-
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-        <div>
-          <h1 class="font-display font-bold leading-[0.9] tracking-tight">
-            <span class="block text-6xl md:text-7xl xl:text-8xl text-white">WORK THAT</span>
-            <span class="block text-6xl md:text-7xl xl:text-8xl text-gradient">LIVES ONLINE.</span>
-          </h1>
-        </div>
-        <div class="max-w-sm">
-          <p class="text-gray-400 text-lg leading-relaxed mb-5">Every project below is live. Click any card to visit the real site.</p>
-          <a href="contact.html" class="inline-flex items-center gap-2 text-emerald-300 font-semibold hover:gap-4 transition-all text-sm">
-            Start your project
-            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
     </div>
   </header>
 
-  <!-- ═══════════ MARQUEE ═══════════ -->
-  <div class="py-4 overflow-hidden border-y border-emerald-500/25 bg-emerald-500">
-    <div class="marquee-container font-display text-4xl md:text-5xl font-bold uppercase tracking-tighter text-black">
-      <div class="marquee-content select-none">
-        <span class="mx-8">Barrington Ridge</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Lieblich's Garage</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Real Estate</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Automotive</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Live Sites</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Metro Detroit</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Barrington Ridge</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Lieblich's Garage</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Real Estate</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Automotive</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Live Sites</span><span class="mx-6 opacity-40">✦</span>
-        <span class="mx-8">Metro Detroit</span><span class="mx-6 opacity-40">✦</span>
+  <div id="mob-menu">
+    <nav class="mob-links">
+      <a href="index.html" class="mob-lnk">Home</a>
+      <a href="services.html" class="mob-lnk">Services</a>
+      <a href="work.html" class="mob-lnk active">Work</a>
+      <a href="audit.html" class="mob-lnk">Free Audit</a>
+      <a href="contact.html" class="mob-lnk">Contact</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="reveal">
+        <div class="hero-eyebrow">Selected live work</div>
+        <h1>SITES THAT<br><span>LOOK ESTABLISHED.</span></h1>
+        <p>
+          Real client work built to look sharper, feel more credible, and make a stronger first impression.
+        </p>
+
+        <div class="hero-meta">
+          <div class="hero-chip">Live Websites</div>
+          <div class="hero-chip">Premium Design</div>
+          <div class="hero-chip">Mobile Ready</div>
+          <div class="hero-chip">Client-Facing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head reveal">
+      <div>
+        <h2>FEATURED WORK</h2>
+      </div>
+      <p>
+        A cleaner, more premium presentation of live projects — designed to show quality, trust, and real-world execution without clutter.
+      </p>
+    </div>
+
+    <div class="projects">
+      <article class="work-card reveal">
+        <div class="work-inner">
+          <div class="work-visual">
+            <div class="scene barrington">
+              <div class="glow-orb one"></div>
+              <div class="glow-orb two"></div>
+
+              <div class="browser">
+                <div class="browser-top">
+                  <div class="dot r"></div>
+                  <div class="dot y"></div>
+                  <div class="dot g"></div>
+                  <div class="urlbar">https://barringtonridge.us/</div>
+                </div>
+
+                <div class="browser-body">
+                  <div class="site-hero">
+                    <div class="site-hero-inner">
+                      <div class="site-kicker">Private capital · Real estate</div>
+                      <div class="site-title">Barrington Ridge</div>
+                      <div class="site-copy">
+                        <div class="bar lg"></div>
+                        <div class="bar md"></div>
+                        <div class="bar sm"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid-panels">
+                    <div class="panel-large">
+                      <div class="panel-head">
+                        <span class="tiny-chip">Luxury trust</span>
+                        <span class="tiny-chip">Investor-ready</span>
+                      </div>
+
+                      <div class="panel-block">
+                        <div>
+                          <strong>Premium capital positioning</strong>
+                          <small>refined and credible</small>
+                        </div>
+                      </div>
+
+                      <div class="panel-head">
+                        <span class="tiny-chip">Elegant flow</span>
+                        <span class="tiny-chip">Clean hierarchy</span>
+                      </div>
+                    </div>
+
+                    <div class="stack">
+                      <div><span>Refined presentation</span></div>
+                      <div><span>Stronger trust signals</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone">
+                <div class="phone-top">
+                  <div class="phone-notch"></div>
+                </div>
+                <div class="phone-body">
+                  <div class="phone-hero"></div>
+                  <div class="phone-grid">
+                    <div class="phone-card"></div>
+                    <div class="phone-card"></div>
+                    <div class="phone-card"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="work-content">
+            <div class="work-meta">
+              <div class="work-num">Project 01</div>
+              <div class="work-tag">Real Estate</div>
+            </div>
+
+            <h3 class="work-title">BARRINGTON RIDGE</h3>
+
+            <p class="work-sub">
+              A premium real estate presentation built to feel polished, trustworthy, and established from the first screen.
+            </p>
+
+            <div class="work-points">
+              <div class="work-point">Luxury visual direction</div>
+              <div class="work-point">Sharper investor credibility</div>
+              <div class="work-point">Clean structure and hierarchy</div>
+              <div class="work-point">Responsive across devices</div>
+            </div>
+
+            <div class="work-actions">
+              <a href="https://barringtonridge.us/" target="_blank" rel="noopener" class="btn-main">
+                Visit live site
+                <svg viewBox="0 0 24 24">
+                  <path d="M7 17 17 7"></path>
+                  <path d="M8 7h9v9"></path>
+                </svg>
+              </a>
+
+              <a href="contact.html" class="btn-ghost">
+                Start your project
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card reveal" style="transition-delay:.08s;">
+        <div class="work-inner">
+          <div class="work-visual">
+            <div class="scene lieblich">
+              <div class="glow-orb one"></div>
+              <div class="glow-orb two"></div>
+
+              <div class="browser">
+                <div class="browser-top">
+                  <div class="dot r"></div>
+                  <div class="dot y"></div>
+                  <div class="dot g"></div>
+                  <div class="urlbar">https://lieblichsgarage.com/</div>
+                </div>
+
+                <div class="browser-body">
+                  <div class="site-hero">
+                    <div class="site-hero-inner">
+                      <div class="site-kicker">Automotive · Performance garage</div>
+                      <div class="site-title">Lieblich’s Garage</div>
+                      <div class="site-copy">
+                        <div class="bar lg"></div>
+                        <div class="bar md"></div>
+                        <div class="bar sm"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid-panels">
+                    <div class="panel-large">
+                      <div class="panel-head">
+                        <span class="tiny-chip">Modern service flow</span>
+                        <span class="tiny-chip">Trust-first design</span>
+                      </div>
+
+                      <div class="panel-block">
+                        <div>
+                          <strong>Cleaner automotive presence</strong>
+                          <small>modern and confidence-driven</small>
+                        </div>
+                      </div>
+
+                      <div class="panel-head">
+                        <span class="tiny-chip">Local credibility</span>
+                        <span class="tiny-chip">Mobile-ready</span>
+                      </div>
+                    </div>
+
+                    <div class="stack">
+                      <div><span>Clearer CTA structure</span></div>
+                      <div><span>Sharper visual rhythm</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone">
+                <div class="phone-top">
+                  <div class="phone-notch"></div>
+                </div>
+                <div class="phone-body">
+                  <div class="phone-hero"></div>
+                  <div class="phone-grid">
+                    <div class="phone-card"></div>
+                    <div class="phone-card"></div>
+                    <div class="phone-card"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="work-content">
+            <div class="work-meta">
+              <div class="work-num">Project 02</div>
+              <div class="work-tag">Automotive</div>
+            </div>
+
+            <h3 class="work-title">LIEBLICH’S GARAGE</h3>
+
+            <p class="work-sub">
+              A stronger automotive web presence designed to feel modern, trustworthy, and easy to navigate for real local customers.
+            </p>
+
+            <div class="work-points">
+              <div class="work-point">Cleaner service presentation</div>
+              <div class="work-point">Stronger local-business feel</div>
+              <div class="work-point">More believable device visuals</div>
+              <div class="work-point">Improved mobile experience</div>
+            </div>
+
+            <div class="work-actions">
+              <a href="https://lieblichsgarage.com/" target="_blank" rel="noopener" class="btn-main">
+                Visit live site
+                <svg viewBox="0 0 24 24">
+                  <path d="M7 17 17 7"></path>
+                  <path d="M8 7h9v9"></path>
+                </svg>
+              </a>
+
+              <a href="audit.html" class="btn-ghost">
+                Get free audit
+                <svg viewBox="0 0 24 24">
+                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <div class="cta-box reveal">
+      <div>
+        <h3>YOUR SITE COULD<br>LOOK LIKE THIS.</h3>
+        <p>
+          If your current website feels weak, outdated, or forgettable, we can rebuild it into something sharper, more premium, and harder to ignore.
+        </p>
+      </div>
+
+      <div class="cta-actions">
+        <a href="contact.html" class="btn-main">
+          Start your project
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+
+        <a href="audit.html" class="btn-ghost">
+          Get free audit
+          <svg viewBox="0 0 24 24">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════ PROJECTS ═══════════ -->
-  <main class="bg-neutral-950 py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">LEVANT<span>.</span></div>
 
-      <!-- ── Project 01: Barrington Ridge ── -->
-      <a href="https://barringtonridge.us/" target="_blank" rel="noopener" class="project-card block h-[70vh] min-h-[480px] reveal">
-        <span class="project-num">01</span>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="work.html" style="color:var(--emerald-light)">Work</a>
+        <a href="audit.html">Free Audit</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </nav>
 
-        <!-- Top-left live pill -->
-        <span class="project-visit-pill">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          barringtonridge.us
-        </span>
-
-        <!-- Background image -->
-        <img
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&h=900&fit=crop"
-          alt="Barrington Ridge"
-          class="project-image absolute inset-0 w-full h-full"
-        />
-
-        <!-- Overlay -->
-        <div class="project-overlay"></div>
-
-        <!-- Content -->
-        <div class="project-content">
-          <span class="project-tag">Real Estate</span>
-          <h2 class="project-title">BARRINGTON RIDGE</h2>
-          <p class="project-desc">Luxury real estate community website with a premium property showcase, clean visual hierarchy, and a look built to attract high-intent buyers.</p>
-          <span class="project-btn">
-            Visit Live Site
-            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <!-- ── Project 02: Lieblich's Garage ── -->
-      <a href="https://lieblichsgarage.com/" target="_blank" rel="noopener" class="project-card block h-[70vh] min-h-[480px] reveal" style="transition-delay:.1s">
-        <span class="project-num">02</span>
-
-        <span class="project-visit-pill">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          lieblichsgarage.com
-        </span>
-
-        <img
-          src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1600&h=900&fit=crop"
-          alt="Lieblich's Garage"
-          class="project-image absolute inset-0 w-full h-full"
-        />
-
-        <div class="project-overlay"></div>
-
-        <div class="project-content">
-          <span class="project-tag">Automotive</span>
-          <h2 class="project-title">LIEBLICH'S GARAGE</h2>
-          <p class="project-desc">Modern, rugged web presence for an established local automotive business — built for trust, speed, and converting visitors into customers.</p>
-          <span class="project-btn">
-            Visit Live Site
-            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <!-- ── More coming soon card ── -->
-      <div class="reveal" style="transition-delay:.2s">
-        <div class="rounded-[28px] border border-dashed border-white/10 p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 bg-white/[0.02]">
-          <div>
-            <span class="font-display text-5xl md:text-6xl font-bold text-white/10 block mb-4">03</span>
-            <div class="badge mb-4">More coming soon</div>
-            <h3 class="font-display text-2xl md:text-3xl font-bold text-white/40">Your business could be next.</h3>
-            <p class="text-gray-600 mt-3 text-sm max-w-sm">We're selective about the projects we take on — which means every site we build gets our full attention.</p>
-          </div>
-          <a href="contact.html" class="glow-btn flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-black font-bold rounded-full hover:bg-emerald-400 hover:scale-105 transition-all">
-            Start a project
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ── CTA strip ── -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 reveal" style="transition-delay:.25s">
-      <div class="cta-card p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-        <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-emerald-600 opacity-8 blur-3xl pointer-events-none"></div>
-        <div class="relative z-10">
-          <span class="badge mb-4">Not just pretty — functional</span>
-          <h2 class="font-display text-3xl md:text-4xl font-bold mb-3">Want to know if your site is holding you back?</h2>
-          <p class="text-gray-500 text-base max-w-md">Get a free professional audit — website, Google ranking, SEO health, and branding — delivered to your inbox.</p>
-        </div>
-        <div class="relative z-10 flex gap-4 flex-wrap flex-shrink-0">
-          <a href="audit.html" class="glow-btn inline-flex items-center gap-2 px-7 py-4 bg-emerald-500 text-black font-bold rounded-full hover:bg-emerald-400 hover:scale-105 transition-all">
-            Get free audit
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-          </a>
-          <a href="services.html" class="inline-flex items-center gap-2 px-7 py-4 border border-emerald-500/50 text-emerald-200 rounded-full font-semibold hover:bg-emerald-500 hover:text-black transition-all">
-            Our services
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- ═══════════ FOOTER ═══════════ -->
-  <footer class="bg-black border-t border-white/8 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="font-display text-2xl font-bold">LEVANT<span class="text-emerald-500">.</span></div>
-      <div class="flex gap-8 text-sm text-gray-500 flex-wrap justify-center">
-        <a href="index.html" class="hover:text-emerald-300 transition-colors">Home</a>
-        <a href="services.html" class="hover:text-emerald-300 transition-colors">Services</a>
-        <a href="work.html" class="text-emerald-300">Work</a>
-        <a href="audit.html" class="hover:text-emerald-300 transition-colors">Free Audit</a>
-        <a href="contact.html" class="hover:text-emerald-300 transition-colors">Contact</a>
-      </div>
-      <div class="text-gray-600 text-sm">© 2026 Levant Digital Marketing.</div>
+      <div class="footer-copy">© 2026 Levant Digital Marketing.</div>
     </div>
   </footer>
-
-  <script src="assets/app.js"></script>
 
   <script>
-    // ── Cursor ──
-    const dot = document.querySelector('.cursor-dot');
-    const outline = document.querySelector('.cursor-outline');
-    document.addEventListener('mousemove', e => {
-      if (dot) { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; }
-      if (outline) { outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px'; }
+    const nav = document.getElementById('main-nav');
+    const mobBtn = document.getElementById('mob-btn');
+    const mobMenu = document.getElementById('mob-menu');
+
+    function handleNavScroll() {
+      if (window.scrollY > 20) nav.classList.add('solid');
+      else nav.classList.remove('solid');
+    }
+
+    handleNavScroll();
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+
+    mobBtn.addEventListener('click', () => {
+      mobBtn.classList.toggle('open');
+      mobMenu.classList.toggle('open');
     });
 
-    // ── Nav ──
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 50), { passive:true });
+    document.querySelectorAll('.mob-lnk').forEach(link => {
+      link.addEventListener('click', () => {
+        mobBtn.classList.remove('open');
+        mobMenu.classList.remove('open');
+      });
+    });
 
-    // ── Mobile menu ──
-    document.getElementById('mob-btn').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
-    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open'));
-    document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open')));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
 
-    // ── Scroll reveal ──
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+
   <script src="assets/effects.js"></script>
-
-  <footer style="text-align:center;margin:80px 0 40px 0;padding:0 24px;font-size:.8rem;opacity:.72;line-height:1.8">
-    © 2026 Levant Digital Marketing
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="privacy.html" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor">Privacy Policy</a>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="terms.html" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor">Terms of Service</a>
-  </footer>
-
 </body>
 </html>
