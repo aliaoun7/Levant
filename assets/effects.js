@@ -18,7 +18,7 @@
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
   const lerp = (a, b, t) => a + (b - a) * t;
-  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+  const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
   const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ══════════════════════════════════════════
@@ -380,19 +380,21 @@
      INIT — run after DOM is ready
   ══════════════════════════════════════════ */
   function init() {
-    const mobile = isMobile() || window.innerWidth < 900;
+    if (prefersReduced()) return;
 
-    // Keep desktop premium. Keep mobile fast.
-    if (!mobile && !prefersReduced()) {
-      initLoader();
-      initTransitions();
-      initParallax();
-      initScramble();
-      initMagnetic();
+    const mobile = isMobile();
+
+    // Keep phones and small tablets extremely smooth by skipping cinematic effects.
+    if (mobile) {
+      document.documentElement.classList.add('mobile-effects-off');
       return;
     }
 
-    // On mobile, skip cinematic effects entirely for smoother scrolling.
+    initLoader();
+    initTransitions();
+    initParallax();
+    initScramble();
+    initMagnetic();
   }
 
   if (document.readyState === 'loading') {
