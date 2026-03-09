@@ -71,7 +71,8 @@
     .hero-grid { position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(16,185,129,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,0.05) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 30%,transparent 90%); animation:grid-drift 22s linear infinite; }
     @keyframes grid-drift { from{background-position:0 0} to{background-position:0 64px} }
 
-    .hero-inner { position:relative; z-index:2; max-width:1400px; width:100%; margin:auto; padding:5rem 2rem 4rem; }
+    .hero-inner { position:relative; z-index:2; max-width:1400px; width:100%; margin:auto; padding:4.5rem 2rem 4rem; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(320px,.72fr); gap:3rem; align-items:end; }
+    @media(max-width:1024px){ .hero-inner{grid-template-columns:1fr;align-items:start;} }
 
     .status-pill { display:inline-flex; align-items:center; gap:0.5rem; padding:0.4rem 0.9rem; background:rgba(16,185,129,0.07); border:1px solid rgba(16,185,129,0.2); font-family:var(--font-mono); font-size:0.63rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--em-light); margin-bottom:1.5rem; }
     .status-dot { width:6px; height:6px; border-radius:50%; background:var(--em); animation:pulse-dot 2s ease-in-out infinite; flex-shrink:0; }
@@ -179,6 +180,44 @@
     .footer-links a { font-family:var(--font-mono); font-size:0.63rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
     .footer-links a:hover { color:var(--em-light); }
     .footer-copy { font-size:0.72rem; color:var(--muted); font-family:var(--font-mono); }
+
+    .hero-copy { max-width:52rem; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:1rem; margin-top:2rem; }
+    .hero-mini-note { margin-top:1rem; font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); }
+    .hero-sidecard { position:relative; border:1px solid rgba(16,185,129,0.22); background:linear-gradient(180deg,rgba(15,15,15,0.92),rgba(10,10,10,0.82)); backdrop-filter:blur(12px); padding:1.35rem; box-shadow:0 24px 80px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03); overflow:hidden; }
+    .hero-sidecard::before { content:''; position:absolute; inset:auto -20% -35% auto; width:220px; height:220px; background:radial-gradient(circle, rgba(16,185,129,0.22), transparent 65%); }
+    .hero-card-top { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
+    .hero-card-title { font-family:var(--font-display); font-size:1.7rem; letter-spacing:0.02em; }
+    .hero-card-tag { font-family:var(--font-mono); font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--em-light); }
+    .hero-sidecard p { color:var(--muted); line-height:1.7; font-size:0.9rem; margin-bottom:1rem; position:relative; z-index:1; }
+    .hero-sidecard .mini-list { display:grid; gap:0.7rem; position:relative; z-index:1; }
+    .hero-sidecard .mini-item { display:flex; align-items:center; gap:0.7rem; padding:0.8rem 0.9rem; border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); }
+    .hero-sidecard .mini-dot { width:8px; height:8px; border-radius:50%; background:var(--em); box-shadow:0 0 0 6px rgba(16,185,129,0.09); flex-shrink:0; }
+    .hero-sidecard .mini-item strong { display:block; font-size:0.82rem; color:var(--text); margin-bottom:2px; }
+    .hero-sidecard .mini-item span { font-size:0.76rem; color:var(--muted); }
+    .proof-strip { max-width:1400px; margin:0 auto; padding:0 2rem 1.25rem; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-top:-2.2rem; position:relative; z-index:4; }
+    @media(max-width:900px){ .proof-strip{grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:0; padding-top:1.25rem;} }
+    @media(max-width:560px){ .proof-strip{grid-template-columns:1fr;} }
+    .proof-card { border:1px solid rgba(16,185,129,0.18); background:linear-gradient(180deg,rgba(16,16,16,0.88),rgba(10,10,10,0.88)); padding:1.1rem 1rem; min-height:118px; position:relative; overflow:hidden; }
+    .proof-card::after { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(16,185,129,0.45),transparent); }
+    .proof-kicker { font-family:var(--font-mono); font-size:0.56rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:0.6rem; }
+    .proof-value { font-family:var(--font-display); font-size:2.2rem; line-height:1; color:var(--em-light); margin-bottom:0.4rem; }
+    .proof-copy { font-size:0.82rem; line-height:1.6; color:var(--muted); }
+    .contact-card { text-decoration:none; color:inherit; }
+    .contact-card-arrow { margin-left:auto; color:rgba(255,255,255,0.25); transition:transform .2s,color .2s; font-family:var(--font-mono); }
+    .contact-card:hover .contact-card-arrow { transform:translateX(4px); color:var(--em-light); }
+    .micro-proof { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0.75rem; margin-top:1.5rem; }
+    @media(max-width:640px){ .micro-proof{grid-template-columns:1fr;} }
+    .micro-proof .item { padding:0.9rem 1rem; border:1px solid var(--border); background:rgba(255,255,255,0.02); }
+    .micro-proof .num { font-family:var(--font-display); font-size:1.7rem; line-height:1; color:var(--em-light); margin-bottom:0.25rem; }
+    .micro-proof .txt { font-size:0.74rem; line-height:1.6; color:var(--muted); }
+    .faq-wrap { max-width:1400px; margin:0 auto; padding:0 2rem 6rem; }
+    .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media(max-width:900px){ .faq-grid{grid-template-columns:1fr;} }
+    .faq-item { border:1px solid rgba(255,255,255,0.07); background:var(--surface); padding:1.35rem 1.2rem; }
+    .faq-q { font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text); margin-bottom:0.7rem; }
+    .faq-a { font-size:0.9rem; line-height:1.75; color:var(--muted); }
+
   </style>
 </head>
 
@@ -221,14 +260,66 @@
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="deco-letter" aria-hidden="true">C</div>
     <div class="hero-inner reveal">
-      <div class="status-pill"><span class="status-dot"></span>Taking new projects · Metro Detroit</div>
-      <div class="hero-eyebrow">Get In Touch</div>
-      <h1 class="hero-h1">
-        LET'S<br><span class="em">BUILD.</span>
-      </h1>
-      <p class="hero-sub">Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote.</p>
+      <div class="hero-copy">
+        <div class="status-pill"><span class="status-dot"></span>Taking new projects · Metro Detroit</div>
+        <div class="hero-eyebrow">Get In Touch</div>
+        <h1 class="hero-h1">
+          LET'S<br><span class="em">BUILD</span><br><span class="outline">SOMETHING REAL.</span>
+        </h1>
+        <p class="hero-sub">Tell us what you need and we’ll map out the smartest next move — whether that’s a new site, a redesign, sharper branding, or stronger local visibility.</p>
+        <div class="hero-actions">
+          <a href="#contact-form" class="btn-pill btn-pill-solid">Start your project</a>
+          <a href="work.html" class="btn-pill btn-pill-out">See recent work</a>
+        </div>
+        <div class="hero-mini-note">Fast responses · Honest scope · No pressure</div>
+      </div>
+
+      <aside class="hero-sidecard reveal" style="transition-delay:.08s">
+        <div class="hero-card-top">
+          <div class="hero-card-title">Why clients reach out</div>
+          <div class="hero-card-tag">Live intake</div>
+        </div>
+        <p>Most businesses come to us when their website looks outdated, their branding feels inconsistent, or they know they should be showing up better online but are not sure what to fix first.</p>
+        <div class="mini-list">
+          <div class="mini-item">
+            <div class="mini-dot"></div>
+            <div><strong>Outdated site</strong><span>Refresh the look, structure, and trust factor.</span></div>
+          </div>
+          <div class="mini-item">
+            <div class="mini-dot"></div>
+            <div><strong>Weak visibility</strong><span>Improve local search signals and SEO foundations.</span></div>
+          </div>
+          <div class="mini-item">
+            <div class="mini-dot"></div>
+            <div><strong>Low conversion</strong><span>Turn traffic into real calls, leads, and messages.</span></div>
+          </div>
+        </div>
+      </aside>
     </div>
   </header>
+
+  <section class="proof-strip" aria-label="Contact page highlights">
+    <div class="proof-card reveal">
+      <div class="proof-kicker">Response style</div>
+      <div class="proof-value">Human</div>
+      <div class="proof-copy">No canned agency reply. You get a real response with actual direction.</div>
+    </div>
+    <div class="proof-card reveal" style="transition-delay:.05s">
+      <div class="proof-kicker">Clarity first</div>
+      <div class="proof-value">Scope</div>
+      <div class="proof-copy">We break down what matters, what can wait, and where to start.</div>
+    </div>
+    <div class="proof-card reveal" style="transition-delay:.1s">
+      <div class="proof-kicker">Best fit</div>
+      <div class="proof-value">Audit</div>
+      <div class="proof-copy">Need direction before spending? Start with a free visibility audit.</div>
+    </div>
+    <div class="proof-card reveal" style="transition-delay:.15s">
+      <div class="proof-kicker">Built for</div>
+      <div class="proof-value">Local</div>
+      <div class="proof-copy">Designed for serious small businesses that want to look established online.</div>
+    </div>
+  </section>
 
   <!-- MARQUEE -->
   <div class="marquee-wrap" aria-hidden="true">
@@ -282,25 +373,43 @@
 
         <div class="section-label">Direct contact</div>
 
-        <div class="contact-card">
+        <a class="contact-card" href="mailto:your@email.com">
           <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
             <div class="contact-card-label">Email</div>
             <div class="contact-card-value">your@email.com</div>
           </div>
-        </div>
-        <div class="contact-card">
+          <div class="contact-card-arrow">→</div>
+        </a>
+        <a class="contact-card" href="tel:+10000000000">
           <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.59 3.38 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.08 6.08l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
             <div class="contact-card-label">Phone</div>
             <div class="contact-card-value">(Your phone number)</div>
           </div>
-        </div>
+          <div class="contact-card-arrow">→</div>
+        </a>
         <div class="contact-card">
           <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
             <div class="contact-card-label">Location</div>
             <div class="contact-card-value">Metro Detroit, MI</div>
+          </div>
+          <div class="contact-card-arrow">Local</div>
+        </div>
+
+        <div class="micro-proof">
+          <div class="item">
+            <div class="num">1</div>
+            <div class="txt">Clear point of contact from the start.</div>
+          </div>
+          <div class="item">
+            <div class="num">0</div>
+            <div class="txt">No bloated packages or fake urgency.</div>
+          </div>
+          <div class="item">
+            <div class="num">24h</div>
+            <div class="txt">Good benchmark for a first response window.</div>
           </div>
         </div>
 
@@ -390,7 +499,6 @@
                 Send Project Request
               </button>
 
-              <p class="form-note">No spam. No pressure. We'll respond with a real plan and honest pricing.<br>Connect this form to Formspree or Netlify Forms to receive submissions.</p>
             </div>
           </form>
         </div>
@@ -398,6 +506,28 @@
 
     </div>
   </main>
+
+  <section class="faq-wrap">
+    <div class="section-label" style="margin-bottom:1.25rem;">Quick answers</div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <div class="faq-q">Do I need everything at once?</div>
+        <div class="faq-a">Not at all. Some businesses only need a redesign. Others need branding, SEO foundations, and Google Business cleanup. We can stage the work based on what gives you the biggest return first.</div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.05s">
+        <div class="faq-q">What if I am not sure what service I need?</div>
+        <div class="faq-a">That is common. Use the form anyway and explain what feels off. We can usually tell pretty quickly whether you need a rebuild, a visual upgrade, a visibility fix, or a mix of those.</div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.1s">
+        <div class="faq-q">Do you work with local businesses?</div>
+        <div class="faq-a">Yes. The site language, structure, and offer positioning are all geared toward serious local businesses that want to look more established and convert more visitors into leads.</div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.15s">
+        <div class="faq-q">Can I start with an audit first?</div>
+        <div class="faq-a">Yes. If you want a clearer picture before committing to a full project, the free audit is the best first move. It helps identify what is actually holding your presence back.</div>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="footer-inner">
