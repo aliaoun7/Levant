@@ -380,11 +380,19 @@
      INIT — run after DOM is ready
   ══════════════════════════════════════════ */
   function init() {
-    initLoader();
-    initTransitions();
-    initParallax();
-    initScramble();
-    initMagnetic();
+    const mobile = isMobile() || window.innerWidth < 900;
+
+    // Keep desktop premium. Keep mobile fast.
+    if (!mobile && !prefersReduced()) {
+      initLoader();
+      initTransitions();
+      initParallax();
+      initScramble();
+      initMagnetic();
+      return;
+    }
+
+    // On mobile, skip cinematic effects entirely for smoother scrolling.
   }
 
   if (document.readyState === 'loading') {
