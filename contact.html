@@ -42,28 +42,31 @@
     .cursor-ring { width:36px; height:36px; border:1.5px solid rgba(16,185,129,0.5); border-radius:50%; transform:translate(-50%,-50%); transition:width .3s,height .3s; }
 
     /* NAV */
-    nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:0 2rem; height:90px; display:flex; align-items:center; background:rgba(5,5,5,0.75); backdrop-filter:blur(18px) saturate(1.4); border-bottom:1px solid var(--border); transition:background .3s; }
-    nav.scrolled { background:rgba(5,5,5,0.96); }
-    .nav-inner { max-width:1400px; width:100%; margin:auto; display:flex; align-items:center; justify-content:space-between; }
-    .nav-logo { font-family:var(--font-display); font-size:2.4rem; letter-spacing:0.02em; color:var(--text); text-decoration:none; line-height:1; }
-    .nav-logo span { color:var(--em); }
-    .nav-links { display:flex; align-items:center; gap:2.5rem; }
-    .nav-link { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
-    .nav-link:hover { color:var(--em-light); }
-    .nav-audit { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.7rem 1.6rem; border:1.5px solid rgba(16,185,129,0.5); color:var(--em-light); text-decoration:none; transition:all .2s; font-weight:600; display:flex; align-items:center; gap:0.5rem; border-radius:9999px; }
-    .nav-audit:hover { background:rgba(16,185,129,0.1); border-color:var(--em); }
-    .nav-cta { font-family:var(--font-mono); font-size:1rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.75rem 1.8rem; background:var(--em); color:#000; font-weight:700; text-decoration:none; transition:all .2s; border-radius:9999px; }
-    .nav-cta:hover { background:var(--em-light); transform:translateY(-1px); }
-    #menu-btn { display:none; background:none; border:none; cursor:pointer; color:var(--text); padding:0.5rem; }
-    #mobile-menu { display:none; position:fixed; inset:0; background:var(--black); z-index:90; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
-    #mobile-menu.open { display:flex; }
-    .mobile-link { font-family:var(--font-display); font-size:clamp(3rem,10vw,5rem); color:var(--text); text-decoration:none; letter-spacing:0.04em; transition:color .2s; }
-    .mobile-link:hover { color:var(--em); }
-    #close-menu { position:absolute; top:1.5rem; right:1.5rem; background:none; border:none; cursor:pointer; color:var(--text); font-size:3rem; line-height:1; padding:0.5rem; }
-    @media(max-width:900px){ .nav-links{display:none;} #menu-btn{display:block;} }
+    #main-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;padding:0 1.5rem;background:rgba(5,5,5,.7);backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--border, var(--bd));transition:background .3s;}
+    #main-nav.solid{background:rgba(5,5,5,.97);}
+    .nav-inner{max-width:1340px;width:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;color:var(--text, var(--tx));text-decoration:none;line-height:1;}
+    .nav-logo em{color:var(--em);font-style:normal;}
+    .nav-links{display:flex;align-items:center;gap:2.2rem;}
+    .nav-lnk{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted, var(--mu));text-decoration:none;transition:color .2s;position:relative;}
+    .nav-lnk::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--em);transition:width .3s;}
+    .nav-lnk:hover,.nav-lnk.active{color:var(--em-light, var(--em-l));}
+    .nav-lnk:hover::after,.nav-lnk.active::after{width:100%;}
+    .btn-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border-radius:9999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;}
+    .btn-pill-out{padding:.55rem 1.3rem;border:1.5px solid rgba(16,185,129,.45);color:var(--em-light, var(--em-l));font-weight:600;}
+    .btn-pill-out:hover,.btn-pill-out.active{background:rgba(16,185,129,.1);border-color:var(--em);}
+    .btn-pill-solid{padding:.6rem 1.5rem;background:var(--em);color:#000;font-weight:700;}
+    .btn-pill-solid:hover,.btn-pill-solid.active{background:var(--em-light, var(--em-l));transform:translateY(-1px);}
+    #mob-btn{display:none;background:none;border:none;cursor:pointer;color:var(--text, var(--tx));padding:.4rem;}
+    #mob-menu{display:none;position:fixed;inset:0;background:#000;z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;}
+    #mob-menu.open{display:flex;}
+    .mob-lnk{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,9vw,4.5rem);color:var(--text, var(--tx));text-decoration:none;transition:color .2s;letter-spacing:.04em;}
+    .mob-lnk:hover{color:var(--em);}
+    #mob-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;cursor:pointer;color:var(--text, var(--tx));font-size:2.5rem;line-height:1;padding:.4rem;}
+    @media(max-width:960px){#mob-btn{display:block;}.nav-links{display:none!important;}}
 
     /* HERO */
-    .hero { min-height:100vh; padding-top:90px; display:grid; place-items:center; position:relative; overflow:hidden; }
+    .hero { min-height:100vh; padding-top:72px; display:grid; place-items:center; position:relative; overflow:hidden; }
     .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 15% 40%,rgba(16,185,129,0.11) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 85% 70%,rgba(16,185,129,0.05) 0%,transparent 55%); }
     .hero-grid { position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(16,185,129,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,0.05) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 30%,transparent 90%); animation:grid-drift 22s linear infinite; }
     @keyframes grid-drift { from{background-position:0 0} to{background-position:0 64px} }
@@ -183,34 +186,34 @@
   <div class="cursor cursor-dot" id="cursorDot" style="display:none"></div>
   <div class="cursor cursor-ring" id="cursorRing" style="display:none"></div>
 
-  <!-- NAV -->
+  <!-- ══════ NAV ══════ -->
   <nav id="main-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">LEVANT<span>.</span></a>
+      <a href="index.html" class="nav-logo">LEVANT<em>.</em></a>
       <div class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="work.html" class="nav-link">Work</a>
-        <a href="audit.html" class="nav-audit">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <a href="index.html" class="nav-lnk">Home</a>
+        <a href="services.html" class="nav-lnk">Services</a>
+        <a href="work.html" class="nav-lnk">Work</a>
+        <a href="audit.html" class="btn-pill btn-pill-out">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
           Free Audit
         </a>
-        <a href="contact.html" class="nav-cta">Contact Us</a>
+        <a href="contact.html" class="btn-pill btn-pill-solid active">Contact</a>
       </div>
-      <button id="menu-btn" aria-label="Open menu">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <button id="mob-btn" aria-label="Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </nav>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu">
-    <button id="close-menu" aria-label="Close menu">✕</button>
-    <a href="index.html" class="mobile-link">Home</a>
-    <a href="services.html" class="mobile-link">Services</a>
-    <a href="work.html" class="mobile-link">Work</a>
-    <a href="audit.html" class="mobile-link" style="color:var(--em-light)">Free Audit</a>
-    <a href="contact.html" class="mobile-link" style="color:var(--em-light)">Contact</a>
+  <div id="mob-menu">
+    <button id="mob-close">✕</button>
+    <a href="index.html" class="mob-lnk">Home</a>
+    <a href="services.html" class="mob-lnk">Services</a>
+    <a href="work.html" class="mob-lnk">Work</a>
+    <a href="audit.html" class="mob-lnk" style="color:var(--em-light, var(--em-l))">Free Audit</a>
+    <a href="contact.html" class="mob-lnk" style="color:var(--em)">Contact</a>
   </div>
 
   <!-- HERO -->
@@ -411,31 +414,14 @@
   </footer>
 
   <script>
-    // Cursor
-    const dot = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-    if (window.matchMedia('(pointer:fine)').matches) {
-      dot.style.display = 'block'; ring.style.display = 'block';
-      let mx=0,my=0,rx=0,ry=0;
-      document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
-      const tick = () => {
-        dot.style.left=mx+'px'; dot.style.top=my+'px';
-        rx+=(mx-rx)*0.13; ry+=(my-ry)*0.13;
-        ring.style.left=rx+'px'; ring.style.top=ry+'px';
-        requestAnimationFrame(tick);
-      };
-      tick();
-    }
+    // ── Nav ──
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 50), { passive:true });
 
-    // Nav scroll
-    window.addEventListener('scroll', () => {
-      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive:true });
-
-    // Mobile menu
-    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
-    document.getElementById('close-menu').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
-    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
+    // ── Mobile menu ──
+    document.getElementById('mob-btn').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open'));
+    document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open')));
 
     // Reveal
     const io = new IntersectionObserver(entries => {
