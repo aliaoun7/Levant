@@ -894,59 +894,95 @@
           </div>
 
           <form id="contact-form" action="https://formspree.io/f/xdawagkj" method="POST">
-            <div class="form-body">
-              <div class="field-row">
-                <div>
-                  <label class="field-label" for="name">Full name</label>
-                  <input type="text" id="name" name="name" placeholder="Your Name" class="form-input" required />
-                </div>
-                <div>
-                  <label class="field-label" for="email">Email address</label>
-                  <input type="email" id="email" name="email" placeholder="you@business.com" class="form-input" required />
-                </div>
-              </div>
+  <div class="form-body">
+    <div class="field-row">
+      <div>
+        <label class="field-label" for="name">Full name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          class="form-input"
+          required
+        />
+      </div>
+      <div>
+        <label class="field-label" for="email">Email address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@business.com"
+          class="form-input"
+          required
+        />
+      </div>
+    </div>
 
-              <div class="field-row">
-                <div>
-                  <label class="field-label" for="business">Business name</label>
-                  <input type="text" id="business" name="business" placeholder="Your Business Name" class="form-input" />
-                </div>
-                <div>
-                  <label class="field-label" for="phone">Phone <span>(optional)</span></label>
-                  <input type="tel" id="phone" name="phone" placeholder="(313) 555-0000" class="form-input" />
-                </div>
-              </div>
+    <div class="field-row">
+      <div>
+        <label class="field-label" for="business">Business name</label>
+        <input
+          type="text"
+          id="business"
+          name="business"
+          placeholder="Your Business Name"
+          class="form-input"
+        />
+      </div>
+      <div>
+        <label class="field-label" for="phone">Phone <span>(optional)</span></label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="(313) 555-0000"
+          class="form-input"
+        />
+      </div>
+    </div>
 
-              <div class="field-group">
-                <label class="field-label" for="service">Service needed</label>
-                <select id="service" name="service" class="form-input" required>
-                  <option value="" disabled selected>Select a service…</option>
-                  <option>Website Creation</option>
-                  <option>Website Redesign</option>
-                  <option>Branding + Logo Design</option>
-                  <option>Graphic Design</option>
-                  <option>SEO Setup</option>
-                  <option>Google Business Profile</option>
-                  <option>Full package (multiple services)</option>
-                </select>
-              </div>
+    <div class="field-group">
+      <label class="field-label" for="service">Service needed</label>
+      <select id="service" name="service" class="form-input" required>
+        <option value="" disabled selected>Select a service…</option>
+        <option>Website Creation</option>
+        <option>Website Redesign</option>
+        <option>Branding + Logo Design</option>
+        <option>Graphic Design</option>
+        <option>SEO Setup</option>
+        <option>Google Business Profile</option>
+        <option>Full package (multiple services)</option>
+      </select>
+    </div>
 
-              <div class="field-group">
-                <label class="field-label" for="message">Tell us about your project</label>
-                <textarea id="message" name="message" class="form-input" placeholder="What are you trying to build, redesign, or improve? The more context the better." required></textarea>
-              </div>
+    <div class="field-group">
+      <label class="field-label" for="message">Tell us about your project</label>
+      <textarea
+        id="message"
+        name="message"
+        class="form-input"
+        placeholder="What are you trying to build, redesign, or improve? The more context the better."
+        required
+      ></textarea>
+    </div>
 
-              <input type="hidden" name="_subject" value="New Lead from Levant Digital Marketing" />
-              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+    <input type="hidden" name="_subject" value="New Lead from Levant Digital Marketing" />
+    <input type="hidden" name="_redirect" value="https://aliaoun7.github.io/Levant/thank-you.html" />
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-              <button type="submit" class="btn-submit">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-                Send Project Request
-              </button>
+    <button type="submit" class="btn-submit">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m22 2-7 20-4-9-9-4Z"></path>
+        <path d="M22 2 11 13"></path>
+      </svg>
+      Send Project Request
+    </button>
 
-              <p class="form-note">No spam. No pressure. We'll respond with a real plan and honest pricing.</p>
-            </div>
-          </form>
+    <p class="form-note">No spam. No pressure. We'll respond with a real plan and honest pricing.</p>
+  </div>
+</form>
         </div>
       </div>
     </div>
