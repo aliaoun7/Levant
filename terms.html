@@ -1,302 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service | Levant Digital Marketing</title>
-  <meta name="description" content="Terms of Service for Levant Digital Marketing." />
-  <meta name="theme-color" content="#10b981" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | Levant Digital Marketing</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#050505;
-      --panel:#0d0d0d;
-      --panel-2:#121212;
-      --line:rgba(255,255,255,.08);
-      --text:#f5f5f5;
-      --muted:#a1a1aa;
-      --em:#10b981;
-      --em-soft:rgba(16,185,129,.12);
-      --shadow:0 20px 50px rgba(0,0,0,.25);
-    }
+<style>
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      background:
-        radial-gradient(circle at top, rgba(16,185,129,.08), transparent 28%),
-        var(--bg);
-      color:var(--text);
-      font-family:'DM Sans',sans-serif;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
+body{
+margin:0;
+background:#050505;
+color:#f5f5f5;
+font-family:'DM Sans',sans-serif;
+line-height:1.8;
+}
 
-    a{color:inherit}
+.wrap{
+max-width:900px;
+margin:auto;
+padding:120px 24px 80px;
+}
 
-    .wrap{
-      max-width:920px;
-      margin:0 auto;
-      padding:120px 24px 72px;
-    }
+h1{
+font-family:'Bebas Neue',sans-serif;
+font-size:64px;
+margin-bottom:10px;
+letter-spacing:.02em;
+}
 
-    .eyebrow{
-      display:inline-block;
-      font:500 .72rem/1 'JetBrains Mono',monospace;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--em);
-      margin-bottom:18px;
-    }
+h2{
+margin-top:40px;
+margin-bottom:10px;
+font-size:22px;
+}
 
-    h1{
-      font-family:'Bebas Neue',sans-serif;
-      font-size:clamp(3rem,8vw,5rem);
-      line-height:.95;
-      letter-spacing:.03em;
-      margin:0 0 12px;
-    }
+p{
+color:#a1a1aa;
+}
 
-    .intro{
-      color:var(--muted);
-      font-size:1.02rem;
-      line-height:1.8;
-      max-width:48rem;
-    }
+.toplinks{
+margin-top:20px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
 
-    p,li{
-      color:var(--muted);
-      font-size:1rem;
-      line-height:1.85;
-    }
+.pill{
+padding:10px 16px;
+border:1px solid rgba(255,255,255,.1);
+border-radius:999px;
+text-decoration:none;
+font-size:12px;
+letter-spacing:.12em;
+text-transform:uppercase;
+}
 
-    .toplinks{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:22px;
-    }
+.card{
+border:1px solid rgba(255,255,255,.08);
+padding:26px;
+margin-top:26px;
+border-radius:18px;
+background:#0c0c0c;
+}
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:.4rem;
-      padding:.78rem 1.15rem;
-      border-radius:999px;
-      text-decoration:none;
-      font:500 .72rem/1 'JetBrains Mono',monospace;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      border:1px solid var(--line);
-      background:var(--panel);
-      transition:border-color .2s ease, background .2s ease, transform .2s ease;
-    }
+footer{
+text-align:center;
+padding:40px 0;
+opacity:.6;
+font-size:13px;
+}
 
-    .pill:hover{
-      border-color:rgba(16,185,129,.45);
-      background:var(--em-soft);
-      transform:translateY(-1px);
-    }
-
-    .card{
-      margin-top:28px;
-      padding:28px;
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      box-shadow:var(--shadow);
-    }
-
-    h2{
-      margin:0 0 10px;
-      font-size:1.25rem;
-      color:var(--text);
-    }
-
-    ul{
-      margin:10px 0 0 0;
-      padding-left:18px;
-    }
-
-    li + li{
-      margin-top:8px;
-    }
-
-    .note{
-      margin-top:14px;
-      padding:14px 16px;
-      border:1px solid rgba(16,185,129,.16);
-      background:rgba(16,185,129,.05);
-      border-radius:16px;
-      color:var(--muted);
-    }
-
-    footer{
-      text-align:center;
-      margin:0 0 40px;
-      padding:0 24px;
-      font-size:.8rem;
-      opacity:.72;
-      line-height:1.8;
-    }
-
-    footer a{
-      color:inherit;
-      text-decoration:none;
-      border-bottom:1px solid currentColor;
-    }
-
-    @media (max-width:768px){
-      .wrap{padding-top:96px}
-      h1{font-size:2.5rem}
-      .card{
-        padding:22px;
-        border-radius:20px;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <main class="wrap">
-    <div class="eyebrow">Legal</div>
-    <h1>Terms of Service</h1>
-    <p class="intro">
-      These Terms of Service govern your use of this website and any services provided by Levant Digital Marketing. By accessing this website or working with us, you agree to these terms.
-    </p>
-    <p class="intro">Last updated: March 10, 2026</p>
 
-    <div class="toplinks">
-      <a class="pill" href="index.html">Back to Home</a>
-      <a class="pill" href="privacy.html">Privacy Policy</a>
-      <a class="pill" href="contact.html">Contact</a>
-    </div>
+<div class="wrap">
 
-    <section class="card">
-      <h2>Website Use</h2>
-      <p>
-        By using this website, you agree to use it only for lawful purposes and in a way that does not harm the website, interfere with its operation, or violate the rights of Levant Digital Marketing or any third party.
-      </p>
-    </section>
+<h1>Terms of Service</h1>
 
-    <section class="card">
-      <h2>Service Information</h2>
-      <p>
-        Any descriptions of services, pricing, timelines, deliverables, audits, strategy recommendations, or scope examples shown on this website are for general informational purposes only and may change at any time.
-      </p>
-    </section>
+<p>
+These Terms of Service govern the use of this website and any services provided by Levant Digital Marketing. By using this website or working with Levant Digital Marketing, you agree to the following terms.
+</p>
 
-    <section class="card">
-      <h2>Deposits and Project Start</h2>
-      <p>
-        Projects may require an upfront deposit before work begins. Deposits reserve time on our schedule and help cover planning, design, strategy, and preparation already performed.
-      </p>
-      <p>
-        Unless otherwise stated in writing, deposits are generally non-refundable once work has started.
-      </p>
-    </section>
+<div class="toplinks">
+<a class="pill" href="index.html">Home</a>
+<a class="pill" href="privacy.html">Privacy Policy</a>
+<a class="pill" href="contact.html">Contact</a>
+</div>
 
-    <section class="card">
-      <h2>Payment, Ownership, and Project Transfer</h2>
-      <p>
-        All website designs, code, graphics, layouts, assets, strategy materials, and related intellectual property created by Levant Digital Marketing remain the property of Levant Digital Marketing until the project has been paid in full.
-      </p>
-      <p>
-        Upon receipt of full payment, ownership of the final agreed deliverables may be transferred to the client unless otherwise stated in writing.
-      </p>
-      <p>
-        If a client fails to complete payment according to the agreed payment schedule, Levant Digital Marketing reserves the right to suspend work, delay delivery, or withhold transfer of website files, credentials, source code, or related materials until payment has been received in full.
-      </p>
-      <p>
-        For services involving ongoing support such as website maintenance, hosting assistance, SEO support, content updates, digital marketing support, or consulting retainers, failure to maintain payment may result in suspension or termination of services after reasonable notice.
-      </p>
-      <p>
-        Levant Digital Marketing is not responsible for maintaining, hosting, updating, or supporting websites after final delivery unless a separate ongoing service agreement is in place.
-      </p>
-    </section>
+<div class="card">
+<h2>Website Use</h2>
 
-    <section class="card">
-      <h2>No Guarantee of Results</h2>
-      <p>
-        Levant Digital Marketing does not guarantee any specific results from marketing, SEO, website design, conversion optimization, advertising, lead generation, branding, or consulting services.
-      </p>
-      <p>
-        Rankings, traffic, leads, sales, and revenue may vary based on competition, industry conditions, budgets, implementation speed, client cooperation, third-party platform changes, algorithm updates, and general market conditions.
-      </p>
-      <div class="note">
-        Client results may vary depending on industry competition, market conditions, and implementation of recommended strategies.
-      </div>
-    </section>
+<p>
+You agree to use this website only for lawful purposes and in a way that does not damage, disable, or interfere with the operation of the website or services provided by Levant Digital Marketing.
+</p>
+</div>
 
-    <section class="card">
-      <h2>Client Responsibilities</h2>
-      <p>
-        Clients are responsible for providing accurate information, timely content, required credentials, approvals, feedback, and business details needed to complete a project.
-      </p>
-      <p>
-        Delays, revisions, or performance issues caused by incomplete information, missing materials, missed approvals, or delayed communication are outside our control.
-      </p>
-    </section>
+<div class="card">
+<h2>Service Information</h2>
 
-    <section class="card">
-      <h2>Scope of Work and Revisions</h2>
-      <p>
-        Project scope, deliverables, and revision limits may be defined in a proposal, invoice, agreement, or written communication. Requests outside the original scope may require additional time, fees, or a revised agreement.
-      </p>
-    </section>
+<p>
+Descriptions of services, pricing examples, timelines, or deliverables shown on this website are for general informational purposes and may change at any time without notice.
+</p>
+</div>
 
-    <section class="card">
-      <h2>Client Content Responsibility</h2>
-      <p>
-        Clients are responsible for ensuring they have the legal right to use any text, images, logos, videos, trademarks, or other materials they provide for a project.
-      </p>
-      <p>
-        Levant Digital Marketing is not responsible for claims arising from client-supplied materials that infringe on the rights of others.
-      </p>
-    </section>
+<div class="card">
+<h2>Website Licensing Model</h2>
 
-    <section class="card">
-      <h2>Intellectual Property</h2>
-      <p>
-        All content on this website, including branding, graphics, copy, layouts, designs, and original materials, is the property of Levant Digital Marketing unless otherwise stated. These materials may not be copied, reproduced, or distributed without permission.
-      </p>
-    </section>
+<p>
+Websites created by Levant Digital Marketing are typically provided as part of an ongoing service agreement rather than a one-time transfer of ownership.
+</p>
 
-    <section class="card">
-      <h2>Third-Party Platforms and Services</h2>
-      <p>
-        Our services may involve platforms such as search engines, analytics providers, ad networks, CRMs, email tools, hosting providers, domain registrars, payment processors, or social media platforms.
-      </p>
-      <p>
-        Levant Digital Marketing is not responsible for outages, policy changes, platform restrictions, account suspensions, algorithm changes, service interruptions, or performance changes caused by those third parties.
-      </p>
-    </section>
+<p>
+Levant Digital Marketing retains ownership of all design assets, source code, layouts, graphics, and development work created during the project unless otherwise agreed in writing.
+</p>
 
-    <section class="card">
-      <h2>Limitation of Liability</h2>
-      <p>
-        To the fullest extent allowed by law, Levant Digital Marketing is not liable for any direct, indirect, incidental, consequential, special, punitive, or exemplary damages arising from the use of this website, the use of our services, or reliance on information presented on this website.
-      </p>
-    </section>
+<p>
+Clients are granted a license to use the website while their service agreement remains active and payments are maintained.
+</p>
 
-    <section class="card">
-      <h2>Changes to These Terms</h2>
-      <p>
-        We may update these Terms of Service at any time. Continued use of the website after changes are posted means you accept the updated terms.
-      </p>
-    </section>
-  </main>
+</div>
 
-  <footer>
-    © 2026 Levant Digital Marketing &nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="privacy.html">Privacy Policy</a>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="terms.html">Terms of Service</a>
-  </footer>
+<div class="card">
+<h2>Monthly Payments</h2>
+
+<p>
+Many services provided by Levant Digital Marketing operate on a recurring monthly basis. Continued access to the website and related services requires active monthly payment.
+</p>
+
+<p>
+If payments are not maintained according to the agreed billing schedule, Levant Digital Marketing reserves the right to suspend services or disable the website until payment is restored.
+</p>
+
+</div>
+
+<div class="card">
+<h2>Service Suspension</h2>
+
+<p>
+If payments are not received within the required billing period, Levant Digital Marketing may suspend services including website access, updates, support, or other services until payment is brought current.
+</p>
+
+<p>
+Levant Digital Marketing is not responsible for any losses resulting from service suspension due to unpaid invoices.
+</p>
+
+</div>
+
+<div class="card">
+<h2>Source Files and Development Assets</h2>
+
+<p>
+Unless otherwise agreed in writing, Levant Digital Marketing does not provide raw source files, development assets, internal systems, frameworks, or proprietary processes as part of ongoing service agreements.
+</p>
+
+<p>
+Custom arrangements regarding file transfers or project ownership may be negotiated separately.
+</p>
+
+</div>
+
+<div class="card">
+<h2>No Guarantee of Results</h2>
+
+<p>
+Levant Digital Marketing does not guarantee specific outcomes from marketing, website design, SEO, consulting, or digital services.
+</p>
+
+<p>
+Search rankings, traffic, leads, and sales may vary based on industry competition, market conditions, implementation speed, and third-party platform changes.
+</p>
+
+</div>
+
+<div class="card">
+<h2>Client Responsibilities</h2>
+
+<p>
+Clients are responsible for providing accurate information, required credentials, approvals, and content necessary to complete the project.
+</p>
+
+<p>
+Delays caused by missing content, delayed approvals, or incomplete information are outside the control of Levant Digital Marketing.
+</p>
+
+</div>
+
+<div class="card">
+<h2>Client Content Responsibility</h2>
+
+<p>
+Clients are responsible for ensuring that any text, images, videos, trademarks, or other materials provided for use on the website do not infringe on the rights of third parties.
+</p>
+
+<p>
+Levant Digital Marketing is not responsible for legal claims arising from materials supplied by the client.
+</p>
+
+</div>
+
+<div class="card">
+<h2>Third Party Platforms</h2>
+
+<p>
+Services may involve third-party platforms such as search engines, analytics tools, advertising networks, social media platforms, or hosting providers.
+</p>
+
+<p>
+Levant Digital Marketing is not responsible for outages, policy changes, algorithm updates, or account suspensions caused by third-party platforms.
+</p>
+
+</div>
+
+<div class="card">
+<h2>Limitation of Liability</h2>
+
+<p>
+To the maximum extent permitted by law, Levant Digital Marketing is not liable for any indirect, incidental, consequential, or financial damages resulting from the use of this website or services provided.
+</p>
+
+</div>
+
+<div class="card">
+<h2>Changes to Terms</h2>
+
+<p>
+Levant Digital Marketing may update these Terms of Service at any time. Continued use of the website or services after updates are posted constitutes acceptance of the revised terms.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Levant Digital Marketing
+</footer>
+
 </body>
 </html>
