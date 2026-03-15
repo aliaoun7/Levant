@@ -5,165 +5,681 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Levant Digital Marketing | Metro Detroit Websites, Branding & SEO</title>
   <meta name="description" content="Levant Digital Marketing builds modern websites, clean branding, and SEO-ready structure for Metro Detroit businesses."/>
-  <meta name="theme-color" content="#10b981"/>
+  <meta name="theme-color" content="#06b6d4"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['DM Sans','sans-serif'],display:['Bebas Neue','sans-serif'],mono:['JetBrains Mono','monospace']},colors:{em:'#10b981','em-light':'#34d399','em-dim':'#065f46'}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            cyan: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              200: '#a5f3fc',
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+              700: '#0e7490',
+              800: '#155e75',
+              900: '#164e63',
+            }
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
-    :root{--em:#10b981;--em-l:#34d399;--em-d:#065f46;--bg:#050505;--s1:#0a0a0a;--s2:#111;--bd:rgba(255,255,255,0.07);--tx:#f0f0f0;--mu:#6b7280;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-    ::selection{background:var(--em);color:#000;}
-
-    /* GRAIN */
-    body::after{content:'';position:fixed;inset:0;z-index:997;pointer-events:none;opacity:.028;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-
-    /* CURSOR — desktop only */
-    #c-dot,#c-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);border-radius:50%;}
-    #c-dot{width:7px;height:7px;background:var(--em);mix-blend-mode:difference;}
-    #c-ring{width:34px;height:34px;border:1.5px solid rgba(16,185,129,.45);transition:width .25s,height .25s,border-color .25s;}
-
-    /* GRID BG */
-    .grid-bg{position:absolute;inset:0;pointer-events:none;
-      background-image:linear-gradient(rgba(16,185,129,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,.04) 1px,transparent 1px);
-      background-size:72px 72px;}
-
-    /* BLOBS */
-    .blob{position:absolute;border-radius:9999px;filter:blur(110px);pointer-events:none;}
-
-    /* NAV */
-    #main-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;padding:0 1.5rem;background:rgba(5,5,5,.7);backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--bd);transition:background .3s;}
-    #main-nav.solid{background:rgba(5,5,5,.97);}
-    .nav-inner{max-width:1340px;width:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;}
-    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;color:var(--tx);text-decoration:none;line-height:1;}
-    .nav-logo em{color:var(--em);font-style:normal;}
-    .nav-lnk{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;position:relative;}
-    .nav-lnk::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--em);transition:width .3s;}
-    .nav-lnk:hover,.nav-lnk.active{color:var(--em-l);}
-    .nav-lnk:hover::after,.nav-lnk.active::after{width:100%;}
-    .btn-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border-radius:9999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;}
-    .btn-pill-out{padding:.55rem 1.3rem;border:1.5px solid rgba(16,185,129,.45);color:var(--em-l);font-weight:600;}
-    .btn-pill-out:hover{background:rgba(16,185,129,.1);border-color:var(--em);}
-    .btn-pill-solid{padding:.6rem 1.5rem;background:var(--em);color:#000;font-weight:700;}
-    .btn-pill-solid:hover{background:var(--em-l);transform:translateY(-1px);}
-    #mob-btn{display:none;background:none;border:none;cursor:pointer;color:var(--tx);padding:.4rem;}
-    #mob-menu{display:none;position:fixed;inset:0;background:#000;z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;}
-    #mob-menu.open{display:flex;}
-    .mob-lnk{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,9vw,4.5rem);color:var(--tx);text-decoration:none;transition:color .2s;letter-spacing:.04em;}
-    .mob-lnk:hover{color:var(--em);}
-    #mob-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;cursor:pointer;color:var(--tx);font-size:2.5rem;line-height:1;padding:.4rem;}
-    @media(max-width:960px){#mob-btn{display:block;}.nav-links{display:none!important;}}
-
-    /* HERO WORD REVEAL */
-    .word-wrap{overflow:hidden;display:inline-block;}
-    .word-inner{display:inline-block;animation:slideUp .85s cubic-bezier(.16,1,.3,1) both;}
-    @keyframes slideUp{from{transform:translateY(110%);}to{transform:translateY(0);}}
-
-    /* MARQUEE */
-    .mq-track{display:inline-flex;animation:mq 30s linear infinite;}
-    .mq-track:hover{animation-play-state:paused;}
-    @keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
-    /* REVEAL ON SCROLL */
-    .rv{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
-    .rv.on{opacity:1;transform:none;}
-    .rv-l{opacity:0;transform:translateX(-36px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
-    .rv-l.on{opacity:1;transform:none;}
-    .rv-r{opacity:0;transform:translateX(36px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
-    .rv-r.on{opacity:1;transform:none;}
-
-    /* SERVICE CARD */
-    .svc{border:1px solid var(--bd);background:var(--s1);padding:1.75rem;transition:border-color .3s,transform .3s,background .3s;position:relative;overflow:hidden;cursor:default;}
-    .svc::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--cx,50%) var(--cy,50%),rgba(16,185,129,.08),transparent 60%);opacity:0;transition:opacity .4s;}
-    .svc:hover{border-color:rgba(16,185,129,.35);transform:translateY(-5px);background:var(--s2);}
-    .svc:hover::before{opacity:1;}
-    .svc-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;color:rgba(16,185,129,.07);position:absolute;top:.5rem;right:1rem;pointer-events:none;transition:color .3s;}
-    .svc:hover .svc-num{color:rgba(16,185,129,.15);}
-    .svc-icon{width:44px;height:44px;border:1px solid rgba(16,185,129,.22);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;transition:background .3s;}
-    .svc:hover .svc-icon{background:rgba(16,185,129,.1);}
-
-    /* STAT */
-    .stat-n{font-family:'Bebas Neue',sans-serif;line-height:1;color:var(--em);}
-
-    /* PROCESS DOT LINE */
-    .proc-dot{width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;position:relative;z-index:1;}
-
-    /* FAQ ACCORDION */
-    .faq-item{border-bottom:1px solid var(--bd);}
-    .faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 0;cursor:pointer;font-weight:600;font-size:1rem;gap:1rem;}
-    .faq-q:hover{color:var(--em-l);}
-    .faq-icon{flex-shrink:0;transition:transform .3s;font-size:1.1rem;color:var(--em);}
-    .faq-item.open .faq-icon{transform:rotate(45deg);}
-    .faq-body{overflow:hidden;max-height:0;transition:max-height .4s cubic-bezier(.16,1,.3,1);}
-    .faq-body p{padding-bottom:1.4rem;color:var(--mu);line-height:1.75;font-size:.93rem;}
-
-    /* GLOW PULSE */
-    @keyframes glow-p{0%,100%{box-shadow:0 0 25px rgba(16,185,129,.25);}50%{box-shadow:0 0 55px rgba(16,185,129,.5);}}
-    .glow{animation:glow-p 3s ease-in-out infinite;}
-    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(1.6);}}
-    .pdot{animation:pulse-dot 2s ease-in-out infinite;}
-
-    /* SCROLL INDICATOR */
-    @keyframes scroll-line{0%{transform:scaleY(1);opacity:1;}100%{transform:scaleY(0);opacity:0;transform-origin:top;}}
-    .scroll-ind::after{content:'';display:block;width:1px;height:44px;background:linear-gradient(to bottom,var(--em),transparent);margin:.5rem auto 0;animation:scroll-line 1.8s ease-in-out infinite;}
-
-    /* LIVE SITE CARD */
-    .live-card{border:1px solid var(--bd);background:var(--s1);overflow:hidden;transition:border-color .35s,transform .35s;text-decoration:none;display:block;}
-    .live-card:hover{border-color:rgba(16,185,129,.4);transform:translateY(-4px);}
-
-    /* UTILITY */
-    @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
-    .fade-up{animation:fadeUp .7s cubic-bezier(.16,1,.3,1) both;}
-  
-
-    /* RESPONSIVE LAYOUT + MOBILE PERFORMANCE */
-    .hero-home .hero-layout{display:grid;}
-    @media (max-width:1060px){
-      .hero-layout,.two-col-grid,.two-col-start,.faq-grid{grid-template-columns:1fr !important;gap:2.6rem !important;}
-      .services-grid{grid-template-columns:repeat(2,1fr) !important;}
-      .work-grid{grid-template-columns:1fr !important;}
-    }
-    @media (max-width:768px){
-      html{scroll-behavior:auto;}
-      body::after{display:none;}
-      #main-nav{backdrop-filter:none;-webkit-backdrop-filter:none;}
-      .blob{display:none !important;}
-      .grid-bg{background-size:40px 40px;opacity:.45;}
-      .mq-track,.glow,.pdot{animation:none !important;}
-      .hero-layout,.two-col-grid,.two-col-start,.faq-grid{gap:2rem !important;}
-      .services-grid,.hero-stats,.work-grid{grid-template-columns:1fr !important;}
-      .hero-stats > div{border-right:none !important;border-bottom:1px solid var(--bd);}
-      .hero-stats > div:last-child{border-bottom:none;}
-      .cta-panel{padding:2.5rem 1.5rem !important;}
-      #scroll-hint{display:none !important;}
-      #c-dot,#c-ring{display:none !important;}
-      .svc:hover,.live-card:hover,.btn-pill-solid:hover{transform:none !important;}
-      .svc::before{display:none;}
-      .word-inner{animation-duration:.6s;}
+    :root {
+      --cyan: #06b6d4;
+      --cyan-light: #67e8f9;
+      --cyan-dark: #0891b2;
+      --cyan-soft: rgba(6, 182, 212, 0.08);
+      --bg: #fafafa;
+      --bg-warm: #f5f5f5;
+      --surface: #ffffff;
+      --text: #171717;
+      --text-soft: #525252;
+      --text-muted: #737373;
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow: rgba(0, 0, 0, 0.04);
     }
 
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: var(--cyan);
+      color: white;
+    }
+
+    /* Smooth grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.03;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Floating orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+
+    /* Navigation */
+    #main-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      background: rgba(250, 250, 250, 0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    #main-nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      width: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-logo span {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-lnk {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-lnk::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--cyan);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-lnk:hover, .nav-lnk.active {
+      color: var(--cyan);
+    }
+
+    .nav-lnk:hover::after, .nav-lnk.active::after {
+      width: 100%;
+    }
+
+    .btn-pill {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .btn-pill-ghost {
+      border: 1.5px solid var(--border);
+      color: var(--text-soft);
+      background: transparent;
+    }
+
+    .btn-pill-ghost:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: var(--cyan-soft);
+    }
+
+    .btn-pill-solid {
+      background: var(--cyan);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+    }
+
+    .btn-pill-solid:hover {
+      background: var(--cyan-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(6, 182, 212, 0.4);
+    }
+
+    #mob-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      padding: 0.5rem;
+    }
+
+    #mob-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: white;
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    #mob-menu.open {
+      display: flex;
+    }
+
+    .mob-lnk {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .mob-lnk:hover {
+      color: var(--cyan);
+    }
+
+    #mob-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      font-size: 2rem;
+      line-height: 1;
+      padding: 0.5rem;
+    }
+
+    @media(max-width: 960px) {
+      #mob-btn { display: block; }
+      .nav-links { display: none !important; }
+    }
+
+    /* Hero Section */
+    .hero-home {
+      min-height: 100vh;
+      padding-top: 80px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: 
+        linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    }
+
+    /* Text animations */
+    .word-reveal {
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .word-reveal span {
+      display: inline-block;
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes slideUp {
+      from { 
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to { 
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Service Cards */
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(6, 182, 212, 0.3);
+      box-shadow: 0 20px 60px rgba(6, 182, 212, 0.15);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--cyan-soft);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      background: var(--cyan);
+      transform: scale(1.05);
+    }
+
+    .service-card:hover .service-icon svg {
+      stroke: white;
+    }
+
+    /* Stats */
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(6, 182, 212, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--cyan);
+      line-height: 1;
+    }
+
+    /* Process Steps */
+    .process-step {
+      display: flex;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .process-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 56px;
+      width: 2px;
+      height: calc(100% - 40px);
+      background: linear-gradient(to bottom, var(--cyan), transparent);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--cyan);
+      color: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover {
+      color: var(--cyan);
+    }
+
+    .faq-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--cyan-soft);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      transition: all 0.3s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: var(--cyan);
+      color: white;
+    }
+
+    .faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-answer p {
+      padding-bottom: 1.5rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* Marquee */
+    .marquee-container {
+      background: var(--cyan);
+      padding: 1.25rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      animation: marquee 25s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-container:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 600;
+      color: white;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .marquee-divider {
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      position: relative;
+      background: linear-gradient(135deg, var(--cyan-soft) 0%, transparent 50%);
+      border-radius: 32px;
+      padding: 5rem;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text);
+      color: white;
+      padding: 4rem 1.5rem;
+    }
+
+    footer .nav-logo {
+      color: white;
+    }
+
+    footer .footer-link {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    footer .footer-link:hover {
+      color: var(--cyan-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-layout,
+      .two-col,
+      .services-grid,
+      .work-grid,
+      .faq-grid,
+      .stats-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html { scroll-behavior: auto; }
+      .orb { display: none; }
+      .hero-grid { background-size: 40px 40px; }
+      .cta-section { padding: 3rem 1.5rem; }
+      .service-card:hover,
+      .work-card:hover { transform: translateY(-4px); }
+    }
+
+    /* Smooth scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--cyan), transparent);
+    }
+
+    /* Pulse dot */
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
   </style>
 </head>
 <body>
-  <!-- CURSORS (desktop) -->
-  <div id="c-dot"></div>
-  <div id="c-ring"></div>
+  <!-- Floating Orbs -->
+  <div class="orb" style="width: 400px; height: 400px; background: rgba(6, 182, 212, 0.15); top: 10%; left: -10%; animation-delay: 0s;"></div>
+  <div class="orb" style="width: 300px; height: 300px; background: rgba(103, 232, 249, 0.12); top: 60%; right: -5%; animation-delay: -7s;"></div>
+  <div class="orb" style="width: 250px; height: 250px; background: rgba(6, 182, 212, 0.1); bottom: 20%; left: 30%; animation-delay: -14s;"></div>
 
-  <!-- ══════ NAV ══════ -->
+  <!-- Navigation -->
   <nav id="main-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">LEVANT<em>.</em></a>
-      <div class="nav-links" style="display:flex;align-items:center;gap:2.2rem;">
+      <a href="index.html" class="nav-logo">Levant<span>.</span></a>
+      <div class="nav-links">
         <a href="index.html" class="nav-lnk active">Home</a>
         <a href="services.html" class="nav-lnk">Services</a>
         <a href="work.html" class="nav-lnk">Work</a>
-        <a href="audit.html" class="btn-pill btn-pill-out">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <a href="audit.html" class="btn-pill btn-pill-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
           Free Audit
         </a>
         <a href="contact.html" class="btn-pill btn-pill-solid">Contact</a>
@@ -174,215 +690,216 @@
     </div>
   </nav>
 
-  <!-- MOBILE MENU -->
+  <!-- Mobile Menu -->
   <div id="mob-menu">
     <button id="mob-close">✕</button>
-    <a href="index.html" class="mob-lnk" style="color:var(--em)">Home</a>
+    <a href="index.html" class="mob-lnk" style="color: var(--cyan)">Home</a>
     <a href="services.html" class="mob-lnk">Services</a>
     <a href="work.html" class="mob-lnk">Work</a>
-    <a href="audit.html" class="mob-lnk" style="color:var(--em-l)">Free Audit</a>
-    <a href="contact.html" class="mob-lnk" style="color:var(--em-l)">Contact</a>
+    <a href="audit.html" class="mob-lnk">Free Audit</a>
+    <a href="contact.html" class="mob-lnk">Contact</a>
   </div>
 
-  <!-- ══════ HERO ══════ -->
-  <section class="hero-home" style="min-height:100svh;padding-top:72px;position:relative;display:flex;align-items:center;overflow:hidden;">
-    <div class="grid-bg"></div>
-    <!-- Blobs -->
-    <div class="blob" style="width:700px;height:700px;background:radial-gradient(circle,rgba(16,185,129,.18),transparent 70%);top:-20%;left:-15%;"></div>
-    <div class="blob" style="width:500px;height:500px;background:radial-gradient(circle,rgba(20,184,166,.1),transparent 70%);bottom:-15%;right:-10%;"></div>
-    <!-- Vignette bottom -->
-    <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;z-index:2;"></div>
-
-    <div style="position:relative;z-index:3;width:100%;max-width:1340px;margin:auto;padding:4rem 1.5rem 6rem;">
-      <div class="hero-layout" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
-
-        <!-- LEFT -->
-        <div>
-          <!-- Badge -->
-          <div class="fade-up" style="animation-delay:.1s;display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;border:1px solid rgba(16,185,129,.25);background:rgba(16,185,129,.05);margin-bottom:2rem;">
-            <span class="pdot" style="width:7px;height:7px;border-radius:50%;background:var(--em);flex-shrink:0;"></span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--em-l);">Taking new projects · Metro Detroit</span>
-          </div>
-
-          <!-- Headline -->
-          <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(5.5rem,13vw,10.5rem);line-height:.92;letter-spacing:.02em;margin-bottom:1.5rem;">
-            <div><span class="word-wrap"><span class="word-inner" style="animation-delay:.05s;">WE</span></span></div>
-            <div><span class="word-wrap"><span class="word-inner" style="animation-delay:.18s;">BUILD</span></span></div>
-            <div><span class="word-wrap"><span class="word-inner" style="animation-delay:.3s;-webkit-text-stroke:2px var(--em);color:transparent;">DIGITAL</span></span></div>
-            <div><span class="word-wrap"><span class="word-inner" style="animation-delay:.42s;color:var(--em);">EMPIRES.</span></span></div>
-          </h1>
-
-          <p class="fade-up" style="animation-delay:.65s;font-size:1.05rem;line-height:1.8;color:var(--mu);max-width:30rem;margin-bottom:2.2rem;">
-            Modern websites, clean branding, and SEO foundations — built for Metro Detroit businesses that are serious about their online presence.
-          </p>
-
-          <!-- CTA row -->
-          <div class="fade-up" style="animation-delay:.8s;display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:2.5rem;">
-            <a href="contact.html" class="glow btn-pill btn-pill-solid" style="padding:.9rem 2.2rem;font-size:.75rem;">
-              Get a Free Quote
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="work.html" class="btn-pill btn-pill-out" style="padding:.85rem 2rem;font-size:.75rem;">
-              See Our Work
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-
-          <!-- Trust chips -->
-          <div class="fade-up" style="animation-delay:.95s;display:flex;flex-wrap:wrap;gap:.5rem;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:.3rem .8rem;border:1px solid rgba(255,255,255,.07);">✦ Mobile-first</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:.3rem .8rem;border:1px solid rgba(255,255,255,.07);">✦ SEO-ready</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:.3rem .8rem;border:1px solid rgba(255,255,255,.07);">✦ You own everything</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:.3rem .8rem;border:1px solid rgba(255,255,255,.07);">✦ No fake guarantees</span>
-          </div>
+  <!-- Hero Section -->
+<section class="hero-home" style="background: linear-gradient(135deg, rgba(250,250,250,0.85) 0%, rgba(255,255,255,0.75) 50%, rgba(250,250,250,0.9) 100%), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&q=80'); background-size: cover; background-position: center; position: relative;">
+  
+  <!-- Cyan tint overlay for brand cohesion -->
+  <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(6,182,212,0.12) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(103,232,249,0.1) 0%, transparent 50%); pointer-events: none;"></div>
+  
+  <div class="hero-grid"></div>
+  
+  <div style="position: relative; z-index: 3; width: 100%; max-width: 1400px; margin: auto; padding: 4rem 2rem;">
+    <div class="hero-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+      
+      <!-- Left Content -->
+      <div>
+        <!-- Badge -->
+        <div style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1.25rem; background: rgba(255,255,255,0.95); border: 1px solid rgba(6,182,212,0.2); border-radius: 100px; margin-bottom: 2.5rem; box-shadow: 0 8px 32px rgba(6,182,212,0.1); backdrop-filter: blur(20px);">
+          <span class="pulse-dot"></span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; color: var(--cyan);">Taking new projects · Metro Detroit</span>
         </div>
 
-        <!-- RIGHT: Terminal-style capability card -->
-        <div class="rv-r" style="animation-delay:.3s;">
-          <div style="border:1px solid rgba(16,185,129,.2);background:rgba(10,10,10,.95);position:relative;overflow:hidden;">
-            <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--em),transparent);"></div>
+        <!-- Headline -->
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 1.5rem; text-shadow: 0 2px 20px rgba(255,255,255,0.8);">
+          <div class="word-reveal"><span style="animation-delay: 0.1s;">We build</span></div>
+          <div class="word-reveal"><span style="animation-delay: 0.2s; color: var(--cyan);">digital</span></div>
+          <div class="word-reveal"><span style="animation-delay: 0.3s;">experiences</span></div>
+          <div class="word-reveal"><span style="animation-delay: 0.4s; color: var(--text-muted);">that convert.</span></div>
+        </h1>
 
-            <!-- Terminal header -->
-            <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid var(--bd);background:rgba(16,185,129,.03);">
-              <div style="display:flex;gap:6px;">
-                <span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;"></span>
-                <span style="width:11px;height:11px;border-radius:50%;background:#febc2e;"></span>
-                <span style="width:11px;height:11px;border-radius:50%;background:#28c840;"></span>
-              </div>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;color:var(--mu);">levant.agency — services</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--em);letter-spacing:.08em;">● LIVE</span>
-            </div>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text); max-width: 480px; margin-bottom: 2.5rem; background: rgba(255,255,255,0.7); padding: 1.25rem; border-radius: 12px; border-left: 3px solid var(--cyan);">
+          Modern websites, clean branding, and SEO foundations — built for Metro Detroit businesses ready to stand out online.
+        </p>
 
-            <!-- Stats row -->
-            <div class="hero-stats" style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--bd);">
-              <div style="padding:1.1rem 1.4rem;border-right:1px solid var(--bd);">
-                <div class="stat-n" style="font-size:3rem;">100%</div>
-                <div style="font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:.2rem;">Mobile-first</div>
-              </div>
-              <div style="padding:1.1rem 1.4rem;border-right:1px solid var(--bd);">
-                <div class="stat-n" style="font-size:3rem;color:var(--tx);">5</div>
-                <div style="font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:.2rem;">Services</div>
-              </div>
-              <div style="padding:1.1rem 1.4rem;">
-                <div class="stat-n" style="font-size:3rem;color:var(--tx);">0</div>
-                <div style="font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:.2rem;">Fake claims</div>
-              </div>
-            </div>
-
-            <!-- Service list -->
-            <div id="svc-list">
-              <a href="services.html" class="svc-row" style="display:flex;align-items:center;gap:1rem;padding:.95rem 1.5rem;border-bottom:1px solid var(--bd);text-decoration:none;transition:background .2s;color:var(--tx);" onmouseenter="this.style.background='rgba(16,185,129,.05)'" onmouseleave="this.style.background='transparent'">
-                <div style="width:30px;height:30px;border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                </div>
-                <div style="flex:1;"><div style="font-size:.88rem;font-weight:500;">Website Creation &amp; Redesign</div><div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mu);margin-top:2px;letter-spacing:.06em;">Structure · mobile · performance</div></div>
-                <span style="color:var(--em);font-size:.8rem;">→</span>
-              </a>
-              <a href="services.html" class="svc-row" style="display:flex;align-items:center;gap:1rem;padding:.95rem 1.5rem;border-bottom:1px solid var(--bd);text-decoration:none;transition:background .2s;color:var(--tx);" onmouseenter="this.style.background='rgba(16,185,129,.05)'" onmouseleave="this.style.background='transparent'">
-                <div style="width:30px;height:30px;border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
-                </div>
-                <div style="flex:1;"><div style="font-size:.88rem;font-weight:500;">Branding + Logo Design</div><div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mu);margin-top:2px;letter-spacing:.06em;">Identity · consistency · presence</div></div>
-                <span style="color:var(--em);font-size:.8rem;">→</span>
-              </a>
-              <a href="services.html" class="svc-row" style="display:flex;align-items:center;gap:1rem;padding:.95rem 1.5rem;border-bottom:1px solid var(--bd);text-decoration:none;transition:background .2s;color:var(--tx);" onmouseenter="this.style.background='rgba(16,185,129,.05)'" onmouseleave="this.style.background='transparent'">
-                <div style="width:30px;height:30px;border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                </div>
-                <div style="flex:1;"><div style="font-size:.88rem;font-weight:500;">SEO Foundations</div><div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mu);margin-top:2px;letter-spacing:.06em;">Headings · meta · local visibility</div></div>
-                <span style="color:var(--em);font-size:.8rem;">→</span>
-              </a>
-              <a href="services.html" class="svc-row" style="display:flex;align-items:center;gap:1rem;padding:.95rem 1.5rem;text-decoration:none;transition:background .2s;color:var(--tx);" onmouseenter="this.style.background='rgba(16,185,129,.05)'" onmouseleave="this.style.background='transparent'">
-                <div style="width:30px;height:30px;border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <div style="flex:1;"><div style="font-size:.88rem;font-weight:500;">Google Business Profile</div><div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mu);margin-top:2px;letter-spacing:.06em;">Local presence · posting support</div></div>
-                <span style="color:var(--em);font-size:.8rem;">→</span>
-              </a>
-            </div>
-
-            <!-- Footer -->
-            <div style="display:flex;gap:.75rem;padding:1rem 1.5rem;border-top:1px solid var(--bd);">
-              <a href="services.html" class="btn-pill btn-pill-out" style="flex:1;justify-content:center;font-size:.63rem;padding:.6rem .8rem;">All Services</a>
-              <a href="audit.html" class="btn-pill btn-pill-solid glow" style="flex:1;justify-content:center;font-size:.63rem;padding:.6rem .8rem;">Free Audit</a>
-            </div>
-          </div>
+        <!-- CTA Buttons -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;">
+          <a href="contact.html" class="btn-pill btn-pill-solid" style="padding: 1.1rem 2.2rem; font-size: 1rem; box-shadow: 0 8px 30px rgba(6,182,212,0.4);">
+            Start your project
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="work.html" class="btn-pill btn-pill-ghost" style="padding: 1.1rem 2.2rem; font-size: 1rem; background: rgba(255,255,255,0.9); border-color: rgba(6,182,212,0.3);">
+            View our work
+          </a>
         </div>
 
+        <!-- Trust Badges -->
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text); background: rgba(255,255,255,0.9); padding: 0.6rem 1.2rem; border-radius: 100px; border: 1px solid rgba(6,182,212,0.15); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Mobile-first design
+          </span>
+          <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text); background: rgba(255,255,255,0.9); padding: 0.6rem 1.2rem; border-radius: 100px; border: 1px solid rgba(6,182,212,0.15); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            SEO ready
+          </span>
+          <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text); background: rgba(255,255,255,0.9); padding: 0.6rem 1.2rem; border-radius: 100px; border: 1px solid rgba(6,182,212,0.15); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            You own everything
+          </span>
+        </div>
       </div>
-    </div>
 
-    <!-- Scroll indicator -->
-    <div class="scroll-ind fade-up" style="animation-delay:1.4s;position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);text-align:center;display:none;" id="scroll-hint">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);">Scroll</span>
-    </div>
-  </section>
+      <!-- Right: Dashboard Preview -->
+      <div class="reveal-right" style="animation-delay: 0.3s;">
+        <div style="background: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.5); border-radius: 24px; padding: 2rem; box-shadow: 0 40px 100px rgba(0,0,0,0.15), 0 0 0 1px rgba(6,182,212,0.1); position: relative; backdrop-filter: blur(20px) saturate(180%);">
+          <!-- Browser Chrome -->
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.08);">
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f57;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #febc2e;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #28c840;"></span>
+            <div style="flex: 1; margin-left: 1rem; background: rgba(6,182,212,0.08); border-radius: 8px; padding: 0.5rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--cyan); text-align: center; border: 1px solid rgba(6,182,212,0.15);">
+              levant.agency/dashboard
+            </div>
+          </div>
 
-  <!-- ══════ MARQUEE ══════ -->
-  <div style="background:var(--em);border-top:2px solid #000;border-bottom:2px solid #000;overflow:hidden;padding:.8rem 0;">
-    <div style="display:flex;overflow:hidden;white-space:nowrap;">
-      <div class="mq-track" aria-hidden="true">
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">WEBSITE CREATION</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">BRANDING</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">SEO SETUP</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">GOOGLE BUSINESS</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">METRO DETROIT</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
-        <!-- duplicate for seamless loop -->
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">WEBSITE CREATION</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">BRANDING</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">SEO SETUP</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">GOOGLE BUSINESS</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#000;padding:0 2rem;letter-spacing:.04em;">METRO DETROIT</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);color:rgba(0,0,0,.3);padding:0 1rem;">✦</span>
+          <!-- Stats Grid -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="stat-card" style="background: rgba(255,255,255,0.6);">
+              <div class="stat-number">100%</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">Mobile Score</div>
+            </div>
+            <div class="stat-card" style="background: rgba(255,255,255,0.6);">
+              <div class="stat-number" style="color: var(--text);">5</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">Core Services</div>
+            </div>
+            <div class="stat-card" style="background: rgba(255,255,255,0.6);">
+              <div class="stat-number" style="color: var(--text);">0</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">Hidden Fees</div>
+            </div>
+          </div>
+
+          <!-- Service List -->
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="services.html" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.6); border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s; border: 1px solid transparent;" onmouseenter="this.style.background='rgba(6,182,212,0.08)'; this.style.borderColor='rgba(6,182,212,0.2)'" onmouseleave="this.style.background='rgba(255,255,255,0.6)'; this.style.borderColor='transparent'">
+              <div style="width: 40px; height: 40px; background: var(--cyan-soft); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-weight: 500; font-size: 0.9375rem;">Website Design</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Structure & performance</div>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="services.html" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.6); border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s; border: 1px solid transparent;" onmouseenter="this.style.background='rgba(6,182,212,0.08)'; this.style.borderColor='rgba(6,182,212,0.2)'" onmouseleave="this.style.background='rgba(255,255,255,0.6)'; this.style.borderColor='transparent'">
+              <div style="width: 40px; height: 40px; background: var(--cyan-soft); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-weight: 500; font-size: 0.9375rem;">Brand Identity</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Logos & visual systems</div>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="services.html" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.6); border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s; border: 1px solid transparent;" onmouseenter="this.style.background='rgba(6,182,212,0.08)'; this.style.borderColor='rgba(6,182,212,0.2)'" onmouseleave="this.style.background='rgba(255,255,255,0.6)'; this.style.borderColor='transparent'">
+              <div style="width: 40px; height: 40px; background: var(--cyan-soft); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-weight: 500; font-size: 0.9375rem;">SEO Foundations</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Visibility & rankings</div>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);">
+            <a href="services.html" class="btn-pill btn-pill-ghost" style="flex: 1; justify-content: center; font-size: 0.875rem; background: rgba(255,255,255,0.8);">All Services</a>
+            <a href="audit.html" class="btn-pill btn-pill-solid" style="flex: 1; justify-content: center; font-size: 0.875rem;">Free Audit</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ══════ WHY LEVANT ══════ -->
-  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
-    <div style="max-width:1340px;margin:auto;">
-      <div class="two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
-        <div class="rv-l">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;">
-            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>Why Levant
+  <!-- Scroll Hint -->
+  <div class="scroll-hint" id="scrollHint" style="background: rgba(255,255,255,0.9); padding: 0.75rem 1.5rem; border-radius: 100px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+    <span>Scroll to explore</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+  <!-- Marquee -->
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <span class="marquee-item">Website Design <span class="marquee-divider"></span></span>
+      <span class="marquee-item">Brand Identity <span class="marquee-divider"></span></span>
+      <span class="marquee-item">SEO Setup <span class="marquee-divider"></span></span>
+      <span class="marquee-item">Google Business <span class="marquee-divider"></span></span>
+      <span class="marquee-item">Metro Detroit <span class="marquee-divider"></span></span>
+      <span class="marquee-item">Website Design <span class="marquee-divider"></span></span>
+      <span class="marquee-item">Brand Identity <span class="marquee-divider"></span></span>
+      <span class="marquee-item">SEO Setup <span class="marquee-divider"></span></span>
+      <span class="marquee-item">Google Business <span class="marquee-divider"></span></span>
+      <span class="marquee-item">Metro Detroit <span class="marquee-divider"></span></span>
+    </div>
+  </div>
+
+  <!-- Why Levant -->
+  <section style="padding: 8rem 1.5rem; background: white;">
+    <div style="max-width: 1400px; margin: auto;">
+      <div class="two-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;">
+        <div class="reveal-left">
+          <div style="display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <span style="width: 40px; height: 2px; background: var(--cyan);"></span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em;">Why Levant</span>
           </div>
-          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7.5vw,7rem);line-height:.93;letter-spacing:.02em;margin-bottom:1.5rem;">
-            YOUR BUSINESS<br>DESERVES TO<br><span style="color:var(--em);">LOOK THE PART.</span>
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 1.5rem;">
+            Your business<br>
+            deserves to<br>
+            <span style="color: var(--cyan);">look the part.</span>
           </h2>
-          <p style="font-size:1rem;line-height:1.8;color:var(--mu);max-width:32rem;margin-bottom:2rem;">
-            Most Metro Detroit businesses are invisible online — bad websites, no branding, zero Google presence. We fix all of it. Clearly scoped, honestly priced, built to last.
+          <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-soft); max-width: 440px; margin-bottom: 2rem;">
+            Most Metro Detroit businesses are invisible online — outdated websites, no branding, zero Google presence. We fix all of it with clear scope and honest pricing.
           </p>
-          <a href="contact.html" style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em-l);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:gap .2s;" onmouseenter="this.style.gap='.9rem'" onmouseleave="this.style.gap='.5rem'">
-            Start a project →
+          <a href="contact.html" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 500; color: var(--cyan); text-decoration: none; transition: gap 0.2s;" onmouseenter="this.style.gap='0.75rem'" onmouseleave="this.style.gap='0.5rem'">
+            Start a project
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
           </a>
         </div>
 
-        <div class="rv" style="transition-delay:.1s;display:flex;flex-direction:column;gap:1rem;">
-          <div class="svc" style="padding:1.5rem;">
-            <div style="display:flex;align-items:flex-start;gap:1rem;">
-              <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <div><div style="font-weight:600;margin-bottom:.3rem;">Transparent from day one</div><p style="font-size:.87rem;color:var(--mu);line-height:1.7;">Clear scope, fixed pricing, no surprise invoices. You know exactly what you're getting before we start.</p></div>
+        <div class="reveal" style="transition-delay: 0.2s;">
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="service-card">
+              <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Transparent from day one</h3>
+              <p style="color: var(--text-muted); line-height: 1.7;">Clear scope, fixed pricing, no surprise invoices. You know exactly what you're getting before we start.</p>
             </div>
-          </div>
-          <div class="svc" style="padding:1.5rem;">
-            <div style="display:flex;align-items:flex-start;gap:1rem;">
-              <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <div><div style="font-weight:600;margin-bottom:.3rem;">Real people. No outsourcing.</div><p style="font-size:.87rem;color:var(--mu);line-height:1.7;">Direct communication with whoever is actually building your project. No middlemen, no overseas runaround.</p></div>
+            <div class="service-card">
+              <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+              </div>
+              <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Real people. No outsourcing.</h3>
+              <p style="color: var(--text-muted); line-height: 1.7;">Direct communication with whoever is actually building your project. No middlemen, no runaround.</p>
             </div>
-          </div>
-          <div class="svc" style="padding:1.5rem;">
-            <div style="display:flex;align-items:flex-start;gap:1rem;">
-              <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <div><div style="font-weight:600;margin-bottom:.3rem;">Everything you own on delivery</div><p style="font-size:.87rem;color:var(--mu);line-height:1.7;">All source files, code, and accounts are yours the moment we hand off. Nothing held hostage.</p></div>
+            <div class="service-card">
+              <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Everything you own on delivery</h3>
+              <p style="color: var(--text-muted); line-height: 1.7;">All source files, code, and accounts are yours the moment we hand off. Nothing held hostage.</p>
             </div>
           </div>
         </div>
@@ -390,188 +907,276 @@
     </div>
   </section>
 
-  <!-- ══════ SERVICES ══════ -->
-  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
-    <div style="max-width:1340px;margin:auto;">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3.5rem;" class="rv">
+  <!-- Services -->
+  <section style="padding: 8rem 1.5rem; background: var(--bg);">
+    <div style="max-width: 1400px; margin: auto;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 4rem;" class="reveal">
         <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;">
-            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>What We Do
+          <div style="display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span style="width: 40px; height: 2px; background: var(--cyan);"></span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em;">What We Do</span>
           </div>
-          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6.5vw,6rem);line-height:.93;letter-spacing:.02em;">FIVE SERVICES.<br><span style="color:var(--em);">ONE GOAL.</span></h2>
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em;">
+            Five services.<br>
+            <span style="color: var(--cyan);">One goal.</span>
+          </h2>
         </div>
-        <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.4rem;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">View all services →</a>
+        <a href="services.html" style="font-weight: 500; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;" onmouseenter="this.style.color='var(--cyan)'" onmouseleave="this.style.color='var(--text-muted)'">
+          View all services
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
       </div>
 
-      <div class="services-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;">
-        <div class="svc rv" style="transition-delay:.04s">
-          <div class="svc-num">01</div>
-          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">Website Creation &amp; Redesign</h3>
-          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">Modern, mobile-first sites built to guide visitors toward action. Fast, structured, and conversion-focused.</p>
-          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+      <div class="services-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+        <div class="service-card reveal" style="transition-delay: 0.05s;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; color: var(--cyan); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">01</div>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Website Creation</h3>
+          <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">Modern, mobile-first sites built to guide visitors toward action. Fast, structured, and conversion-focused.</p>
+          <a href="services.html" style="font-weight: 500; color: var(--cyan); text-decoration: none; font-size: 0.875rem;">Learn more →</a>
         </div>
-        <div class="svc rv" style="transition-delay:.08s">
-          <div class="svc-num">02</div>
-          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></div>
-          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">Branding + Logo Design</h3>
-          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">An identity system that makes your business look established, consistent, and credible everywhere.</p>
-          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+
+        <div class="service-card reveal" style="transition-delay: 0.1s;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; color: var(--cyan); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">02</div>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Branding + Logo</h3>
+          <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">An identity system that makes your business look established, consistent, and credible everywhere.</p>
+          <a href="services.html" style="font-weight: 500; color: var(--cyan); text-decoration: none; font-size: 0.875rem;">Learn more →</a>
         </div>
-        <div class="svc rv" style="transition-delay:.12s">
-          <div class="svc-num">03</div>
-          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">Graphic Design</h3>
-          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">Social graphics, flyers, banners, and print materials — all on-brand and built to get noticed.</p>
-          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+
+        <div class="service-card reveal" style="transition-delay: 0.15s;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; color: var(--cyan); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">03</div>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Graphic Design</h3>
+          <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">Social graphics, flyers, banners, and print materials — all on-brand and built to get noticed.</p>
+          <a href="services.html" style="font-weight: 500; color: var(--cyan); text-decoration: none; font-size: 0.875rem;">Learn more →</a>
         </div>
-        <div class="svc rv" style="transition-delay:.16s">
-          <div class="svc-num">04</div>
-          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
-          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">SEO Foundations</h3>
-          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">Headings, metadata, internal links, and technical readiness. The foundation that helps Google find you.</p>
-          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+
+        <div class="service-card reveal" style="transition-delay: 0.2s;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; color: var(--cyan); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">04</div>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">SEO Foundations</h3>
+          <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">Headings, metadata, internal links, and technical readiness. The foundation that helps Google find you.</p>
+          <a href="services.html" style="font-weight: 500; color: var(--cyan); text-decoration: none; font-size: 0.875rem;">Learn more →</a>
         </div>
-        <div class="svc rv" style="transition-delay:.2s">
-          <div class="svc-num">05</div>
-          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <h3 style="font-size:1rem;font-weight:600;margin-bottom:.6rem;">Google Business Profile</h3>
-          <p style="font-size:.87rem;color:var(--mu);line-height:1.7;margin-bottom:1.2rem;">Setup, optimization, and posting support. Keep your local presence active, complete, and consistent.</p>
-          <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--em);text-decoration:none;">Learn more →</a>
+
+        <div class="service-card reveal" style="transition-delay: 0.25s;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; color: var(--cyan); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">05</div>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Google Business</h3>
+          <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">Setup, optimization, and posting support. Keep your local presence active, complete, and consistent.</p>
+          <a href="services.html" style="font-weight: 500; color: var(--cyan); text-decoration: none; font-size: 0.875rem;">Learn more →</a>
         </div>
-        <!-- CTA card -->
-        <div class="rv" style="transition-delay:.24s;border:1px solid rgba(16,185,129,.25);background:rgba(16,185,129,.04);padding:1.75rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--em),transparent);"></div>
+
+        <!-- CTA Card -->
+        <div class="reveal" style="transition-delay: 0.3s; background: linear-gradient(135deg, var(--cyan-soft), rgba(6, 182, 212, 0.02)); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
           <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em);margin-bottom:1rem;">Not sure where to start?</div>
-            <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;line-height:.95;letter-spacing:.02em;margin-bottom:.8rem;">GET A FREE AUDIT FIRST.</h3>
-            <p style="font-size:.87rem;color:var(--mu);line-height:1.7;">We'll show you exactly where you rank on Google and what needs fixing — zero commitment.</p>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; color: var(--cyan); margin-bottom: 1rem;">Not sure where to start?</div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; line-height: 1.1; margin-bottom: 0.75rem;">Get a free audit first.</h3>
+            <p style="color: var(--text-muted); line-height: 1.7;">We'll show you exactly where you rank on Google and what needs fixing — zero commitment.</p>
           </div>
-          <a href="audit.html" class="glow btn-pill btn-pill-solid" style="margin-top:1.5rem;justify-content:center;padding:.9rem;">
+          <a href="audit.html" class="btn-pill btn-pill-solid" style="margin-top: 1.5rem; justify-content: center;">
             Get Free Audit
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════ WORK / LIVE SITES ══════ -->
-  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
-    <div style="max-width:1340px;margin:auto;">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3.5rem;" class="rv">
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;">
-            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>Our Work
-          </div>
-          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6.5vw,6rem);line-height:.93;letter-spacing:.02em;">REAL WORK.<br><span style="color:var(--em);">LIVE SITES.</span></h2>
+  <!-- COMPANY STATS (Replaces Our Work) -->
+  <section style="padding: 8rem 1.5rem; background: white; position: relative; overflow: hidden;">
+    <!-- Background decoration -->
+    <div style="position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(6, 182, 212, 0.08), transparent 70%); pointer-events: none;"></div>
+    <div style="position: absolute; bottom: -10%; left: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(6, 182, 212, 0.05), transparent 70%); pointer-events: none;"></div>
+
+    <div style="max-width: 1400px; margin: auto; position: relative; z-index: 1;">
+      <!-- Header -->
+      <div style="text-align: center; margin-bottom: 5rem;" class="reveal">
+        <div style="display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <span style="width: 40px; height: 2px; background: var(--cyan);"></span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em;">By The Numbers</span>
+          <span style="width: 40px; height: 2px; background: var(--cyan);"></span>
         </div>
-        <a href="work.html" style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.4rem;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Full portfolio →</a>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 1.5rem;">
+          Built for results.<br>
+          <span style="color: var(--cyan);">Proven by data.</span>
+        </h2>
+        <p style="font-size: 1.125rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.7;">
+          We don't just build pretty websites. We create digital foundations that drive real business growth for Metro Detroit companies.
+        </p>
       </div>
-      <div class="work-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
-        <a href="https://barringtonridge.us" target="_blank" rel="noopener" class="live-card rv" style="transition-delay:.06s;">
-          <div style="height:190px;background:linear-gradient(135deg,rgba(16,185,129,.09),rgba(16,185,129,.02));border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-            <div class="grid-bg" style="opacity:.5;"></div>
-            <div style="text-align:center;position:relative;z-index:1;">
-              <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;margin-bottom:.3rem;">BARRINGTON RIDGE</div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);">barringtonridge.us</div>
-            </div>
-            <div style="position:absolute;top:12px;left:14px;display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--em);">
-              <span class="pdot" style="width:6px;height:6px;border-radius:50%;background:var(--em);"></span>LIVE
-            </div>
+
+      <!-- Main Stats Grid -->
+      <div class="stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 4rem;">
+        <!-- Stat 1 -->
+        <div class="reveal" style="transition-delay: 0.1s; background: linear-gradient(135deg, var(--bg) 0%, white 100%); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--cyan), var(--cyan-light));"></div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; color: var(--cyan); line-height: 1; margin-bottom: 0.5rem;">
+            <span class="counter" data-target="50">0</span>+
           </div>
-          <div style="padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
-            <div>
-              <div style="font-weight:600;margin-bottom:.25rem;">Barrington Ridge</div>
-              <div style="font-size:.83rem;color:var(--mu);">Real estate website — mobile-first, clean, conversion-focused</div>
-            </div>
-            <svg style="flex-shrink:0;color:var(--em);transition:transform .2s;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div style="font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Projects Delivered</div>
+          <div style="font-size: 0.875rem; color: var(--text-muted);">Websites, brands & campaigns</div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="reveal" style="transition-delay: 0.2s; background: linear-gradient(135deg, var(--bg) 0%, white 100%); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--cyan), var(--cyan-light));"></div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; color: var(--cyan); line-height: 1; margin-bottom: 0.5rem;">
+            <span class="counter" data-target="100">0</span>%
           </div>
-        </a>
-        <a href="https://lieblichsgarage.com" target="_blank" rel="noopener" class="live-card rv" style="transition-delay:.12s;">
-          <div style="height:190px;background:linear-gradient(135deg,rgba(16,185,129,.09),rgba(16,185,129,.02));border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-            <div class="grid-bg" style="opacity:.5;"></div>
-            <div style="text-align:center;position:relative;z-index:1;">
-              <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;margin-bottom:.3rem;">LIEBLICH'S GARAGE</div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);">lieblichsgarage.com</div>
-            </div>
-            <div style="position:absolute;top:12px;left:14px;display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--em);">
-              <span class="pdot" style="width:6px;height:6px;border-radius:50%;background:var(--em);"></span>LIVE
-            </div>
+          <div style="font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Mobile-First</div>
+          <div style="font-size: 0.875rem; color: var(--text-muted);">Every site built responsive</div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="reveal" style="transition-delay: 0.3s; background: linear-gradient(135deg, var(--bg) 0%, white 100%); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--cyan), var(--cyan-light));"></div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; color: var(--cyan); line-height: 1; margin-bottom: 0.5rem;">
+            <span class="counter" data-target="5">0</span>
           </div>
-          <div style="padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
-            <div>
-              <div style="font-weight:600;margin-bottom:.25rem;">Lieblich's Garage</div>
-              <div style="font-size:.83rem;color:var(--mu);">Automotive website — local SEO, Google Business integration</div>
-            </div>
-            <svg style="flex-shrink:0;color:var(--em);transition:transform .2s;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div style="font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Star Rating</div>
+          <div style="font-size: 0.875rem; color: var(--text-muted);">Average client satisfaction</div>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="reveal" style="transition-delay: 0.4s; background: linear-gradient(135deg, var(--bg) 0%, white 100%); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--cyan), var(--cyan-light));"></div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; color: var(--cyan); line-height: 1; margin-bottom: 0.5rem;">
+            <span class="counter" data-target="7">0</span> Days
           </div>
-        </a>
+          <div style="font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Average Delivery</div>
+          <div style="font-size: 0.875rem; color: var(--text-muted);">From kickoff to launch</div>
+        </div>
+      </div>
+
+      <!-- Secondary Stats Row -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 4rem;">
+        <!-- Metric 1 -->
+        <div class="reveal" style="transition-delay: 0.5s; display: flex; align-items: center; gap: 1.5rem; padding: 2rem; background: var(--bg); border-radius: 20px; border: 1px solid var(--border);">
+          <div style="width: 64px; height: 64px; background: var(--cyan-soft); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+          </div>
+          <div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--text); line-height: 1;">
+              <span class="counter" data-target="0">0</span> Hidden Fees
+            </div>
+            <div style="color: var(--text-muted); font-size: 0.9375rem; margin-top: 0.25rem;">Transparent pricing always</div>
+          </div>
+        </div>
+
+        <!-- Metric 2 -->
+        <div class="reveal" style="transition-delay: 0.6s; display: flex; align-items: center; gap: 1.5rem; padding: 2rem; background: var(--bg); border-radius: 20px; border: 1px solid var(--border);">
+          <div style="width: 64px; height: 64px; background: var(--cyan-soft); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--text); line-height: 1;">
+              <span class="counter" data-target="100">0</span>% Ownership
+            </div>
+            <div style="color: var(--text-muted); font-size: 0.9375rem; margin-top: 0.25rem;">You own all files & code</div>
+          </div>
+        </div>
+
+        <!-- Metric 3 -->
+        <div class="reveal" style="transition-delay: 0.7s; display: flex; align-items: center; gap: 1.5rem; padding: 2rem; background: var(--bg); border-radius: 20px; border: 1px solid var(--border);">
+          <div style="width: 64px; height: 64px; background: var(--cyan-soft); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--text); line-height: 1;">
+              <span class="counter" data-target="100">0</span>% Local
+            </div>
+            <div style="color: var(--text-muted); font-size: 0.9375rem; margin-top: 0.25rem;">Metro Detroit focused</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="reveal" style="transition-delay: 0.8s; background: linear-gradient(135deg, var(--cyan-soft) 0%, rgba(6, 182, 212, 0.02) 100%); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 24px; padding: 3rem;">
+        <div style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+          <div style="text-align: center;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">No Outsourcing</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted);">Direct communication always</div>
+          </div>
+          <div style="width: 1px; height: 50px; background: rgba(6, 182, 212, 0.2);"></div>
+          <div style="text-align: center;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">SEO Included</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted);">Every project optimized</div>
+          </div>
+          <div style="width: 1px; height: 50px; background: rgba(6, 182, 212, 0.2);"></div>
+          <div style="text-align: center;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Fast Support</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted);">Response within 24 hours</div>
+          </div>
+          <div style="width: 1px; height: 50px; background: rgba(6, 182, 212, 0.2);"></div>
+          <div style="text-align: center;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Clear Process</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted);">No surprises, ever</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════ PROCESS ══════ -->
-  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
-    <div style="max-width:1340px;margin:auto;">
-      <div class="two-col-grid two-col-start" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
-        <div class="rv-l">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;">
-            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>How It Works
+  <!-- Process -->
+  <section style="padding: 8rem 1.5rem; background: var(--bg);">
+    <div style="max-width: 1400px; margin: auto;">
+      <div class="two-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;">
+        <div class="reveal-left">
+          <div style="display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <span style="width: 40px; height: 2px; background: var(--cyan);"></span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em;">How It Works</span>
           </div>
-          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6.5vw,6rem);line-height:.93;letter-spacing:.02em;margin-bottom:1.5rem;">SIMPLE.<br>CLEAR.<br><span style="color:var(--em);">NO GUESSING.</span></h2>
-          <p style="font-size:1rem;line-height:1.8;color:var(--mu);max-width:28rem;">We keep the process tight so you always know where things stand. No disappearing acts, no scope creep, no surprises.</p>
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 1.5rem;">
+            Simple.<br>
+            Clear.<br>
+            <span style="color: var(--cyan);">No guessing.</span>
+          </h2>
+          <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-soft); max-width: 400px;">
+            We keep the process tight so you always know where things stand. No disappearing acts, no scope creep, no surprises.
+          </p>
         </div>
-        <div class="rv" style="transition-delay:.1s;">
-          <!-- Step 1 -->
-          <div style="display:flex;gap:1.4rem;padding-bottom:2.5rem;position:relative;">
-            <div style="position:relative;flex-shrink:0;">
-              <div style="width:46px;height:46px;background:var(--em);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
-                <span style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#000;">01</span>
-              </div>
-              <div style="position:absolute;left:22px;top:46px;bottom:-20px;width:1px;background:linear-gradient(to bottom,var(--em),rgba(16,185,129,.1));"></div>
-            </div>
-            <div style="padding-top:.4rem;">
-              <div style="font-weight:600;font-size:1.05rem;margin-bottom:.5rem;">Free audit &amp; discovery</div>
-              <p style="font-size:.9rem;color:var(--mu);line-height:1.75;">We review your current presence, find the gaps, and show you exactly what needs to change — before you spend a dollar.</p>
-            </div>
-          </div>
-          <!-- Step 2 -->
-          <div style="display:flex;gap:1.4rem;padding-bottom:2.5rem;position:relative;">
-            <div style="position:relative;flex-shrink:0;">
-              <div style="width:46px;height:46px;border:1px solid rgba(16,185,129,.3);background:var(--s1);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
-                <span style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--em);">02</span>
-              </div>
-              <div style="position:absolute;left:22px;top:46px;bottom:-20px;width:1px;background:linear-gradient(to bottom,rgba(16,185,129,.25),rgba(16,185,129,.05));"></div>
-            </div>
-            <div style="padding-top:.4rem;">
-              <div style="font-weight:600;font-size:1.05rem;margin-bottom:.5rem;">Clear scope + quote</div>
-              <p style="font-size:.9rem;color:var(--mu);line-height:1.75;">A written breakdown of exactly what we'll build, what it costs, and when it's done. No vague estimates.</p>
-            </div>
-          </div>
-          <!-- Step 3 -->
-          <div style="display:flex;gap:1.4rem;padding-bottom:2.5rem;position:relative;">
-            <div style="position:relative;flex-shrink:0;">
-              <div style="width:46px;height:46px;border:1px solid rgba(16,185,129,.3);background:var(--s1);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
-                <span style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--em);">03</span>
-              </div>
-              <div style="position:absolute;left:22px;top:46px;bottom:-20px;width:1px;background:linear-gradient(to bottom,rgba(16,185,129,.15),rgba(16,185,129,.02));"></div>
-            </div>
-            <div style="padding-top:.4rem;">
-              <div style="font-weight:600;font-size:1.05rem;margin-bottom:.5rem;">We build it right</div>
-              <p style="font-size:.9rem;color:var(--mu);line-height:1.75;">Design, dev, branding, SEO — we handle the execution while keeping you updated throughout. No ghosting.</p>
-            </div>
-          </div>
-          <!-- Step 4 -->
-          <div style="display:flex;gap:1.4rem;">
-            <div style="flex-shrink:0;">
-              <div style="width:46px;height:46px;border:1px solid rgba(16,185,129,.3);background:var(--s1);display:flex;align-items:center;justify-content:center;">
-                <span style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--em);">04</span>
+
+        <div class="reveal" style="transition-delay: 0.2s;">
+          <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <div>
+                <div style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">Free audit & discovery</div>
+                <p style="color: var(--text-muted); line-height: 1.75;">We review your current presence, find the gaps, and show you exactly what needs to change — before you spend a dollar.</p>
               </div>
             </div>
-            <div style="padding-top:.4rem;">
-              <div style="font-weight:600;font-size:1.05rem;margin-bottom:.5rem;">Launch + full handoff</div>
-              <p style="font-size:.9rem;color:var(--mu);line-height:1.75;">Code, files, accounts, logins — all yours. Nothing locked down. Ongoing support available when you need it.</p>
+            <div class="process-step">
+              <div style="width: 48px; height: 48px; border: 2px solid var(--cyan); background: white; color: var(--cyan); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.25rem; flex-shrink: 0;">2</div>
+              <div>
+                <div style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">Clear scope + quote</div>
+                <p style="color: var(--text-muted); line-height: 1.75;">A written breakdown of exactly what we'll build, what it costs, and when it's done. No vague estimates.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div style="width: 48px; height: 48px; border: 2px solid var(--cyan); background: white; color: var(--cyan); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.25rem; flex-shrink: 0;">3</div>
+              <div>
+                <div style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">We build it right</div>
+                <p style="color: var(--text-muted); line-height: 1.75;">Design, dev, branding, SEO — we handle the execution while keeping you updated throughout. No ghosting.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div style="width: 48px; height: 48px; border: 2px solid var(--cyan); background: white; color: var(--cyan); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.25rem; flex-shrink: 0;">4</div>
+              <div>
+                <div style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">Launch + full handoff</div>
+                <p style="color: var(--text-muted); line-height: 1.75;">Code, files, accounts, logins — all yours. Nothing locked down. Ongoing support available when you need it.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -579,51 +1184,59 @@
     </div>
   </section>
 
-  <!-- ══════ FAQ ══════ -->
-  <section style="padding:7rem 1.5rem;border-bottom:1px solid var(--bd);">
-    <div style="max-width:1340px;margin:auto;">
-      <div class="faq-grid" style="display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start;">
-        <div class="rv-l">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;">
-            <span style="display:block;width:2rem;height:1px;background:var(--em);"></span>FAQ
+  <!-- FAQ -->
+  <section style="padding: 8rem 1.5rem; background: white;">
+    <div style="max-width: 1400px; margin: auto;">
+      <div class="faq-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start;">
+        <div class="reveal-left">
+          <div style="display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <span style="width: 40px; height: 2px; background: var(--cyan);"></span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em;">FAQ</span>
           </div>
-          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6.5vw,6rem);line-height:.93;letter-spacing:.02em;margin-bottom:1.5rem;">STRAIGHT<br>ANSWERS.<br><span style="color:var(--em);">NO FLUFF.</span></h2>
-          <p style="font-size:.93rem;color:var(--mu);line-height:1.8;max-width:26rem;">We'd rather give you real expectations upfront than promise the moon and deliver a flashlight.</p>
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 1.5rem;">
+            Straight<br>
+            answers.<br>
+            <span style="color: var(--cyan);">No fluff.</span>
+          </h2>
+          <p style="color: var(--text-muted); line-height: 1.8; max-width: 320px;">
+            We'd rather give you real expectations upfront than promise the moon and deliver a flashlight.
+          </p>
         </div>
-        <div class="rv" style="transition-delay:.1s;">
+
+        <div class="reveal" style="transition-delay: 0.2s;">
           <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-question" onclick="toggleFaq(this)">
               What does "SEO-ready" actually mean?
-              <span class="faq-icon">+</span>
+              <div class="faq-icon">+</div>
             </div>
-            <div class="faq-body">
+            <div class="faq-answer">
               <p>Proper headings, metadata, page structure, internal linking, and indexing readiness. It's the technical foundation — not a full ongoing SEO campaign. But it's what most businesses are missing.</p>
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-question" onclick="toggleFaq(this)">
               Can you redesign my existing site?
-              <span class="faq-icon">+</span>
+              <div class="faq-icon">+</div>
             </div>
-            <div class="faq-body">
+            <div class="faq-answer">
               <p>Absolutely. We keep what's working and improve structure, visuals, speed, and mobile experience. You don't need to start from zero — we can work with what you have.</p>
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-question" onclick="toggleFaq(this)">
               How long does a website take?
-              <span class="faq-icon">+</span>
+              <div class="faq-icon">+</div>
             </div>
-            <div class="faq-body">
+            <div class="faq-answer">
               <p>Most projects are completed in 1-2 weeks depending on scope. We give you a clear timeline before work begins so there are never any surprises on delivery date.</p>
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-question" onclick="toggleFaq(this)">
               Do I own everything when it's done?
-              <span class="faq-icon">+</span>
+              <div class="faq-icon">+</div>
             </div>
-            <div class="faq-body">
+            <div class="faq-answer">
               <p>Yes. All source files, code, brand assets, and account access are transferred to you on delivery. Nothing is held back or kept hostage behind a subscription.</p>
             </div>
           </div>
@@ -632,31 +1245,29 @@
     </div>
   </section>
 
-  <!-- ══════ CTA BANNER ══════ -->
-  <section style="padding:7rem 1.5rem;">
-    <div style="max-width:1340px;margin:auto;" class="rv">
-      <div class="cta-panel" style="position:relative;border:1px solid rgba(16,185,129,.22);background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(16,185,129,.01));overflow:hidden;padding:4.5rem 3.5rem;">
-        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--em),transparent);"></div>
-        <!-- Ghost type -->
-        <div style="position:absolute;right:-1rem;bottom:-3rem;font-family:'Bebas Neue',sans-serif;font-size:15rem;line-height:1;color:rgba(16,185,129,.04);pointer-events:none;user-select:none;">GO</div>
-        <!-- Blob -->
-        <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,rgba(16,185,129,.12),transparent 70%);top:-40%;right:-5%;"></div>
-
-        <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:3rem;">
-          <div style="max-width:600px;">
-            <div style="display:flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--em);margin-bottom:1.2rem;">
-              <span class="pdot" style="width:7px;height:7px;border-radius:50%;background:var(--em);flex-shrink:0;"></span>
-              Available now · Metro Detroit
+  <!-- CTA -->
+  <section style="padding: 8rem 1.5rem;">
+    <div style="max-width: 1400px; margin: auto;" class="reveal">
+      <div class="cta-section">
+        <div style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 3rem;">
+          <div style="max-width: 600px;">
+            <div style="display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+              <span class="pulse-dot"></span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; color: var(--cyan);">Available now · Metro Detroit</span>
             </div>
-            <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);line-height:.93;letter-spacing:.02em;margin-bottom:1.2rem;">READY TO UPGRADE<br>YOUR PRESENCE?</h2>
-            <p style="font-size:1rem;color:var(--mu);line-height:1.8;max-width:42rem;">Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote. No pressure, no jargon — just a straight conversation about what will actually help.</p>
+            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 1.25rem;">
+              Ready to upgrade<br>your presence?
+            </h2>
+            <p style="font-size: 1.125rem; color: var(--text-soft); line-height: 1.8; max-width: 480px;">
+              Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote. No pressure, no jargon — just a straight conversation about what will actually help.
+            </p>
           </div>
-          <div style="display:flex;flex-direction:column;gap:.9rem;flex-shrink:0;">
-            <a href="contact.html" class="glow btn-pill btn-pill-solid" style="padding:1.1rem 2.8rem;font-size:.78rem;justify-content:center;">
+          <div style="display: flex; flex-direction: column; gap: 1rem; flex-shrink: 0;">
+            <a href="contact.html" class="btn-pill btn-pill-solid" style="padding: 1.25rem 3rem; font-size: 1rem; justify-content: center;">
               Start a Project
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
             </a>
-            <a href="audit.html" class="btn-pill btn-pill-out" style="padding:1rem 2.6rem;font-size:.75rem;justify-content:center;">
+            <a href="audit.html" class="btn-pill btn-pill-ghost" style="padding: 1.25rem 3rem; font-size: 1rem; justify-content: center; background: white;">
               Get a Free Audit First
             </a>
           </div>
@@ -665,70 +1276,138 @@
     </div>
   </section>
 
-  <!-- ══════ FOOTER ══════ -->
-  <footer style="background:#000;border-top:1px solid var(--bd);padding:3rem 1.5rem;">
-    <div style="max-width:1340px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;">LEVANT<span style="color:var(--em);">.</span></div>
-      <nav style="display:flex;gap:2rem;flex-wrap:wrap;">
-        <a href="index.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em-l);text-decoration:none;">Home</a>
-        <a href="services.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Services</a>
-        <a href="work.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Work</a>
-        <a href="audit.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Free Audit</a>
-        <a href="contact.html" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;" onmouseenter="this.style.color='#34d399'" onmouseleave="this.style.color='var(--mu)'">Contact</a>
-      </nav>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--mu);">© 2026 Levant Digital Marketing.</div>
+  <!-- Footer -->
+  <footer>
+    <div style="max-width: 1400px; margin: auto;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 3rem;">
+        <a href="index.html" class="nav-logo">Levant<span style="color: var(--cyan-light);">.</span></a>
+        <nav style="display: flex; gap: 2.5rem; flex-wrap: wrap;">
+          <a href="index.html" class="footer-link" style="color: white;">Home</a>
+          <a href="services.html" class="footer-link">Services</a>
+          <a href="work.html" class="footer-link">Work</a>
+          <a href="audit.html" class="footer-link">Free Audit</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </nav>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: rgba(255,255,255,0.4);">
+          © 2026 Levant Digital Marketing. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 2rem;">
+          <a href="#" class="footer-link" style="font-size: 0.875rem;">Privacy Policy</a>
+          <a href="#" class="footer-link" style="font-size: 0.875rem;">Terms of Service</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
-    // ── Cursor ──
-    const dot=document.getElementById('c-dot'),ring=document.getElementById('c-ring');
-    if(window.matchMedia('(pointer:fine)').matches){
-      let mx=0,my=0,rx=0,ry=0;
-      document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-      (function tick(){dot.style.left=mx+'px';dot.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
-      document.querySelectorAll('a,button').forEach(el=>{
-        el.addEventListener('mouseenter',()=>{ring.style.width='50px';ring.style.height='50px';ring.style.borderColor='var(--em)';});
-        el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.borderColor='rgba(16,185,129,.45)';});
+    // Navigation scroll effect
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // Mobile menu
+    document.getElementById('mob-btn').addEventListener('click', () => {
+      document.getElementById('mob-menu').classList.add('open');
+    });
+    document.getElementById('mob-close').addEventListener('click', () => {
+      document.getElementById('mob-menu').classList.remove('open');
+    });
+    document.querySelectorAll('#mob-menu a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('mob-menu').classList.remove('open');
       });
-    } else {dot.style.display='none';ring.style.display='none';}
+    });
 
-    // ── Nav ──
-    const nav=document.getElementById('main-nav');
-    window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>50),{passive:true});
+    // Scroll reveal
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-    // ── Mobile menu ──
-    document.getElementById('mob-btn').addEventListener('click',()=>document.getElementById('mob-menu').classList.add('open'));
-    document.getElementById('mob-close').addEventListener('click',()=>document.getElementById('mob-menu').classList.remove('open'));
-    document.querySelectorAll('#mob-menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mob-menu').classList.remove('open')));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
 
-    // ── Service card spotlight (desktop only) ──
-    if(window.matchMedia('(pointer:fine)').matches && window.innerWidth > 768){
-      document.querySelectorAll('.svc').forEach(c=>{
-        c.addEventListener('mousemove',e=>{
-          const r=c.getBoundingClientRect();
-          c.style.setProperty('--cx',((e.clientX-r.left)/r.width*100)+'%');
-          c.style.setProperty('--cy',((e.clientY-r.top)/r.height*100)+'%');
-        },{passive:true});
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Hide scroll hint on scroll
+    window.addEventListener('scroll', () => {
+      const hint = document.getElementById('scrollHint');
+      if (window.scrollY > 100) {
+        hint.style.opacity = '0';
+      } else {
+        hint.style.opacity = '1';
+      }
+    }, { passive: true });
+
+    // FAQ toggle
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+      
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').style.maxHeight = '0';
+      });
+      
+      // Open clicked if wasn't open
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+
+    // Animated counters
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter');
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              updateCounter();
+              counterObserver.unobserve(counter);
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        counterObserver.observe(counter);
       });
     }
 
-    // ── Scroll reveal ──
-    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>io.observe(el));
-
-    // ── Show scroll hint on desktop ──
-    if(window.innerWidth>960)document.getElementById('scroll-hint').style.display='block';
-
-    // ── FAQ accordion ──
-    function toggleFaq(btn){
-      const item=btn.parentElement;
-      const body=item.querySelector('.faq-body');
-      const isOpen=item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-body').style.maxHeight='0';});
-      if(!isOpen){item.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}
+    // Initialize counters
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', animateCounters);
+    } else {
+      animateCounters();
     }
   </script>
-  <script src="assets/effects.js"></script>
 </body>
 </html>
