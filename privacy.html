@@ -6,27 +6,96 @@
   <title>Privacy Policy | Levant Digital Marketing</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    :root{--bg:#050505;--panel:#0d0d0d;--line:rgba(255,255,255,.08);--text:#f5f5f5;--muted:#a1a1aa;--em:#10b981;--em-soft:rgba(16,185,129,.12)}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at top, rgba(16,185,129,.08), transparent 28%), var(--bg);color:var(--text);font-family:'DM Sans',sans-serif} a{color:inherit} .wrap{max-width:920px;margin:0 auto;padding:120px 24px 72px} .eyebrow{display:inline-block;font:500 .72rem/1 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--em);margin-bottom:18px} h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,5rem);line-height:.95;letter-spacing:.03em;margin:0 0 12px} p,li{color:var(--muted);font-size:1.02rem;line-height:1.8} .card{margin-top:28px;padding:28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));box-shadow:0 20px 50px rgba(0,0,0,.25)} h2{font-size:1.25rem;margin:0 0 8px} .toplinks{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px} .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.15rem;border-radius:999px;text-decoration:none;font:500 .72rem/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);background:var(--panel)} .pill:hover{border-color:rgba(16,185,129,.45);background:var(--em-soft)} footer{text-align:center;margin:0 0 40px;padding:0 24px;font-size:.8rem;opacity:.72;line-height:1.8} @media (max-width:768px){.wrap{padding-top:96px} h1{font-size:2.5rem}.card{padding:22px;border-radius:20px}}
+    :root{--bg:#050505;--panel:#0d0d0d;--line:rgba(255,255,255,.08);--text:#f5f5f5;--muted:#a1a1aa;--em:#10b981;--em-soft:rgba(16,185,129,.12);--cyan:#10b981}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at top, rgba(16,185,129,.08), transparent 28%), var(--bg);color:var(--text);font-family:'DM Sans',sans-serif} a{color:inherit}
+    
+    /* Dark Navigation */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;display:flex;align-items:center;padding:0 3rem;background:rgba(5,5,5,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line);transition:box-shadow 0.3s ease}
+    #nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.4)}
+    .nav-inner{max-width:1440px;width:100%;margin:auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.04em;color:#fff;text-decoration:none;flex-shrink:0}
+    .nav-logo em{color:var(--em);font-style:normal}
+    .nav-links{display:flex;align-items:center;gap:2.5rem}
+    .nav-lnk{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);text-decoration:none;transition:color 0.2s ease}
+    .nav-lnk:hover,.nav-lnk.active{color:var(--em)}
+    .nav-cta{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;background:var(--panel);color:#fff;padding:0.65rem 1.5rem;text-decoration:none;border:1px solid var(--line);transition:background 0.2s ease,border-color 0.2s ease,transform 0.2s ease;flex-shrink:0}
+    .nav-cta:hover{background:var(--em-soft);border-color:rgba(16,185,129,0.45);transform:translateY(-1px)}
+    #mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:0.5rem;margin:-0.5rem}
+    #mob-btn svg{display:block}
+    #mob-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;transform:translateY(-10px);transition:opacity 0.3s ease,transform 0.3s ease}
+    #mob-menu.open{display:flex;opacity:1;transform:translateY(0)}
+    .mob-lnk{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,5rem);color:#fff;text-decoration:none;letter-spacing:0.04em;transition:color 0.2s ease}
+    .mob-lnk:hover,.mob-lnk.active{color:var(--em)}
+    #mob-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;cursor:pointer;font-size:2.5rem;line-height:1;color:#fff;padding:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;transition:color 0.2s ease}
+    #mob-close:hover{color:var(--em)}
+    @media(max-width:900px){#mob-btn{display:block}.nav-links{display:none !important}#nav{padding:0 1.5rem}.nav-logo{font-size:1.75rem}}
+    
+    .wrap{max-width:920px;margin:0 auto;padding:120px 24px 72px}
+    .eyebrow{display:inline-block;font:500 .72rem/1 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--em);margin-bottom:18px}
+    h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,5rem);line-height:.95;letter-spacing:.03em;margin:0 0 12px}
+    p,li{color:var(--muted);font-size:1.02rem;line-height:1.8}
+    .card{margin-top:28px;padding:28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));box-shadow:0 20px 50px rgba(0,0,0,.25)}
+    h2{font-size:1.25rem;margin:0 0 8px}
+    .toplinks{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+    .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.15rem;border-radius:999px;text-decoration:none;font:500 .72rem/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);background:var(--panel)}
+    .pill:hover{border-color:rgba(16,185,129,.45);background:var(--em-soft)}
+    footer{text-align:center;margin:0 0 40px;padding:0 24px;font-size:.8rem;opacity:.72;line-height:1.8}
+    @media(max-width:768px){.wrap{padding-top:96px}h1{font-size:2.5rem}.card{padding:22px;border-radius:20px}}
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <div class="eyebrow">Legal</div>
-    <h1>Privacy Policy</h1>
-    <p>Last updated: March 9, 2026</p>
-    <div class="toplinks">
-      <a class="pill" href="index.html">Back to Home</a>
-      <a class="pill" href="terms.html">Terms of Service</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Levant<em>.</em></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-lnk">Home</a>
+      <a href="services.html" class="nav-lnk">Services</a>
+      <a href="why-us.html" class="nav-lnk">Why Us</a>
+      <a href="audit.html" class="nav-lnk">Free Audit</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
     </div>
-    <section class="card"><h2>Information We Collect</h2><p>When you submit a form, request a quote, schedule a call, or contact us through this website, we may collect your name, business name, email address, phone number, website details, and any information you choose to include in your message.</p></section>
-    <section class="card"><h2>How We Use Information</h2><p>We use your information to respond to inquiries, deliver requested services, communicate about projects, provide audits or proposals, improve the website, and protect against misuse or fraud.</p></section>
-    <section class="card"><h2>Cookies, Analytics, and Tracking</h2><p>This website may use cookies, analytics, or similar tools to understand site traffic, improve user experience, and measure performance.</p></section>
-    <section class="card"><h2>Sharing of Information</h2><p>We do not sell your personal information to any third party providers under any circumstance. We may share limited information with service providers or platforms that help us operate the website, communicate with leads, or provide marketing services, but only as reasonably necessary.</p></section>
-    <section class="card"><h2>Third-Party Links</h2><p>This website may include links to outside websites, tools, booking platforms, or client projects. We are not responsible for the privacy practices, security, or content of third-party sites.</p></section>
-    <section class="card"><h2>Your Choices</h2><p>You may choose not to submit personal information through this website. If you have previously contacted us and want your message or personal details removed from our records where reasonably possible, contact us through the website.</p></section>
-    <section class="card"><h2>Policy Updates</h2><p>We may update this Privacy Policy from time to time. Any updates will be posted on this page, and continued use of the website after updates means you accept the revised policy.</p></section>
-  </main>
-  <footer>© 2026 Levant Digital Marketing &nbsp;&nbsp;|&nbsp;&nbsp; <a href="privacy.html" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor">Privacy Policy</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="terms.html" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor">Terms of Service</a></footer>
+    <button id="mob-btn" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="mob-menu">
+  <button id="mob-close" aria-label="Close menu">✕</button>
+  <a href="index.html" class="mob-lnk">Home</a>
+  <a href="services.html" class="mob-lnk">Services</a>
+  <a href="why-us.html" class="mob-lnk">Why Us</a>
+  <a href="audit.html" class="mob-lnk">Free Audit</a>
+  <a href="contact.html" class="mob-lnk">Contact</a>
+</div>
+
+<main class="wrap">
+  <div class="eyebrow">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p>Last updated: March 9, 2026</p>
+  <div class="toplinks">
+    <a class="pill" href="index.html">Back to Home</a>
+    <a class="pill" href="terms.html">Terms of Service</a>
+  </div>
+  <section class="card"><h2>Information We Collect</h2><p>When you submit a form, request a quote, schedule a call, or contact us through this website, we may collect your name, business name, email address, phone number, website details, and any information you choose to include in your message.</p></section>
+  <section class="card"><h2>How We Use Information</h2><p>We use your information to respond to inquiries, deliver requested services, communicate about projects, provide audits or proposals, improve the website, and protect against misuse or fraud.</p></section>
+  <section class="card"><h2>Cookies, Analytics, and Tracking</h2><p>This website may use cookies, analytics, or similar tools to understand site traffic, improve user experience, and measure performance.</p></section>
+  <section class="card"><h2>Sharing of Information</h2><p>We do not sell your personal information to any third party providers under any circumstance. We may share limited information with service providers or platforms that help us operate the website, communicate with leads, or provide marketing services, but only as reasonably necessary.</p></section>
+  <section class="card"><h2>Third-Party Links</h2><p>This website may include links to outside websites, tools, booking platforms, or client projects. We are not responsible for the privacy practices, security, or content of third-party sites.</p></section>
+  <section class="card"><h2>Your Choices</h2><p>You may choose not to submit personal information through this website. If you have previously contacted us and want your message or personal details removed from our records where reasonably possible, contact us through the website.</p></section>
+  <section class="card"><h2>Policy Updates</h2><p>We may update this Privacy Policy from time to time. Any updates will be posted on this page, and continued use of the website after updates means you accept the revised policy.</p></section>
+</main>
+<footer>© 2026 Levant Digital Marketing &nbsp;&nbsp;|&nbsp;&nbsp; <a href="privacy.html" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor">Privacy Policy</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="terms.html" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor">Terms of Service</a></footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 50); }, { passive: true });
+  // Mobile menu
+  document.getElementById('mob-btn').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
+  document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open'));
+  document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open')));
+</script>
 </body>
 </html>
