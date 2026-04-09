@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Free Audit | Levant Digital Marketing</title>
+  <meta name="description" content="Get a free website, Google Business Profile, SEO, and branding audit for your Metro Detroit business. No pressure. Just clarity."/>
+  <meta name="theme-color" content="#06b6d4"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/nav.css"/>
+
+  <style>
+    :root {
+      --cyan: #06b6d4;
+      --cyan-dim: rgba(6,182,212,0.12);
+      --cyan-border: rgba(6,182,212,0.35);
+      --bg: #f7f6f3;
+      --bg2: #ffffff;
+      --ink: #111111;
+      --ink2: #444444;
+      --ink3: #888888;
+      --rule: rgba(0,0,0,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--cyan); color: #fff; }
+    img { display: block; width: 100%; object-fit: cover; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .reveal.vis { opacity: 1; transform: none; }
+    .reveal-l { opacity: 0; transform: translateX(-40px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .reveal-l.vis { opacity: 1; transform: none; }
+    .reveal-r { opacity: 0; transform: translateX(40px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .reveal-r.vis { opacity: 1; transform: none; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    /* ── UTILS ── */
+    .wrap { max-width: 1440px; margin: auto; }
+    .tag { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 1.25rem; }
+    .tag::before { content: ''; width: 30px; height: 1.5px; background: var(--cyan); }
+    .big-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 6rem); line-height: 0.92; letter-spacing: 0.02em; }
+    .big-h em { color: var(--cyan); font-style: normal; }
+    .rule { height: 1px; background: var(--rule); margin: 0 auto; max-width: 1440px; }
+    .btn-primary { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: var(--cyan); color: #fff; padding: 1rem 2.25rem; text-decoration: none; transition: transform .2s, box-shadow .2s; display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; border: none; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(6,182,212,0.4); }
+    .btn-ink { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: var(--ink); color: #fff; padding: 1rem 2.25rem; text-decoration: none; transition: background .2s, transform .2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-ink:hover { background: var(--cyan); transform: translateY(-2px); }
+
+    /* ══════════════════════════════════════
+       HERO — dark split: left text, right image
+    ══════════════════════════════════════ */
+    .hero {
+      min-height: 100vh; padding-top: 72px;
+      background: var(--ink);
+      display: grid; grid-template-columns: 55% 45%;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 5rem 4rem 5rem 3rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      position: relative; z-index: 2; overflow: hidden;
+    }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 2rem; }
+    .hero-eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; flex-shrink: 0; }
+    .hero-h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 6vw, 7rem); line-height: 0.9; letter-spacing: 0.02em; color: #fff; margin-bottom: 2rem; }
+    .hero-h1 em { color: var(--cyan); font-style: normal; display: block; }
+    .hero-h1 s { text-decoration: none; -webkit-text-stroke: 1.5px rgba(255,255,255,0.18); color: transparent; display: block; font-size: 0.82em; }
+    .hero-sub { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.45); max-width: 420px; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3.5rem; }
+    .btn-ghost-hero { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); padding: 1rem 2.25rem; text-decoration: none; transition: border-color .2s, color .2s; display: inline-flex; align-items: center; }
+    .btn-ghost-hero:hover { border-color: var(--cyan); color: var(--cyan); }
+    .hero-trust { display: flex; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 2rem; }
+    .trust-item { flex: 1; }
+    .trust-item + .trust-item { border-left: 1px solid rgba(255,255,255,0.07); padding-left: 1.5rem; }
+    .trust-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--cyan); line-height: 1; display: block; }
+    .trust-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); display: block; margin-top: 0.2rem; }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.42) saturate(1.1); }
+    .hero-right::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--ink) 0%, transparent 38%); }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap { background: var(--cyan); padding: 1rem 0; overflow: hidden; }
+    .marquee-track { display: flex; animation: ticker 28s linear infinite; white-space: nowrap; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes ticker { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+    .marquee-item { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,0,0,0.65); padding: 0 2.5rem; display: inline-flex; align-items: center; gap: 2.5rem; }
+    .marquee-item .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(0,0,0,0.35); flex-shrink: 0; }
+
+    /* ══════════════════════════════════════
+       WHAT WE REVIEW — four area strips
+    ══════════════════════════════════════ */
+    .areas-section { background: var(--bg2); }
+    .areas-intro { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: end; margin-bottom: 5rem; padding: 7rem 3rem 0; max-width: 1440px; margin-left: auto; margin-right: auto; }
+    .areas-intro p { font-size: 1.1rem; line-height: 1.85; color: var(--ink2); border-left: 3px solid var(--cyan); padding-left: 1.75rem; }
+
+    .areas-grid {
+      max-width: 1440px; margin: auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px; background: var(--rule);
+      padding: 0 3rem 7rem;
+    }
+    .area-card {
+      background: var(--bg2); padding: 2.5rem 2rem;
+      position: relative; overflow: hidden;
+      transition: background .3s;
+    }
+    .area-card:hover { background: var(--bg); }
+    .area-num { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: var(--ink); opacity: 0.05; line-height: 1; position: absolute; top: 0.5rem; right: 1rem; pointer-events: none; }
+    .area-icon { width: 44px; height: 44px; background: var(--cyan-dim); border: 1px solid var(--cyan-border); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+    .area-icon svg { width: 20px; height: 20px; stroke: var(--cyan); }
+    .area-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.75rem; }
+    .area-desc { font-size: 0.875rem; line-height: 1.75; color: var(--ink2); }
+
+    /* ══════════════════════════════════════
+       HOW IT WORKS — dark timeline
+    ══════════════════════════════════════ */
+    .how-section { background: #0d1214; position: relative; overflow: hidden; }
+    .how-section::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 70%); top: -250px; right: -150px; pointer-events: none; }
+    .how-inner { max-width: 1440px; margin: auto; padding: 7rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .how-left .tag { color: rgba(255,255,255,0.3); }
+    .how-left .tag::before { background: rgba(255,255,255,0.2); }
+    .how-left .big-h { color: #fff; margin-bottom: 1.5rem; }
+    .how-left p { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.45); max-width: 400px; }
+
+    .how-steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .how-steps::before { content: ''; position: absolute; left: 23px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--cyan), rgba(6,182,212,0.08)); }
+    .how-step { display: grid; grid-template-columns: 48px 1fr; gap: 1.75rem; padding-bottom: 2.75rem; position: relative; }
+    .how-step:last-child { padding-bottom: 0; }
+    .how-step-num { width: 48px; height: 48px; flex-shrink: 0; background: #0d1214; border: 1px solid rgba(6,182,212,0.4); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.04em; color: var(--cyan); position: relative; z-index: 1; }
+    .how-step-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.04em; color: #fff; margin-bottom: 0.4rem; padding-top: 0.6rem; }
+    .how-step-desc { font-size: 0.875rem; line-height: 1.75; color: rgba(255,255,255,0.4); }
+
+    /* ══════════════════════════════════════
+       FORM SECTION — light split layout
+    ══════════════════════════════════════ */
+    .form-section { background: var(--bg); }
+    .form-inner { max-width: 1440px; margin: auto; padding: 7rem 3rem; display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
+
+    /* Left: trust side */
+    .form-left {}
+    .form-left .big-h { margin-bottom: 1.5rem; }
+    .form-left > p { font-size: 1rem; line-height: 1.8; color: var(--ink2); margin-bottom: 2.5rem; max-width: 360px; }
+    .trust-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+    .trust-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: var(--ink2); line-height: 1.6; }
+    .trust-list li::before { content: ''; flex-shrink: 0; width: 16px; height: 16px; margin-top: 2px; background: var(--cyan-dim); border: 1px solid var(--cyan-border); border-radius: 50%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2306b6d4' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 8 6.5 11.5 13 5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-size: 10px; background-position: center; }
+
+    /* Notice block */
+    .notice-block { border: 1px solid var(--rule); background: var(--bg2); padding: 1.75rem 2rem; }
+    .notice-block-title { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+    .notice-block-title::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; }
+    .notice-block p { font-size: 0.875rem; line-height: 1.7; color: var(--ink2); }
+
+    /* Right: actual form */
+    .form-card { background: var(--bg2); border: 1px solid var(--rule); }
+
+    /* Form fields */
+    .form-body { padding: 3rem; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .field-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .field-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink3); }
+    .field-input {
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+      color: var(--ink); background: var(--bg);
+      border: 1px solid var(--rule);
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color .2s, background .2s;
+      width: 100%;
+      -webkit-appearance: none;
+    }
+    .field-input::placeholder { color: var(--ink3); }
+    .field-input:focus { border-color: var(--cyan); background: rgba(6,182,212,0.03); }
+    textarea.field-input { resize: vertical; min-height: 110px; }
+    select.field-input { cursor: pointer; }
+
+    /* Checkbox area selectors */
+    .area-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .check-label { display: flex; align-items: center; gap: 0.65rem; cursor: pointer; padding: 0.85rem 1rem; border: 1px solid var(--rule); background: var(--bg); font-size: 0.875rem; color: var(--ink2); transition: border-color .2s, background .2s; }
+    .check-label:hover { border-color: var(--cyan-border); background: var(--cyan-dim); }
+    .check-label input { position: absolute; opacity: 0; pointer-events: none; }
+    .check-box { width: 16px; height: 16px; flex-shrink: 0; border: 1px solid var(--rule); background: var(--bg2); display: flex; align-items: center; justify-content: center; transition: background .2s, border-color .2s; }
+    .check-box svg { width: 10px; height: 10px; stroke: #fff; opacity: 0; transition: opacity .2s; }
+    .check-label.checked { border-color: var(--cyan-border); background: var(--cyan-dim); }
+    .check-label.checked .check-box { background: var(--cyan); border-color: var(--cyan); }
+    .check-label.checked .check-box svg { opacity: 1; }
+
+    /* Form footer */
+    .form-footer { padding: 1.5rem 3rem; border-top: 1px solid var(--rule); background: var(--bg); display: flex; flex-direction: column; gap: 1rem; }
+    .form-error { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: #e53e3e; display: none; }
+    .form-error.show { display: block; }
+    .form-fine-print { font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); text-align: center; }
+
+    /* Success state */
+    .form-success { display: none; padding: 4rem 3rem; text-align: center; }
+    .form-success.show { display: block; }
+    .success-icon { width: 64px; height: 64px; background: var(--cyan-dim); border: 1px solid var(--cyan-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; }
+    .success-icon svg { width: 28px; height: 28px; stroke: var(--cyan); }
+    .success-h { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 1rem; }
+    .success-p { font-size: 1rem; line-height: 1.8; color: var(--ink2); max-width: 400px; margin: 0 auto 2rem; }
+
+    /* ══════════════════════════════════════
+       CTA — dark full-bleed
+    ══════════════════════════════════════ */
+    .cta-section { background: var(--ink); position: relative; overflow: hidden; }
+    .cta-bg-img { position: absolute; inset: 0; z-index: 0; }
+    .cta-bg-img img { height: 100%; object-fit: cover; opacity: 0.1; filter: grayscale(20%); }
+    .cta-inner { position: relative; z-index: 1; max-width: 1440px; margin: auto; padding: 7rem 3rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
+    .cta-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 6rem); line-height: 0.9; letter-spacing: 0.02em; color: #fff; }
+    .cta-h em { color: var(--cyan); font-style: normal; display: block; }
+    .cta-right { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    .cta-badge { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); }
+    .cta-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; }
+    .cta-right p { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.5); }
+    .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-ghost-cta { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); padding: 1rem 2rem; text-decoration: none; transition: border-color .2s, color .2s; display: inline-flex; align-items: center; }
+    .btn-ghost-cta:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    /* ── FOOTER ── */
+    footer { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); padding: 4rem 3rem; }
+    .footer-inner { max-width: 1440px; margin: auto; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 2.5rem; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: #fff; text-decoration: none; }
+    .footer-logo em { color: var(--cyan); font-style: normal; }
+    .footer-nav { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .footer-lnk { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
+    .footer-lnk:hover { color: var(--cyan); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 45vw; min-height: 260px; }
+      .hero-right::after { background: linear-gradient(to bottom, var(--ink) 0%, transparent 40%); }
+      .areas-intro { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 3rem; }
+      .areas-grid { grid-template-columns: 1fr 1fr; padding: 0 3rem 5rem; }
+      .how-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .form-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .cta-inner { grid-template-columns: 1fr; padding: 5rem 2rem; }
+    }
+    @media(max-width: 700px) {
+      .hero-left { padding: 4rem 1.5rem; }
+      .areas-intro { padding: 5rem 1.5rem 2rem; }
+      .areas-grid { grid-template-columns: 1fr; padding: 0 1.5rem 5rem; }
+      .how-inner, .form-inner { padding: 5rem 1.5rem; }
+      .field-row { grid-template-columns: 1fr; }
+      .area-checks { grid-template-columns: 1fr; }
+      .form-body { padding: 2rem 1.5rem; }
+      .form-footer { padding: 1.5rem; }
+      .form-success { padding: 3rem 1.5rem; }
+      footer { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Levant<em>.</em></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-lnk">Home</a>
+      <a href="services.html" class="nav-lnk">Services</a>
+      <a href="why-us.html" class="nav-lnk">Why Us</a>
+      <a href="audit.html" class="nav-lnk active">Free Audit</a>
+      <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+    <button id="mob-btn" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="mob-menu">
+  <button id="mob-close" aria-label="Close menu">✕</button>
+  <a href="index.html" class="mob-lnk">Home</a>
+  <a href="services.html" class="mob-lnk">Services</a>
+  <a href="why-us.html" class="mob-lnk">Why Us</a>
+  <a href="audit.html" class="mob-lnk active">Free Audit</a>
+  <a href="contact.html" class="mob-lnk">Contact</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span></span>Metro Detroit · 100% Free · No Obligation</div>
+    <h1 class="hero-h1">
+      See Where
+      <em>You Actually</em>
+      <s>Stand.</s>
+    </h1>
+    <p class="hero-sub">Submit your info and we’ll run your business through our internal audit system combining SEO analysis tools, performance diagnostics, and competitor data. You’ll get a clear report showing what’s working, what’s underperforming, and exactly where growth is being left on the table.</p>
+    <div class="hero-actions">
+      <a href="#audit-form" class="btn-primary">
+        Get My Free Audit
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+      <a href="services.html" class="btn-ghost-hero">See Our Services</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-num">Free</span>
+        <span class="trust-label">No cost, no catch</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">Manual</span>
+        <span class="trust-label">Real eyes, not bots</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">2–3</span>
+        <span class="trust-label">Day turnaround</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- SEO audit / analytics review — unique image -->
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90&fit=crop" alt="SEO and digital marketing audit review on laptop screens"/>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Website Review <span class="dot"></span></span>
+    <span class="marquee-item">Google Business Audit <span class="dot"></span></span>
+    <span class="marquee-item">SEO Health Check <span class="dot"></span></span>
+    <span class="marquee-item">Branding Review <span class="dot"></span></span>
+    <span class="marquee-item">100% Free <span class="dot"></span></span>
+    <span class="marquee-item">No Obligation <span class="dot"></span></span>
+    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
+    <span class="marquee-item">Website Review <span class="dot"></span></span>
+    <span class="marquee-item">Google Business Audit <span class="dot"></span></span>
+    <span class="marquee-item">SEO Health Check <span class="dot"></span></span>
+    <span class="marquee-item">Branding Review <span class="dot"></span></span>
+    <span class="marquee-item">100% Free <span class="dot"></span></span>
+    <span class="marquee-item">No Obligation <span class="dot"></span></span>
+    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     WHAT WE REVIEW
+══════════════════════════════════════ -->
+<section class="areas-section">
+  <div class="areas-intro reveal">
+    <div>
+      <div class="tag">What's Included</div>
+      <h2 class="big-h">Four Areas.<br><em>One Clear Picture.</em></h2>
+    </div>
+    <p>We look at everything a potential customer sees before they decide whether to trust you — then tell you exactly where you're falling short and what to fix first.</p>
+  </div>
+
+  <div class="areas-grid reveal" style="transition-delay:.1s;">
+    <div class="area-card">
+      <div class="area-num">01</div>
+      <div class="area-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      </div>
+      <div class="area-title">Website Review</div>
+      <p class="area-desc">Layout, messaging, mobile experience, page speed, and conversion clarity. Does your site actually make people want to call you?</p>
+    </div>
+    <div class="area-card">
+      <div class="area-num">02</div>
+      <div class="area-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="area-title">Google Business Profile</div>
+      <p class="area-desc">Profile completeness, category setup, photo presence, posting activity, and how you actually appear in local search results right now.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-num">03</div>
+      <div class="area-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+      </div>
+      <div class="area-title">SEO Health Check</div>
+      <p class="area-desc">Title tags, headings, metadata, internal links, and whether your site structure actually gives Google what it needs to rank you.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-num">04</div>
+      <div class="area-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div class="area-title">Branding Review</div>
+      <p class="area-desc">Logo quality, color consistency, typography, and whether your visual identity actually looks established or like it was thrown together.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ══════════════════════════════════════
+     HOW IT WORKS — dark timeline
+══════════════════════════════════════ -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="how-left reveal-l">
+      <div class="tag">How It Works</div>
+      <h2 class="big-h" style="color:#fff; margin-bottom:1.5rem;">Simple.<br>Fast.<br><em>No Pressure.</em></h2>
+      <p>Fill out the form, we do the work, you get clarity. No sales calls required. No automated scans — real eyes on your actual business presence.</p>
+    </div>
+
+    <div class="how-steps reveal-r" style="transition-delay:.1s;">
+      <div class="how-step">
+        <div class="how-step-num">1</div>
+        <div>
+          <div class="how-step-title">Fill Out The Form</div>
+          <p class="how-step-desc">Share your business name, website, industry, and what you're trying to improve. Takes less than 2 minutes — the more detail, the more useful your audit.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">2</div>
+        <div>
+          <div class="how-step-title">We Review Everything</div>
+          <p class="how-step-desc">We manually go through your website, Google Business Profile, SEO structure, and branding. No automated tools. Real analysis of your real business.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">3</div>
+        <div>
+          <div class="how-step-title">You Get A Professional Report</div>
+          <p class="how-step-desc">We send a clean report showing your current Google ranking, what's working, what's hurting you, and exactly what needs to be fixed — prioritized, clear, actionable.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">4</div>
+        <div>
+          <div class="how-step-title">You Decide What's Next</div>
+          <p class="how-step-desc">No obligation, no pitch. If you want help fixing things, we're here. If not, the audit is yours to keep and act on whenever you're ready.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FORM — split layout
+══════════════════════════════════════ -->
+<section class="form-section" id="audit-form">
+  <div class="form-inner">
+
+    <!-- Left: trust -->
+    <div class="reveal-l">
+      <div class="tag">Request Your Audit</div>
+      <h2 class="big-h" style="margin-bottom:1.5rem;">Tell Us About<br><em>Your Business.</em></h2>
+      <p>The more context you give us, the more useful your report will be. We review every submission manually within 2–3 business days.</p>
+
+      <ul class="trust-list">
+        <li>Completely free — no credit card, no catch, no commitment</li>
+        <li>Professional report, not a generic automated scan</li>
+        <li>See exactly where you rank on Google right now</li>
+        <li>No obligation to hire us — the audit is yours to keep</li>
+        <li>Results back in 2–3 business days</li>
+      </ul>
+
+      <div class="notice-block">
+        <div class="notice-block-title">Limited availability</div>
+        <p>We take a limited number of audits per week to keep quality high. If this form is open, spots are available.</p>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="reveal-r" style="transition-delay:.1s;">
+      <div class="form-card">
+
+        <!-- Success state -->
+        <div class="form-success" id="form-success">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="success-h">You're On The List.</div>
+          <p class="success-p">We'll review your business and send your professional report — including your Google ranking and a clear breakdown of what to fix — within 2–3 business days. Watch your inbox.</p>
+          <a href="services.html" class="btn-ink">
+            Browse Our Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Form -->
+        <form id="audit-form-el" novalidate>
+          <div class="form-body">
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="f-name">Your Name</label>
+                <input type="text" id="f-name" name="name" class="field-input" placeholder="Alex Johnson" required/>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="f-email">Email Address</label>
+                <input type="email" id="f-email" name="email" class="field-input" placeholder="you@yourbusiness.com" required/>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="f-biz">Business Name</label>
+              <input type="text" id="f-biz" name="business" class="field-input" placeholder="Your Business Name" required/>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="f-url">Website URL <span style="text-transform:none; font-weight:400; color:var(--ink3); font-family:'DM Sans',sans-serif; font-size:0.8rem; letter-spacing:0;">(if you have one)</span></label>
+              <input type="url" id="f-url" name="website" class="field-input" placeholder="https://yourbusiness.com"/>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="f-industry">Industry / Type of Business</label>
+              <select id="f-industry" name="industry" class="field-input" required>
+                <option value="" disabled selected>Select your industry</option>
+                <option>Home services (plumbing, HVAC, electrical…)</option>
+                <option>Construction / contracting</option>
+                <option>Auto / automotive</option>
+                <option>Health &amp; wellness</option>
+                <option>Food &amp; beverage / restaurant</option>
+                <option>Retail / e-commerce</option>
+                <option>Professional services (law, finance, real estate…)</option>
+                <option>Beauty / personal care</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="f-challenge">What's Your Biggest Challenge Right Now?</label>
+              <textarea id="f-challenge" name="challenge" class="field-input" placeholder="e.g. Not showing up on Google, website looks outdated, not getting enough leads..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" style="margin-bottom:0.75rem;">What Areas Do You Want Reviewed?</label>
+              <div class="area-checks">
+                <label class="check-label checked" id="chk-website">
+                  <input type="checkbox" name="areas" value="website" checked/>
+                  <div class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+                  Website Review
+                </label>
+                <label class="check-label checked" id="chk-gbp">
+                  <input type="checkbox" name="areas" value="gbp" checked/>
+                  <div class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+                  Google Business Profile
+                </label>
+                <label class="check-label checked" id="chk-seo">
+                  <input type="checkbox" name="areas" value="seo" checked/>
+                  <div class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+                  SEO Health Check
+                </label>
+                <label class="check-label checked" id="chk-brand">
+                  <input type="checkbox" name="areas" value="branding" checked/>
+                  <div class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+                  Branding &amp; Visual Review
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-footer">
+            <div class="form-error" id="form-error">Please fill in all required fields before submitting.</div>
+            <button type="submit" class="btn-primary" style="justify-content:center; width:100%; padding:1.1rem 2rem; font-size:0.75rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+              Send My Free Audit Request
+            </button>
+            <div class="form-fine-print">No spam. No sales pressure. Just a real audit of your business.</div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CTA
+══════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-bg-img">
+    <img src="https://images.unsplash.com/photo-1664575599736-c5197c684128?w=1600&q=80&fit=crop" alt="Digital marketing strategy session"/>
+  </div>
+  <div class="cta-inner">
+    <div class="reveal-l">
+      <h2 class="cta-h">Prefer To<br><em>Talk First?</em></h2>
+    </div>
+    <div class="cta-right reveal-r" style="transition-delay:.15s;">
+      <div class="cta-badge"><span></span>Available Now · Metro Detroit</div>
+      <p>Skip the form and reach out directly. We'll respond with a clear plan and next steps — no pressure, no pitch, just a straight conversation about what your business actually needs.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">
+          Contact Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="services.html" class="btn-ghost-cta">See Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">Levant<em>.</em></a>
+      <nav class="footer-nav">
+        <a href="index.html" class="footer-lnk">Home</a>
+        <a href="services.html" class="footer-lnk">Services</a>
+        <a href="why-levant.html" class="footer-lnk">Why Us</a>
+        <a href="results.html" class="footer-lnk">Results</a>
+        <a href="audit.html" class="footer-lnk" style="color:rgba(255,255,255,0.65)">Free Audit</a>
+        <a href="contact.html" class="footer-lnk">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
+      <div style="display:flex;gap:2rem;">
+        <a href="privacy.html" class="footer-lnk">Privacy Policy</a>
+        <a href="terms.html" class="footer-lnk">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 50); }, { passive: true });
+  document.getElementById('mob-btn').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
+  document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open'));
+  document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open')));
+
+  // Reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+
+  // Checkbox toggle
+  document.querySelectorAll('.check-label').forEach(label => {
+    label.addEventListener('click', () => {
+      const cb = label.querySelector('input[type=checkbox]');
+      cb.checked = !cb.checked;
+      label.classList.toggle('checked', cb.checked);
+    });
+  });
+
+  // Form submit
+  document.getElementById('audit-form-el').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const biz = document.getElementById('f-biz').value.trim();
+    const industry = document.getElementById('f-industry').value;
+    const errEl = document.getElementById('form-error');
+
+    if (!name || !email || !biz || !industry) {
+      errEl.classList.add('show');
+      return;
+    }
+    errEl.classList.remove('show');
+
+    // Show success
+    this.style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+    document.getElementById('audit-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>
+</body>
+</html>

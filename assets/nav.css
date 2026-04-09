@@ -1,0 +1,208 @@
+/* ==========================================================================
+   LEVANT - UNIFIED NAVIGATION STYLES
+   Single source of truth for navbar across all pages
+   ========================================================================== */
+
+/* ── CSS VARIABLES (fallbacks if not defined in page) ── */
+:root {
+  --cyan: #06b6d4;
+  --bg: #f7f6f3;
+  --ink: #111111;
+  --ink2: #444444;
+  --rule: rgba(0,0,0,0.08);
+}
+
+/* ── NAVIGATION ── */
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+  background: rgba(247, 246, 243, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
+  transition: box-shadow 0.3s ease;
+}
+
+#nav.scrolled {
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+}
+
+.nav-inner {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-logo em {
+  color: var(--cyan);
+  font-style: normal;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-lnk {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-lnk:hover,
+.nav-lnk.active {
+  color: var(--cyan);
+}
+
+.nav-cta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.65rem 1.5rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.nav-cta:hover,
+.nav-cta.active {
+  background: var(--cyan);
+  transform: translateY(-1px);
+}
+
+/* ── MOBILE MENU BUTTON ── */
+#mob-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink);
+  padding: 0.5rem;
+  margin: -0.5rem;
+}
+
+#mob-btn svg {
+  display: block;
+}
+
+/* ── MOBILE MENU OVERLAY ── */
+#mob-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 199;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#mob-menu.open {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mob-lnk {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 10vw, 5rem);
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease;
+}
+
+.mob-lnk:hover,
+.mob-lnk.active {
+  color: var(--cyan);
+}
+
+#mob-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--ink);
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+#mob-close:hover {
+  color: var(--cyan);
+}
+
+/* ── MOBILE BREAKPOINT ── */
+@media (max-width: 900px) {
+  #mob-btn {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none !important;
+  }
+  
+  #nav {
+    padding: 0 1.5rem;
+  }
+  
+  .nav-logo {
+    font-size: 1.75rem;
+  }
+}
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  #nav,
+  .nav-cta,
+  .mob-lnk,
+  #mob-close {
+    transition: none;
+  }
+  
+  #mob-menu {
+    transition: none;
+  }
+}

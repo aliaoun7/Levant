@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Services | Levant Digital Marketing</title>
+  <meta name="description" content="Modern websites, branding, SEO, and Google Business Profile support for Metro Detroit businesses."/>
+  <meta name="theme-color" content="#06b6d4"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/nav.css"/>
+
+  <style>
+    :root {
+      --cyan: #06b6d4;
+      --cyan-dim: rgba(6,182,212,0.12);
+      --cyan-border: rgba(6,182,212,0.35);
+      --bg: #f7f6f3;
+      --bg2: #ffffff;
+      --ink: #111111;
+      --ink2: #444444;
+      --ink3: #888888;
+      --rule: rgba(0,0,0,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--cyan); color: #fff; }
+    img { display: block; max-width: 100%; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .reveal.vis { opacity: 1; transform: none; }
+    .reveal-l { opacity: 0; transform: translateX(-40px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .reveal-l.vis { opacity: 1; transform: none; }
+    .reveal-r { opacity: 0; transform: translateX(40px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .reveal-r.vis { opacity: 1; transform: none; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    /* ── UTILS ── */
+    .section { padding: 6rem 1.5rem; }
+    .wrap { max-width: 1440px; margin: auto; }
+    .tag { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 1.25rem; }
+    .tag::before { content: ''; width: 30px; height: 1.5px; background: var(--cyan); }
+    .big-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.75rem, 5vw, 5rem); line-height: 0.92; letter-spacing: 0.02em; }
+    .big-h em { color: var(--cyan); font-style: normal; }
+    .rule { height: 1px; background: var(--rule); margin: 0 auto; max-width: 1440px; }
+    .btn-primary { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: var(--cyan); color: #fff; padding: 0.9rem 2rem; text-decoration: none; transition: transform .2s, box-shadow .2s; display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(6,182,212,0.4); }
+    .btn-ghost-light { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); padding: 0.9rem 2rem; text-decoration: none; transition: border-color .2s, color .2s; display: inline-flex; align-items: center; white-space: nowrap; }
+    .btn-ghost-light:hover { border-color: var(--cyan); color: var(--cyan); }
+    .btn-ghost-cta { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); padding: 0.9rem 2rem; text-decoration: none; transition: border-color .2s, color .2s; display: inline-flex; align-items: center; }
+    .btn-ghost-cta:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      padding-top: 72px;
+      background: var(--ink);
+      display: grid;
+      grid-template-columns: 52% 48%;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 4rem 3.5rem 4rem 3rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      position: relative; z-index: 2;
+      overflow: hidden;
+    }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.75rem; }
+    .hero-eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; flex-shrink: 0; }
+    .hero-h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 5.5vw, 6rem);
+      line-height: 0.9; letter-spacing: 0.02em; color: #fff;
+      margin-bottom: 1.75rem;
+    }
+    .hero-h1 em { color: var(--cyan); font-style: normal; display: block; }
+    .hero-h1 s { text-decoration: none; -webkit-text-stroke: 1.5px rgba(255,255,255,0.15); color: transparent; display: block; font-size: 0.82em; }
+    .hero-sub { font-size: 0.95rem; line-height: 1.75; color: rgba(255,255,255,0.45); max-width: 400px; margin-bottom: 2rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.75rem; }
+    .hero-stats { display: flex; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 1.5rem; }
+    .hero-stat-item { flex: 1; }
+    .hero-stat-item + .hero-stat-item { border-left: 1px solid rgba(255,255,255,0.07); padding-left: 1.25rem; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.9rem; letter-spacing: 0.04em; color: var(--cyan); line-height: 1; display: block; }
+    .stat-label { font-family: 'DM Mono', monospace; font-size: 0.57rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); display: block; margin-top: 0.2rem; }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.42) saturate(1.1); }
+    .hero-right::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--ink) 0%, transparent 38%); }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap { background: var(--cyan); padding: 1rem 0; overflow: hidden; }
+    .marquee-track { display: flex; animation: ticker 28s linear infinite; white-space: nowrap; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes ticker { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+    .marquee-item { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,0,0,0.65); padding: 0 2.5rem; display: inline-flex; align-items: center; gap: 2.5rem; }
+    .marquee-item .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(0,0,0,0.35); flex-shrink: 0; }
+
+    /* ── INTRO ── */
+    .intro-section { background: var(--bg2); }
+    .intro-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: end; }
+    .intro-left p { font-size: 1rem; line-height: 1.8; color: var(--ink2); max-width: 300px; margin-top: 1.25rem; }
+    .intro-right p { font-size: 1.1rem; line-height: 1.85; color: var(--ink2); border-left: 3px solid var(--cyan); padding-left: 1.75rem; }
+    .intro-right p + p { margin-top: 1.5rem; }
+
+    /* ══════════════════════════════════════
+       SERVICE STRIPS - RESTRUCTURED
+       Images now use aspect-ratio to prevent cutoff
+    ══════════════════════════════════════ */
+    .sv-strip {
+      display: grid;
+      grid-template-columns: 45% 55%;
+      border-top: 1px solid var(--rule);
+      min-height: auto;
+    }
+    .sv-strip.flip { grid-template-columns: 55% 45%; }
+
+    .sv-img {
+      position: relative; 
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .sv-img img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: contain;
+      object-position: center;
+      transition: transform .7s cubic-bezier(.16,1,.3,1); 
+    }
+    .sv-strip:hover .sv-img img { transform: scale(1.02); }
+    .sv-img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(6,182,212,0.08) 0%, rgba(0,0,0,0.18) 100%); pointer-events: none; }
+    .sv-num { position: absolute; bottom: 1.25rem; right: 1.25rem; font-family: 'Bebas Neue', sans-serif; font-size: 4.5rem; letter-spacing: 0.02em; color: rgba(255,255,255,0.1); line-height: 1; pointer-events: none; }
+    .sv-badge { position: absolute; top: 1.25rem; left: 1.25rem; background: var(--cyan); color: #fff; font-family: 'DM Mono', monospace; font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.3rem 0.75rem; }
+
+    .sv-content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 4rem 3.5rem;
+      background: var(--bg2);
+    }
+    .sv-strip:nth-child(even) .sv-content { background: var(--bg); }
+
+    .sv-icon { width: 42px; height: 42px; background: var(--cyan-dim); border: 1px solid var(--cyan-border); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .sv-icon svg { width: 20px; height: 20px; stroke: var(--cyan); }
+    .sv-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.9rem, 3vw, 2.75rem); letter-spacing: 0.02em; line-height: 1; color: var(--ink); margin-bottom: 0.9rem; }
+    .sv-desc { font-size: 0.925rem; line-height: 1.8; color: var(--ink2); margin-bottom: 1.5rem; max-width: 420px; }
+    .sv-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.75rem; }
+    .sv-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.875rem; color: var(--ink2); line-height: 1.5; }
+    .sv-list li::before { content: ''; flex-shrink: 0; width: 14px; height: 14px; margin-top: 2px; background: var(--cyan-dim); border: 1px solid var(--cyan-border); border-radius: 50%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2306b6d4' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 8 6.5 11.5 13 5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-size: 9px; background-position: center; }
+    .sv-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan); text-decoration: none; border-bottom: 1px solid var(--cyan-border); padding-bottom: 0.1rem; transition: gap .2s; width: fit-content; }
+    .sv-link:hover { gap: 0.65rem; }
+
+    /* ── ALWAYS INCLUDED ── */
+    .addon-banner { background: var(--bg); border-top: 1px solid var(--rule); }
+    .addon-inner { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--rule); }
+    .addon-item { padding: 2.5rem; border-right: 1px solid var(--rule); transition: background .3s; }
+    .addon-item:last-child { border-right: none; }
+    .addon-item:hover { background: var(--bg2); }
+    .addon-icon { margin-bottom: 1.25rem; }
+    .addon-icon svg { width: 24px; height: 24px; stroke: var(--cyan); }
+    .addon-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; margin-bottom: 0.6rem; }
+    .addon-desc { font-size: 0.85rem; line-height: 1.7; color: var(--ink2); }
+
+    /* ── COMPARE ── */
+    .compare-section { background: var(--ink); }
+    .compare-header { text-align: center; margin-bottom: 3rem; }
+    .compare-header .tag { color: rgba(255,255,255,0.35); justify-content: center; }
+    .compare-header .tag::before { background: rgba(255,255,255,0.25); }
+    .compare-header .big-h { color: #fff; }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table thead tr { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .compare-table th { padding: 1rem 1.5rem; text-align: left; font-family: 'DM Mono', monospace; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); font-weight: 400; }
+    .compare-table th:first-child { width: 38%; }
+    .compare-table td { padding: 1.15rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.88rem; color: rgba(255,255,255,0.6); }
+    .compare-table td:first-child { color: #fff; font-weight: 500; }
+    .compare-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+    .check { color: var(--cyan); }
+    .cross { color: rgba(255,255,255,0.2); }
+    .highlight-col { background: rgba(6,182,212,0.06); }
+
+    /* ── PROCESS ── */
+    .process-section { background: #0d1214; position: relative; overflow: hidden; }
+    .process-section::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 70%); top: -250px; left: -150px; pointer-events: none; }
+    .process-head { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
+    .process-head .tag { color: rgba(255,255,255,0.3); }
+    .process-head .tag::before { background: rgba(255,255,255,0.2); }
+    .process-head .big-h { color: #fff; }
+    .process-head p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.4); align-self: end; }
+    .process-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .process-img-wrap { position: relative; }
+    .process-img-wrap img { width: 100%; min-height: 460px; object-fit: cover; }
+    .process-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,182,212,0.1) 0%, transparent 50%); }
+    .process-stat { position: absolute; bottom: 2rem; left: 2rem; background: rgba(6,182,212,0.9); backdrop-filter: blur(12px); padding: 1.25rem 1.75rem; color: #fff; }
+    .process-stat strong { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.04em; display: block; line-height: 1; }
+    .process-stat span { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.75); margin-top: 0.2rem; display: block; }
+    .timeline { position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 23px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--cyan), rgba(6,182,212,0.08)); }
+    .tl-item { display: grid; grid-template-columns: 48px 1fr; gap: 1.75rem; margin-bottom: 2.75rem; position: relative; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-num { width: 48px; height: 48px; flex-shrink: 0; background: #0d1214; border: 1px solid rgba(6,182,212,0.4); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.04em; color: var(--cyan); position: relative; z-index: 1; }
+    .tl-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.04em; color: #fff; margin-bottom: 0.4rem; }
+    .tl-desc { font-size: 0.875rem; line-height: 1.75; color: rgba(255,255,255,0.4); }
+    .tl-body { padding-top: 0.5rem; }
+
+    /* ── CTA ── */
+    .cta-section { background: var(--ink); position: relative; overflow: hidden; }
+    .cta-bg-img { position: absolute; inset: 0; z-index: 0; }
+    .cta-bg-img img { height: 100%; object-fit: cover; opacity: 0.12; filter: grayscale(20%); }
+    .cta-inner { position: relative; z-index: 1; max-width: 1440px; margin: auto; padding: 8rem 3rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
+    .cta-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 6rem); line-height: 0.9; letter-spacing: 0.02em; color: #fff; }
+    .cta-h em { color: var(--cyan); font-style: normal; display: block; }
+    .cta-right { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    .cta-badge { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); }
+    .cta-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; }
+    .cta-right p { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.5); }
+    .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); padding: 4rem 3rem; }
+    .footer-inner { max-width: 1440px; margin: auto; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 2.5rem; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: #fff; text-decoration: none; }
+    .footer-logo em { color: var(--cyan); font-style: normal; }
+    .footer-nav { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .footer-lnk { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
+    .footer-lnk:hover { color: var(--cyan); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 1200px) {
+      .sv-strip { grid-template-columns: 42% 58%; }
+      .sv-strip.flip { grid-template-columns: 58% 42%; }
+    }
+    @media(max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 42vw; min-height: 240px; }
+      .hero-right::after { background: linear-gradient(to bottom, var(--ink) 0%, transparent 40%); }
+      .intro-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .sv-strip, .sv-strip.flip { grid-template-columns: 1fr; }
+      .sv-img { min-height: 320px; max-height: 400px; }
+      .sv-img img { object-fit: cover; }
+      .addon-inner { grid-template-columns: 1fr; }
+      .addon-item { border-right: none; border-bottom: 1px solid var(--rule); }
+      .addon-item:last-child { border-bottom: none; }
+      .compare-table th, .compare-table td { padding: 0.85rem 1rem; font-size: 0.82rem; }
+      .process-layout, .process-head { grid-template-columns: 1fr; }
+      .process-head { gap: 1.5rem; }
+      .cta-inner { grid-template-columns: 1fr; padding: 5rem 2rem; }
+    }
+    @media(max-width: 700px) {
+      .hero-left { padding: 3rem 1.5rem; }
+      .sv-content { padding: 2.5rem 1.5rem; }
+      .section { padding: 4.5rem 1.5rem; }
+      footer { padding: 3rem 1.5rem; }
+      .sv-img { min-height: 260px; }
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Levant<em>.</em></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-lnk">Home</a>
+      <a href="services.html" class="nav-lnk active">Services</a>
+      <a href="why-us.html" class="nav-lnk">Why Us</a>
+      <a href="audit.html" class="nav-lnk">Free Audit</a>
+      <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+    <button id="mob-btn" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<!-- MOBILE MENU -->
+<div id="mob-menu">
+  <button id="mob-close" aria-label="Close menu">✕</button>
+  <a href="index.html" class="mob-lnk">Home</a>
+  <a href="services.html" class="mob-lnk active">Services</a>
+  <a href="why-us.html" class="mob-lnk">Why Us</a>
+  <a href="audit.html" class="mob-lnk">Free Audit</a>
+  <a href="contact.html" class="mob-lnk">Contact</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span></span>Metro Detroit · Five Core Services</div>
+    <h1 class="hero-h1">
+      What We
+      <em>Build.</em>
+      <s>How We Think.</s>
+    </h1>
+    <p class="hero-sub">No cookie-cutter templates. No bloated retainers. Strategic digital assets that make your business look established and convert visitors into paying customers.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">
+        Explore Services
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+      <a href="contact.html" class="btn-ghost-light">Get Custom Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Services</span>
+      </div>
+      <div class="hero-stat-item">
+        <span class="stat-num">7</span>
+        <span class="stat-label">Day avg.</span>
+      </div>
+      <div class="hero-stat-item">
+        <span class="stat-num">$0</span>
+        <span class="stat-label">Lock-in</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&q=90&fit=crop" alt="Digital marketing strategy session"/>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Website Creation <span class="dot"></span></span>
+    <span class="marquee-item">Brand Identity <span class="dot"></span></span>
+    <span class="marquee-item">Graphic Design <span class="dot"></span></span>
+    <span class="marquee-item">SEO Foundations <span class="dot"></span></span>
+    <span class="marquee-item">Google Business Profile <span class="dot"></span></span>
+    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
+    <span class="marquee-item">Website Creation <span class="dot"></span></span>
+    <span class="marquee-item">Brand Identity <span class="dot"></span></span>
+    <span class="marquee-item">Graphic Design <span class="dot"></span></span>
+    <span class="marquee-item">SEO Foundations <span class="dot"></span></span>
+    <span class="marquee-item">Google Business Profile <span class="dot"></span></span>
+    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- ── INTRO ── -->
+<section class="intro-section section">
+  <div class="wrap">
+    <div class="intro-inner">
+      <div class="reveal-l">
+        <div class="tag">The Services</div>
+        <h2 class="big-h">Five Disciplines.<br><em>Real Results.</em></h2>
+        <p>Built for Metro Detroit businesses serious about their digital presence — not just looking for a checkbox.</p>
+      </div>
+      <div class="reveal-r" style="transition-delay:.1s;">
+        <p class="intro-right">Every service we offer is designed to work together. A website without SEO is just a brochure. A logo without a brand system is just decoration. We build complete digital foundations — not isolated deliverables.</p>
+        <p style="font-size:1rem; line-height:1.8; color:var(--ink2); margin-top:1.5rem; padding-left:1.75rem;">Most agencies upsell complexity. We don't. You get exactly what your business needs — nothing more. And when the job's done, everything is yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ══════════════════════════════════════
+     SERVICES - RESTRUCTURED WITH FIXED IMAGES
+══════════════════════════════════════ -->
+<div id="services">
+
+  <!-- 01 Website Creation -->
+  <div class="sv-strip">
+    <div class="sv-img reveal-l">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=85&fit=crop" alt="Developer building a website on dual monitors with live code"/>
+      <div class="sv-img-overlay"></div>
+      <div class="sv-badge">Most Popular</div>
+      <div class="sv-num">01</div>
+    </div>
+    <div class="sv-content reveal-r" style="transition-delay:.1s;">
+      <div class="sv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      </div>
+      <h3 class="sv-title">Website Creation & Redesign</h3>
+      <p class="sv-desc">Multi-page sites built for conversion. Mobile-first, fast-loading, and structured to guide visitors toward action. No templates — every site is custom-coded for your specific business goals.</p>
+      <ul class="sv-list">
+        <li>Custom multi-page structure — no drag-and-drop builders</li>
+        <li>Mobile-first responsive design across all devices</li>
+        <li>Conversion-optimized layouts with clear calls to action</li>
+        <li>Fast load speeds, clean code, SEO-ready architecture</li>
+        <li>Contact forms, integrations, and ongoing support options</li>
+      </ul>
+      <a href="contact.html" class="sv-link">Start a website project <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+  <!-- 02 Branding -->
+  <div class="sv-strip flip">
+    <div class="sv-content reveal-l" style="transition-delay:.1s;">
+      <div class="sv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <h3 class="sv-title">Branding & Logo Design</h3>
+      <p class="sv-desc">A complete identity system that makes your business look established from day one. Logo variations, color palettes, typography, and brand guidelines that ensure consistency everywhere you show up.</p>
+      <ul class="sv-list">
+        <li>Logo design with primary, secondary, and icon variations</li>
+        <li>Color palette and typography system selection</li>
+        <li>Brand guidelines documentation for consistent use</li>
+        <li>Business card and stationery design</li>
+        <li>Digital asset exports in all required formats</li>
+      </ul>
+      <a href="contact.html" class="sv-link">Start a branding project <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="sv-img reveal-r">
+      <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=85&fit=crop" alt="Designer working on brand identity with color swatches and logo concepts"/>
+      <div class="sv-img-overlay"></div>
+      <div class="sv-num">02</div>
+    </div>
+  </div>
+
+  <!-- 03 Graphic Design -->
+  <div class="sv-strip">
+    <div class="sv-img reveal-l">
+      <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=85&fit=crop" alt="Printed marketing collateral and branded materials design work"/>
+      <div class="sv-img-overlay"></div>
+      <div class="sv-num">03</div>
+    </div>
+    <div class="sv-content reveal-r" style="transition-delay:.1s;">
+      <div class="sv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <h3 class="sv-title">Graphic Design</h3>
+      <p class="sv-desc">On-brand visual assets for every touchpoint. Social media graphics, print materials, flyers, and collateral — all designed to stop the scroll, reinforce your identity, and communicate clearly.</p>
+      <ul class="sv-list">
+        <li>Social media graphics and content templates</li>
+        <li>Flyers, posters, and promotional print materials</li>
+        <li>Digital banners, email headers, and ads</li>
+        <li>Signage, menus, and in-person collateral</li>
+        <li>Editable Canva templates for ongoing use</li>
+      </ul>
+      <a href="contact.html" class="sv-link">Start a design project <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+  <!-- 04 SEO -->
+  <div class="sv-strip flip">
+    <div class="sv-content reveal-l" style="transition-delay:.1s;">
+      <div class="sv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+      </div>
+      <h3 class="sv-title">SEO Foundations</h3>
+      <p class="sv-desc">Technical SEO built into every project from day one. Proper headings, metadata, internal linking, and indexing readiness — the foundation that helps Google understand and rank your site in local searches.</p>
+      <ul class="sv-list">
+        <li>On-page optimization: titles, meta descriptions, headings</li>
+        <li>Technical SEO: site speed, crawlability, XML sitemaps</li>
+        <li>Google Search Console and Analytics configuration</li>
+        <li>Local SEO structure for Metro Detroit visibility</li>
+        <li>Keyword research and content structure planning</li>
+      </ul>
+      <a href="contact.html" class="sv-link">Start an SEO project <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="sv-img reveal-r">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=85&fit=crop" alt="Analytics dashboard showing SEO metrics and search performance"/>
+      <div class="sv-img-overlay"></div>
+      <div class="sv-num">04</div>
+    </div>
+  </div>
+
+  <!-- 05 Google Business -->
+  <div class="sv-strip">
+    <div class="sv-img reveal-l">
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=85&fit=crop" alt="Mobile phone showing Google Maps with local business location"/>
+      <div class="sv-img-overlay"></div>
+      <div class="sv-num">05</div>
+    </div>
+    <div class="sv-content reveal-r" style="transition-delay:.1s;">
+      <div class="sv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h3 class="sv-title">Google Business Profile</h3>
+      <p class="sv-desc">Your local search presence, managed professionally. A complete, optimized, and actively maintained Google Business Profile puts your Metro Detroit business in front of people searching for exactly what you offer.</p>
+      <ul class="sv-list">
+        <li>Full profile setup and category optimization</li>
+        <li>Service area, hours, and attributes configuration</li>
+        <li>Regular posting schedule to maintain activity signals</li>
+        <li>Photo uploads and visual content management</li>
+        <li>Review response strategy and monitoring guidance</li>
+      </ul>
+      <a href="contact.html" class="sv-link">Start a GBP project <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── ALWAYS INCLUDED ── -->
+<section class="addon-banner section">
+  <div class="wrap">
+    <div style="margin-bottom:2.5rem;" class="reveal">
+      <div class="tag">Always Included</div>
+      <h2 class="big-h">Included In<br><em>Every Project.</em></h2>
+    </div>
+    <div class="addon-inner reveal" style="transition-delay:.1s;">
+      <div class="addon-item">
+        <div class="addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="addon-title">SEO-Ready Architecture</div>
+        <p class="addon-desc">Every website is built with proper heading structure, metadata, and technical foundations — standard, not an upsell.</p>
+      </div>
+      <div class="addon-item">
+        <div class="addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="addon-title">Full File Ownership</div>
+        <p class="addon-desc">All source files, code, brand assets, and account access are yours on delivery. Nothing locked behind a subscription.</p>
+      </div>
+      <div class="addon-item">
+        <div class="addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="addon-title">Clear Timelines</div>
+        <p class="addon-desc">Written scope and delivery dates before work begins. Most projects complete in 7–14 days. No surprises, no scope creep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ── COMPARE ── -->
+<section class="compare-section section">
+  <div class="wrap">
+    <div class="compare-header reveal">
+      <div class="tag">How We Compare</div>
+      <h2 class="big-h" style="color:#fff;">Levant vs.<br><em>The Alternatives.</em></h2>
+      <p style="font-size:0.95rem; color:rgba(255,255,255,0.4); margin-top:1rem; max-width:460px; margin-left:auto; margin-right:auto;">What you get with Levant versus most agencies, freelancers, or DIY builders.</p>
+    </div>
+    <div class="reveal" style="transition-delay:.1s; overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>What Matters</th>
+            <th style="color:var(--cyan);">Levant</th>
+            <th>Typical Agency</th>
+            <th>Freelancer</th>
+            <th>DIY Builder</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Custom-coded, no templates</td><td class="check highlight-col">✓</td><td class="check">✓</td><td>Varies</td><td class="cross">✗</td></tr>
+          <tr><td>SEO included at no extra cost</td><td class="check highlight-col">✓</td><td class="cross">✗ (add-on)</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Full file & account ownership</td><td class="check highlight-col">✓</td><td class="cross">Often no</td><td>Sometimes</td><td class="cross">✗</td></tr>
+          <tr><td>No monthly retainer required</td><td class="check highlight-col">✓</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>7–14 day delivery</td><td class="check highlight-col">✓</td><td class="cross">4–12 weeks</td><td>Unpredictable</td><td>You do the work</td></tr>
+          <tr><td>Local Metro Detroit expertise</td><td class="check highlight-col">✓</td><td>Rarely</td><td>Rarely</td><td class="cross">✗</td></tr>
+          <tr><td>Branding + web in one project</td><td class="check highlight-col">✓</td><td>Separate teams</td><td>Limited scope</td><td class="cross">✗</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process-section section">
+  <div class="wrap">
+    <div class="process-head reveal">
+      <div>
+        <div class="tag">How It Works</div>
+        <h2 class="big-h" style="color:#fff;">Simple. Clear.<br><em>No Surprises.</em></h2>
+      </div>
+      <p>We keep the process lean and transparent so you always know where things stand — from first conversation to final handoff.</p>
+    </div>
+    <div class="process-layout">
+      <div class="process-img-wrap reveal-l">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=85&fit=crop" alt="Marketing team collaboration and strategy planning"/>
+        <div class="process-img-overlay"></div>
+        <div class="process-stat"><strong>7</strong><span>Day avg. delivery</span></div>
+      </div>
+      <div class="reveal-r" style="transition-delay:.15s;">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-num">1</div>
+            <div class="tl-body">
+              <div class="tl-title">Discovery & Free Audit</div>
+              <p class="tl-desc">We review your current digital presence, identify what's missing, and show you exactly where you stand — before you spend a dollar.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-num">2</div>
+            <div class="tl-body">
+              <div class="tl-title">Clear Scope & Quote</div>
+              <p class="tl-desc">Written deliverables, exact timeline, and firm pricing. No hourly billing, no hidden fees, no scope creep.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-num">3</div>
+            <div class="tl-body">
+              <div class="tl-title">Build & Refine</div>
+              <p class="tl-desc">We execute with regular check-ins. You see the work develop and provide feedback before final delivery. No black box.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-num">4</div>
+            <div class="tl-body">
+              <div class="tl-title">Launch & Full Handoff</div>
+              <p class="tl-desc">All files, credentials, and accounts transferred on delivery. Everything is yours. Ongoing support available — never required.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-bg-img">
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=80&fit=crop" alt="Marketing team working on digital campaign"/>
+  </div>
+  <div class="cta-inner">
+    <div class="reveal-l">
+      <h2 class="cta-h">Ready To<br><em>Start Building?</em></h2>
+    </div>
+    <div class="cta-right reveal-r" style="transition-delay:.15s;">
+      <div class="cta-badge"><span></span>Available Now · Metro Detroit</div>
+      <p>Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote. No pressure — just a straight conversation about what will actually move the needle.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">
+          Start Your Project
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="audit.html" class="btn-ghost-cta">Free Audit First</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">Levant<em>.</em></a>
+      <nav class="footer-nav">
+        <a href="index.html" class="footer-lnk">Home</a>
+        <a href="services.html" class="footer-lnk" style="color:rgba(255,255,255,0.65)">Services</a>
+        <a href="results.html" class="footer-lnk">Results</a>
+        <a href="audit.html" class="footer-lnk">Free Audit</a>
+        <a href="contact.html" class="footer-lnk">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
+      <div style="display:flex;gap:2rem;">
+        <a href="privacy.html" class="footer-lnk">Privacy Policy</a>
+        <a href="terms.html" class="footer-lnk">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 50); }, { passive: true });
+  document.getElementById('mob-btn').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
+  document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open'));
+  document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open')));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

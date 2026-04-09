@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact | Levant Digital Marketing</title>
+  <meta name="description" content="Contact Levant Digital Marketing for website creation, redesign, branding, SEO, and Google Business Profile support. Metro Detroit."/>
+  <meta name="theme-color" content="#06b6d4"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/nav.css"/>
+  <style>
+    :root{--cyan:#06b6d4;--cyan-dim:rgba(6,182,212,0.12);--cyan-border:rgba(6,182,212,0.35);--bg:#f7f6f3;--bg2:#ffffff;--ink:#111111;--ink2:#444444;--ink3:#888888;--rule:rgba(0,0,0,0.08);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    ::selection{background:var(--cyan);color:#fff;}
+    img{display:block;width:100%;object-fit:cover;}
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);}
+    .reveal.vis{opacity:1;transform:none;}
+    .reveal-l{opacity:0;transform:translateX(-40px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);}
+    .reveal-l.vis{opacity:1;transform:none;}
+    .reveal-r{opacity:0;transform:translateX(40px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);}
+    .reveal-r.vis{opacity:1;transform:none;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+    .wrap{max-width:1440px;margin:auto;}
+    .tag{display:inline-flex;align-items:center;gap:0.6rem;font-family:'DM Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--cyan);margin-bottom:1.25rem;}
+    .tag::before{content:'';width:30px;height:1.5px;background:var(--cyan);}
+    .big-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,6rem);line-height:0.92;letter-spacing:0.02em;}
+    .big-h em{color:var(--cyan);font-style:normal;}
+    .rule{height:1px;background:var(--rule);margin:0 auto;max-width:1440px;}
+
+    /* HERO */
+    .hero{min-height:100vh;padding-top:72px;background:var(--ink);display:grid;grid-template-columns:55% 45%;}
+    .hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:5rem 4rem 5rem 3rem;border-right:1px solid rgba(255,255,255,0.06);position:relative;z-index:2;overflow:hidden;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:0.6rem;font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:2rem;}
+    .hero-eyebrow span{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:blink 2s ease-in-out infinite;flex-shrink:0;}
+    .hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,7vw,8rem);line-height:0.9;letter-spacing:0.02em;color:#fff;margin-bottom:2rem;}
+    .hero-h1 em{color:var(--cyan);font-style:normal;display:block;}
+    .hero-sub{font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.45);max-width:420px;margin-bottom:3.5rem;}
+    .hero-trust{display:flex;border-top:1px solid rgba(255,255,255,0.07);padding-top:2rem;}
+    .trust-item{flex:1;}
+    .trust-item+.trust-item{border-left:1px solid rgba(255,255,255,0.07);padding-left:1.5rem;}
+    .trust-num{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.04em;color:var(--cyan);line-height:1;display:block;}
+    .trust-label{font-family:'DM Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);display:block;margin-top:0.2rem;}
+    .hero-right{display:flex;flex-direction:column;background:#0a0a0a;}
+    .hero-info-card{flex:1;padding:2.75rem 3rem;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:1.5rem;transition:background .25s;}
+    .hero-info-card:last-child{border-bottom:none;}
+    .hero-info-card:hover{background:rgba(255,255,255,0.02);}
+    .info-icon{width:44px;height:44px;flex-shrink:0;background:var(--cyan-dim);border:1px solid var(--cyan-border);display:flex;align-items:center;justify-content:center;margin-top:0.2rem;}
+    .info-icon svg{width:20px;height:20px;stroke:var(--cyan);}
+    .info-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.04em;color:#fff;margin-bottom:0.4rem;}
+    .info-desc{font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.4);}
+
+    /* MARQUEE */
+    .marquee-wrap{background:var(--cyan);padding:1rem 0;overflow:hidden;}
+    .marquee-track{display:flex;animation:ticker 28s linear infinite;white-space:nowrap;}
+    .marquee-track:hover{animation-play-state:paused;}
+    @keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    .marquee-item{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.65);padding:0 2.5rem;display:inline-flex;align-items:center;gap:2.5rem;}
+    .marquee-item .dot{width:5px;height:5px;border-radius:50%;background:rgba(0,0,0,0.35);flex-shrink:0;}
+
+    /* CONTACT MAIN */
+    .contact-section{background:var(--bg);}
+    .contact-inner{max-width:1440px;margin:auto;padding:7rem 3rem;display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;align-items:start;}
+    .contact-left{}
+    .steps-list{display:flex;flex-direction:column;margin-bottom:3rem;}
+    .step-item{display:grid;grid-template-columns:48px 1fr;gap:1.25rem;padding:1.75rem 0;border-bottom:1px solid var(--rule);}
+    .step-item:first-child{padding-top:0;}
+    .step-item:last-child{border-bottom:none;}
+    .step-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.04em;color:var(--ink);opacity:0.1;line-height:1;padding-top:0.15rem;}
+    .step-title{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:0.04em;color:var(--ink);margin-bottom:0.4rem;}
+    .step-desc{font-size:0.875rem;line-height:1.7;color:var(--ink2);}
+    .contact-details{border:1px solid var(--rule);background:var(--bg2);margin-bottom:2rem;}
+    .contact-detail-row{display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;border-bottom:1px solid var(--rule);transition:background .2s;}
+    .contact-detail-row:last-child{border-bottom:none;}
+    .contact-detail-row:hover{background:var(--bg);}
+    .detail-icon{width:36px;height:36px;flex-shrink:0;background:var(--cyan-dim);border:1px solid var(--cyan-border);display:flex;align-items:center;justify-content:center;}
+    .detail-icon svg{width:16px;height:16px;stroke:var(--cyan);}
+    .detail-label{font-family:'DM Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink3);margin-bottom:0.1rem;}
+    .detail-val{font-size:0.9rem;color:var(--ink);font-weight:500;}
+    .audit-nudge{border:1px solid var(--cyan-border);background:var(--cyan-dim);padding:1.75rem 2rem;}
+    .nudge-label{font-family:'DM Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--cyan);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .nudge-label::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:blink 2s ease-in-out infinite;}
+    .audit-nudge p{font-size:0.875rem;line-height:1.75;color:var(--ink2);margin-bottom:1rem;}
+    .nudge-link{display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-border);padding-bottom:0.1rem;transition:gap .2s;}
+    .nudge-link:hover{gap:0.65rem;}
+
+    /* FORM */
+    .form-card{background:var(--bg2);border:1px solid var(--rule);}
+    .form-header{padding:2rem 2.5rem;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+    .form-header-title{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:0.04em;color:var(--ink);}
+    .open-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:'DM Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--cyan);}
+    .open-badge span{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:blink 2s ease-in-out infinite;}
+    .form-success{display:none;padding:4rem 2.5rem;text-align:center;}
+    .form-success.show{display:block;}
+    .success-icon{width:56px;height:56px;background:var(--cyan-dim);border:1px solid var(--cyan-border);display:flex;align-items:center;justify-content:center;margin:0 auto 1.75rem;}
+    .success-icon svg{width:24px;height:24px;stroke:var(--cyan);}
+    .success-h{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.04em;color:var(--ink);margin-bottom:1rem;}
+    .success-p{font-size:0.95rem;line-height:1.8;color:var(--ink2);max-width:380px;margin:0 auto;}
+    .form-body{padding:2.5rem;}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;}
+    .field-group{margin-bottom:1.25rem;}
+    .field-group:last-child{margin-bottom:0;}
+    .field-label{font-family:'DM Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink3);display:block;margin-bottom:0.5rem;}
+    .field-label em{font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.78rem;text-transform:none;letter-spacing:0;color:var(--ink3);font-weight:400;}
+    .field-input{font-family:'DM Sans',sans-serif;font-size:0.95rem;color:var(--ink);background:var(--bg);border:1px solid var(--rule);padding:0.85rem 1rem;outline:none;transition:border-color .2s,background .2s;width:100%;-webkit-appearance:none;}
+    .field-input::placeholder{color:var(--ink3);}
+    .field-input:focus{border-color:var(--cyan);background:rgba(6,182,212,0.03);}
+    textarea.field-input{resize:vertical;min-height:130px;}
+    select.field-input{cursor:pointer;}
+    .form-foot{padding:1.5rem 2.5rem;border-top:1px solid var(--rule);background:var(--bg);display:flex;flex-direction:column;gap:1rem;}
+    .form-error-msg{font-family:'DM Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:#e53e3e;display:none;}
+    .form-error-msg.show{display:block;}
+    .form-fine{font-family:'DM Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);text-align:center;}
+    .btn-submit{font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;background:var(--cyan);color:#fff;padding:1rem 2.25rem;border:none;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;cursor:pointer;width:100%;}
+    .btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(6,182,212,0.4);}
+    .btn-submit:disabled{opacity:0.65;cursor:not-allowed;transform:none;box-shadow:none;}
+
+    /* CTA */
+    .cta-section{background:var(--ink);position:relative;overflow:hidden;}
+    .cta-bg-img{position:absolute;inset:0;z-index:0;}
+    .cta-bg-img img{height:100%;object-fit:cover;opacity:0.1;filter:grayscale(20%);}
+    .cta-inner{position:relative;z-index:1;max-width:1440px;margin:auto;padding:7rem 3rem;display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;}
+    .cta-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,6rem);line-height:0.9;letter-spacing:0.02em;color:#fff;}
+    .cta-h em{color:var(--cyan);font-style:normal;display:block;}
+    .cta-right{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;}
+    .cta-badge{display:inline-flex;align-items:center;gap:0.6rem;font-family:'DM Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--cyan);}
+    .cta-badge span{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:blink 2s ease-in-out infinite;}
+    .cta-right p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.5);}
+    .cta-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn-cta{font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;background:var(--cyan);color:#fff;padding:1rem 2rem;text-decoration:none;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:0.5rem;}
+    .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(6,182,212,0.4);}
+    .btn-ghost-cta{font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:1rem 2rem;text-decoration:none;transition:border-color .2s,color .2s;display:inline-flex;align-items:center;}
+    .btn-ghost-cta:hover{border-color:var(--cyan);color:var(--cyan);}
+
+    /* FOOTER */
+    footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06);padding:4rem 3rem;}
+    .footer-inner{max-width:1440px;margin:auto;}
+    .footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:2.5rem;}
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.04em;color:#fff;text-decoration:none;}
+    .footer-logo em{color:var(--cyan);font-style:normal;}
+    .footer-nav{display:flex;gap:2.5rem;flex-wrap:wrap;}
+    .footer-lnk{font-family:'DM Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);text-decoration:none;transition:color .2s;}
+    .footer-lnk:hover{color:var(--cyan);}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:0.7rem;color:rgba(255,255,255,0.2);letter-spacing:0.08em;}
+
+    @media(max-width:1100px){
+      .hero{grid-template-columns:1fr;}
+      .hero-right{flex-direction:row;flex-wrap:wrap;}
+      .hero-info-card{flex:1 1 260px;border-bottom:none;border-right:1px solid rgba(255,255,255,0.05);}
+      .hero-info-card:last-child{border-right:none;}
+      .contact-inner{grid-template-columns:1fr;gap:3.5rem;}
+      .cta-inner{grid-template-columns:1fr;padding:5rem 2rem;}
+    }
+    @media(max-width:700px){
+      .hero-left{padding:4rem 1.5rem;}
+      .hero-right{flex-direction:column;}
+      .hero-info-card{border-right:none;border-bottom:1px solid rgba(255,255,255,0.05);}
+      .contact-inner{padding:5rem 1.5rem;}
+      .field-row{grid-template-columns:1fr;}
+      .form-body{padding:1.75rem 1.5rem;}
+      .form-header{padding:1.5rem;}
+      .form-foot{padding:1.25rem 1.5rem;}
+      footer{padding:3rem 1.5rem;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Levant<em>.</em></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-lnk">Home</a>
+      <a href="services.html" class="nav-lnk">Services</a>
+      <a href="why-us.html" class="nav-lnk">Why Us</a>
+      <a href="audit.html" class="nav-lnk">Free Audit</a>
+      <a href="contact.html" class="nav-cta active">Let's Talk</a>
+    </div>
+    <button id="mob-btn" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="mob-menu">
+  <button id="mob-close" aria-label="Close menu">✕</button>
+  <a href="index.html" class="mob-lnk">Home</a>
+  <a href="services.html" class="mob-lnk">Services</a>
+  <a href="why-us.html" class="mob-lnk">Why Us</a>
+  <a href="audit.html" class="mob-lnk">Free Audit</a>
+  <a href="contact.html" class="mob-lnk active">Contact</a>
+</div>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span></span>Metro Detroit &middot; Taking New Projects</div>
+    <h1 class="hero-h1">
+      Let's
+      <em>Build.</em>
+    </h1>
+    <p class="hero-sub">Tell us what you need and we'll respond with a clear plan, honest scope, and a real quote. No fluff, no pressure &mdash; just a straight conversation about what your business actually needs.</p>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-num">24hr</span>
+        <span class="trust-label">First response</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">$0</span>
+        <span class="trust-label">Obligation</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">Real</span>
+        <span class="trust-label">No canned replies</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-info-card">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+      </div>
+      <div>
+        <div class="info-title">Fast Response</div>
+        <p class="info-desc">You are not sending a message into a void. We review every inquiry personally and reply with real next steps within 24 hours.</p>
+      </div>
+    </div>
+    <div class="hero-info-card">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div>
+        <div class="info-title">Written Scope</div>
+        <p class="info-desc">Every project gets a clear written breakdown: what we will build, what it costs, and when it is done. Before we start anything.</p>
+      </div>
+    </div>
+    <div class="hero-info-card">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="info-title">Full Ownership</div>
+        <p class="info-desc">Everything we build is yours. Code, files, accounts, credentials &mdash; all transferred on delivery with no strings attached.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Website Creation <span class="dot"></span></span>
+    <span class="marquee-item">Brand Identity <span class="dot"></span></span>
+    <span class="marquee-item">SEO Foundations <span class="dot"></span></span>
+    <span class="marquee-item">Google Business Profile <span class="dot"></span></span>
+    <span class="marquee-item">Graphic Design <span class="dot"></span></span>
+    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
+    <span class="marquee-item">Website Creation <span class="dot"></span></span>
+    <span class="marquee-item">Brand Identity <span class="dot"></span></span>
+    <span class="marquee-item">SEO Foundations <span class="dot"></span></span>
+    <span class="marquee-item">Google Business Profile <span class="dot"></span></span>
+    <span class="marquee-item">Graphic Design <span class="dot"></span></span>
+    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
+  </div>
+</div>
+
+<section class="contact-section">
+  <div class="contact-inner">
+
+    <div class="reveal-l">
+      <div class="tag">Start The Conversation</div>
+      <h2 class="big-h" style="margin-bottom:1.5rem;">Tell Us What<br><em>You Need.</em></h2>
+      <p style="font-size:1rem;line-height:1.8;color:var(--ink2);margin-bottom:3rem;max-width:360px;">A few details is all it takes. Tell us what you want to build, fix, or improve and we will take it from there.</p>
+
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">You Send The Request</div>
+            <p class="step-desc">Fill out the form with context about your business and what you are trying to accomplish. Takes two minutes.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">We Review It Personally</div>
+            <p class="step-desc">No automation, no templates. We look at your project and respond with real direction within 24 hours.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">You Get A Clear Next Step</div>
+            <p class="step-desc">A written scope, honest timeline, and firm price before any work begins. No vague estimates, no surprises.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-details">
+        <div class="contact-detail-row">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="detail-label">Email</div>
+            <div class="detail-val">levantdigitalmarketing@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-detail-row">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="detail-label">Location</div>
+            <div class="detail-val">Metro Detroit, Michigan</div>
+          </div>
+        </div>
+        <div class="contact-detail-row">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="detail-label">Response Time</div>
+            <div class="detail-val">Within 24 hours, always</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="audit-nudge">
+        <div class="nudge-label">Not sure where to start?</div>
+        <p>Get the free audit first. We will show you exactly where you rank on Google, what is working, and what needs to be fixed before you spend a dollar.</p>
+        <a href="audit.html" class="nudge-link">
+          Get your free audit
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal-r" style="transition-delay:.1s;">
+      <div class="form-card">
+        <div class="form-header">
+          <div class="form-header-title">Project Request</div>
+          <div class="open-badge"><span></span>Open For Work</div>
+        </div>
+
+        <div class="form-success" id="form-success">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="success-h">Message Sent.</div>
+          <p class="success-p">Thanks for reaching out. We received your project request and will respond within 24 hours with a clear plan and honest next steps.</p>
+        </div>
+
+        <form id="contact-form" action="https://formspree.io/f/xdawagkj" method="POST">
+          <div class="form-body">
+            <div class="field-row">
+              <div>
+                <label class="field-label" for="f-name">Full Name</label>
+                <input type="text" id="f-name" name="name" class="field-input" placeholder="Your Name" required/>
+              </div>
+              <div>
+                <label class="field-label" for="f-email">Email Address</label>
+                <input type="email" id="f-email" name="email" class="field-input" placeholder="you@business.com" required/>
+              </div>
+            </div>
+            <div class="field-row">
+              <div>
+                <label class="field-label" for="f-biz">Business Name</label>
+                <input type="text" id="f-biz" name="business" class="field-input" placeholder="Your Business" required/>
+              </div>
+              <div>
+                <label class="field-label" for="f-phone">Phone <em>(optional)</em></label>
+                <input type="tel" id="f-phone" name="phone" class="field-input" placeholder="(313) 555-0000"/>
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="f-service">Service Needed</label>
+              <select id="f-service" name="service" class="field-input" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option>Website Creation</option>
+                <option>Website Redesign</option>
+                <option>Branding + Logo Design</option>
+                <option>Graphic Design</option>
+                <option>SEO Foundations</option>
+                <option>Google Business Profile</option>
+                <option>Full package (multiple services)</option>
+                <option>Not sure yet - need guidance</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="f-msg">Tell Us About Your Project</label>
+              <textarea id="f-msg" name="message" class="field-input" placeholder="What are you trying to build, fix, or improve? What is your timeline? The more context, the better." required></textarea>
+            </div>
+            <input type="hidden" name="_subject" value="New Project Inquiry - Levant Digital Marketing"/>
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"/>
+          </div>
+          <div class="form-foot">
+            <div class="form-error-msg" id="form-error">Something went wrong. Please check your details and try again.</div>
+            <button type="submit" class="btn-submit" id="submit-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              <span id="btn-text">Send Project Request</span>
+            </button>
+            <div class="form-fine">No spam. No pressure. We will respond with a real plan and honest direction.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-bg-img">
+    <img src="https://images.unsplash.com/photo-1664575599736-c5197c684128?w=1600&q=80&fit=crop" alt="Digital marketing strategy session"/>
+  </div>
+  <div class="cta-inner">
+    <div class="reveal-l">
+      <h2 class="cta-h">Not Ready To<br><em>Commit Yet?</em></h2>
+    </div>
+    <div class="cta-right reveal-r" style="transition-delay:.15s;">
+      <div class="cta-badge"><span></span>Free &middot; No Commitment &middot; Metro Detroit</div>
+      <p>Start with a free audit. We will review your website, Google presence, and local rankings then show you exactly where you stand and what to fix first. No pitch, no pressure.</p>
+      <div class="cta-btns">
+        <a href="audit.html" class="btn-cta">
+          Get Your Free Audit
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="services.html" class="btn-ghost-cta">See Our Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">Levant<em>.</em></a>
+      <nav class="footer-nav">
+        <a href="index.html" class="footer-lnk">Home</a>
+        <a href="services.html" class="footer-lnk">Services</a>
+        <a href="why-levant.html" class="footer-lnk">Why Us</a>
+        <a href="audit.html" class="footer-lnk">Free Audit</a>
+        <a href="contact.html" class="footer-lnk" style="color:rgba(255,255,255,0.65)">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&#169; 2026 Levant Digital Marketing. All rights reserved.</div>
+      <div style="display:flex;gap:2rem;">
+        <a href="privacy.html" class="footer-lnk">Privacy Policy</a>
+        <a href="terms.html" class="footer-lnk">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 50); }, { passive: true });
+  document.getElementById('mob-btn').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
+  document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open'));
+  document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open')));
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+
+  const form = document.getElementById('contact-form');
+  const successBox = document.getElementById('form-success');
+  const errorBox = document.getElementById('form-error');
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    errorBox.classList.remove('show');
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending...';
+
+    try {
+      const res = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        form.style.display = 'none';
+        successBox.classList.add('show');
+      } else {
+        const data = await res.json().catch(() => null);
+        errorBox.textContent = (data && data.errors) ? data.errors.map(e => e.message).join(', ') : 'Something went wrong. Please try again.';
+        errorBox.classList.add('show');
+        submitBtn.disabled = false;
+        btnText.textContent = 'Send Project Request';
+      }
+    } catch(err) {
+      errorBox.textContent = 'Network error. Please try again.';
+      errorBox.classList.add('show');
+      submitBtn.disabled = false;
+      btnText.textContent = 'Send Project Request';
+    }
+  });
+</script>
+</body>
+</html>

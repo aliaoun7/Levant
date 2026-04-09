@@ -1,0 +1,184 @@
+/* ============================================================
+   UPGRADE PACK: Premium visuals for Services + 3D mounts
+   Paste at the bottom of your current style.css
+   ============================================================ */
+
+/* softer type rendering on dark backgrounds */
+html, body {
+  text-rendering: geometricPrecision;
+}
+
+/* nicer selection feel */
+::selection { background: rgba(16,185,129,.35); color: #fff; }
+
+/* better section separators */
+.section-divider {
+  position: relative;
+}
+.section-divider::before {
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height:1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+}
+
+/* ---------- Glass + Soft Card (used heavily on services.html) ---------- */
+.soft-card{
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(255,255,255,.085);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 20px 70px rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+}
+@media (hover:hover) and (pointer:fine){
+  .soft-card{transition: transform 280ms ease, border-color 280ms ease, background 280ms ease, box-shadow 280ms ease}
+  .soft-card:hover{
+    transform: translateY(-6px);
+    border-color: rgba(16,185,129,.28);
+    background: rgba(16,185,129,.06);
+    box-shadow: 0 25px 90px rgba(16,185,129,.14);
+  }
+}
+
+/* ---------- Pro card refinement (adds “premium” edge glow) ---------- */
+.pro-card{
+  position: relative;
+}
+.pro-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  opacity: 0;
+  background:
+    radial-gradient(650px 240px at 30% 0%, rgba(16,185,129,.14), transparent 60%),
+    radial-gradient(600px 240px at 85% 30%, rgba(255,255,255,.08), transparent 55%);
+  transition: opacity 240ms ease;
+}
+@media (hover:hover) and (pointer:fine){
+  .pro-card:hover::after{opacity:1;}
+}
+
+/* ---------- Buttons: subtle “shine” without being fake ---------- */
+.btn-shine{
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::before{
+  content:"";
+  position:absolute;
+  top:-60%;
+  left:-40%;
+  width:60%;
+  height:220%;
+  transform: rotate(18deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+  opacity:.0;
+}
+@media (hover:hover) and (pointer:fine){
+  .btn-shine:hover::before{
+    opacity:1;
+    animation: shine-sweep 900ms ease;
+  }
+}
+@keyframes shine-sweep{
+  from { transform: translateX(0) rotate(18deg); }
+  to   { transform: translateX(240%) rotate(18deg); }
+}
+@media (prefers-reduced-motion: reduce){
+  .btn-shine::before{display:none!important}
+}
+
+/* ---------- Icon tiles: makes your service icons feel “designed” ---------- */
+.icon-tile{
+  background: rgba(16,185,129,.10);
+  border: 1px solid rgba(16,185,129,.22);
+  box-shadow:
+    0 18px 55px rgba(16,185,129,.12),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+@media (hover:hover) and (pointer:fine){
+  .icon-tile{transition: transform 260ms ease, box-shadow 260ms ease, background 260ms ease}
+  .icon-tile:hover{
+    transform: translateY(-4px) scale(1.02);
+    background: rgba(16,185,129,.14);
+    box-shadow: 0 25px 80px rgba(16,185,129,.18);
+  }
+}
+
+/* ---------- 3D mount styling (for your data-three containers) ---------- */
+[data-three]{
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(16,185,129,.18), transparent 55%),
+    radial-gradient(circle at 70% 75%, rgba(255,255,255,.06), transparent 55%),
+    rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 30px 120px rgba(16,185,129,.14);
+}
+[data-three] canvas{
+  width:100% !important;
+  height:100% !important;
+  display:block;
+  opacity: .98;
+  filter: drop-shadow(0 50px 120px rgba(16,185,129,.22));
+}
+
+/* keep 3D super smooth: prevent layout jank */
+[data-three]{
+  contain: layout paint;
+}
+
+/* ---------- Subtle animated border pulse (desktop only) ---------- */
+.border-pulse{
+  position: relative;
+}
+.border-pulse::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: inherit;
+  pointer-events:none;
+  background: linear-gradient(45deg,
+    rgba(16,185,129,.65),
+    rgba(5,150,105,.40),
+    rgba(255,255,255,.10),
+    rgba(16,185,129,.65)
+  );
+  background-size: 300% 300%;
+  opacity: .25;
+  filter: blur(10px);
+}
+@media (hover:hover) and (pointer:fine){
+  .border-pulse::before{animation: borderPulse 4.8s ease-in-out infinite;}
+}
+@keyframes borderPulse{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@media (prefers-reduced-motion: reduce){
+  .border-pulse::before{animation:none!important}
+}
+
+/* ---------- Better marquee stability on different widths ---------- */
+.marquee-content{
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* ---------- Small responsive improvements ---------- */
+@media (max-width: 640px){
+  .text-stroke{-webkit-text-stroke:1px var(--emerald);}
+  .cursor-dot,.cursor-outline{display:none!important;}
+}
+
+/* ---------- Accessibility: reduce animation intensity when requested ---------- */
+@media (prefers-reduced-motion: reduce){
+  .pro-card:hover, .soft-card:hover { transform:none!important; }
+}
