@@ -27,7 +27,9 @@ line-height:1.8;
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.04em;color:#fff;text-decoration:none;flex-shrink:0}
 .nav-logo em{color:var(--em);font-style:normal}
 .nav-links{display:flex;align-items:center;gap:2.5rem}
-.nav-lnk{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);text-decoration:none;transition:color 0.2s ease}
+.nav-lnk{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);text-decoration:none;transition:color 0.2s ease;position:relative}
+.nav-lnk::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--em);transition:width 0.3s cubic-bezier(0.16,1,0.3,1)}
+.nav-lnk:hover::after{width:100%}
 .nav-lnk:hover,.nav-lnk.active{color:var(--em)}
 .nav-cta{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;background:var(--panel);color:#fff;padding:0.65rem 1.5rem;text-decoration:none;border:1px solid var(--line);transition:background 0.2s ease,border-color 0.2s ease,transform 0.2s ease;flex-shrink:0}
 .nav-cta:hover{background:var(--em-soft);border-color:rgba(16,185,129,0.45);transform:translateY(-1px)}
@@ -123,7 +125,7 @@ h1{font-size:2.5rem}
       <a href="services.html" class="nav-lnk">Services</a>
       <a href="why-us.html" class="nav-lnk">Why Us</a>
       <a href="audit.html" class="nav-lnk">Free Audit</a>
-      <a href="contact.html" class="nav-cta">Contact</a>
+      <a href="contact.html" class="nav-cta" style="background:transparent;border:1px solid var(--line);color:#fff;">Contact</a>
     </div>
     <button id="mob-btn" aria-label="Menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -148,9 +150,9 @@ These Terms of Service govern the use of this website and any services provided 
 </p>
 
 <div class="toplinks">
-<a class="pill" href="index.html">Home</a>
-<a class="pill" href="privacy.html">Privacy Policy</a>
-<a class="pill" href="contact.html">Contact</a>
+<a class="pill card-lift" href="index.html">Home</a>
+<a class="pill card-lift" href="privacy.html">Privacy Policy</a>
+<a class="pill card-lift" href="contact.html">Contact</a>
 </div>
 
 <div class="card">

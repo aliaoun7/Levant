@@ -275,7 +275,7 @@
       <h2 class="big-h" style="margin-bottom:1.5rem;">Tell Us What<br><em>You Need.</em></h2>
       <p style="font-size:1rem;line-height:1.8;color:var(--ink2);margin-bottom:3rem;max-width:360px;">A few details is all it takes. Tell us what you want to build, fix, or improve and we will take it from there.</p>
 
-      <div class="steps-list">
+      <div class="steps-list stagger">
         <div class="step-item">
           <div class="step-num">1</div>
           <div>
@@ -439,18 +439,18 @@
     <div class="footer-top">
       <a href="index.html" class="footer-logo">Levant<em>.</em></a>
       <nav class="footer-nav">
-        <a href="index.html" class="footer-lnk">Home</a>
-        <a href="services.html" class="footer-lnk">Services</a>
-        <a href="why-us.html" class="footer-lnk">Why Us</a>
-        <a href="audit.html" class="footer-lnk">Free Audit</a>
-        <a href="contact.html" class="footer-lnk" style="color:rgba(255,255,255,0.65)">Contact</a>
+        <a href="index.html" class="footer-lnk link-underline">Home</a>
+        <a href="services.html" class="footer-lnk link-underline">Services</a>
+        <a href="why-us.html" class="footer-lnk link-underline">Why Us</a>
+        <a href="audit.html" class="footer-lnk link-underline">Free Audit</a>
+        <a href="contact.html" class="footer-lnk link-underline" style="color:rgba(255,255,255,0.65)">Contact</a>
       </nav>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&#169; 2026 Levant Digital Marketing. All rights reserved.</div>
       <div style="display:flex;gap:2rem;">
-        <a href="privacy.html" class="footer-lnk">Privacy Policy</a>
-        <a href="terms.html" class="footer-lnk">Terms</a>
+        <a href="privacy.html" class="footer-lnk link-underline">Privacy Policy</a>
+        <a href="terms.html" class="footer-lnk link-underline">Terms</a>
       </div>
     </div>
   </div>
@@ -467,6 +467,7 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+  document.querySelectorAll('.stagger').forEach(el => obs.observe(el));
 
   const form = document.getElementById('contact-form');
   const successBox = document.getElementById('form-success');

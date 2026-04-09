@@ -521,7 +521,7 @@
       <p>These aren't aspirational values on a wall. They're operational rules that govern every project we take on. If we violate any of them, we owe you work at no charge.</p>
     </div>
 
-    <div class="principles reveal" style="transition-delay:.1s;">
+    <div class="principles reveal stagger" style="transition-delay:.1s;">
       <div class="principle-row">
         <div class="p-num">01</div>
         <div>
@@ -580,7 +580,7 @@
     </div>
 
     <div class="reveal-r" style="transition-delay:.1s;">
-      <div class="fit-grid">
+      <div class="fit-grid stagger">
         <div class="fit-col">
           <div class="fit-col-title yes">Good fit</div>
           <ul class="fit-list yes-list">
@@ -644,19 +644,18 @@
     <div class="footer-top">
       <a href="index.html" class="footer-logo">Levant<em>.</em></a>
       <nav class="footer-nav">
-        <a href="index.html" class="footer-lnk">Home</a>
-        <a href="services.html" class="footer-lnk">Services</a>
-        <a href="why-us.html" class="footer-lnk" style="color:rgba(255,255,255,0.65)">Why Us</a>
-
-        <a href="audit.html" class="footer-lnk">Free Audit</a>
-        <a href="contact.html" class="footer-lnk">Contact</a>
+        <a href="index.html" class="footer-lnk link-underline">Home</a>
+        <a href="services.html" class="footer-lnk link-underline">Services</a>
+        <a href="why-us.html" class="footer-lnk link-underline" style="color:rgba(255,255,255,0.65)">Why Us</a>
+        <a href="audit.html" class="footer-lnk link-underline">Free Audit</a>
+        <a href="contact.html" class="footer-lnk link-underline">Contact</a>
       </nav>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
       <div style="display:flex;gap:2rem;">
-        <a href="privacy.html" class="footer-lnk">Privacy Policy</a>
-        <a href="terms.html" class="footer-lnk">Terms</a>
+        <a href="privacy.html" class="footer-lnk link-underline">Privacy Policy</a>
+        <a href="terms.html" class="footer-lnk link-underline">Terms</a>
       </div>
     </div>
   </div>
@@ -672,6 +671,7 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+  document.querySelectorAll('.stagger').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

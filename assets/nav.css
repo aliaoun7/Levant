@@ -12,6 +12,15 @@
   --rule: rgba(0,0,0,0.08);
 }
 
+/* ── CSS VARIABLES FOR ANIMATIONS ── */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.8s;
+  --stagger-delay: 0.08s;
+}
+
 /* ── NAVIGATION ── */
 #nav {
   position: fixed;
@@ -27,7 +36,13 @@
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--rule);
-  transition: box-shadow 0.3s ease;
+  transition: background 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+}
+
+#nav.scrolled {
+  background: rgba(247, 246, 243, 0.98);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  border-bottom-color: rgba(0,0,0,0.06);
 }
 
 #nav.scrolled {
@@ -73,6 +88,22 @@
   text-decoration: none;
   transition: color 0.2s ease;
   position: relative;
+}
+
+.nav-lnk::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--cyan);
+  transition: width 0.3s var(--ease-out);
+}
+
+.nav-lnk:hover::after,
+.nav-lnk.active::after {
+  width: 100%;
 }
 
 .nav-lnk:hover,
@@ -193,16 +224,114 @@
   }
 }
 
-/* ── REDUCED MOTION ── */
-@media (prefers-reduced-motion: reduce) {
-  #nav,
-  .nav-cta,
-  .mob-lnk,
-  #mob-close {
-    transition: none;
+/* ── UTILITY CLASSES FOR ANIMATIONS ── */
+
+/* Stagger children animation */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slow) var(--ease-out), 
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.stagger.vis > * {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger > *:nth-child(1) { transition-delay: calc(var(--stagger-delay) * 0); }
+.stagger > *:nth-child(2) { transition-delay: calc(var(--stagger-delay) * 1); }
+.stagger > *:nth-child(3) { transition-delay: calc(var(--stagger-delay) * 2); }
+.stagger > *:nth-child(4) { transition-delay: calc(var(--stagger-delay) * 3); }
+.stagger > *:nth-child(5) { transition-delay: calc(var(--stagger-delay) * 4); }
+.stagger > *:nth-child(6) { transition-delay: calc(var(--stagger-delay) * 5); }
+.stagger > *:nth-child(7) { transition-delay: calc(var(--stagger-delay) * 6); }
+.stagger > *:nth-child(8) { transition-delay: calc(var(--stagger-delay) * 7); }
+
+/* Image hover zoom */
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.7s var(--ease-out);
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Card lift effect */
+.card-lift {
+  transition: transform 0.3s var(--ease-out), 
+              box-shadow 0.3s var(--ease-out);
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+}
+
+/* Link underline reveal (for footer links) */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s var(--ease-out);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ── MOBILE OPTIMIZED ANIMATIONS ── */
+@media (max-width: 768px) {
+  /* Reduce motion on mobile - fade only, no slide */
+  .reveal,
+  .reveal-l,
+  .reveal-r {
+    transform: none !important;
+    transition: opacity 0.5s ease;
   }
   
-  #mob-menu {
-    transition: none;
+  .stagger > * {
+    transform: none !important;
+    transition: opacity 0.4s ease;
+  }
+  
+  /* Disable heavy hover effects on touch devices */
+  .card-lift:hover,
+  .img-hover-zoom:hover img {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .reveal,
+  .reveal-l,
+  .reveal-r,
+  .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

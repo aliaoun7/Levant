@@ -371,7 +371,7 @@
 
   <!-- 01 Website Creation -->
   <div class="sv-strip">
-    <div class="sv-img reveal-l">
+    <div class="sv-img reveal-l img-hover-zoom">
       <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=85&fit=crop" alt="Developer building a website on dual monitors with live code"/>
       <div class="sv-img-overlay"></div>
       <div class="sv-badge">Most Popular</div>
@@ -411,7 +411,7 @@
       </ul>
       <a href="contact.html" class="sv-link">Start a branding project <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
-    <div class="sv-img reveal-r">
+    <div class="sv-img reveal-r img-hover-zoom">
       <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=85&fit=crop" alt="Designer working on brand identity with color swatches and logo concepts"/>
       <div class="sv-img-overlay"></div>
       <div class="sv-num">02</div>
@@ -420,7 +420,7 @@
 
   <!-- 03 Graphic Design -->
   <div class="sv-strip">
-    <div class="sv-img reveal-l">
+    <div class="sv-img reveal-l img-hover-zoom">
       <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=85&fit=crop" alt="Printed marketing collateral and branded materials design work"/>
       <div class="sv-img-overlay"></div>
       <div class="sv-num">03</div>
@@ -459,7 +459,7 @@
       </ul>
       <a href="contact.html" class="sv-link">Start an SEO project <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
-    <div class="sv-img reveal-r">
+    <div class="sv-img reveal-r img-hover-zoom">
       <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=85&fit=crop" alt="Analytics dashboard showing SEO metrics and search performance"/>
       <div class="sv-img-overlay"></div>
       <div class="sv-num">04</div>
@@ -468,7 +468,7 @@
 
   <!-- 05 Google Business -->
   <div class="sv-strip">
-    <div class="sv-img reveal-l">
+    <div class="sv-img reveal-l img-hover-zoom">
       <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=85&fit=crop" alt="Mobile phone showing Google Maps with local business location"/>
       <div class="sv-img-overlay"></div>
       <div class="sv-num">05</div>
@@ -499,7 +499,7 @@
       <div class="tag">Always Included</div>
       <h2 class="big-h">Included In<br><em>Every Project.</em></h2>
     </div>
-    <div class="addon-inner reveal" style="transition-delay:.1s;">
+    <div class="addon-inner reveal stagger" style="transition-delay:.1s;">
       <div class="addon-item">
         <div class="addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
         <div class="addon-title">SEO-Ready Architecture</div>
@@ -565,7 +565,7 @@
       <p>We keep the process lean and transparent so you always know where things stand — from first conversation to final handoff.</p>
     </div>
     <div class="process-layout">
-      <div class="process-img-wrap reveal-l">
+      <div class="process-img-wrap reveal-l img-hover-zoom">
         <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=85&fit=crop" alt="Marketing team collaboration and strategy planning"/>
         <div class="process-img-overlay"></div>
         <div class="process-stat"><strong>7</strong><span>Day avg. delivery</span></div>
@@ -635,18 +635,18 @@
     <div class="footer-top">
       <a href="index.html" class="footer-logo">Levant<em>.</em></a>
       <nav class="footer-nav">
-        <a href="index.html" class="footer-lnk">Home</a>
-        <a href="services.html" class="footer-lnk" style="color:rgba(255,255,255,0.65)">Services</a>
-        
-        <a href="audit.html" class="footer-lnk">Free Audit</a>
-        <a href="contact.html" class="footer-lnk">Contact</a>
+        <a href="index.html" class="footer-lnk link-underline">Home</a>
+        <a href="services.html" class="footer-lnk link-underline" style="color:rgba(255,255,255,0.65)">Services</a>
+        <a href="why-us.html" class="footer-lnk link-underline">Why Us</a>
+        <a href="audit.html" class="footer-lnk link-underline">Free Audit</a>
+        <a href="contact.html" class="footer-lnk link-underline">Contact</a>
       </nav>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
       <div style="display:flex;gap:2rem;">
-        <a href="privacy.html" class="footer-lnk">Privacy Policy</a>
-        <a href="terms.html" class="footer-lnk">Terms</a>
+        <a href="privacy.html" class="footer-lnk link-underline">Privacy Policy</a>
+        <a href="terms.html" class="footer-lnk link-underline">Terms</a>
       </div>
     </div>
   </div>
@@ -662,6 +662,7 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+  document.querySelectorAll('.stagger').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
