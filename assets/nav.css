@@ -59,7 +59,7 @@
 }
 
 .nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display, 'Satoshi', sans-serif);
   font-size: 2rem;
   letter-spacing: 0.04em;
   color: var(--ink);
@@ -79,7 +79,7 @@
 }
 
 .nav-lnk {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-ui, 'Satoshi', sans-serif);
   font-size: 0.72rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -126,7 +126,7 @@ textarea:focus-visible {
 }
 
 .nav-cta {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-ui, 'Satoshi', sans-serif);
   font-size: 0.72rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -210,7 +210,7 @@ body.menu-open {
 }
 
 .mob-lnk {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display, 'Satoshi', sans-serif);
   font-size: clamp(3rem, 10vw, 5rem);
   color: var(--ink);
   text-decoration: none;
