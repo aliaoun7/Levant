@@ -169,7 +169,8 @@
     .compare-header .tag { color: rgba(255,255,255,0.35); justify-content: center; }
     .compare-header .tag::before { background: rgba(255,255,255,0.25); }
     .compare-header .big-h { color: #fff; }
-    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare-table { width: 100%; border-collapse: collapse; min-width: 760px; }
     .compare-table thead tr { border-bottom: 1px solid rgba(255,255,255,0.08); }
     .compare-table th { padding: 1rem 1.5rem; text-align: left; font-family: 'DM Mono', monospace; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); font-weight: 400; }
     .compare-table th:first-child { width: 38%; }
@@ -356,7 +357,7 @@
       </div>
       <div class="reveal-r" style="transition-delay:.1s;">
         <p class="intro-right">Every service we offer is designed to work together. A website without SEO is just a brochure. A logo without a brand system is just decoration. We build complete digital foundations — not isolated deliverables.</p>
-        <p style="font-size:1rem; line-height:1.8; color:var(--ink2); margin-top:1.5rem; padding-left:1.75rem;">Most agencies upsell complexity. We don't. You get exactly what your business needs — nothing more. And when the job's done, everything is yours.</p>
+        <p style="font-size:1rem; line-height:1.8; color:var(--ink2); margin-top:1.5rem; padding-left:1.75rem;">Most agencies upsell complexity. We don't. You get exactly what your business needs — nothing more. And before work starts, your scope defines exactly what gets handed over at completion.</p>
       </div>
     </div>
   </div>
@@ -507,8 +508,8 @@
       </div>
       <div class="addon-item">
         <div class="addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="addon-title">Full File Ownership</div>
-        <p class="addon-desc">All source files, code, brand assets, and account access are yours on delivery. Nothing locked behind a subscription.</p>
+        <div class="addon-title">Ownership Terms Up Front</div>
+        <p class="addon-desc">Your scope defines what gets transferred, what stays licensed, and what account access is included at handoff.</p>
       </div>
       <div class="addon-item">
         <div class="addon-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
@@ -529,7 +530,7 @@
       <h2 class="big-h" style="color:#fff;">Levant vs.<br><em>The Alternatives.</em></h2>
       <p style="font-size:0.95rem; color:rgba(255,255,255,0.4); margin-top:1rem; max-width:460px; margin-left:auto; margin-right:auto;">What you get with Levant versus most agencies, freelancers, or DIY builders.</p>
     </div>
-    <div class="reveal" style="transition-delay:.1s; overflow-x:auto;">
+    <div class="reveal compare-table-wrap" style="transition-delay:.1s;">
       <table class="compare-table">
         <thead>
           <tr>
@@ -543,7 +544,7 @@
         <tbody>
           <tr><td>Custom-coded, no templates</td><td class="check highlight-col">✓</td><td class="check">✓</td><td>Varies</td><td class="cross">✗</td></tr>
           <tr><td>SEO included at no extra cost</td><td class="check highlight-col">✓</td><td class="cross">✗ (add-on)</td><td class="cross">✗</td><td class="cross">✗</td></tr>
-          <tr><td>Full file & account ownership</td><td class="check highlight-col">✓</td><td class="cross">Often no</td><td>Sometimes</td><td class="cross">✗</td></tr>
+          <tr><td>Clear ownership & account terms</td><td class="check highlight-col">✓</td><td class="cross">Often vague</td><td>Sometimes</td><td class="cross">✗</td></tr>
           <tr><td>No monthly retainer required</td><td class="check highlight-col">✓</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
           <tr><td>7–14 day delivery</td><td class="check highlight-col">✓</td><td class="cross">4–12 weeks</td><td>Unpredictable</td><td>You do the work</td></tr>
           <tr><td>Local Metro Detroit expertise</td><td class="check highlight-col">✓</td><td>Rarely</td><td>Rarely</td><td class="cross">✗</td></tr>
@@ -597,7 +598,7 @@
             <div class="tl-num">4</div>
             <div class="tl-body">
               <div class="tl-title">Launch & Full Handoff</div>
-              <p class="tl-desc">All files, credentials, and accounts transferred on delivery. Everything is yours. Ongoing support available — never required.</p>
+              <p class="tl-desc">Your handoff includes the files, credentials, and access defined in the written scope. Ongoing support is available if you want it, never assumed.</p>
             </div>
           </div>
         </div>
@@ -652,17 +653,6 @@
   </div>
 </footer>
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 50); }, { passive: true });
-  document.getElementById('mob-btn').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
-  document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open'));
-  document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open')));
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
-  document.querySelectorAll('.stagger').forEach(el => obs.observe(el));
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

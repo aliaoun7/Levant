@@ -378,7 +378,7 @@
     }
     @media(max-width: 700px) {
       .hero-inner { padding: 4rem 1.5rem 3rem; }
-      .hero-bottom { grid-template-columns: 1fr 1fr; padding: 1.5rem; }
+      .hero-bottom { grid-template-columns: 1fr; padding: 1.5rem; }
       .hero-scroll { display: none; }
       .statement-inner, .problem-inner, .standard-inner, .realtalk-inner, .proof-inner, .price-inner, .pledge-inner { padding: 4.5rem 1.5rem; }
       .fit-grid { grid-template-columns: 1fr; }
@@ -482,7 +482,7 @@
       <div class="pain-row">
         <div class="pain-index">02</div>
         <div class="pain-problem">Locked into monthly retainers</div>
-        <div class="pain-solution">Pay once. Own everything.</div>
+        <div class="pain-solution">Know the terms up front.</div>
       </div>
       <div class="pain-row">
         <div class="pain-index">03</div>
@@ -533,10 +533,10 @@
       <div class="principle-row">
         <div class="p-num">02</div>
         <div>
-          <div class="p-title">You Own Everything.</div>
-          <div class="p-sub">Code, files, brand assets, domain, hosting — all yours on delivery. We don't hold anything hostage. You could fire us the day after launch and lose nothing.</div>
+          <div class="p-title">Ownership Is Defined Up Front.</div>
+          <div class="p-sub">Your proposal spells out what is transferred, what stays third-party or licensed, and what access you receive at launch. We do not leave ownership vague or use access as leverage.</div>
         </div>
-        <div class="p-body">Most agencies retain admin access or host on their own servers to create dependency. We actively prevent that. Your business shouldn't be held hostage by your web agency.</div>
+        <div class="p-body">Most agencies keep ownership terms fuzzy until the project is already underway. We put those terms in writing before work starts so you know what you are paying for and what happens at handoff.</div>
       </div>
       <div class="principle-row">
         <div class="p-num">03</div>
@@ -588,7 +588,7 @@
             <li>You can dedicate time for feedback and key decisions</li>
             <li>You see digital marketing as an investment, not an expense</li>
             <li>You value honest guidance over comfortable answers</li>
-            <li>You want full ownership of everything we build together</li>
+            <li>You want clear ownership and handoff terms in writing</li>
             <li>You are ready to take your digital presence seriously</li>
           </ul>
         </div>
@@ -661,17 +661,6 @@
   </div>
 </footer>
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 50); }, { passive: true });
-  document.getElementById('mob-btn').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
-  document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open'));
-  document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open')));
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
-  document.querySelectorAll('.stagger').forEach(el => obs.observe(el));
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

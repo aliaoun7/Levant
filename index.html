@@ -447,6 +447,10 @@
       padding: 1.5rem 0; cursor: pointer;
       font-weight: 500; font-size: 1rem;
       color: var(--ink); transition: color .2s;
+      width: 100%;
+      border: none;
+      background: none;
+      text-align: left;
     }
     .faq-q:hover { color: var(--cyan); }
     .faq-plus {
@@ -941,47 +945,47 @@
 
       <div class="reveal-r" style="transition-delay:.15s;">
         <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1" onclick="toggleFaq(this)">
             What does "SEO-ready" actually mean?
             <div class="faq-plus">+</div>
-          </div>
-          <div class="faq-a">
+          </button>
+          <div class="faq-a" id="faq-a-1">
             <p>Proper headings, metadata, page structure, internal linking, and indexing readiness. It's the technical foundation — not a full ongoing SEO campaign, but what most businesses are completely missing and what gives Google everything it needs to rank you.</p>
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2" onclick="toggleFaq(this)">
             Can you redesign my existing site?
             <div class="faq-plus">+</div>
-          </div>
-          <div class="faq-a">
+          </button>
+          <div class="faq-a" id="faq-a-2">
             <p>Absolutely. We keep what's working and improve structure, visuals, speed, and mobile experience. You don't need to start from zero — we can build on what you have and dramatically improve the result.</p>
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3" onclick="toggleFaq(this)">
             How long does a website take?
             <div class="faq-plus">+</div>
-          </div>
-          <div class="faq-a">
+          </button>
+          <div class="faq-a" id="faq-a-3">
             <p>Most projects are completed in 1–2 weeks depending on scope. We give you a clear timeline before work begins so there are never surprises on delivery date. Simple sites have gone live in as little as 7 days.</p>
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            Do I own everything when it's done?
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" onclick="toggleFaq(this)">
+            How are ownership terms handled?
             <div class="faq-plus">+</div>
-          </div>
-          <div class="faq-a">
-            <p>Yes, completely. All source files, code, brand assets, and account access are transferred to you on delivery. Nothing is held back, nothing requires an ongoing subscription to keep working.</p>
+          </button>
+          <div class="faq-a" id="faq-a-4">
+            <p>We define ownership, access, and handoff terms in the written proposal before work starts. If transfer is included, the agreement spells out exactly what is delivered, what remains third-party or licensed, and what you receive at launch.</p>
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" onclick="toggleFaq(this)">
             Do you work with businesses outside Metro Detroit?
             <div class="faq-plus">+</div>
-          </div>
-          <div class="faq-a">
+          </button>
+          <div class="faq-a" id="faq-a-5">
             <p>We're Metro Detroit focused but work remotely with clients across Michigan and beyond. If you're serious about growing your digital presence, geography isn't a barrier — reach out and we'll see if we're a fit.</p>
           </div>
         </div>
@@ -1039,23 +1043,8 @@
   </div>
 </footer>
 
+<script src="assets/site.js"></script>
 <script>
-  // Nav scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 50); }, { passive: true });
-
-  // Mobile menu
-  document.getElementById('mob-btn').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
-  document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open'));
-  document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mob-menu').classList.remove('open')));
-
-  // Scroll reveal
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
-  document.querySelectorAll('.stagger').forEach(el => obs.observe(el));
-
   // FAQ
   function toggleFaq(btn) {
     const item = btn.parentElement;
@@ -1064,10 +1053,12 @@
     document.querySelectorAll('.faq-item').forEach(i => {
       i.classList.remove('open');
       i.querySelector('.faq-a').style.maxHeight = '0';
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
     });
     if (!isOpen) {
       item.classList.add('open');
       answer.style.maxHeight = answer.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
     }
   }
 

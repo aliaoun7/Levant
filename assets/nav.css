@@ -111,6 +111,20 @@
   color: var(--cyan);
 }
 
+.nav-lnk:focus-visible,
+.nav-cta:focus-visible,
+#mob-btn:focus-visible,
+#mob-close:focus-visible,
+.mob-lnk:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
 .nav-cta {
   font-family: 'DM Mono', monospace;
   font-size: 0.72rem;
@@ -166,6 +180,10 @@
   display: flex;
   opacity: 1;
   transform: translateY(0);
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 .mob-lnk {
