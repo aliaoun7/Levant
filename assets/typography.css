@@ -7,6 +7,13 @@
   --font-display: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
   --font-body: "General Sans", "Avenir Next", "Segoe UI", sans-serif;
   --font-ui: var(--font-display);
+  --content-width: 1320px;
+  --shell-gutter: clamp(1.5rem, 4vw, 3.75rem);
+  --section-space: clamp(5.75rem, 8vw, 8.5rem);
+  --section-space-sm: clamp(4.5rem, 6vw, 6.25rem);
+  --layout-gap: clamp(2.5rem, 4.8vw, 5.75rem);
+  --layout-gap-lg: clamp(3rem, 5.8vw, 6.5rem);
+  --copy-measure: 42rem;
 
   --type-step--1: clamp(0.88rem, 0.1vw + 0.85rem, 0.94rem);
   --type-step-0: clamp(1rem, 0.18vw + 0.96rem, 1.08rem);
@@ -77,6 +84,34 @@ li,
 
 p + p {
   margin-top: var(--space-copy);
+}
+
+.wrap,
+.footer-inner,
+.hero-inner,
+.hero-bottom,
+.contact-inner,
+.cta-inner,
+.areas-intro,
+.how-inner,
+.form-inner,
+.problem-inner,
+.standard-inner,
+.realtalk-inner,
+.proof-inner,
+.price-inner,
+.pledge-inner {
+  max-width: var(--content-width) !important;
+}
+
+.section {
+  padding-block: var(--section-space) !important;
+  padding-inline: var(--shell-gutter) !important;
+}
+
+.section-sm {
+  padding-block: var(--section-space-sm) !important;
+  padding-inline: var(--shell-gutter) !important;
 }
 
 h1,
@@ -286,6 +321,129 @@ h3 {
   line-height: 1.74;
 }
 
+.hero-left,
+.hero-inner {
+  padding-inline: clamp(1.75rem, 4vw, 4rem) !important;
+}
+
+.hero-left {
+  padding-block: clamp(4.75rem, 7vw, 6rem) !important;
+}
+
+.hero-bottom {
+  padding-inline: clamp(1.75rem, 4vw, 4rem) !important;
+  padding-block: clamp(2rem, 3vw, 2.75rem) !important;
+  gap: clamp(1.5rem, 3vw, 3rem) !important;
+}
+
+.about-content,
+.contact-inner,
+.how-inner,
+.form-inner,
+.problem-inner,
+.standard-inner,
+.proof-inner,
+.price-inner,
+.pledge-inner,
+.realtalk-inner,
+.cta-inner {
+  padding-inline: clamp(1.75rem, 4vw, 4rem) !important;
+}
+
+.about-content,
+.contact-inner,
+.how-inner,
+.form-inner,
+.problem-inner,
+.standard-inner,
+.proof-inner,
+.price-inner,
+.pledge-inner,
+.realtalk-inner {
+  padding-block: clamp(5.5rem, 8vw, 7.5rem) !important;
+}
+
+.cta-inner {
+  padding-block: clamp(6rem, 9vw, 8.5rem) !important;
+  gap: var(--layout-gap) !important;
+}
+
+.areas-intro {
+  padding: clamp(5.75rem, 8vw, 7.25rem) clamp(1.75rem, 4vw, 4rem) 0 !important;
+  gap: var(--layout-gap) !important;
+  margin-bottom: clamp(3rem, 5vw, 4.75rem) !important;
+}
+
+.areas-grid {
+  padding: 0 clamp(1.75rem, 4vw, 4rem) clamp(5.5rem, 8vw, 7rem) !important;
+}
+
+.intro-inner,
+.process-layout,
+.testi-layout,
+.faq-layout,
+.contact-inner,
+.how-inner,
+.form-inner,
+.realtalk-inner,
+.pledge-inner {
+  gap: var(--layout-gap-lg) !important;
+}
+
+.services-header,
+.standard-head,
+.price-head,
+.process-head {
+  gap: var(--layout-gap) !important;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem) !important;
+}
+
+.services-header {
+  padding-bottom: clamp(2.5rem, 4vw, 3.75rem) !important;
+}
+
+.hero-sub,
+.about-body,
+.cta-right p,
+.intro-left p,
+.intro-right p,
+.areas-intro p,
+.how-left p,
+.form-left > p,
+.statement-copy,
+.pledge-body,
+.testi-text,
+.results-strip-text p {
+  max-width: var(--copy-measure);
+}
+
+.hero-sub {
+  margin-bottom: clamp(2rem, 3.4vw, 3rem) !important;
+}
+
+.hero-actions {
+  gap: 0.9rem 1rem !important;
+  margin-bottom: clamp(2.5rem, 4vw, 3.75rem) !important;
+}
+
+.hero-trust {
+  margin-top: clamp(3rem, 4.5vw, 4.5rem) !important;
+  padding-top: clamp(2rem, 3vw, 3rem) !important;
+  gap: clamp(1.25rem, 3vw, 2.5rem) !important;
+}
+
+.footer-top {
+  gap: clamp(1.5rem, 3vw, 2.5rem) !important;
+  padding-bottom: clamp(2rem, 3vw, 2.75rem) !important;
+  margin-bottom: clamp(2rem, 3vw, 2.75rem) !important;
+}
+
+.testi-right,
+.cta-right,
+.footer-nav {
+  gap: clamp(1.25rem, 2vw, 2rem) !important;
+}
+
 .info-title,
 .step-title,
 .area-title,
@@ -380,6 +538,33 @@ select.field-input {
     font-size: 1rem;
   }
 
+  .section {
+    padding-block: clamp(4.5rem, 8vw, 5.75rem) !important;
+  }
+
+  .section-sm {
+    padding-block: clamp(3.75rem, 6vw, 4.75rem) !important;
+  }
+
+  .hero-left,
+  .hero-inner,
+  .hero-bottom,
+  .about-content,
+  .contact-inner,
+  .how-inner,
+  .form-inner,
+  .problem-inner,
+  .standard-inner,
+  .proof-inner,
+  .price-inner,
+  .pledge-inner,
+  .realtalk-inner,
+  .cta-inner,
+  .areas-intro,
+  .areas-grid {
+    padding-inline: 1.5rem !important;
+  }
+
   .hero-h1 {
     letter-spacing: -0.04em !important;
   }
@@ -387,6 +572,19 @@ select.field-input {
   .big-h,
   .cta-h {
     letter-spacing: -0.042em !important;
+  }
+
+  .intro-inner,
+  .process-layout,
+  .testi-layout,
+  .faq-layout,
+  .contact-inner,
+  .how-inner,
+  .form-inner,
+  .realtalk-inner,
+  .pledge-inner,
+  .cta-inner {
+    gap: clamp(2.25rem, 5vw, 3.5rem) !important;
   }
 
   p,
@@ -410,6 +608,29 @@ select.field-input {
 @media (max-width: 640px) {
   p + p {
     margin-top: 0.95rem;
+  }
+
+  .hero-left,
+  .hero-inner {
+    padding-block: 3.75rem !important;
+  }
+
+  .hero-bottom {
+    padding-block: 1.5rem !important;
+  }
+
+  .about-content,
+  .contact-inner,
+  .how-inner,
+  .form-inner,
+  .problem-inner,
+  .standard-inner,
+  .proof-inner,
+  .price-inner,
+  .pledge-inner,
+  .realtalk-inner,
+  .cta-inner {
+    padding-block: 4.5rem !important;
   }
 
   .hero-sub,

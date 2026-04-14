@@ -45,7 +45,7 @@
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
+      min-height: clamp(700px, 100svh, 860px);
       padding-top: 72px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -122,10 +122,33 @@
     .hero-right {
       position: relative; overflow: hidden;
     }
-    .hero-right img { height: 100%; width: 100%; object-fit: cover; }
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to right,
+        var(--ink) 0%,
+        rgba(17,17,17,0.9) 18%,
+        rgba(17,17,17,0.42) 42%,
+        transparent 70%
+      );
+    }
+    .hero-right img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: brightness(0.46) saturate(1.08);
+    }
     .hero-right-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(17,17,17,0.5) 0%, transparent 50%);
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(to bottom, rgba(17,17,17,0.1) 0%, rgba(17,17,17,0.02) 34%, rgba(17,17,17,0.16) 100%),
+        radial-gradient(circle at 78% 24%, rgba(6,182,212,0.08), transparent 32%);
     }
     .hero-tag {
       position: absolute; bottom: 2.5rem; right: 2.5rem;
@@ -434,8 +457,19 @@
     /* ── FAQ ── */
     .faq-section { background: var(--bg2); }
     .faq-layout { display: grid; grid-template-columns: 5fr 7fr; gap: 6rem; align-items: start; }
-    .faq-left-img { margin-top: 3rem; position: relative; overflow: hidden; aspect-ratio: 3/4; }
-    .faq-left-img img { height: 100%; object-fit: cover; }
+    .faq-left-img {
+      margin-top: 2.25rem;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 5 / 4;
+      width: 100%;
+      max-width: 460px;
+    }
+    .faq-left-img img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
     .faq-left-img::after {
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(6,182,212,0.15) 0%, transparent 60%);
@@ -527,7 +561,20 @@
     /* ── RESPONSIVE ── */
     @media(max-width: 1100px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-right { height: 55vw; min-height: 320px; }
+      .hero-right { height: clamp(340px, 55vw, 520px); min-height: 320px; }
+      .hero-right::before {
+        background: linear-gradient(
+          to bottom,
+          var(--ink) 0%,
+          rgba(17,17,17,0.82) 20%,
+          rgba(17,17,17,0.28) 46%,
+          transparent 72%
+        );
+      }
+      .hero-right img { object-position: center 42%; }
+      .hero-right-overlay {
+        background: linear-gradient(to bottom, rgba(17,17,17,0.08) 0%, rgba(17,17,17,0.18) 100%);
+      }
       .about-grid { grid-template-columns: 1fr; }
       .about-content { padding: 4rem 2rem; }
       .services-asym { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
@@ -540,12 +587,22 @@
       .p-step { border-bottom: 1px solid var(--rule); }
       .testi-layout { grid-template-columns: 1fr; gap: 2rem; }
       .testi-left { position: static; }
-      .faq-layout { grid-template-columns: 1fr; gap: 2rem; }
-      .faq-left-img { display: none; }
+      .faq-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .faq-left-img {
+        display: block;
+        margin-top: 2rem;
+        max-width: 520px;
+        aspect-ratio: 16 / 10;
+      }
       .cta-inner { grid-template-columns: 1fr; padding: 5rem 2rem; }
     }
     @media(max-width: 700px) {
       .hero-left { padding: 4rem 1.5rem; }
+      .hero-right { height: clamp(300px, 72vw, 400px); min-height: 300px; }
+      .hero-right img { object-position: center 34%; }
+      .hero-right-overlay {
+        background: linear-gradient(to bottom, rgba(17,17,17,0.06) 0%, rgba(17,17,17,0.22) 100%);
+      }
       .services-asym { grid-template-columns: 1fr; }
       .results-nums { grid-template-columns: 1fr 1fr; }
       .process-steps { grid-template-columns: 1fr; }
@@ -606,7 +663,7 @@
         Start Your Empire
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="why-us.html" class="btn-ghost">View Work</a>
+      <a href="why-us.html" class="btn-ghost">Why Us</a>
     </div>
     <div class="hero-trust">
       <div class="trust-item">
@@ -626,7 +683,7 @@
 
   <div class="hero-right">
     <!-- SEO/analytics team at work: people viewing dashboards, real agency feel -->
-    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=90&fit=crop" alt="Digital marketing analytics team reviewing growth data" loading="eager" fetchpriority="high" decoding="async"/>
+    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&q=90&fit=crop" alt="Premium modern creative office interior with refined workspace lighting and glass architecture" loading="eager" fetchpriority="high" decoding="async"/>
     <div class="hero-right-overlay"></div>
     <div class="hero-tag">
       <div class="hero-tag-label">Avg. SEO Traffic Lift</div>
@@ -938,8 +995,7 @@
         <h2 class="big-h" style="margin-bottom:1.5rem;">Straight<br>Answers.<br><em>No Fluff.</em></h2>
         <p style="font-size:0.95rem; line-height:1.8; color:var(--ink2); max-width:300px;">We'd rather set real expectations upfront than promise the moon and deliver a flashlight.</p>
         <div class="faq-left-img img-hover-zoom">
-          <!-- SEO audit / laptop screen -->
-          <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=85&fit=crop" alt="SEO audit and keyword research on laptop" loading="lazy" decoding="async"/>
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=85&fit=crop" alt="Digital strategy planning session with laptop, campaign notes, and team collaboration" loading="lazy" decoding="async"/>
         </div>
       </div>
 
