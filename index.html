@@ -3,1128 +3,1078 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Levant Digital Marketing | Strategic Digital Growth</title>
-  <meta name="description" content="Levant Digital Marketing — strategic websites, brand identity, and SEO for Metro Detroit businesses ready to grow."/>
-  <meta name="theme-color" content="#0F2233"/>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <title>Levant Digital Marketing | We Build Digital Empires</title>
+  <meta name="description" content="Levant Digital Marketing builds digital empires for Metro Detroit businesses. Websites, branding, and SEO excellence."/>
+  <meta name="theme-color" content="#06b6d4"/>
+  <link rel="preconnect" href="https://api.fontshare.com"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@500,700,900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/nav.css"/>
 
   <style>
-    /* ─────────────────────────────────────
-       BRAND TOKENS — Levant Brand Kit
-    ───────────────────────────────────── */
     :root {
-      --navy:       #0F2233;
-      --navy-deep:  #091525;
-      --navy-mid:   #132840;
-      --teal:       #1F8A8A;
-      --teal-faint: rgba(31,138,138,0.10);
-      --teal-mid:   rgba(31,138,138,0.28);
-      --sand:       #D8C3A5;
-      --sand-light: #EBE0CE;
-      --coral:      #E57A6A;
-      --ivory:      #F7F3EE;
-      --ivory-warm: #F0EAE1;
-      --slate:      #5C6B73;
-      --mist:       #E8EEF0;
-      --font-h:     'Playfair Display', Georgia, serif;
-      --font-b:     'Montserrat', system-ui, sans-serif;
-      --ease:       cubic-bezier(0.16, 1, 0.3, 1);
+      --cyan: #06b6d4;
+      --cyan-dim: rgba(6,182,212,0.12);
+      --cyan-border: rgba(6,182,212,0.35);
+      --cyan-glow: rgba(6,182,212,0.18);
+      --bg: #f7f6f3;
+      --bg2: #ffffff;
+      --ink: #111111;
+      --ink2: #444444;
+      --ink3: #888888;
+      --rule: rgba(0,0,0,0.08);
+      --panel: rgba(255,255,255,0.82);
+      --panel-shadow: 0 28px 72px rgba(12,18,24,0.08);
+      --section-shadow: 0 18px 48px rgba(12,18,24,0.06);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-b);
-      background: var(--ivory);
-      color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(6,182,212,0.045), transparent 20%),
+        radial-gradient(circle at 82% 12%, rgba(17,17,17,0.03), transparent 24%),
+        var(--bg);
+      color: var(--ink);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
+    ::selection { background: var(--cyan); color: #fff; }
     img { display: block; width: 100%; object-fit: cover; }
-    a { text-decoration: none; color: inherit; }
-    ::selection { background: var(--teal); color: #fff; }
 
     /* ── REVEAL ── */
-    .rv   { opacity:0; transform:translateY(28px);  transition:opacity .9s var(--ease),transform .9s var(--ease); }
-    .rv-l { opacity:0; transform:translateX(-28px); transition:opacity .9s var(--ease),transform .9s var(--ease); }
-    .rv-r { opacity:0; transform:translateX(28px);  transition:opacity .9s var(--ease),transform .9s var(--ease); }
-    .rv-s { opacity:0; transform:scale(0.97);       transition:opacity 1s  var(--ease),transform 1s  var(--ease); }
-    .rv.in,.rv-l.in,.rv-r.in,.rv-s.in { opacity:1; transform:none; }
-    .d1{transition-delay:.10s} .d2{transition-delay:.22s}
-    .d3{transition-delay:.34s} .d4{transition-delay:.46s}
-    .d5{transition-delay:.58s}
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity .72s cubic-bezier(.16,1,.3,1), transform .72s cubic-bezier(.16,1,.3,1); }
+    .reveal.vis { opacity: 1; transform: none; }
+    .reveal-l { opacity: 0; transform: translateX(-32px); transition: opacity .72s cubic-bezier(.16,1,.3,1), transform .72s cubic-bezier(.16,1,.3,1); }
+    .reveal-l.vis { opacity: 1; transform: none; }
+    .reveal-r { opacity: 0; transform: translateX(32px); transition: opacity .72s cubic-bezier(.16,1,.3,1), transform .72s cubic-bezier(.16,1,.3,1); }
+    .reveal-r.vis { opacity: 1; transform: none; }
 
-    /* ════════════════════════════════════
-       NAV — confident, weighted, present
-    ════════════════════════════════════ */
-    #nav {
-      position: fixed; top:0; left:0; right:0; z-index:400;
-      height: 76px;                         /* taller — commands space */
-      display: flex; align-items: center;
-      padding: 0 4.5rem;
-      transition: background .35s ease, border-color .35s ease, box-shadow .35s ease;
-      border-bottom: 1px solid transparent;
-    }
-    #nav.over-hero { background: transparent; }
-    #nav.scrolled {
-      background: rgba(247,243,238,0.98);
-      backdrop-filter: blur(22px);
-      border-bottom-color: rgba(15,34,51,0.08);
-      box-shadow: 0 1px 0 rgba(15,34,51,0.06), 0 4px 28px rgba(15,34,51,0.05);
-    }
-    .nav-inner {
-      max-width: 1400px; width:100%; margin:auto;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-
-    /* Logo — heavier, more present */
-    .nav-logo {
-      font-family: var(--font-h);
-      font-size: 1.6rem;                    /* up from 1.3rem */
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      color: var(--ivory);
-      transition: color .3s;
-    }
-    #nav.scrolled .nav-logo { color: var(--navy); }
-    .nav-logo-accent { color: var(--teal); }
-
-    /* Links */
-    .nav-links { display:flex; align-items:center; gap:2.75rem; }
-    .nav-lnk {
-      font-size: .67rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-      color: rgba(255,255,255,.58);
-      transition: color .2s;
-      position: relative;
-    }
-    .nav-lnk::after {
-      content:''; position:absolute; bottom:-4px; left:0;
-      width:0; height:1px; background:var(--teal);
-      transition: width .25s var(--ease);
-    }
-    .nav-lnk:hover { color:rgba(255,255,255,.95); }
-    .nav-lnk:hover::after { width:100%; }
-    #nav.scrolled .nav-lnk { color:rgba(15,34,51,.48); }
-    #nav.scrolled .nav-lnk:hover { color:var(--teal); }
-    #nav.scrolled .nav-lnk:hover::after { background:var(--teal); }
-
-    /* CTA */
-    .nav-cta {
-      font-size: .67rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-      background: var(--teal); color:#fff;
-      padding: .72rem 1.6rem;
-      transition: background .2s, transform .18s, box-shadow .2s;
-    }
-    .nav-cta:hover {
-      background: #187272;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(31,138,138,.28);
-    }
-
-    /* Mobile */
-    #mob-btn {
-      display:none; background:none; border:none;
-      cursor:pointer; color:rgba(255,255,255,.85); padding:.3rem;
-    }
-    #nav.scrolled #mob-btn { color:var(--navy); }
-    #mob-menu {
-      display:none; position:fixed; inset:0; z-index:399;
-      background:var(--ivory); flex-direction:column;
-      align-items:center; justify-content:center; gap:1.75rem;
-    }
-    #mob-menu.open { display:flex; }
-    #mob-close {
-      position:absolute; top:1.25rem; right:2rem;
-      background:none; border:none; font-size:2rem;
-      cursor:pointer; color:var(--navy); line-height:1;
-    }
-    .mob-lnk {
-      font-family:var(--font-h); font-size:2.6rem; font-weight:600;
-      color:var(--navy); transition:color .2s;
-    }
-    .mob-lnk:hover { color:var(--teal); }
-
-    /* ════════════════════════════════════
-       HERO — full-bleed, illustration bg
-       Overlay: bottom-only, minimal.
-       Upper 50%+ of artwork untouched.
-    ════════════════════════════════════ */
+    /* ── HERO ── */
     .hero {
-      position:relative; width:100%;
-      height:100svh; min-height:700px; max-height:980px;
-      overflow:hidden;
-      display:flex; flex-direction:column;
-    }
-    .hero-img-wrap {
-      position:absolute; inset:0; z-index:0;
-    }
-    .hero-img-wrap img {
-      width:100%; height:100%;
-      object-fit:cover;
-      object-position:center 20%;
-    }
-    /* Bottom-only overlay — stops at 55% */
-    .hero-overlay {
-      position:absolute; inset:0; z-index:1; pointer-events:none;
-      background:
-        linear-gradient(to top,
-          rgba(9,21,37,.84) 0%,
-          rgba(9,21,37,.58) 18%,
-          rgba(9,21,37,.22) 36%,
-          rgba(9,21,37,.04) 55%,
-          transparent 70%
-        ),
-        linear-gradient(to right,
-          rgba(9,21,37,.18) 0%,
-          transparent 44%
-        );
-    }
-    /* 2px brand line — top only */
-    .hero-brand-line {
-      position:absolute; top:0; left:0; right:0; height:2px; z-index:3;
-      background:linear-gradient(90deg,var(--teal) 0%,var(--sand) 55%,var(--coral) 100%);
-    }
-    /* Content — absolute bottom */
-    .hero-content {
-      position:absolute; bottom:0; left:0; right:0; z-index:2;
-      padding:0 4.5rem 5rem;
-    }
-    .hero-content-inner {
-      max-width:1400px; margin:0 auto;
-      display:flex; align-items:flex-end; justify-content:space-between; gap:4rem;
-    }
-    .hero-left { flex:0 0 auto; max-width:560px; }
-    .hero-eyebrow {
-      display:inline-flex; align-items:center; gap:.65rem;
-      font-size:.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-      color:var(--teal); margin-bottom:1.5rem;
-    }
-    .hero-eyebrow::before { content:''; width:22px; height:1px; background:var(--teal); }
-    .hero-h1 {
-      font-family:var(--font-h);
-      font-size:clamp(3.2rem, 5.5vw, 6.4rem);
-      font-weight:400; line-height:1.06; letter-spacing:-.02em;
-      color:var(--ivory); margin-bottom:1.5rem;
-    }
-    .hero-h1 em { font-style:italic; color:var(--sand); }
-    .hero-h1 strong { font-weight:700; }
-    .hero-sub {
-      font-size:.88rem; line-height:1.85; color:rgba(247,243,238,.5);
-      max-width:400px; margin-bottom:2.25rem;
-    }
-    .hero-ctas { display:flex; gap:.85rem; flex-wrap:wrap; align-items:center; }
-    .btn-primary {
-      display:inline-flex; align-items:center; gap:.5rem;
-      font-size:.67rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      background:var(--teal); color:#fff; padding:.9rem 1.85rem;
-      transition:background .2s,transform .2s,box-shadow .2s;
-    }
-    .btn-primary:hover { background:#187272; transform:translateY(-2px); box-shadow:0 12px 28px rgba(31,138,138,.3); }
-    .btn-ghost {
-      display:inline-flex; align-items:center; gap:.5rem;
-      font-size:.67rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      border:1px solid rgba(247,243,238,.25); color:rgba(247,243,238,.65);
-      padding:.9rem 1.85rem;
-      transition:border-color .2s,color .2s;
-    }
-    .btn-ghost:hover { border-color:var(--sand); color:var(--sand); }
-    /* Proof column — quiet, right */
-    .hero-proof {
-      flex:0 0 auto;
-      display:flex; flex-direction:column; align-items:flex-end; gap:0;
-    }
-    .proof-stat {
-      text-align:right; padding:.8rem 0;
-      border-bottom:1px solid rgba(247,243,238,.07);
-    }
-    .proof-stat:last-child { border-bottom:none; }
-    .proof-num {
-      font-family:var(--font-h);
-      font-size:2rem; font-weight:700; line-height:1; letter-spacing:-.03em;
-      color:var(--sand);
-    }
-    .proof-label {
-      font-size:.57rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
-      color:rgba(247,243,238,.3); margin-top:.18rem;
-    }
-    /* Scroll caret */
-    .hero-scroll {
-      position:absolute; bottom:1.75rem; left:50%;
-      transform:translateX(-50%); z-index:3;
-      display:flex; flex-direction:column; align-items:center;
-      cursor:pointer; opacity:.4; transition:opacity .2s;
-      animation:float-caret 2.8s ease-in-out infinite;
-    }
-    .hero-scroll:hover { opacity:.75; }
-    .hero-scroll-line { width:1px; height:36px; background:linear-gradient(to bottom,rgba(247,243,238,.6),transparent); }
-    @keyframes float-caret {
-      0%,100%{transform:translateX(-50%) translateY(0)}
-      50%{transform:translateX(-50%) translateY(5px)}
-    }
-
-    /* ════════════════════════════════════
-       MARQUEE
-    ════════════════════════════════════ */
-    .marquee-bar { background:var(--navy); padding:1rem 0; overflow:hidden; border-top:1px solid rgba(255,255,255,.04); }
-    .marquee-track { display:flex; white-space:nowrap; animation:ticker 40s linear infinite; }
-    .marquee-track:hover { animation-play-state:paused; }
-    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    .marquee-item {
-      display:inline-flex; align-items:center; gap:2rem; padding:0 2rem;
-      font-size:.58rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-      color:rgba(255,255,255,.2);
-    }
-    .m-dot { width:3px; height:3px; border-radius:50%; background:var(--teal); flex-shrink:0; }
-
-    /* ════════════════════════════════════
-       UTILITIES
-    ════════════════════════════════════ */
-    .wrap { max-width:1400px; margin:auto; }
-    .sec { padding:8rem 4.5rem; }
-    .eyebrow {
-      display:inline-flex; align-items:center; gap:.65rem;
-      font-size:.6rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
-      color:var(--teal); margin-bottom:1.5rem;
-    }
-    .eyebrow::before { content:''; width:22px; height:1px; background:var(--teal); }
-    .dh {
-      font-family:var(--font-h);
-      font-size:clamp(2.4rem,3.8vw,4.2rem);
-      font-weight:400; line-height:1.1; letter-spacing:-.01em; color:var(--navy);
-    }
-    .dh em { font-style:italic; color:var(--teal); }
-    .dh-ivory { color:var(--ivory); }
-    .dh-ivory em { color:var(--sand); }
-    .rule { height:1px; background:rgba(15,34,51,.07); }
-    .brand-line { height:2px; background:linear-gradient(90deg,var(--teal),var(--sand) 55%,var(--coral)); }
-
-    /* ════════════════════════════════════
-       MANIFESTO
-    ════════════════════════════════════ */
-    .manifesto { background:var(--ivory-warm); }
-    .manifesto-inner {
-      max-width:1400px; margin:auto; padding:8rem 4.5rem;
-      display:grid; grid-template-columns:5fr 7fr; gap:7rem; align-items:start;
-    }
-    .manifesto-left { position:sticky; top:100px; }
-    .manifesto-kicker {
-      font-family:var(--font-h);
-      font-size:clamp(1.4rem,2vw,2rem);
-      font-weight:400; line-height:1.3; color:var(--navy); margin-top:1rem;
-    }
-    .manifesto-kicker em { font-style:italic; color:var(--teal); }
-    .manifesto-stmt {
-      font-family:var(--font-h);
-      font-size:clamp(1.8rem,2.8vw,3rem);
-      font-weight:400; line-height:1.2; letter-spacing:-.01em;
-      color:var(--navy); margin-bottom:1.75rem;
-    }
-    .manifesto-stmt em { font-style:italic; color:var(--slate); }
-    .manifesto-body { font-size:.92rem; line-height:1.9; color:var(--slate); max-width:520px; margin-bottom:2.75rem; }
-    .pillars {
-      display:grid; grid-template-columns:repeat(3,1fr);
-      background:rgba(15,34,51,.07); border:1px solid rgba(15,34,51,.07);
-    }
-    .pillar {
-      background:var(--ivory-warm); padding:1.75rem 1.5rem;
-      border-right:1px solid rgba(15,34,51,.07);
-      transition:background .25s;
-    }
-    .pillar:last-child { border-right:none; }
-    .pillar:hover { background:var(--mist); }
-    .pillar-n { font-size:.57rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--teal); margin-bottom:.8rem; }
-    .pillar-t { font-family:var(--font-h); font-size:1.05rem; font-weight:600; color:var(--navy); margin-bottom:.45rem; }
-    .pillar-d { font-size:.78rem; line-height:1.75; color:var(--slate); }
-
-    /* ════════════════════════════════════
-       SERVICES
-    ════════════════════════════════════ */
-    .services-sec { background:var(--navy); position:relative; overflow:hidden; }
-    .services-sec::before {
-      content:''; position:absolute; inset:0; pointer-events:none;
-      background:
-        radial-gradient(circle at 4% 90%,rgba(31,138,138,.14),transparent 36%),
-        radial-gradient(circle at 95% 8%,rgba(216,195,165,.05),transparent 30%);
-    }
-    .services-header {
-      display:flex; align-items:flex-end; justify-content:space-between;
-      flex-wrap:wrap; gap:2rem;
-      padding-bottom:3.5rem; border-bottom:1px solid rgba(255,255,255,.06);
-      position:relative; z-index:1;
-    }
-    .services-header .eyebrow { color:rgba(255,255,255,.38); }
-    .services-header .eyebrow::before { background:rgba(255,255,255,.22); }
-    .link-teal {
-      font-size:.63rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      color:var(--teal); display:inline-flex; align-items:center; gap:.4rem;
-      border-bottom:1px solid rgba(31,138,138,.3); padding-bottom:.06rem;
-      transition:gap .2s,border-color .2s;
-    }
-    .link-teal:hover { gap:.7rem; border-color:var(--teal); }
-    .svc-list { position:relative; z-index:1; }
-    .svc-row {
-      display:grid; grid-template-columns:5rem 1fr auto;
-      align-items:center; gap:2.5rem;
-      padding:2rem 0; border-bottom:1px solid rgba(255,255,255,.05);
-      position:relative; cursor:default;
-      transition:padding-left .32s var(--ease);
-    }
-    .svc-row::before {
-      content:''; position:absolute; inset:0;
-      background:rgba(31,138,138,.05); width:0;
-      transition:width .38s var(--ease);
-    }
-    .svc-row:hover { padding-left:1.1rem; }
-    .svc-row:hover::before { width:100%; }
-    .svc-num {
-      font-family:var(--font-h); font-size:2.6rem; font-weight:700;
-      line-height:1; letter-spacing:-.04em;
-      color:rgba(255,255,255,.06); transition:color .25s; flex-shrink:0;
-    }
-    .svc-row:hover .svc-num { color:rgba(31,138,138,.18); }
-    .svc-title { font-family:var(--font-h); font-size:1.45rem; font-weight:600; color:var(--ivory); margin-bottom:.35rem; line-height:1.2; }
-    .svc-desc { font-size:.8rem; line-height:1.8; color:rgba(247,243,238,.36); max-width:500px; }
-    .svc-pill {
-      font-size:.56rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
-      color:var(--teal); border:1px solid rgba(31,138,138,.25);
-      padding:.3rem .85rem; flex-shrink:0;
-      opacity:0; transition:opacity .22s;
-    }
-    .svc-row:hover .svc-pill { opacity:1; }
-    .svc-cta-bar {
-      margin-top:3.5rem; padding:2rem 2.5rem;
-      background:var(--teal);
-      display:flex; align-items:center; justify-content:space-between;
-      gap:2rem; flex-wrap:wrap; position:relative; z-index:1;
-    }
-    .svc-cta-bar p { font-family:var(--font-h); font-style:italic; font-size:1.2rem; color:#fff; }
-    .btn-ivory {
-      display:inline-flex; align-items:center; gap:.4rem;
-      font-size:.63rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      background:var(--ivory); color:var(--navy);
-      padding:.8rem 1.6rem; flex-shrink:0;
-      transition:background .2s,transform .2s;
-    }
-    .btn-ivory:hover { background:var(--sand-light); transform:translateY(-1px); }
-
-    /* ════════════════════════════════════════════════════════
-       FEATURE SECTION — rebuilt completely
-       
-       The illustration (VPvI7de.png) is the Levant branded
-       cityscape/skyline artwork. It has a dark navy bottom
-       (water, devices, buildings) and a warm sand/sky upper.
-       
-       Strategy: Set the section background to deep navy.
-       The illustration's dark lower half dissolves into the
-       section — it becomes part of the environment, not a
-       framed picture. The artwork reads as atmospheric.
-       
-       Copy column: sits on a deep navy panel with ivory text.
-       No ivory background that neuters the illustration.
-       
-       Headline: Much larger. One line per thought.
-       Scale contrast is the focal point.
-       
-       The composition: illustration fills the left ~55%
-       and bleeds into the section bg. Copy anchors right.
-       A single teal vertical rule divides them. That's it.
-    ════════════════════════════════════════════════════════ */
-    .feature-sec {
-      background: var(--navy-deep);
+      min-height: clamp(700px, 100svh, 860px);
+      padding-top: 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       position: relative;
       overflow: hidden;
     }
-
-    /* Atmospheric teal glow — top left, very subtle */
-    .feature-sec::before {
-      content:''; position:absolute;
-      top:-20%; left:-10%; width:55%; height:80%;
-      background:radial-gradient(ellipse at 30% 30%,rgba(31,138,138,.10),transparent 60%);
-      pointer-events:none;
+    .hero-left {
+      background: var(--ink);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 5rem 4rem 5rem 3rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 2.5rem;
+    }
+    .hero-eyebrow span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--cyan);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+    .hero-h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4.5rem, 8vw, 8rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: #fff;
+      margin-bottom: 2.5rem;
+    }
+    .hero-h1 em { color: var(--cyan); font-style: normal; display: block; }
+    .hero-sub {
+      font-size: 1.1rem; line-height: 1.75;
+      color: rgba(255,255,255,0.55);
+      max-width: 420px; margin-bottom: 3.5rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .btn-primary {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--cyan); color: #fff;
+      padding: 1rem 2.25rem; text-decoration: none;
+      box-shadow: 0 16px 34px rgba(6,182,212,0.16);
+      transition: transform .2s, box-shadow .2s, filter .2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(6,182,212,0.28); filter: saturate(1.04); }
+    .btn-primary:active { transform: translateY(0); box-shadow: 0 10px 22px rgba(6,182,212,0.2); }
+    .btn-ghost {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7);
+      padding: 1rem 2.25rem; text-decoration: none;
+      transition: border-color .2s, color .2s, background .2s, transform .2s;
+    }
+    .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(6,182,212,0.06); transform: translateY(-1px); }
+    .hero-trust {
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
+      margin-top: 4rem; padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .trust-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.25rem; letter-spacing: 0.04em; color: var(--cyan); line-height: 1;
+    }
+    .trust-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4);
     }
 
-    .feature-inner {
-      display: grid;
-      grid-template-columns: 55fr 45fr;
+    .hero-right {
+      position: relative; overflow: hidden;
+    }
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to right,
+        var(--ink) 0%,
+        rgba(17,17,17,0.9) 18%,
+        rgba(17,17,17,0.42) 42%,
+        transparent 70%
+      );
+    }
+    .hero-right img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: brightness(0.46) saturate(1.08);
+    }
+    .hero-right-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(to bottom, rgba(17,17,17,0.1) 0%, rgba(17,17,17,0.02) 34%, rgba(17,17,17,0.16) 100%),
+        radial-gradient(circle at 78% 24%, rgba(6,182,212,0.08), transparent 32%);
+    }
+    .hero-tag {
+      position: absolute; bottom: 2.5rem; right: 2.5rem;
+      background: rgba(6,182,212,0.92);
+      backdrop-filter: blur(12px);
+      padding: 1rem 1.5rem;
+      color: #fff;
+    }
+    .hero-tag-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.7); margin-bottom: 0.25rem;
+    }
+    .hero-tag-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; letter-spacing: 0.06em;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 1.25rem 0; overflow: hidden;
+    }
+    .marquee-track { display: flex; animation: ticker 28s linear infinite; white-space: nowrap; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes ticker { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+    .marquee-item {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); padding: 0 2.5rem;
+      display: inline-flex; align-items: center; gap: 2.5rem;
+    }
+    .marquee-item .dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--cyan); flex-shrink: 0;
+    }
+
+    /* ── SECTION UTILITY ── */
+    .section { padding: 8rem 1.5rem; }
+    .section-sm { padding: 5rem 1.5rem; }
+    .wrap { max-width: 1440px; margin: auto; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--cyan); margin-bottom: 1.25rem;
+    }
+    .tag::before { content: ''; width: 30px; height: 1.5px; background: var(--cyan); }
+    .big-h {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.92; letter-spacing: 0.02em;
+    }
+    .big-h em { color: var(--cyan); font-style: normal; }
+    .rule { height: 1px; background: var(--rule); margin: 0 auto; max-width: 1440px; }
+
+    /* ── ABOUT / SPLIT ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
       min-height: 680px;
+    }
+    .about-img { position: relative; overflow: hidden; min-height: 460px; }
+    .about-img img { height: 100%; object-fit: cover; object-position: center 28%; }
+    .about-img-badge {
+      position: absolute; top: 2.5rem; left: 2.5rem;
+      background: var(--bg2); padding: 1.25rem 1.5rem;
+      border-left: 3px solid var(--cyan);
+    }
+    .about-img-badge strong {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem; letter-spacing: 0.04em; display: block; line-height: 1; color: var(--ink);
+    }
+    .about-img-badge span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink3); display: block; margin-top: 0.15rem;
+    }
+    .about-content {
+      background: var(--bg); padding: 6rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .about-body { font-size: 1.1rem; line-height: 1.8; color: var(--ink2); max-width: 460px; margin-bottom: 2.5rem; }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 0.95rem; color: var(--ink2); line-height: 1.6;
+    }
+    .check-list li::before {
+      content: ''; flex-shrink: 0;
+      width: 18px; height: 18px; margin-top: 2px;
+      background: var(--cyan-dim); border: 1px solid var(--cyan-border);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2306b6d4' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 8 6.5 11.5 13 5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-size: 11px; background-position: center;
+    }
+
+    /* ── SERVICES — EDITORIAL ── */
+    .services-section { background: var(--ink); position: relative; }
+    .services-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(6,182,212,0.16), transparent 24%),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: auto, 160px 160px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.55));
+    }
+    .services-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 2rem;
+      padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 4rem;
       position: relative;
       z-index: 1;
     }
-
-    /* ── Left: illustration column ── */
-    .feature-art {
-      position: relative;
-      overflow: hidden;
-      /* No padding — art fills the column */
+    .services-header .tag { color: rgba(255,255,255,0.35); }
+    .services-header .tag::before { background: rgba(255,255,255,0.25); }
+    .services-header .big-h { color: #fff; }
+    .all-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--cyan); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      border-bottom: 1px solid var(--cyan-border);
+      padding-bottom: 0.1rem;
+      transition: gap .2s;
     }
-    .feature-art img {
+    .all-link:hover { gap: 0.7rem; }
+
+    /* Asymmetric service layout */
+    .services-asym {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.28);
+      position: relative;
+      z-index: 1;
+    }
+    .sv {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%),
+        var(--ink);
+      padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+      transition: background .28s ease, transform .28s ease, box-shadow .28s ease;
+    }
+    .sv::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(6,182,212,0.65), transparent 65%);
+      opacity: 0.34;
+    }
+    .sv:hover {
+      background:
+        linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.01) 100%),
+        #151515;
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px rgba(0,0,0,0.2);
+    }
+    .sv-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.2); margin-bottom: 2rem; display: block;
+    }
+    .sv-icon { margin-bottom: 1.5rem; }
+    .sv-icon svg { width: 36px; height: 36px; stroke: var(--cyan); }
+    .sv-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem; letter-spacing: 0.04em; color: #fff;
+      margin-bottom: 1rem; line-height: 1;
+    }
+    .sv-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.4); max-width: 320px; }
+    .sv-arrow {
+      position: absolute; bottom: 2rem; right: 2rem;
+      width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.3); transition: border-color .2s, color .2s, transform .2s;
+    }
+    .sv:hover .sv-arrow { border-color: var(--cyan); color: var(--cyan); transform: translate(2px,-2px); }
+    .sv-featured {
+      grid-row: span 2;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(6,182,212,0.16), transparent 34%),
+        linear-gradient(180deg, #0b1a1f 0%, #0b1215 100%);
+      display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 520px;
+    }
+    .sv-featured:hover {
+      background:
+        radial-gradient(circle at 18% 18%, rgba(6,182,212,0.22), transparent 34%),
+        linear-gradient(180deg, #0d2026 0%, #0d1418 100%);
+    }
+    .sv-featured-img {
+      height: 220px; overflow: hidden; margin: -3rem -2.5rem 0;
+      position: relative;
+    }
+    .sv-featured-img img { height: 100%; object-fit: cover; filter: brightness(0.7) saturate(1.2); transition: transform .6s ease; }
+    .sv-featured:hover .sv-featured-img img { transform: scale(1.04); }
+    .sv-featured-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, #0c1a1f 100%);
+    }
+    .sv-cta-card {
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.12), transparent 46%),
+        linear-gradient(135deg, #06b6d4 0%, #1099bf 100%);
+      padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 220px;
+    }
+    .sv-cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; letter-spacing: 0.04em; color: #fff; line-height: 1; margin-bottom: 0.75rem;
+    }
+    .sv-cta-sub { font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.5; margin-bottom: 1.5rem; }
+    .btn-white {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      background: #fff; color: var(--ink);
+      padding: 0.75rem 1.5rem; text-decoration: none; display: inline-flex;
+      align-items: center; gap: 0.4rem; width: fit-content;
+      box-shadow: 0 12px 26px rgba(17,17,17,0.18);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(17,17,17,0.22); }
+
+    /* ── RESULTS / DARK ── */
+    .results-section { background: #0b0d0e; position: relative; overflow: hidden; }
+    .results-section::before {
+      content: ''; position: absolute;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%);
+      top: -200px; right: -200px; pointer-events: none;
+    }
+    .results-section::after {
+      content: '';
       position: absolute;
       inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      /* Show the middle of the illustration — cityscape + sky */
-      object-position: center center;
-      /* No filter — preserve the illustration's warmth */
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 140px 140px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 82%);
     }
-    /*
-      Right-side fade: illustration's right edge dissolves
-      into the navy background so there's no hard cut.
-      This makes the two columns feel like one composition.
-    */
-    .feature-art::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to right,
-        transparent 0%,
-        transparent 55%,
-        rgba(9,21,37,.65) 80%,
-        var(--navy-deep) 100%
-      );
+    /* Full-width image strip */
+    .results-img-strip {
+      height: 420px; overflow: hidden; position: relative;
     }
-    /*
-      Bottom fade: the illustration's base dissolves into
-      the section floor — the devices and dark water merge
-      with the navy background. No hard horizontal cut.
-    */
-    .feature-art::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(
-        to top,
-        var(--navy-deep) 0%,
-        rgba(9,21,37,.55) 14%,
-        transparent 35%
-      );
+    .results-img-strip img { height: 100%; object-fit: cover; filter: brightness(0.45) saturate(1.3); }
+    .results-img-strip::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, #0b0d0e 0%, transparent 30%, transparent 60%, #0b0d0e 100%);
     }
-
-    /* ── Right: copy column ── */
-    .feature-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 5rem 6rem 3rem;
-      position: relative;
+    .results-strip-text {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1rem; text-align: center;
     }
-
-    /* Thin teal vertical rule — the only divider */
-    .feature-copy::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 20%; bottom: 20%;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--teal) 30%, var(--teal) 70%, transparent);
-      opacity: .4;
+    .results-strip-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 7rem);
+      letter-spacing: 0.04em; color: #fff; line-height: 0.95;
     }
-
-    .feature-eyebrow {
-      display: inline-flex; align-items: center; gap:.65rem;
-      font-size:.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-      color: var(--teal); margin-bottom: 2rem;
-    }
-    .feature-eyebrow::before { content:''; width:22px; height:1px; background:var(--teal); }
-
-    /*
-      Headline: large, unhurried. Three separate thoughts,
-      each on its own line. The last line — the teal italic —
-      is the payload. It should arrive with weight.
-    */
-    .feature-h {
-      font-family: var(--font-h);
-      font-size: clamp(3rem, 4.2vw, 5rem);  /* significantly larger */
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -.02em;
-      color: var(--ivory);
-      margin-bottom: 2.25rem;
-    }
-    .feature-h strong { font-weight: 700; display: block; }
-    .feature-h em {
-      font-style: italic;
-      color: var(--teal);
-      display: block;
-      /* Slightly larger — this is the focal line */
-      font-size: 1.12em;
-    }
-
-    .feature-body {
-      font-size: .9rem; line-height: 1.9;
-      color: rgba(247,243,238,.45);
-      max-width: 380px; margin-bottom: 2.5rem;
-    }
-
-    /* Check list — on dark bg */
-    .check-list-dark { list-style:none; display:flex; flex-direction:column; gap:.85rem; margin-bottom:2.75rem; }
-    .check-list-dark li {
-      display:flex; align-items:flex-start; gap:.75rem;
-      font-size:.85rem; color:rgba(247,243,238,.65); line-height:1.6; font-weight:500;
-    }
-    .check-list-dark li::before {
-      content:''; flex-shrink:0; margin-top:2px;
-      width:18px; height:18px; border-radius:50%;
-      background:rgba(31,138,138,.12); border:1px solid rgba(31,138,138,.3);
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%231F8A8A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 8 6.5 11.5 13 5'/%3E%3C/svg%3E");
-      background-repeat:no-repeat; background-size:10px; background-position:center;
-    }
-
-    /* CTA — clear, not cluttered */
-    .feature-cta-row { display:flex; gap:.85rem; align-items:center; flex-wrap:wrap; }
-    .btn-teal-lg {
-      display:inline-flex; align-items:center; gap:.5rem;
-      font-size:.67rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-      background:var(--teal); color:#fff; padding:1rem 2rem;
-      transition:background .2s,transform .2s,box-shadow .2s;
-    }
-    .btn-teal-lg:hover { background:#187272; transform:translateY(-2px); box-shadow:0 12px 30px rgba(31,138,138,.3); }
-    .btn-link {
-      font-size:.67rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      color:rgba(247,243,238,.42);
-      display:inline-flex; align-items:center; gap:.4rem;
-      border-bottom:1px solid rgba(247,243,238,.18); padding-bottom:.08rem;
-      transition:color .2s,border-color .2s;
-    }
-    .btn-link:hover { color:var(--sand); border-color:var(--sand); }
-
-    /* ════════════════════════════════════
-       RESULTS
-    ════════════════════════════════════ */
-    .results-sec { background:var(--navy-deep); position:relative; overflow:hidden; }
-    .results-sec::before {
-      content:''; position:absolute; inset:0; pointer-events:none;
-      background:radial-gradient(circle at 80% 50%,rgba(31,138,138,.11),transparent 48%);
-    }
-    .results-inner { max-width:1400px; margin:auto; padding:8rem 4.5rem; }
-    .results-top {
-      display:grid; grid-template-columns:1fr 1fr; gap:4rem;
-      align-items:end; margin-bottom:5rem;
-    }
-    .results-intro { font-size:.88rem; line-height:1.85; color:rgba(247,243,238,.4); max-width:360px; align-self:end; }
-    .results-grid {
-      display:grid; grid-template-columns:repeat(4,1fr);
-      border-top:1px solid rgba(255,255,255,.05);
+    .results-strip-text h2 em { color: var(--cyan); font-style: normal; }
+    .results-strip-text p { font-size: 1.05rem; color: rgba(255,255,255,0.5); max-width: 500px; }
+    .results-nums {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
     .res-item {
-      padding:2.75rem 2rem;
-      border-right:1px solid rgba(255,255,255,.05);
-      position:relative; overflow:hidden;
-      transition:background .22s;
+      padding: 3.5rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+      transition: background .24s ease;
     }
-    .res-item:hover { background:rgba(31,138,138,.06); }
-    .res-item:last-child { border-right:none; }
-    .res-item::after {
-      content:''; position:absolute; top:0; left:0; right:0; height:2px;
-      background:linear-gradient(90deg,var(--teal),transparent 55%);
-      transform:scaleX(0); transform-origin:left;
-      transition:transform .32s var(--ease);
-    }
-    .res-item:hover::after { transform:scaleX(1); }
+    .res-item:hover { background: linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.01) 100%); }
+    .res-item:last-child { border-right: none; }
     .res-num {
-      font-family:var(--font-h);
-      font-size:clamp(2.6rem,4vw,4.8rem);
-      font-weight:700; line-height:1; letter-spacing:-.03em;
-      color:var(--sand); margin-bottom:.6rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      color: var(--cyan); line-height: 1; letter-spacing: 0.02em;
     }
-    .res-num sup { font-size:.45em; vertical-align:super; }
-    .res-label { font-size:.65rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:rgba(247,243,238,.48); margin-bottom:.35rem; }
-    .res-note { font-size:.72rem; color:rgba(247,243,238,.2); font-style:italic; }
+    .res-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5); margin-top: 0.75rem;
+    }
+    .res-note { font-size: 0.75rem; color: rgba(255,255,255,0.25); margin-top: 0.4rem; font-style: italic; }
 
-    /* ════════════════════════════════════
-       PROCESS
-    ════════════════════════════════════ */
-    .process-sec { background:var(--ivory); }
-    .process-header {
-      display:flex; align-items:flex-end; justify-content:space-between;
-      flex-wrap:wrap; gap:2rem; margin-bottom:3.5rem;
-    }
-    .process-header p { font-size:.88rem; line-height:1.85; color:var(--slate); max-width:340px; align-self:end; }
+    /* ── PROCESS — HORIZONTAL STRIP ── */
+    .process-section { background: var(--bg2); }
     .process-steps {
-      display:grid; grid-template-columns:repeat(4,1fr);
-      border:1px solid rgba(15,34,51,.07); overflow:hidden;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(247,246,243,0.82) 100%);
+      box-shadow: var(--section-shadow);
+      overflow: hidden;
+      margin-top: 4rem;
     }
     .p-step {
-      padding:2.75rem 2.25rem;
-      border-right:1px solid rgba(15,34,51,.07);
-      position:relative; overflow:hidden;
-      transition:background .22s;
+      padding: 3rem 2.5rem;
+      border-right: 1px solid var(--rule);
+      position: relative;
+      transition: background .24s ease, transform .24s ease;
     }
-    .p-step:last-child { border-right:none; }
-    .p-step:hover { background:var(--mist); }
     .p-step::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:2px;
-      background:var(--teal); transform:scaleX(0); transform-origin:left;
-      transition:transform .32s var(--ease);
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), transparent 72%);
+      opacity: 0;
+      transition: opacity .24s ease;
     }
-    .p-step:hover::before { transform:scaleX(1); }
+    .p-step:last-child { border-right: none; }
+    .p-step:hover {
+      background: linear-gradient(180deg, rgba(6,182,212,0.05) 0%, rgba(255,255,255,0.66) 100%);
+      transform: translateY(-2px);
+    }
+    .p-step:hover::before { opacity: 1; }
     .p-step-num {
-      font-family:var(--font-h); font-size:4rem; font-weight:700;
-      line-height:1; letter-spacing:-.05em;
-      color:rgba(15,34,51,.05); margin-bottom:1.75rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem; line-height: 1; letter-spacing: 0.02em;
+      color: var(--ink); opacity: 0.06;
+      position: absolute; top: 1rem; right: 1.5rem;
     }
-    .p-step-title { font-family:var(--font-h); font-size:1.2rem; font-weight:600; color:var(--navy); margin-bottom:.6rem; }
-    .p-step-desc { font-size:.8rem; line-height:1.8; color:var(--slate); }
+    .p-step-icon {
+      width: 44px; height: 44px; background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;
+    }
+    .p-step-icon svg { width: 20px; height: 20px; stroke: var(--cyan); }
+    .p-step-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+    .p-step-desc { font-size: 0.875rem; line-height: 1.7; color: var(--ink2); }
 
-    /* ════════════════════════════════════
-       TESTIMONIALS
-    ════════════════════════════════════ */
-    .testi-sec { background:var(--ivory-warm); border-top:1px solid rgba(15,34,51,.06); }
-    .testi-layout { display:grid; grid-template-columns:1fr 2fr; gap:7rem; align-items:start; }
-    .testi-left { position:sticky; top:100px; }
-    .testi-left .dh { margin-bottom:1.2rem; }
-    .testi-left p { font-size:.86rem; line-height:1.85; color:var(--slate); margin-bottom:2rem; }
-    .testi-img { aspect-ratio:4/3; overflow:hidden; border:1px solid rgba(15,34,51,.06); }
-    .testi-img img { width:100%; height:100%; object-fit:cover; object-position:center 20%; }
-    .testi-right { display:flex; flex-direction:column; gap:1.1rem; }
+    /* ── TESTIMONIALS — ASYMMETRIC ── */
+    .testi-section { background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, var(--bg) 100%); position: relative; }
+    .testi-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 16% 30%, rgba(6,182,212,0.08), transparent 20%);
+    }
+    .testi-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem; align-items: start;
+    }
+    .testi-left { position: sticky; top: 100px; }
+    .testi-right { display: flex; flex-direction: column; gap: 2rem; }
     .testi-card {
-      background:#fff; border:1px solid rgba(15,34,51,.07);
-      padding:2.1rem;
-      transition:border-color .28s,transform .28s,box-shadow .28s;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(249,248,245,0.92) 100%);
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 2.5rem;
+      position: relative; overflow: hidden;
+      box-shadow: 0 18px 42px rgba(12,18,24,0.06);
+      transition: border-color .3s, transform .3s, box-shadow .3s, background .3s;
     }
     .testi-card:hover {
-      border-color:rgba(31,138,138,.32);
-      transform:translateX(6px);
-      box-shadow:-4px 0 0 0 var(--teal),0 16px 42px rgba(15,34,51,.07);
+      border-color: var(--cyan-border);
+      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,251,252,0.96) 100%);
+      transform: translateX(6px);
+      box-shadow: 0 28px 56px rgba(12,18,24,0.08);
     }
-    .testi-stars { display:flex; gap:2px; margin-bottom:1rem; }
-    .testi-stars span { color:var(--coral); font-size:.82rem; }
-    .testi-text { font-family:var(--font-h); font-size:.97rem; font-style:italic; line-height:1.75; color:var(--navy); margin-bottom:1.5rem; }
-    .testi-author { display:flex; align-items:center; gap:.8rem; }
+    .testi-q {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 6rem; line-height: 1; color: var(--cyan); opacity: 0.12;
+      position: absolute; top: -0.5rem; left: 1.5rem; pointer-events: none;
+    }
+    .testi-text { font-size: 1.05rem; line-height: 1.8; color: var(--ink2); margin-bottom: 2rem; position: relative; z-index: 1; }
+    .testi-author { display: flex; align-items: center; gap: 1rem; }
     .testi-ava {
-      width:38px; height:38px; border-radius:50%;
-      background:var(--navy); color:var(--sand);
-      display:flex; align-items:center; justify-content:center;
-      font-family:var(--font-h); font-size:.85rem; font-weight:700; flex-shrink:0;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--ink); color: var(--cyan);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.06em;
+      flex-shrink: 0;
     }
-    .testi-name { font-size:.83rem; font-weight:700; color:var(--navy); }
-    .testi-role { font-size:.7rem; color:var(--slate); margin-top:.1rem; }
+    .testi-name { font-weight: 600; font-size: 0.95rem; }
+    .testi-role { font-size: 0.8rem; color: var(--ink3); margin-top: 0.15rem; }
+    .testi-stars { display: flex; gap: 3px; margin-bottom: 0.5rem; }
+    .testi-stars span { color: var(--cyan); font-size: 0.9rem; }
 
-    /* ════════════════════════════════════
-       FAQ
-    ════════════════════════════════════ */
-    .faq-sec { background:var(--ivory); }
-    .faq-layout { display:grid; grid-template-columns:1fr 1.6fr; gap:7rem; align-items:start; }
-    .faq-left { position:sticky; top:100px; }
-    .faq-left .dh { margin-bottom:1.2rem; }
-    .faq-left p { font-size:.86rem; line-height:1.85; color:var(--slate); max-width:270px; }
-    .faq-item { background:#fff; border:1px solid rgba(15,34,51,.07); margin-bottom:.6rem; transition:border-color .22s,transform .22s; }
-    .faq-item:hover { border-color:rgba(31,138,138,.25); transform:translateX(3px); }
-    .faq-item.open { border-color:rgba(31,138,138,.38); }
-    .faq-q {
-      display:flex; align-items:center; justify-content:space-between;
-      padding:1.25rem 1.4rem; cursor:pointer; width:100%;
-      background:none; border:none; text-align:left;
-      font-family:var(--font-b); font-size:.86rem; font-weight:600; color:var(--navy);
-      transition:color .2s;
+    /* ── FAQ ── */
+    .faq-section {
+      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(247,246,243,0.72) 100%);
+      position: relative;
+      overflow: hidden;
     }
-    .faq-q:hover { color:var(--teal); }
-    .faq-plus {
-      width:24px; height:24px; flex-shrink:0; border-radius:50%;
-      border:1px solid rgba(15,34,51,.12);
-      display:flex; align-items:center; justify-content:center;
-      font-size:1rem; color:var(--slate);
-      transition:transform .32s,background .2s,border-color .2s,color .2s;
-    }
-    .faq-item.open .faq-plus { transform:rotate(45deg); background:var(--teal); border-color:var(--teal); color:#fff; }
-    .faq-a { max-height:0; overflow:hidden; transition:max-height .4s var(--ease); }
-    .faq-a p { padding:0 1.4rem 1.4rem; font-size:.83rem; line-height:1.85; color:var(--slate); }
-
-    /* ════════════════════════════════════
-       CTA
-    ════════════════════════════════════ */
-    .cta-sec { background:var(--navy-deep); position:relative; overflow:hidden; }
-    .cta-bg-img { position:absolute; inset:0; }
-    .cta-bg-img img {
-      position:absolute; inset:0;
-      width:100%; height:100%; object-fit:cover;
-      opacity:.08; filter:grayscale(15%);
-    }
-    .cta-bg-img::after {
-      content:''; position:absolute; inset:0;
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
       background:
-        linear-gradient(to bottom,rgba(9,21,37,.55),rgba(9,21,37,.9)),
-        radial-gradient(circle at 18% 82%,rgba(31,138,138,.16),transparent 42%);
+        radial-gradient(circle at 84% 22%, rgba(6,182,212,0.08), transparent 18%),
+        linear-gradient(90deg, rgba(17,17,17,0.02) 1px, transparent 1px);
+      background-size: auto, 120px 120px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent 86%);
     }
+    .faq-layout { display: grid; grid-template-columns: 4.5fr 7.5fr; gap: 5.25rem; align-items: start; position: relative; z-index: 1; }
+    .faq-left-img {
+      margin-top: 2.25rem;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 5 / 4;
+      width: 100%;
+      max-width: 460px;
+      box-shadow: var(--section-shadow);
+    }
+    .faq-left-img img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .faq-left-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,182,212,0.15) 0%, transparent 60%);
+    }
+    .faq-item {
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(10px);
+      margin-bottom: 0.9rem;
+      padding: 0 1.4rem;
+      box-shadow: 0 16px 36px rgba(12,18,24,0.04);
+      transition: border-color .24s ease, box-shadow .24s ease, transform .24s ease;
+    }
+    .faq-item:hover {
+      border-color: rgba(6,182,212,0.24);
+      box-shadow: 0 20px 42px rgba(12,18,24,0.06);
+      transform: translateX(4px);
+    }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.35rem 0; cursor: pointer;
+      font-weight: 500; font-size: 1rem;
+      color: var(--ink); transition: color .2s;
+      width: 100%;
+      border: none;
+      background: none;
+      text-align: left;
+    }
+    .faq-q:hover { color: var(--cyan); }
+    .faq-plus {
+      width: 28px; height: 28px; flex-shrink: 0;
+      border: 1px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: var(--ink3);
+      transition: transform .35s, background .2s, border-color .2s;
+    }
+    .faq-item.open .faq-plus { transform: rotate(45deg); background: var(--cyan); border-color: var(--cyan); color: #fff; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s cubic-bezier(.16,1,.3,1); }
+    .faq-a p { padding-bottom: 1.5rem; font-size: 0.925rem; line-height: 1.8; color: var(--ink2); max-width: 62ch; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--ink); position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(90deg, rgba(6,182,212,0.06) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 140px 140px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent 92%);
+      pointer-events: none;
+    }
+    .cta-bg-img {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .cta-bg-img img { height: 100%; object-fit: cover; opacity: 0.18; filter: grayscale(30%); }
     .cta-inner {
-      position:relative; z-index:1;
-      max-width:1400px; margin:auto; padding:9rem 4.5rem;
-      display:grid; grid-template-columns:3fr 2fr; gap:6rem; align-items:center;
+      position: relative; z-index: 1;
+      max-width: 1440px; margin: auto; padding: 8rem 3rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
     }
     .cta-h {
-      font-family:var(--font-h);
-      font-size:clamp(2.6rem,5vw,5.8rem);
-      font-weight:400; line-height:1.08; letter-spacing:-.02em; color:var(--ivory);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.92; letter-spacing: 0.02em; color: #fff;
     }
-    .cta-h em { font-style:italic; color:var(--sand); }
-    .cta-h strong { font-weight:700; }
-    .cta-right { display:flex; flex-direction:column; gap:1.2rem; }
-    .cta-right .eyebrow { color:var(--teal); }
-    .cta-right .eyebrow::before { background:var(--teal); }
-    .cta-right p { font-size:.88rem; line-height:1.85; color:rgba(247,243,238,.45); }
-    .cta-btns { display:flex; flex-direction:column; gap:.75rem; }
-    .btn-teal {
-      display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
-      font-size:.67rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      background:var(--teal); color:#fff; padding:1rem 1.85rem;
-      transition:background .2s,transform .2s;
+    .cta-h em { color: var(--cyan); font-style: normal; }
+    .cta-right {
+      display: flex; flex-direction: column; gap: 1.25rem; align-items: flex-start;
+      padding: 2rem 2.15rem;
+      background: linear-gradient(180deg, rgba(10,16,20,0.82) 0%, rgba(10,16,20,0.62) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.22);
     }
-    .btn-teal:hover { background:#187272; transform:translateY(-2px); }
-    .btn-sand {
-      display:inline-flex; align-items:center; justify-content:center;
-      font-size:.67rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      border:1px solid rgba(216,195,165,.25); color:rgba(216,195,165,.6);
-      padding:1rem 1.85rem;
-      transition:border-color .2s,color .2s;
+    .cta-right p { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
+    .cta-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--cyan); margin-bottom: 1.25rem;
     }
-    .btn-sand:hover { border-color:var(--sand); color:var(--sand); }
+    .cta-badge span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--cyan); animation: blink 2s ease-in-out infinite;
+    }
+    .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-    /* ════════════════════════════════════
-       FOOTER
-    ════════════════════════════════════ */
-    footer { background:#06101b; border-top:1px solid rgba(255,255,255,.04); padding:3.75rem 4.5rem; }
-    .footer-inner { max-width:1400px; margin:auto; }
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 4rem 3rem;
+    }
+    .footer-inner { max-width: 1440px; margin: auto; }
     .footer-top {
-      display:flex; align-items:center; justify-content:space-between;
-      flex-wrap:wrap; gap:2rem;
-      padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,.04); margin-bottom:2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 2rem;
+      padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 2.5rem;
     }
-    .footer-logo { font-family:var(--font-h); font-size:1.4rem; font-weight:700; color:var(--ivory); }
-    .footer-logo span { color:var(--teal); }
-    .footer-nav { display:flex; gap:2rem; flex-wrap:wrap; }
-    .footer-lnk { font-size:.63rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.22); transition:color .2s; }
-    .footer-lnk:hover { color:var(--teal); }
-    .footer-bottom { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
-    .footer-copy { font-size:.63rem; color:rgba(255,255,255,.16); letter-spacing:.08em; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: #fff; text-decoration: none; }
+    .footer-logo em { color: var(--cyan); font-style: normal; }
+    .footer-nav { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .footer-lnk {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-lnk:hover { color: var(--cyan); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; color: rgba(255,255,255,0.2); letter-spacing: 0.08em;
+    }
 
-    /* ════════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════════ */
-    @media(max-width:1100px){
-      .hero-content { padding:0 2.5rem 4rem; }
-      .hero-content-inner { flex-direction:column; align-items:flex-start; gap:2.5rem; }
-      .hero-proof { flex-direction:row; align-items:flex-start; gap:2rem; flex-wrap:wrap; }
-      .proof-stat { text-align:left; border-bottom:none; border-right:1px solid rgba(247,243,238,.07); padding:0 2rem 0 0; }
-      .proof-stat:last-child { border-right:none; }
-      .manifesto-inner { grid-template-columns:1fr; gap:3rem; }
-      .manifesto-left { position:static; }
-      .feature-inner { grid-template-columns:1fr; }
-      .feature-art { height:460px; position:relative; }
-      .feature-art img { position:absolute; }
-      .feature-art::after {
-        background:linear-gradient(to bottom,transparent 0%,transparent 60%,var(--navy-deep) 100%);
+    /* ── RESPONSIVE ── */
+    @media(max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { height: clamp(340px, 55vw, 520px); min-height: 320px; }
+      .hero-right::before {
+        background: linear-gradient(
+          to bottom,
+          var(--ink) 0%,
+          rgba(17,17,17,0.82) 20%,
+          rgba(17,17,17,0.28) 46%,
+          transparent 72%
+        );
       }
-      .feature-art::before { display:none; }
-      .feature-copy { padding:4rem 3rem 4rem; }
-      .feature-copy::before { display:none; }
-      .results-top { grid-template-columns:1fr; gap:1.75rem; }
-      .results-grid { grid-template-columns:repeat(2,1fr); }
-      .res-item:nth-child(2) { border-right:none; }
-      .process-steps { grid-template-columns:repeat(2,1fr); }
-      .p-step { border-bottom:1px solid rgba(15,34,51,.07); }
-      .testi-layout { grid-template-columns:1fr; gap:3rem; }
-      .testi-left { position:static; }
-      .faq-layout { grid-template-columns:1fr; gap:3rem; }
-      .faq-left { position:static; }
-      .cta-inner { grid-template-columns:1fr; padding:6rem 2.5rem; }
-      .pillars { grid-template-columns:1fr; }
-      .pillar { border-right:none; border-bottom:1px solid rgba(15,34,51,.07); }
-      .pillar:last-child { border-bottom:none; }
-      .sec { padding:6rem 2.5rem; }
-      .manifesto-inner { padding:6rem 2.5rem; }
-      .results-inner { padding:6rem 2.5rem; }
-      footer { padding:3rem 2.5rem; }
-      #nav { padding:0 2rem; }
+      .hero-right img { object-position: center 42%; }
+      .hero-right-overlay {
+        background: linear-gradient(to bottom, rgba(17,17,17,0.08) 0%, rgba(17,17,17,0.18) 100%);
+      }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-content { padding: 4rem 2rem; }
+      .services-asym { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .sv-featured { grid-row: span 1; min-height: auto; }
+      .sv-featured-img { height: 180px; }
+      .results-nums { grid-template-columns: repeat(2, 1fr); }
+      .res-item { border-right: 1px solid rgba(255,255,255,0.06); }
+      .res-item:nth-child(2n) { border-right: none; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .p-step { border-bottom: 1px solid var(--rule); }
+      .testi-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .testi-left { position: static; }
+      .faq-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .faq-left-img {
+        display: block;
+        margin-top: 2rem;
+        max-width: 520px;
+        aspect-ratio: 16 / 10;
+      }
+      .cta-inner { grid-template-columns: 1fr; padding: 5rem 2rem; }
+      .cta-right { padding: 1.6rem 1.5rem; }
     }
-    @media(max-width:900px){
-      .nav-links { display:none !important; }
-      #mob-btn { display:block; }
+    @media(max-width: 700px) {
+      .hero-left { padding: 4rem 1.5rem; }
+      .hero-right { height: clamp(300px, 72vw, 400px); min-height: 300px; }
+      .hero-right img { object-position: center 34%; }
+      .hero-right-overlay {
+        background: linear-gradient(to bottom, rgba(17,17,17,0.06) 0%, rgba(17,17,17,0.22) 100%);
+      }
+      .services-asym { grid-template-columns: 1fr; }
+      .results-nums { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .testi-card:hover { transform: none; }
+      .faq-item:hover { transform: none; }
+      footer { padding: 3rem 1.5rem; }
+      .section { padding: 5rem 1.5rem; }
     }
-    @media(max-width:680px){
-      .hero-content { padding:0 1.75rem 3.5rem; }
-      .hero-h1 { font-size:clamp(2.6rem,10vw,3.8rem); }
-      .hero-proof { gap:1.5rem; }
-      .proof-stat { padding-right:1.25rem; }
-      .proof-num { font-size:1.6rem; }
-      .svc-row { grid-template-columns:4rem 1fr; gap:1.1rem; }
-      .svc-pill { display:none; }
-      .svc-cta-bar { padding:1.6rem 1.75rem; }
-      .results-grid { grid-template-columns:1fr 1fr; }
-      .process-steps { grid-template-columns:1fr; }
-      .testi-card:hover { transform:none; }
-      .faq-item:hover { transform:none; }
-      .sec { padding:5rem 1.75rem; }
-      .manifesto-inner { padding:5rem 1.75rem; }
-      .results-inner { padding:5rem 1.75rem; }
-      footer { padding:2.75rem 1.75rem; }
-      #nav { padding:0 1.5rem; }
-      .feature-h { font-size:clamp(2.4rem,9vw,3.5rem); }
-    }
-    @media(prefers-reduced-motion:reduce){
-      .rv,.rv-l,.rv-r,.rv-s,
-      .feature-art img,.svc-row,.p-step,
-      .testi-card,.faq-item,
-      .btn-primary,.btn-navy,.btn-teal-lg,.btn-ivory,
-      .hero-scroll { transition-duration:0.01ms !important; transform:none !important; }
-      .marquee-track { animation:none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-l, .reveal-r,
+      .sv, .p-step, .testi-card, .faq-item,
+      .btn-primary, .btn-ghost, .btn-white,
+      .nav-lnk, .nav-cta {
+        transition-duration: 0.01ms !important;
+        transform: none !important;
+      }
     }
   </style>
+  <link rel="stylesheet" href="assets/typography.css"/>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="nav" class="over-hero">
+<nav id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      Levant<span class="nav-logo-accent">.</span>
-    </a>
+    <a href="index.html" class="nav-logo">Levant<em>.</em></a>
     <div class="nav-links">
-      <a href="index.html"    class="nav-lnk">Home</a>
+      <a href="index.html" class="nav-lnk">Home</a>
       <a href="services.html" class="nav-lnk">Services</a>
-      <a href="why-us.html"   class="nav-lnk">Why Us</a>
-      <a href="audit.html"    class="nav-lnk">Free Audit</a>
-      <a href="contact.html"  class="nav-cta">Let's Talk</a>
+      <a href="why-us.html" class="nav-lnk">Why Us</a>
+      <a href="audit.html" class="nav-lnk">Free Audit</a>
+      <a href="contact.html" class="nav-cta">Let's Talk</a>
     </div>
-    <button id="mob-btn" aria-label="Open menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
+    <button id="mob-btn" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
 </nav>
 
-<div id="mob-menu" aria-hidden="true">
+<!-- MOBILE MENU -->
+<div id="mob-menu">
   <button id="mob-close" aria-label="Close menu">✕</button>
-  <a href="index.html"    class="mob-lnk">Home</a>
+  <a href="index.html" class="mob-lnk active">Home</a>
   <a href="services.html" class="mob-lnk">Services</a>
-  <a href="why-us.html"   class="mob-lnk">Why Us</a>
-  <a href="audit.html"    class="mob-lnk">Free Audit</a>
-  <a href="contact.html"  class="mob-lnk">Contact</a>
+  <a href="why-us.html" class="mob-lnk">Why Us</a>
+  <a href="audit.html" class="mob-lnk">Free Audit</a>
+  <a href="contact.html" class="mob-lnk">Contact</a>
 </div>
 
-<!-- HERO -->
-<section class="hero" aria-label="Hero">
-  <div class="hero-brand-line" aria-hidden="true"></div>
-  <div class="hero-img-wrap" aria-hidden="true">
-    <img id="hero-img" src="https://i.imgur.com/VPvI7de.png" alt="" loading="eager" fetchpriority="high" decoding="async"/>
-  </div>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-content">
-    <div class="hero-content-inner">
-      <div class="hero-left">
-        <div class="hero-eyebrow rv">Metro Detroit · Digital Strategy</div>
-        <h1 class="hero-h1 rv d1"><strong>Grow</strong><br>with <em>clarity.</em></h1>
-        <p class="hero-sub rv d2">Websites, branding, and local SEO for Metro Detroit businesses serious about their digital presence.</p>
-        <div class="hero-ctas rv d3">
-          <a href="contact.html" class="btn-primary">
-            Start the Conversation
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="audit.html" class="btn-ghost">Free Audit</a>
-        </div>
+<!-- ═══════════════════════════════════════════
+     HERO — split dark/image
+═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span></span>
+    </div>
+    <h1 class="hero-h1">
+      We Build
+      <em>Digital</em>
+      Empires.
+    </h1>
+    <p class="hero-sub">
+      Conversion-first websites, strategic SEO, and brand identity for Metro Detroit businesses ready to dominate their market online.
+    </p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-primary">
+        Start Your Empire
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="why-us.html" class="btn-ghost">Why Us</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-num">7</span>
+        <span class="trust-label">Day delivery</span>
       </div>
-      <div class="hero-proof rv d3">
-        <div class="proof-stat">
-          <div class="proof-num">7</div>
-          <div class="proof-label">Day Delivery</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-num">100%</div>
-          <div class="proof-label">You Own It</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-num">$0</div>
-          <div class="proof-label">Lock-in Fees</div>
-        </div>
+      <div class="trust-item">
+        <span class="trust-num">100%</span>
+        <span class="trust-label">Ownership</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">$0</span>
+        <span class="trust-label">Lock-in fees</span>
       </div>
     </div>
   </div>
-  <div class="hero-scroll" aria-hidden="true" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'})">
-    <div class="hero-scroll-line"></div>
+
+  <div class="hero-right">
+    <!-- SEO/analytics team at work: people viewing dashboards, real agency feel -->
+    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&q=90&fit=crop" alt="Premium modern creative office interior with refined workspace lighting and glass architecture" loading="eager" fetchpriority="high" decoding="async"/>
+    <div class="hero-right-overlay"></div>
+    <div class="hero-tag">
+      <div class="hero-tag-label">Avg. SEO Traffic Lift</div>
+      <div class="hero-tag-val">300%+</div>
+    </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-bar" aria-hidden="true">
+<div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="marquee-item">Website Creation <span class="m-dot"></span></span>
-    <span class="marquee-item">Brand Identity <span class="m-dot"></span></span>
-    <span class="marquee-item">SEO Foundations <span class="m-dot"></span></span>
-    <span class="marquee-item">Google Business <span class="m-dot"></span></span>
-    <span class="marquee-item">Graphic Design <span class="m-dot"></span></span>
-    <span class="marquee-item">Metro Detroit <span class="m-dot"></span></span>
-    <span class="marquee-item">Strategic Growth <span class="m-dot"></span></span>
-    <span class="marquee-item">Website Creation <span class="m-dot"></span></span>
-    <span class="marquee-item">Brand Identity <span class="m-dot"></span></span>
-    <span class="marquee-item">SEO Foundations <span class="m-dot"></span></span>
-    <span class="marquee-item">Google Business <span class="m-dot"></span></span>
-    <span class="marquee-item">Graphic Design <span class="m-dot"></span></span>
-    <span class="marquee-item">Metro Detroit <span class="m-dot"></span></span>
-    <span class="marquee-item">Strategic Growth <span class="m-dot"></span></span>
+    <span class="marquee-item">Website Creation <span class="dot"></span></span>
+    <span class="marquee-item">Brand Identity <span class="dot"></span></span>
+    <span class="marquee-item">SEO Foundations <span class="dot"></span></span>
+    <span class="marquee-item">Google Business <span class="dot"></span></span>
+    <span class="marquee-item">Graphic Design <span class="dot"></span></span>
+    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
+    <span class="marquee-item">Empire Building <span class="dot"></span></span>
+    <span class="marquee-item">Website Creation <span class="dot"></span></span>
+    <span class="marquee-item">Brand Identity <span class="dot"></span></span>
+    <span class="marquee-item">SEO Foundations <span class="dot"></span></span>
+    <span class="marquee-item">Google Business <span class="dot"></span></span>
+    <span class="marquee-item">Graphic Design <span class="dot"></span></span>
+    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
+    <span class="marquee-item">Empire Building <span class="dot"></span></span>
   </div>
 </div>
 
-<!-- MANIFESTO -->
-<section class="manifesto">
-  <div class="manifesto-inner">
-    <div class="manifesto-left rv-l">
-      <div class="eyebrow">Why Levant</div>
-      <div class="manifesto-kicker">Most Metro Detroit businesses<br>are <em>invisible</em> online.</div>
-    </div>
-    <div class="rv-r d1">
-      <p class="manifesto-stmt">Not because their work is bad.<br>Because their <em>digital foundation</em> is.</p>
-      <p class="manifesto-body">Outdated sites, inconsistent branding, zero Google presence. We fix that — with strategy, not shortcuts. Every project starts with understanding your business and ends with a digital presence that earns real results.</p>
-      <div class="pillars">
-        <div class="pillar"><div class="pillar-n">01</div><div class="pillar-t">Insightful</div><p class="pillar-d">Strategy before pixels. We diagnose before we design.</p></div>
-        <div class="pillar"><div class="pillar-n">02</div><div class="pillar-t">Human</div><p class="pillar-d">You talk to the person doing the work. Every time.</p></div>
-        <div class="pillar"><div class="pillar-n">03</div><div class="pillar-t">Forward</div><p class="pillar-d">Built to grow with you. Not to keep you paying us forever.</p></div>
+<!-- ═══════════════════════════════════════════
+     ABOUT / WHY LEVANT — full-bleed split
+═══════════════════════════════════════════ -->
+<section style="background: var(--bg);" class="section-sm" style="padding:0;">
+  <div class="about-grid">
+    <div class="about-img reveal-l img-hover-zoom">
+      <!-- SEO strategy session / data on screen -->
+      <img src="assets/business-meeting.jpg" alt="Business meeting around a strategy table with presentation materials" width="2000" height="1334" loading="lazy" decoding="async"/>
+      <div class="about-img-badge">
+        <strong>7</strong>
+        <span>Day avg. delivery</span>
       </div>
     </div>
-  </div>
-</section>
-
-<div class="brand-line"></div>
-
-<!-- SERVICES -->
-<section class="services-sec sec">
-  <div class="wrap">
-    <div class="services-header rv">
-      <div>
-        <div class="eyebrow">What We Do</div>
-        <h2 class="dh dh-ivory">Five services.<br><em>One foundation.</em></h2>
-      </div>
-      <a href="services.html" class="link-teal">
-        View All Services
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="svc-list">
-      <div class="svc-row rv d1"><div class="svc-num">01</div><div class="svc-body"><div class="svc-title">Website Creation</div><p class="svc-desc">Modern, mobile-first sites built to turn visitors into clients. Structured, fast, and conversion-ready from day one.</p></div><div class="svc-pill">Core Service</div></div>
-      <div class="svc-row rv d2"><div class="svc-num">02</div><div class="svc-body"><div class="svc-title">Branding + Logo</div><p class="svc-desc">An identity system that makes your business look established and credible everywhere it appears.</p></div><div class="svc-pill">Core Service</div></div>
-      <div class="svc-row rv d3"><div class="svc-num">03</div><div class="svc-body"><div class="svc-title">Graphic Design</div><p class="svc-desc">Social graphics, flyers, banners, and print — all on-brand and built to stop the scroll.</p></div><div class="svc-pill">Add-on</div></div>
-      <div class="svc-row rv d4"><div class="svc-num">04</div><div class="svc-body"><div class="svc-title">SEO Foundations</div><p class="svc-desc">Technical SEO, metadata, internal linking, and page structure — everything Google needs to find and rank you.</p></div><div class="svc-pill">Included</div></div>
-      <div class="svc-row rv d5"><div class="svc-num">05</div><div class="svc-body"><div class="svc-title">Google Business</div><p class="svc-desc">Setup, optimization, and posting support. Keep your local presence active, complete, and competitive.</p></div><div class="svc-pill">Local SEO</div></div>
-    </div>
-    <div class="svc-cta-bar rv" style="transition-delay:.18s">
-      <p>Not sure where to start?</p>
-      <a href="audit.html" class="btn-ivory">Get a Free Audit <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
-     FEATURE — illustration embedded in navy environment
-     The artwork's dark base merges with the section bg.
-     The copy sits on the same dark plane. One composition.
-══════════════════════════════════════════════════ -->
-<section class="feature-sec">
-  <div class="feature-inner">
-
-    <!-- Art: fills left column, bleeds at edges into navy -->
-    <div class="feature-art rv-s">
-      <img
-        src="https://i.imgur.com/VPvI7de.png"
-        alt="Levant Digital Marketing — strategic digital growth"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-
-    <!-- Copy: dark panel, large headline, deliberate spacing -->
-    <div class="feature-copy rv-r d1">
-      <div class="feature-eyebrow">The Levant Difference</div>
-
-      <h2 class="feature-h">
-        <strong>Your business</strong>
-        deserves to
-        <em>stand out.</em>
+    <div class="about-content reveal-r">
+      <div class="tag">Why Levant</div>
+      <h2 class="big-h" style="margin-bottom: 1.75rem;">
+        Your Business<br>Deserves To<br><em>Stand Out.</em>
       </h2>
-
-      <p class="feature-body">
-        We don't sell retainers. We build the foundation, hand it over, and you own everything — code, files, accounts, logins. No strings, no fine print.
+      <p class="about-body">
+        Most Metro Detroit businesses blend in online — outdated websites, inconsistent branding, zero Google presence. We build the digital foundation that separates you from every competitor in your market.
       </p>
-
-      <ul class="check-list-dark">
+      <ul class="check-list">
         <li>Websites engineered for conversions, not just aesthetics</li>
-        <li>SEO built into every project — not sold separately</li>
+        <li>SEO built into every project — no expensive add-ons</li>
         <li>You own 100% of everything we create. Always.</li>
         <li>No retainers, no lock-in, no fine print</li>
       </ul>
-
-      <div class="feature-cta-row">
-        <a href="contact.html" class="btn-teal-lg">
-          Start Your Project
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="why-us.html" class="btn-link">
-          Why Levant
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section class="results-sec">
-  <div class="results-inner">
-    <div class="results-top">
-      <div class="rv-l">
-        <div class="eyebrow">Results</div>
-        <h2 class="dh dh-ivory">Numbers that<br><em>mean something.</em></h2>
-      </div>
-      <p class="results-intro rv-r d1">Real outcomes from real projects. Honest numbers with full context.</p>
-    </div>
-    <div class="results-grid">
-      <div class="res-item rv d1"><div class="res-num"><span class="counter" data-target="300">0</span><sup>%</sup></div><div class="res-label">Traffic Growth</div><div class="res-note">Top-performing SEO project</div></div>
-      <div class="res-item rv d2"><div class="res-num"><span class="counter" data-target="15">0</span>+</div><div class="res-label">Page 1 Keywords</div><div class="res-note">Single local service client</div></div>
-      <div class="res-item rv d3"><div class="res-num"><span class="counter" data-target="7">0</span></div><div class="res-label">Day Delivery</div><div class="res-note">Average project completion</div></div>
-      <div class="res-item rv d4"><div class="res-num"><span class="counter" data-target="100">0</span><sup>%</sup></div><div class="res-label">Client Ownership</div><div class="res-note">All files, code &amp; accounts yours</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process-sec sec">
-  <div class="wrap">
-    <div class="process-header rv">
-      <div>
-        <div class="eyebrow">How It Works</div>
-        <h2 class="dh">Simple. Clear.<br><em>No surprises.</em></h2>
-      </div>
-      <p>Four steps. Nothing hidden. You always know where things stand.</p>
-    </div>
-    <div class="process-steps">
-      <div class="p-step rv d1"><div class="p-step-num">1</div><div class="p-step-title">Free Audit</div><p class="p-step-desc">We review your current presence, find the gaps, and show you exactly what needs to change — before you spend a dollar.</p></div>
-      <div class="p-step rv d2"><div class="p-step-num">2</div><div class="p-step-title">Clear Scope + Quote</div><p class="p-step-desc">A written breakdown of exactly what we'll build, what it costs, and when it's done. No vague estimates.</p></div>
-      <div class="p-step rv d3"><div class="p-step-num">3</div><div class="p-step-title">We Build It Right</div><p class="p-step-desc">Design, development, branding, SEO — we handle execution while keeping you updated. No ghosting, ever.</p></div>
-      <div class="p-step rv d4"><div class="p-step-num">4</div><div class="p-step-title">Launch + Full Handoff</div><p class="p-step-desc">Code, files, accounts, logins — all yours. Nothing locked. Ongoing support available when needed.</p></div>
+      <a href="contact.html" class="btn-primary" style="background:var(--ink); display:inline-flex; align-items:center; gap:.5rem;">
+        Start Your Empire
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
 <div class="rule"></div>
 
-<!-- TESTIMONIALS -->
-<section class="testi-sec sec">
+<!-- ═══════════════════════════════════════════
+     SERVICES — asymmetric editorial grid
+═══════════════════════════════════════════ -->
+<section class="services-section section">
   <div class="wrap">
-    <div class="testi-layout">
-      <div class="testi-left rv-l">
-        <div class="eyebrow">Client Feedback</div>
-        <h2 class="dh">What clients<br><em>have to say.</em></h2>
-        <p>Real feedback from Metro Detroit business owners.</p>
-        <div class="testi-img">
-          <img src="https://i.imgur.com/vogfEs8.png" alt="Client collaboration" loading="lazy" decoding="async"/>
+    <div class="services-header reveal">
+      <div>
+        <div class="tag">What We Do</div>
+        <h2 class="big-h" style="color:#fff;">Five Services.<br><em>One Empire.</em></h2>
+      </div>
+      <a href="services.html" class="all-link">
+        View All Services
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="services-asym reveal stagger">
+      <!-- Featured: Website Creation -->
+      <div class="sv sv-featured">
+        <div class="sv-featured-img">
+          <!-- High-quality web design / UI screenshot -->
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=85&fit=crop" alt="Modern website design and development" loading="lazy" decoding="async"/>
+        </div>
+        <div style="padding-top: 2.5rem;">
+          <span class="sv-num">01</span>
+          <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+          <div class="sv-title">Website Creation</div>
+          <p class="sv-desc">Modern, mobile-first sites built to turn visitors into clients. Fast, structured, and conversion-optimized from day one.</p>
+        </div>
+        <div class="sv-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </div>
       </div>
-      <div class="testi-right rv-r d1">
-        <div class="testi-card"><div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="testi-text">"Levant built us a website that actually converts. Inquiry submissions increased significantly after launch. They handled design, development, and SEO without us managing multiple vendors."</p><div class="testi-author"><div class="testi-ava">SB</div><div><div class="testi-name">Small Business Owner</div><div class="testi-role">Professional Services · Detroit</div></div></div></div>
-        <div class="testi-card"><div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="testi-text">"Finally a web team that communicates throughout. Delivered our rebrand and new site in just over a week. No surprises, no hidden fees — solid work with clear expectations from day one."</p><div class="testi-author"><div class="testi-ava">MD</div><div><div class="testi-name">Marketing Director</div><div class="testi-role">Retail Company · Metro Detroit</div></div></div></div>
-        <div class="testi-card"><div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="testi-text">"Our Google Business profile was a mess. Levant cleaned it up, optimized everything, and now we're showing up in local searches we weren't reaching before. Worth every dollar."</p><div class="testi-author"><div class="testi-ava">LB</div><div><div class="testi-name">Local Service Business Owner</div><div class="testi-role">Home Services Industry</div></div></div></div>
+
+      <!-- Branding -->
+      <div class="sv">
+        <span class="sv-num">02</span>
+        <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="m12 8 4 4-4 4M8 12h8"/></svg></div>
+        <div class="sv-title">Branding + Logo</div>
+        <p class="sv-desc">An identity system that makes your business look established, consistent, and credible everywhere it appears.</p>
+        <div class="sv-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      </div>
+
+      <!-- Graphic Design -->
+      <div class="sv">
+        <span class="sv-num">03</span>
+        <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="sv-title">Graphic Design</div>
+        <p class="sv-desc">Social graphics, flyers, banners, and print — all on-brand and built to stop the scroll.</p>
+        <div class="sv-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      </div>
+
+      <!-- SEO -->
+      <div class="sv">
+        <span class="sv-num">04</span>
+        <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg></div>
+        <div class="sv-title">SEO Foundations</div>
+        <p class="sv-desc">Technical SEO, metadata, internal linking, and page structure — everything Google needs to find and rank you.</p>
+        <div class="sv-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      </div>
+
+      <!-- Google Business -->
+      <div class="sv">
+        <span class="sv-num">05</span>
+        <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="sv-title">Google Business</div>
+        <p class="sv-desc">Setup, optimization, and posting support. Keep your local presence active, complete, and competitive.</p>
+        <div class="sv-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+      </div>
+
+      <!-- CTA card -->
+      <div class="sv-cta-card">
+        <div>
+          <div class="sv-cta-title">Not Sure Where To Start?</div>
+          <p class="sv-cta-sub">Get a free audit first. We'll show you exactly where you rank and what needs fixing — zero commitment.</p>
+        </div>
+        <a href="audit.html" class="btn-white">
+          Get Free Audit
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     RESULTS — dark with image strip
+═══════════════════════════════════════════ -->
+<section class="results-section">
+  <div class="results-img-strip">
+    <!-- Google Analytics / growth charts real office -->
+    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&q=85&fit=crop" alt="Marketing data analytics and campaign performance dashboard" loading="lazy" decoding="async"/>
+    <div class="results-strip-text reveal">
+      <h2>Results That<br><em>Speak For Themselves.</em></h2>
+      <p>Specific outcomes from real projects. Honest numbers with full context.</p>
+    </div>
+  </div>
+  <div class="results-nums reveal" style="transition-delay:.15s;">
+    <div class="res-item">
+      <div class="res-num"><span class="counter" data-target="300">0</span>%</div>
+      <div class="res-label">Traffic Growth</div>
+      <div class="res-note">Top-performing SEO project</div>
+    </div>
+    <div class="res-item">
+      <div class="res-num"><span class="counter" data-target="15">0</span>+</div>
+      <div class="res-label">Page 1 Keywords</div>
+      <div class="res-note">Single local service client</div>
+    </div>
+    <div class="res-item">
+      <div class="res-num"><span class="counter" data-target="7">0</span></div>
+      <div class="res-label">Day Delivery</div>
+      <div class="res-note">Average project completion</div>
+    </div>
+    <div class="res-item">
+      <div class="res-num"><span class="counter" data-target="100">0</span>%</div>
+      <div class="res-label">Ownership</div>
+      <div class="res-note">All files, code & accounts yours</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PROCESS — horizontal four-step strip
+═══════════════════════════════════════════ -->
+<section class="process-section section">
+  <div class="wrap">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;" class="reveal">
+      <div>
+        <div class="tag">How It Works</div>
+        <h2 class="big-h">Simple. Clear.<br><em>Straightforward.</em></h2>
+      </div>
+      <p style="max-width:360px; font-size:1.05rem; line-height:1.75; color:var(--ink2);">We keep the process lean so you always know where things stand. No surprises, no scope creep.</p>
+    </div>
+
+    <div class="process-steps reveal stagger" style="transition-delay:.15s;">
+      <div class="p-step">
+        <div class="p-step-num">1</div>
+        <div class="p-step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="p-step-title">Free Audit</div>
+        <p class="p-step-desc">We review your current presence, find gaps, and show you exactly what needs to change — before you spend a dollar.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-step-num">2</div>
+        <div class="p-step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 17H5a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3M13 21h6a2 2 0 002-2v-6a2 2 0 00-2-2h-6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="p-step-title">Clear Scope + Quote</div>
+        <p class="p-step-desc">A written breakdown of exactly what we'll build, what it costs, and when it's done. No vague estimates.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-step-num">3</div>
+        <div class="p-step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="p-step-title">We Build It Right</div>
+        <p class="p-step-desc">Design, development, branding, SEO — we handle execution while keeping you updated. No ghosting, ever.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-step-num">4</div>
+        <div class="p-step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="p-step-title">Launch + Full Handoff</div>
+        <p class="p-step-desc">Code, files, accounts, logins — all yours. Nothing locked. Ongoing support available when needed.</p>
       </div>
     </div>
   </div>
@@ -1132,41 +1082,155 @@
 
 <div class="rule"></div>
 
-<!-- FAQ -->
-<section class="faq-sec sec">
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS — sticky left / scrolling right
+═══════════════════════════════════════════ -->
+<section class="testi-section section">
   <div class="wrap">
-    <div class="faq-layout">
-      <div class="faq-left rv-l">
-        <div class="eyebrow">FAQ</div>
-        <h2 class="dh">Straight<br>answers.<br><em>No fluff.</em></h2>
-        <p>We'd rather set real expectations upfront than promise the moon and deliver a flashlight.</p>
+    <div class="testi-layout">
+      <div class="testi-left reveal-l">
+        <div class="tag">Client Feedback</div>
+        <h2 class="big-h" style="margin-bottom:2rem;">What Clients<br><em>Have To Say.</em></h2>
+        <p style="font-size:0.95rem; line-height:1.8; color:var(--ink2); margin-bottom:2rem;">Real feedback from real Metro Detroit business owners — no fluff, no stock testimonials.</p>
+        <!-- digital marketing team working -->
+        <div class="img-hover-zoom" style="overflow:hidden; aspect-ratio:4/3; margin-top:1rem;">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=85&fit=crop" alt="Digital marketing team collaborating on growth strategy" loading="lazy" decoding="async" style="height:100%; object-fit:cover;"/>
+        </div>
       </div>
-      <div class="rv-r d1">
-        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">What does "SEO-ready" actually mean?<div class="faq-plus">+</div></button><div class="faq-a"><p>Proper headings, metadata, page structure, internal linking, and indexing readiness — the technical foundation most businesses are completely missing.</p></div></div>
-        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">Can you redesign my existing site?<div class="faq-plus">+</div></button><div class="faq-a"><p>Absolutely. We keep what's working and improve structure, visuals, speed, and mobile experience. You don't need to start from zero.</p></div></div>
-        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">How long does a website take?<div class="faq-plus">+</div></button><div class="faq-a"><p>Most projects complete in 1–2 weeks depending on scope. Simple sites have gone live in as little as 7 days.</p></div></div>
-        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">How is ownership handled?<div class="faq-plus">+</div></button><div class="faq-a"><p>Ownership, access, and handoff terms are defined in the written proposal before work starts. You receive a full breakdown at launch — code, accounts, assets, everything.</p></div></div>
-        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">Do you work outside Metro Detroit?<div class="faq-plus">+</div></button><div class="faq-a"><p>We're Metro Detroit focused but work remotely with clients across Michigan and beyond. Geography isn't a barrier if you're serious about growth.</p></div></div>
+
+      <div class="testi-right reveal-r" style="transition-delay:.15s;">
+        <div class="testi-card card-lift">
+          <div class="testi-q">"</div>
+          <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="testi-text">Levant built us a website that actually converts. Our inquiry form submissions increased significantly after launch. They handled everything — design, development, and technical SEO — without us managing multiple vendors.</p>
+          <div class="testi-author">
+            <div class="testi-ava">SB</div>
+            <div>
+              <div class="testi-name">Small Business Owner</div>
+              <div class="testi-role">Professional Services, Detroit</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card card-lift">
+          <div class="testi-q">"</div>
+          <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="testi-text">Finally, a web team that communicates throughout the entire project. They delivered our rebrand and new site in just over a week. No surprises, no hidden fees — just solid work and clear expectations from day one.</p>
+          <div class="testi-author">
+            <div class="testi-ava">MD</div>
+            <div>
+              <div class="testi-name">Marketing Director</div>
+              <div class="testi-role">Retail Company, Metro Detroit</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card card-lift">
+          <div class="testi-q">"</div>
+          <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="testi-text">Our Google Business profile was incomplete and inconsistent. Levant cleaned it up, optimized everything, and now we're showing up in local search results we weren't reaching before. Worth every dollar.</p>
+          <div class="testi-author">
+            <div class="testi-ava">LB</div>
+            <div>
+              <div class="testi-name">Local Service Business Owner</div>
+              <div class="testi-role">Home Services Industry</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-sec">
+<div class="rule"></div>
+
+<!-- ═══════════════════════════════════════════
+     FAQ — asymmetric with image
+═══════════════════════════════════════════ -->
+<section class="faq-section section">
+  <div class="wrap">
+    <div class="faq-layout">
+      <div class="reveal-l">
+        <div class="tag">FAQ</div>
+        <h2 class="big-h" style="margin-bottom:1.5rem;">Straight<br>Answers.<br><em>No Fluff.</em></h2>
+        <p style="font-size:0.95rem; line-height:1.8; color:var(--ink2); max-width:300px;">We'd rather set real expectations upfront than promise the moon and deliver a flashlight.</p>
+        <div class="faq-left-img img-hover-zoom">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=85&fit=crop" alt="Digital strategy planning session with laptop, campaign notes, and team collaboration" loading="lazy" decoding="async"/>
+        </div>
+      </div>
+
+      <div class="reveal-r" style="transition-delay:.15s;">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1" onclick="toggleFaq(this)">
+            What does "SEO-ready" actually mean?
+            <div class="faq-plus">+</div>
+          </button>
+          <div class="faq-a" id="faq-a-1">
+            <p>Proper headings, metadata, page structure, internal linking, and indexing readiness. It's the technical foundation — not a full ongoing SEO campaign, but what most businesses are completely missing and what gives Google everything it needs to rank you.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2" onclick="toggleFaq(this)">
+            Can you redesign my existing site?
+            <div class="faq-plus">+</div>
+          </button>
+          <div class="faq-a" id="faq-a-2">
+            <p>Absolutely. We keep what's working and improve structure, visuals, speed, and mobile experience. You don't need to start from zero — we can build on what you have and dramatically improve the result.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3" onclick="toggleFaq(this)">
+            How long does a website take?
+            <div class="faq-plus">+</div>
+          </button>
+          <div class="faq-a" id="faq-a-3">
+            <p>Most projects are completed in 1–2 weeks depending on scope. We give you a clear timeline before work begins so there are never surprises on delivery date. Simple sites have gone live in as little as 7 days.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" onclick="toggleFaq(this)">
+            How are ownership terms handled?
+            <div class="faq-plus">+</div>
+          </button>
+          <div class="faq-a" id="faq-a-4">
+            <p>We define ownership, access, and handoff terms in the written proposal before work starts. If transfer is included, the agreement spells out exactly what is delivered, what remains third-party or licensed, and what you receive at launch.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" onclick="toggleFaq(this)">
+            Do you work with businesses outside Metro Detroit?
+            <div class="faq-plus">+</div>
+          </button>
+          <div class="faq-a" id="faq-a-5">
+            <p>We're Metro Detroit focused but work remotely with clients across Michigan and beyond. If you're serious about growing your digital presence, geography isn't a barrier — reach out and we'll see if we're a fit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CTA — full-bleed dark with background image
+═══════════════════════════════════════════ -->
+<section class="cta-section">
   <div class="cta-bg-img">
-    <img src="https://i.imgur.com/VPvI7de.png" alt="" aria-hidden="true" loading="lazy" decoding="async"/>
+    <!-- Detroit city skyline / urban digital -->
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80&fit=crop" alt="Digital marketing team strategy session" loading="lazy" decoding="async"/>
   </div>
   <div class="cta-inner">
-    <div class="rv-l">
-      <h2 class="cta-h">Let's build<br>something<br><em>worth</em><br><strong>remembering.</strong></h2>
+    <div class="reveal-l">
+      <h2 class="cta-h">Let's Create<br><em>Something</em><br>Great.</h2>
     </div>
-    <div class="cta-right rv-r d1">
-      <div class="eyebrow">Available Now · Metro Detroit</div>
-      <p>Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote — no pressure, just a straight conversation.</p>
+    <div class="cta-right reveal-r" style="transition-delay:.15s;">
+      <div class="cta-badge"><span></span>Available Now · Metro Detroit</div>
+      <p>Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote. No pressure — just a straight conversation about what will actually help.</p>
       <div class="cta-btns">
-        <a href="contact.html" class="btn-teal">Start the Conversation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="audit.html" class="btn-sand">Get a Free Audit First</a>
+        <a href="contact.html" class="btn-primary">
+          Start Your Empire
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="audit.html" style="font-family:var(--font-ui); font-size:0.72rem; font-weight:600; letter-spacing:0.075em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.65); padding:1rem 2rem; text-decoration:none; transition:border-color .2s,color .2s; display:inline-flex; align-items:center;" onmouseover="this.style.borderColor='var(--cyan)';this.style.color='var(--cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)';this.style.color='rgba(255,255,255,0.65)'">Free Audit First</a>
       </div>
     </div>
   </div>
@@ -1176,66 +1240,28 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <a href="index.html" class="footer-logo">Levant <span>Digital Marketing</span></a>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="index.html"    class="footer-lnk">Home</a>
-        <a href="services.html" class="footer-lnk">Services</a>
-        <a href="why-us.html"   class="footer-lnk">Why Us</a>
-        <a href="audit.html"    class="footer-lnk">Free Audit</a>
-        <a href="contact.html"  class="footer-lnk">Contact</a>
+      <a href="index.html" class="footer-logo">Levant<em>.</em></a>
+      <nav class="footer-nav">
+        <a href="index.html" class="footer-lnk link-underline" style="color:rgba(255,255,255,0.65)">Home</a>
+        <a href="services.html" class="footer-lnk link-underline">Services</a>
+        <a href="why-us.html" class="footer-lnk link-underline">Why Us</a>
+        <a href="audit.html" class="footer-lnk link-underline">Free Audit</a>
+        <a href="contact.html" class="footer-lnk link-underline">Contact</a>
       </nav>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
-      <div style="display:flex;gap:2rem;">
-        <a href="privacy.html" class="footer-lnk">Privacy</a>
-        <a href="terms.html"   class="footer-lnk">Terms</a>
+      <div style="display:flex; gap:2rem;">
+        <a href="privacy.html" class="footer-lnk link-underline">Privacy Policy</a>
+        <a href="terms.html" class="footer-lnk link-underline">Terms</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="assets/site.js"></script>
 <script>
-  /* NAV */
-  const nav = document.getElementById('nav');
-  const heroEl = document.querySelector('.hero');
-  function updateNav() {
-    const past = window.scrollY > heroEl.offsetHeight * 0.06;
-    nav.classList.toggle('scrolled', past);
-    nav.classList.toggle('over-hero', !past);
-  }
-  updateNav();
-  window.addEventListener('scroll', updateNav, { passive: true });
-
-  /* HERO IMG */
-  const heroImg = document.getElementById('hero-img');
-  if (heroImg.complete) heroImg.classList.add('loaded');
-  else heroImg.addEventListener('load', () => heroImg.classList.add('loaded'));
-
-  /* MOBILE MENU */
-  const mobMenu = document.getElementById('mob-menu');
-  const setMenu = open => {
-    mobMenu.classList.toggle('open', open);
-    mobMenu.setAttribute('aria-hidden', String(!open));
-    document.body.style.overflow = open ? 'hidden' : '';
-  };
-  document.getElementById('mob-btn').addEventListener('click', () => setMenu(true));
-  document.getElementById('mob-close').addEventListener('click', () => setMenu(false));
-  document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
-
-  /* REVEAL */
-  const rvObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); rvObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.07, rootMargin: '0px 0px -44px 0px' });
-  document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-s').forEach(el => {
-    if (el.closest('.hero')) { el.classList.add('in'); return; }
-    rvObs.observe(el);
-  });
-
-  /* FAQ */
+  // FAQ
   function toggleFaq(btn) {
     const item = btn.parentElement;
     const answer = item.querySelector('.faq-a');
@@ -1243,24 +1269,31 @@
     document.querySelectorAll('.faq-item').forEach(i => {
       i.classList.remove('open');
       i.querySelector('.faq-a').style.maxHeight = '0';
-      i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
     });
     if (!isOpen) {
       item.classList.add('open');
       answer.style.maxHeight = answer.scrollHeight + 'px';
-      btn.setAttribute('aria-expanded','true');
+      btn.setAttribute('aria-expanded', 'true');
     }
   }
 
-  /* COUNTERS */
-  const ctrObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target, target = +el.dataset.target;
-      let v = 0; const step = target / (1800 / 16);
-      const tick = () => { v = Math.min(v+step,target); el.textContent=Math.floor(v); if(v<target)requestAnimationFrame(tick); else el.textContent=target; };
-      tick(); ctrObs.unobserve(el);
-    });
+  // Counters
+  function animateCounter(counter) {
+    const target = parseInt(counter.getAttribute('data-target'));
+    const duration = 1800;
+    const step = target / (duration / 16);
+    let current = 0;
+    const tick = () => {
+      current = Math.min(current + step, target);
+      counter.textContent = Math.floor(current);
+      if (current < target) requestAnimationFrame(tick);
+      else counter.textContent = target;
+    };
+    tick();
+  }
+  const ctrObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); ctrObs.unobserve(e.target); } });
   }, { threshold: 0.5 });
   document.querySelectorAll('.counter').forEach(c => ctrObs.observe(c));
 </script>
