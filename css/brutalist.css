@@ -1,33 +1,762 @@
-/* ========================================================================== 
-   LEVANT LEGACY COMPATIBILITY FILE
-   The previous brutalist system has been intentionally neutralized so it does
-   not override the new cleaner homepage UI. Keep this file only to prevent
-   broken stylesheet references on older pages.
-   ========================================================================== */
+<!DOCTYPE html>
 
-:root {
-  --red: #06b6d4;
-  --blue: #121212;
-  --yellow: #f7f6f3;
-  --black: #121212;
-  --white: #ffffff;
-  --cyan: #06b6d4;
-  --cyan-bright: #22d3ee;
-  --font-display: 'Satoshi', 'General Sans', system-ui, sans-serif;
-  --font-body: 'General Sans', 'Satoshi', system-ui, sans-serif;
-  --font-mono: 'General Sans', system-ui, sans-serif;
-  --border-width: 1px;
-  --border-width-thick: 1px;
-  --border-radius: 0;
-}
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Levant Digital Marketing | Websites and SEO for Local Businesses</title>
+<meta content="Levant Digital Marketing builds clean websites, sharper messaging, and local SEO foundations for Metro Detroit businesses." name="description"/>
+<meta content="#06b6d4" name="theme-color"/>
+<link href="https://levantdigitalmarketing.com/" rel="canonical"/>
+<meta content="Levant Digital Marketing" property="og:title"/>
+<meta content="Websites and SEO foundations for Metro Detroit businesses that need to look credible and get found." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://levantdigitalmarketing.com/" property="og:url"/>
+<meta content="https://i.imgur.com/Sc2b6hu.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://api.fontshare.com" rel="preconnect"/>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;f[]=satoshi@500,700,900&amp;display=swap" rel="stylesheet"/>
+<link href="assets/nav.css" rel="stylesheet"/>
+<link href="assets/typography.css" rel="stylesheet"/>
+<style>
+    :root {
+      --cyan: #06b6d4;
+      --cyan-soft: rgba(6, 182, 212, .1);
+      --ink: #121212;
+      --ink-2: #3f3f3f;
+      --muted: #757575;
+      --line: rgba(18,18,18,.12);
+      --paper: #f7f6f3;
+      --white: #ffffff;
+      --dark: #0f1113;
+      --max: 1180px;
+    }
 
-/* Legacy aliases mapped to the clean UI so old markup still renders safely. */
-.section--black { background: var(--dark, #0f1113); color: #fff; }
-.section--white { background: var(--paper, #f7f6f3); color: var(--ink, #121212); }
-.section--cyan { background: rgba(6,182,212,.08); color: var(--ink, #121212); }
-.marquee { background: var(--dark, #0f1113); color: #fff; overflow: hidden; }
-.marquee__track { display: flex; white-space: nowrap; animation: none; }
-.marquee__item { padding: 16px 28px; color: rgba(255,255,255,.65); font-weight: 700; }
-.loader, #loader, .page-transition { display: none !important; }
-.scramble-text { display: inline; }
-[data-parallax] { transform: none !important; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'General Sans', 'Satoshi', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { width: 100%; display: block; object-fit: cover; }
+    a { color: inherit; }
+    main { display: block; }
+    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: 16px;
+      z-index: 9999;
+      background: var(--cyan);
+      color: #fff;
+      padding: 10px 14px;
+      transform: translateY(-140%);
+      transition: transform .2s ease;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 92px 0; scroll-margin-top: 92px; }
+    .section-tight { padding: 64px 0; }
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    h1, h2, h3 { font-family: 'Satoshi', 'General Sans', system-ui, sans-serif; letter-spacing: -.035em; }
+    h1 { font-size: clamp(48px, 7vw, 86px); line-height: .95; max-width: 820px; }
+    h2 { font-size: clamp(34px, 4.5vw, 58px); line-height: 1; max-width: 780px; }
+    h3 { font-size: clamp(22px, 2.4vw, 32px); line-height: 1.1; }
+    p { color: var(--ink-2); line-height: 1.72; font-size: 17px; }
+    .lead { font-size: clamp(18px, 2vw, 21px); max-width: 680px; }
+
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.dark { background: var(--ink); color: #fff; }
+    .btn.cyan { background: var(--cyan); border-color: var(--cyan); color: #fff; }
+    .btn.light { color: var(--ink); background: transparent; }
+
+    /* HERO */
+    .hero {
+      padding: 144px 0 72px;
+      min-height: auto;
+      background:
+        linear-gradient(90deg, rgba(6,182,212,.06) 0 1px, transparent 1px),
+        var(--paper);
+      background-size: 72px 72px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, .72fr);
+      gap: 54px;
+      align-items: end;
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero-copy { margin-top: 26px; }
+    .hero-actions { margin-top: 34px; }
+    .hero-note {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 650px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+    .hero-note strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .hero-note span { color: var(--muted); font-size: 13px; line-height: 1.5; display: block; }
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 14px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.06);
+    }
+    .hero-image {
+      aspect-ratio: 4 / 4.7;
+      background:
+        linear-gradient(135deg, rgba(6,182,212,.14), rgba(18,18,18,.05)),
+        repeating-linear-gradient(45deg, rgba(0,0,0,.035) 0 1px, transparent 1px 10px);
+      overflow: hidden;
+    }
+    .hero-image img { height: 100%; object-fit: contain; object-position: center; background: #eef2f4; }
+    .hero-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 4px 2px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hero-caption b { color: var(--ink); }
+
+    /* PROOF STRIP */
+    .proof-strip {
+      background: var(--dark);
+      color: #fff;
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.1);
+    }
+    .proof-cell {
+      background: var(--dark);
+      padding: 28px 24px;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .proof-cell p { color: rgba(255,255,255,.62); font-size: 15px; }
+    .proof-cell strong { font-size: 24px; letter-spacing: -.03em; }
+    .proof-cell small { color: rgba(255,255,255,.44); font-size: 12px; line-height: 1.5; }
+
+    /* DIAGNOSIS */
+    .diagnosis-head {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+    .issue-list {
+      border-top: 1px solid var(--line);
+    }
+    .issue {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr) minmax(260px, 420px);
+      gap: 28px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+    .issue-num { color: var(--cyan); font-weight: 800; font-size: 13px; letter-spacing: .12em; }
+    .issue p { font-size: 16px; max-width: 520px; }
+    .issue-media {
+      aspect-ratio: 16 / 10;
+      background:
+        linear-gradient(135deg, rgba(6,182,212,.12), rgba(0,0,0,.04)),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 1px, transparent 1px 12px);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .issue-media img { height: 100%; object-fit: contain; background: #fff; padding: 12px; }
+
+    /* SERVICE LINE */
+    .service-line {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .service-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .service-list { border-top: 1px solid var(--line); }
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 30px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .service-row h3 { font-size: 24px; }
+    .service-row p { font-size: 15.5px; }
+
+    /* WORK / PROOF */
+    .proof-work {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 44px;
+    }
+    .work-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 18px;
+    }
+    .work-shot {
+      aspect-ratio: 16 / 10;
+      background:
+        linear-gradient(135deg, rgba(6,182,212,.11), rgba(18,18,18,.04)),
+        repeating-linear-gradient(-45deg, rgba(0,0,0,.035) 0 1px, transparent 1px 11px);
+      overflow: hidden;
+      border: 1px solid rgba(18,18,18,.08);
+    }
+    .work-shot img { height: 100%; object-fit: contain; background: #f1f5f7; padding: 10px; }
+    .work-card h3 { margin-top: 18px; font-size: 25px; }
+    .work-card p { margin-top: 8px; font-size: 15.5px; }
+    .work-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .pill {
+      font-size: 12px;
+      border: 1px solid var(--line);
+      padding: 7px 10px;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    /* PROCESS */
+    .process {
+      background: var(--dark);
+      color: #fff;
+    }
+    .process p { color: rgba(255,255,255,.64); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.1);
+      margin-top: 42px;
+    }
+    .process-step {
+      background: var(--dark);
+      padding: 28px 22px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .process-step b { color: var(--cyan); font-size: 13px; letter-spacing: .12em; }
+    .process-step h3 { font-size: 24px; color: #fff; margin-top: 34px; }
+    .process-step p { font-size: 15px; margin-top: 12px; }
+
+    /* FAQ */
+    .faq-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 58px;
+      align-items: start;
+    }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      font: inherit;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      gap: 24px;
+    }
+    .faq-q span { color: var(--cyan); font-size: 24px; line-height: 1; transition: transform .2s ease; }
+    .faq-item.open .faq-q span { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a p { padding: 0 0 24px; font-size: 15.5px; }
+
+    /* CTA */
+    .final-cta {
+      background: var(--ink);
+      color: #fff;
+      padding: 86px 0;
+    }
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 50px;
+      align-items: end;
+    }
+    .final-cta h2 { color: #fff; }
+    .final-cta p { color: rgba(255,255,255,.62); margin-top: 20px; max-width: 620px; }
+    .cta-panel {
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(135deg, rgba(6,182,212,.16), rgba(255,255,255,.02)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.045) 0 1px, transparent 1px 14px);
+      padding: 24px;
+    }
+    .cta-panel p { margin: 0 0 18px; font-size: 15px; }
+
+    footer {
+      padding: 42px 0;
+      background: #090909;
+      color: rgba(255,255,255,.45);
+      font-size: 13px;
+    }
+    .foot { display: flex; justify-content: space-between; gap: 22px; flex-wrap: wrap; }
+    .foot a { text-decoration: none; color: rgba(255,255,255,.65); }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .diagnosis-head,
+      .service-layout,
+      .faq-layout,
+      .cta-box { grid-template-columns: 1fr; }
+      .hero { padding-top: 118px; }
+      .hero-card { max-width: 560px; }
+      .issue { grid-template-columns: 52px 1fr; }
+      .issue-media { grid-column: 2; max-width: 520px; }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+      .proof-work { grid-template-columns: 1fr; }
+      .results-ledger { grid-template-columns: 1fr 1fr; }
+      .ledger-intro { grid-column: 1 / -1; }
+      .feedback-list { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 18px; }
+      .section { padding: 68px 0; }
+      .hero { padding: 108px 0 54px; }
+      h1 { font-size: clamp(42px, 13vw, 58px); }
+      h2 { font-size: clamp(31px, 10vw, 44px); }
+      p { font-size: 16px; }
+      .hero-grid { gap: 36px; }
+      .hero-note { grid-template-columns: 1fr; }
+      .hero-image { aspect-ratio: 4 / 3.6; }
+      .btn { width: 100%; }
+      .proof-grid,
+      .process-grid,
+      .results-ledger { grid-template-columns: 1fr; }
+      .ledger-intro,.ledger-cell { border-right:0; border-bottom:1px solid var(--line); }
+      .issue { grid-template-columns: 1fr; gap: 16px; }
+      .issue-media { grid-column: auto; }
+      .service-row { grid-template-columns: 1fr; gap: 10px; }
+      .foot { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Levant Digital Marketing",
+      "url": "https://levantdigitalmarketing.com/",
+      "logo": "https://i.imgur.com/Sc2b6hu.png"
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Levant Digital Marketing",
+      "url": "https://levantdigitalmarketing.com/",
+      "areaServed": [
+        "Metro Detroit",
+        "Michigan"
+      ],
+      "priceRange": "$$",
+      "description": "Website design, SEO foundations, brand identity, and Google Business Profile support for local businesses."
+    },
+    {
+      "@type": "Service",
+      "name": "Website design and local SEO foundations",
+      "provider": {
+        "@type": "Organization",
+        "name": "Levant Digital Marketing"
+      },
+      "areaServed": [
+        "Metro Detroit",
+        "Michigan"
+      ],
+      "serviceType": [
+        "Website design",
+        "SEO foundations",
+        "Google Business Profile optimization",
+        "Brand cleanup",
+        "Graphic design"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does this cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the size of the site, content, and whether you need SEO or Google Business Profile help. The audit gives you a real quote based on what needs fixing, not a package you do not need."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does SEO-ready actually mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Proper headings, metadata, page structure, internal links, indexing readiness, and location signals. It is the technical foundation, not a full ongoing SEO campaign."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you redesign my current website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If the current site has useful content or structure, we keep what works and rebuild the parts hurting trust, speed, mobile usability, or search visibility."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a website take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most smaller projects are completed in one to two weeks depending on scope. Simple sites can move faster once content, access, and direction are clear."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What platforms do you build on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Custom static sites are best when speed, ownership, and clean code matter. If you need easy editing, we can recommend a platform based on what you will actually maintain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you write the content?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We can rewrite your homepage, service pages, calls to action, and local SEO copy so the site sounds clear and credible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are ownership terms handled?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ownership, access, and handoff terms are defined before work starts. If transfer is included, the agreement spells out what is delivered and what remains third-party or licensed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You own the site files and accounts. Ongoing edits, SEO improvements, and Google Business support can be handled monthly if you want support after launch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work outside Metro Detroit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Levant is Metro Detroit focused, but remote work is available for Michigan businesses and serious clients outside the area."
+          }
+        }
+      ]
+    }
+  ]
+}</script></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav id="nav">
+<div class="nav-inner">
+<a class="nav-logo" href="index.html">Levant<em>.</em></a>
+<div class="nav-links">
+<a class="nav-lnk" href="index.html">Home</a>
+<a class="nav-lnk" href="services.html">Services</a>
+<a class="nav-lnk" href="why-us.html">Why Us</a>
+<a class="nav-lnk" href="audit.html">Free Audit</a>
+<a class="nav-cta" href="contact.html">Let's Talk</a>
+</div>
+<button aria-expanded="false" aria-label="Menu" id="mob-btn">
+<svg fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="26"><line x1="3" x2="21" y1="6" y2="6"></line><line x1="3" x2="21" y1="12" y2="12"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg>
+</button>
+</div>
+</nav>
+<div aria-hidden="true" id="mob-menu">
+<button aria-label="Close menu" id="mob-close">✕</button>
+<a class="mob-lnk active" href="index.html">Home</a>
+<a class="mob-lnk" href="services.html">Services</a>
+<a class="mob-lnk" href="why-us.html">Why Us</a>
+<a class="mob-lnk" href="audit.html">Free Audit</a>
+<a class="mob-lnk" href="contact.html">Contact</a>
+</div>
+<main id="main">
+<header aria-label="Levant Digital Marketing homepage introduction" class="hero">
+<div class="wrap hero-grid">
+<div>
+<div class="eyebrow">Websites and local SEO for Metro Detroit</div>
+<h1>Your website is costing you <span>work.</span></h1>
+<p class="lead hero-copy">Most local business websites do not lose customers because they are ugly. They lose customers because they feel unclear, outdated, slow, or forgettable when someone is ready to call.</p>
+<div class="btn-row hero-actions">
+<a class="btn cyan" href="audit.html">Get free audit</a>
+<a class="btn light" href="#what-we-fix">See what we fix</a>
+</div>
+<div aria-label="Key promises" class="hero-note">
+<div><strong>Clear scope</strong><span>You know what is being built before work starts.</span></div>
+<div><strong>No lock-in</strong><span>Your files, accounts, and website stay yours.</span></div>
+<div><strong>Built to be used</strong><span>Fast pages, clear copy, and mobile-first structure.</span></div>
+</div>
+</div>
+<aside aria-label="Website audit preview" class="hero-card">
+<div class="hero-image">
+<img alt="Website and marketing audit visual" decoding="async" fetchpriority="high" src="https://i.imgur.com/Sc2b6hu.png"/>
+</div>
+<div class="hero-caption"><span><b>Audit view</b></span><span>Clarity first, polish second</span></div>
+</aside>
+</div>
+</header><div aria-label="Services overview" class="quiet-band"><div class="quiet-track"><span class="quiet-item">Website Creation</span><span class="quiet-item">Brand Identity</span><span class="quiet-item">SEO Foundations</span><span class="quiet-item">Google Business</span><span class="quiet-item">Graphic Design</span><span class="quiet-item">Metro Detroit</span><span class="quiet-item">Website Creation</span><span class="quiet-item">Brand Identity</span><span class="quiet-item">SEO Foundations</span><span class="quiet-item">Google Business</span><span class="quiet-item">Graphic Design</span><span class="quiet-item">Metro Detroit</span></div></div>
+<section aria-label="Quick credibility notes" class="proof-strip">
+<div class="wrap proof-grid">
+<div class="proof-cell"><strong>What we focus on</strong><p>The parts of your site that affect trust before a customer ever speaks to you.</p></div>
+<div class="proof-cell"><strong>7 day</strong><small>Typical small-site delivery window after scope is locked.</small></div>
+<div class="proof-cell"><strong>100%</strong><small>Ownership of site files, copy, accounts, and assets.</small></div>
+<div class="proof-cell"><strong>No games</strong><small>No fake awards, fake testimonials, or mystery retainers.</small></div>
+</div>
+</section>
+<section class="section" id="results"><div class="wrap"><div class="eyebrow">Numbers with context</div><h2>Useful proof beats loud claims.</h2><div aria-label="Levant project proof points" class="results-ledger"><div class="ledger-intro"><h3>What gets tracked</h3><p>Traffic, search visibility, handoff quality, and how quickly a smaller site can be rebuilt once the scope is clear.</p></div><div class="ledger-cell"><strong><span class="counter" data-target="300">0</span>%+</strong><span>Traffic growth</span><small>Top-performing SEO project from the original site.</small></div><div class="ledger-cell"><strong><span class="counter" data-target="15">0</span>+</strong><span>Page 1 keywords</span><small>For a single local service client.</small></div><div class="ledger-cell"><strong><span class="counter" data-target="7">0</span></strong><span>Day delivery</span><small>Typical small-site window after scope is locked.</small></div><div class="ledger-cell"><strong><span class="counter" data-target="100">0</span>%</strong><span>Ownership</span><small>Files, code, accounts, and assets stay with the client.</small></div></div></div></section><section class="section" id="what-we-fix">
+<div class="wrap">
+<div class="diagnosis-head">
+<div>
+<div class="eyebrow">The diagnosis</div>
+<h2>What they see when they land.</h2>
+</div>
+<p class="lead">A customer usually decides whether you feel credible in a few seconds. The job of the site is to remove doubt, not decorate the page.</p>
+</div>
+<div class="issue-list">
+<article class="issue">
+<div class="issue-num">01</div>
+<div>
+<h3>The first screen feels unclear.</h3>
+<p>Visitors should immediately know what you do, where you work, why you are credible, and what to do next.</p>
+</div>
+<div class="issue-media"><img alt="Homepage layout review visual" decoding="async" loading="lazy" src="https://i.imgur.com/ebYKPCv.png"/></div>
+</article>
+<article class="issue">
+<div class="issue-num">02</div>
+<div>
+<h3>The mobile version feels neglected.</h3>
+<p>If the phone experience feels cramped or confusing, trust drops fast. Most local traffic will see that version first.</p>
+</div>
+<div class="issue-media"><img alt="Mobile website review visual" decoding="async" loading="lazy" src="https://i.imgur.com/C9ZYARr.png"/></div>
+</article>
+<article class="issue">
+<div class="issue-num">03</div>
+<div>
+<h3>The message sounds like everyone else.</h3>
+<p>Your site needs plain, specific language that makes the business feel real. Not filler copy that could fit any company.</p>
+</div>
+<div class="issue-media"><img alt="Website messaging and content visual" decoding="async" loading="lazy" src="https://i.imgur.com/JvBQien.png"/></div>
+</article>
+</div>
+</div>
+</section>
+<section class="service-line section" id="services">
+<div class="wrap service-layout">
+<div>
+<div class="eyebrow">What we build</div>
+<h2>A cleaner online presence, without the agency theater.</h2>
+</div>
+<div class="service-list">
+<article class="service-row">
+<h3>Website redesigns</h3>
+<p>Cleaner layouts, stronger first impressions, faster pages, better mobile structure, and copy that explains the business clearly.</p>
+</article>
+<article class="service-row">
+<h3>Local SEO setup</h3>
+<p>Page titles, metadata, headings, internal links, location signals, and the basic structure Google expects from a local business.</p>
+</article>
+<article class="service-row">
+<h3>Google Business Profile</h3>
+<p>Profile cleanup, service categories, descriptions, photos, posting support, and consistency across your main online presence.</p>
+</article>
+<article class="service-row">
+<h3>Brand cleanup</h3>
+<p>Logo usage, colors, spacing, typography, and visual consistency so the business stops looking patched together.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="proof">
+<div class="wrap">
+<div class="eyebrow">Proof, not decoration</div>
+<h2>Show the change clearly.</h2>
+<p class="lead" style="margin-top:18px;">Until real case studies are ready, the page should be honest about what changes in the work: structure, clarity, speed, and local search basics.</p>
+<div class="proof-work">
+<article class="work-card">
+<div class="work-shot"><img alt="Website redesign visual example" decoding="async" loading="lazy" src="https://i.imgur.com/cUC0r4D.png"/></div>
+<h3>Before the redesign</h3>
+<p>Unclear hero, weak service structure, low trust signals, poor mobile hierarchy, and generic copy.</p>
+<div class="work-meta"><span class="pill">Clarity issue</span><span class="pill">Mobile issue</span><span class="pill">Trust issue</span></div>
+</article>
+<article class="work-card">
+<div class="work-shot"><img alt="Improved website visual example" decoding="async" loading="lazy" src="https://i.imgur.com/Y49CB1K.png"/></div>
+<h3>After the rebuild</h3>
+<p>Sharper first screen, stronger calls to action, clearer services, better local search foundation, and cleaner handoff.</p>
+<div class="work-meta"><span class="pill">Cleaner UX</span><span class="pill">SEO foundation</span><span class="pill">Owned files</span></div>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="feedback"><div class="wrap feedback-list"><div><div class="eyebrow">Client feedback</div><h2>Clear work, clean handoff, no runaround.</h2><p class="lead" style="margin-top:18px;">Kept from the original homepage, rewritten into the calmer UI so it supports trust without looking like fake testimonial cards.</p></div><div class="feedback-stack"><article class="feedback-card"><p>Levant built us a website that actually converts. The process was clear, the work looked professional, and we were not stuck managing different vendors.</p><span class="feedback-source">Small Business Owner · Professional Services · Detroit</span></article><article class="feedback-card"><p>They delivered the rebrand and new site quickly without hidden surprises. The communication was straightforward from the first conversation.</p><span class="feedback-source">Marketing Director · Retail Company · Metro Detroit</span></article><article class="feedback-card"><p>Our Google Business profile was incomplete and inconsistent. Levant cleaned it up and helped us show up better locally.</p><span class="feedback-source">Local Service Business Owner · Home Services</span></article></div></div></section><section class="process section">
+<div class="wrap">
+<div class="eyebrow" style="color:rgba(255,255,255,.46)">How it works</div>
+<h2>Small process. Clear decisions.</h2>
+<p class="lead" style="margin-top:18px;">No bloated discovery phase. No endless moodboards. We find what is hurting trust, agree on the scope, build it, and hand it over cleanly.</p>
+<div class="process-grid">
+<article class="process-step"><div><b>01</b><h3>Audit</h3><p>We review the site, mobile experience, Google presence, copy, and obvious trust gaps.</p></div></article>
+<article class="process-step"><div><b>02</b><h3>Scope</h3><p>You get a clear build plan, timeline, and price before anything starts.</p></div></article>
+<article class="process-step"><div><b>03</b><h3>Build</h3><p>The new page structure, visuals, copy, and SEO basics come together in one focused pass.</p></div></article>
+<article class="process-step"><div><b>04</b><h3>Launch</h3><p>Files, accounts, access, and next steps are handed over without locking you in.</p></div></article>
+</div>
+</div>
+</section>
+<section class="section" id="faq">
+<div class="wrap faq-layout">
+<div>
+<div class="eyebrow">Questions</div>
+<h2>The things people actually ask.</h2>
+</div>
+<div class="faq-list"><div class="faq-item open"><button aria-controls="faq-1" aria-expanded="true" class="faq-q" type="button">How much does this cost?<span>+</span></button><div class="faq-a" id="faq-1"><p>It depends on the size of the site, content, and whether you need SEO or Google Business Profile help. The audit gives you a real quote based on what needs fixing, not a package you do not need.</p></div></div><div class="faq-item"><button aria-controls="faq-2" aria-expanded="false" class="faq-q" type="button">What does SEO-ready actually mean?<span>+</span></button><div class="faq-a" id="faq-2"><p>Proper headings, metadata, page structure, internal links, indexing readiness, and location signals. It is the technical foundation, not a full ongoing SEO campaign.</p></div></div><div class="faq-item"><button aria-controls="faq-3" aria-expanded="false" class="faq-q" type="button">Can you redesign my current website?<span>+</span></button><div class="faq-a" id="faq-3"><p>Yes. If the current site has useful content or structure, we keep what works and rebuild the parts hurting trust, speed, mobile usability, or search visibility.</p></div></div><div class="faq-item"><button aria-controls="faq-4" aria-expanded="false" class="faq-q" type="button">How long does a website take?<span>+</span></button><div class="faq-a" id="faq-4"><p>Most smaller projects are completed in one to two weeks depending on scope. Simple sites can move faster once content, access, and direction are clear.</p></div></div><div class="faq-item"><button aria-controls="faq-5" aria-expanded="false" class="faq-q" type="button">What platforms do you build on?<span>+</span></button><div class="faq-a" id="faq-5"><p>Custom static sites are best when speed, ownership, and clean code matter. If you need easy editing, we can recommend a platform based on what you will actually maintain.</p></div></div><div class="faq-item"><button aria-controls="faq-6" aria-expanded="false" class="faq-q" type="button">Do you write the content?<span>+</span></button><div class="faq-a" id="faq-6"><p>Yes. We can rewrite your homepage, service pages, calls to action, and local SEO copy so the site sounds clear and credible.</p></div></div><div class="faq-item"><button aria-controls="faq-7" aria-expanded="false" class="faq-q" type="button">How are ownership terms handled?<span>+</span></button><div class="faq-a" id="faq-7"><p>Ownership, access, and handoff terms are defined before work starts. If transfer is included, the agreement spells out what is delivered and what remains third-party or licensed.</p></div></div><div class="faq-item"><button aria-controls="faq-8" aria-expanded="false" class="faq-q" type="button">What happens after launch?<span>+</span></button><div class="faq-a" id="faq-8"><p>You own the site files and accounts. Ongoing edits, SEO improvements, and Google Business support can be handled monthly if you want support after launch.</p></div></div><div class="faq-item"><button aria-controls="faq-9" aria-expanded="false" class="faq-q" type="button">Do you work outside Metro Detroit?<span>+</span></button><div class="faq-a" id="faq-9"><p>Yes. Levant is Metro Detroit focused, but remote work is available for Michigan businesses and serious clients outside the area.</p></div></div></div>
+</div>
+</section>
+<section class="final-cta">
+<div class="wrap cta-box">
+<div>
+<div class="eyebrow" style="color:rgba(255,255,255,.46)">Start with the audit</div>
+<h2>If your site makes people hesitate, it is already costing you.</h2>
+<p>Send the website. We will look at what customers see first, what feels weak, and what should be fixed before you spend money on traffic.</p>
+</div>
+<div class="cta-panel">
+<p>No pressure. No fake urgency. Just a clear read on what is hurting the site.</p>
+<div class="btn-row"><a class="btn cyan" href="audit.html">Get free audit</a><a class="btn" href="contact.html" style="border-color:rgba(255,255,255,.26); color:#fff">Contact</a></div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap foot"><span>© 2026 Levant Digital Marketing. All rights reserved.</span><span><a href="index.html">Home</a> · <a href="services.html">Services</a> · <a href="why-us.html">Why Us</a> · <a href="audit.html">Free Audit</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a></span></div></footer>
+<script src="assets/site.js"></script><script>
+    const mobBtn = document.getElementById('mob-btn');
+    const mobMenu = document.getElementById('mob-menu');
+    const mobClose = document.getElementById('mob-close');
+
+    function openMenu() {
+      mobMenu?.classList.add('open');
+      mobMenu?.setAttribute('aria-hidden', 'false');
+      mobBtn?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobMenu?.classList.remove('open');
+      mobMenu?.setAttribute('aria-hidden', 'true');
+      mobBtn?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    mobBtn?.addEventListener('click', openMenu);
+    mobClose?.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mob-lnk').forEach(link => link.addEventListener('click', closeMenu));
+
+    const faqItems = document.querySelectorAll('.faq-item');
+    function setFaqHeight(item) {
+      const answer = item.querySelector('.faq-a');
+      if (!answer) return;
+      answer.style.maxHeight = item.classList.contains('open') ? answer.scrollHeight + 'px' : '0px';
+    }
+    faqItems.forEach(item => {
+      const button = item.querySelector('.faq-q');
+      button?.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        item.classList.toggle('open', !isOpen);
+        button.setAttribute('aria-expanded', String(!isOpen));
+        setFaqHeight(item);
+      });
+      setFaqHeight(item);
+    });
+    window.addEventListener('resize', () => faqItems.forEach(setFaqHeight));
+
+    function animateCounter(counter) {
+      const target = parseInt(counter.getAttribute('data-target'), 10);
+      const duration = 1400;
+      const step = target / (duration / 16);
+      let current = 0;
+      const tick = () => {
+        current = Math.min(current + step, target);
+        counter.textContent = Math.floor(current);
+        if (current < target) requestAnimationFrame(tick);
+        else counter.textContent = target;
+      };
+      tick();
+    }
+    const ctrObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          ctrObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.45 });
+    document.querySelectorAll('.counter').forEach(counter => ctrObs.observe(counter));
+  </script>
+</body>
+</html>
