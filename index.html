@@ -1,1301 +1,762 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Levant Digital Marketing | We Build Digital Empires</title>
-  <meta name="description" content="Levant Digital Marketing builds digital empires for Metro Detroit businesses. Websites, branding, and SEO excellence."/>
-  <meta name="theme-color" content="#06b6d4"/>
-  <link rel="preconnect" href="https://api.fontshare.com"/>
-  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@500,700,900&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="assets/nav.css"/>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Levant Digital Marketing | Websites and SEO for Local Businesses</title>
+<meta content="Levant Digital Marketing builds clean websites, sharper messaging, and local SEO foundations for Metro Detroit businesses." name="description"/>
+<meta content="#06b6d4" name="theme-color"/>
+<link href="https://levantdigitalmarketing.com/" rel="canonical"/>
+<meta content="Levant Digital Marketing" property="og:title"/>
+<meta content="Websites and SEO foundations for Metro Detroit businesses that need to look credible and get found." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://levantdigitalmarketing.com/" property="og:url"/>
+<meta content="https://i.imgur.com/Sc2b6hu.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://api.fontshare.com" rel="preconnect"/>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;f[]=satoshi@500,700,900&amp;display=swap" rel="stylesheet"/>
+<link href="assets/nav.css" rel="stylesheet"/>
+<link href="assets/typography.css" rel="stylesheet"/>
+<style>
     :root {
       --cyan: #06b6d4;
-      --cyan-dim: rgba(6,182,212,0.12);
-      --cyan-border: rgba(6,182,212,0.35);
-      --cyan-glow: rgba(6,182,212,0.18);
-      --bg: #f7f6f3;
-      --bg2: #ffffff;
-      --ink: #111111;
-      --ink2: #444444;
-      --ink3: #888888;
-      --rule: rgba(0,0,0,0.08);
-      --panel: rgba(255,255,255,0.82);
-      --panel-shadow: 0 28px 72px rgba(12,18,24,0.08);
-      --section-shadow: 0 18px 48px rgba(12,18,24,0.06);
+      --cyan-soft: rgba(6, 182, 212, .1);
+      --ink: #121212;
+      --ink-2: #3f3f3f;
+      --muted: #757575;
+      --line: rgba(18,18,18,.12);
+      --paper: #f7f6f3;
+      --white: #ffffff;
+      --dark: #0f1113;
+      --max: 1180px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'DM Sans', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(6,182,212,0.045), transparent 20%),
-        radial-gradient(circle at 82% 12%, rgba(17,17,17,0.03), transparent 24%),
-        var(--bg);
+      font-family: 'General Sans', 'Satoshi', system-ui, sans-serif;
+      background: var(--paper);
       color: var(--ink);
-      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    ::selection { background: var(--cyan); color: #fff; }
-    img { display: block; width: 100%; object-fit: cover; }
+    img { width: 100%; display: block; object-fit: cover; }
+    a { color: inherit; }
+    main { display: block; }
+    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: 16px;
+      z-index: 9999;
+      background: var(--cyan);
+      color: #fff;
+      padding: 10px 14px;
+      transform: translateY(-140%);
+      transition: transform .2s ease;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .skip-link:focus { transform: translateY(0); }
 
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(32px); transition: opacity .72s cubic-bezier(.16,1,.3,1), transform .72s cubic-bezier(.16,1,.3,1); }
-    .reveal.vis { opacity: 1; transform: none; }
-    .reveal-l { opacity: 0; transform: translateX(-32px); transition: opacity .72s cubic-bezier(.16,1,.3,1), transform .72s cubic-bezier(.16,1,.3,1); }
-    .reveal-l.vis { opacity: 1; transform: none; }
-    .reveal-r { opacity: 0; transform: translateX(32px); transition: opacity .72s cubic-bezier(.16,1,.3,1), transform .72s cubic-bezier(.16,1,.3,1); }
-    .reveal-r.vis { opacity: 1; transform: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 92px 0; scroll-margin-top: 92px; }
+    .section-tight { padding: 64px 0; }
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    h1, h2, h3 { font-family: 'Satoshi', 'General Sans', system-ui, sans-serif; letter-spacing: -.035em; }
+    h1 { font-size: clamp(48px, 7vw, 86px); line-height: .95; max-width: 820px; }
+    h2 { font-size: clamp(34px, 4.5vw, 58px); line-height: 1; max-width: 780px; }
+    h3 { font-size: clamp(22px, 2.4vw, 32px); line-height: 1.1; }
+    p { color: var(--ink-2); line-height: 1.72; font-size: 17px; }
+    .lead { font-size: clamp(18px, 2vw, 21px); max-width: 680px; }
 
-    /* ── HERO ── */
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.dark { background: var(--ink); color: #fff; }
+    .btn.cyan { background: var(--cyan); border-color: var(--cyan); color: #fff; }
+    .btn.light { color: var(--ink); background: transparent; }
+
+    /* HERO */
     .hero {
-      min-height: clamp(700px, 100svh, 860px);
-      padding-top: 72px;
+      padding: 144px 0 72px;
+      min-height: auto;
+      background:
+        linear-gradient(90deg, rgba(6,182,212,.06) 0 1px, transparent 1px),
+        var(--paper);
+      background-size: 72px 72px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, .72fr);
+      gap: 54px;
+      align-items: end;
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero-copy { margin-top: 26px; }
+    .hero-actions { margin-top: 34px; }
+    .hero-note {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 650px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+    .hero-note strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .hero-note span { color: var(--muted); font-size: 13px; line-height: 1.5; display: block; }
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 14px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.06);
+    }
+    .hero-image {
+      aspect-ratio: 4 / 4.7;
+      background:
+        linear-gradient(135deg, rgba(6,182,212,.14), rgba(18,18,18,.05)),
+        repeating-linear-gradient(45deg, rgba(0,0,0,.035) 0 1px, transparent 1px 10px);
+      overflow: hidden;
+    }
+    .hero-image img { height: 100%; object-fit: contain; object-position: center; background: #eef2f4; }
+    .hero-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 4px 2px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hero-caption b { color: var(--ink); }
+
+    /* PROOF STRIP */
+    .proof-strip {
+      background: var(--dark);
+      color: #fff;
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.1);
+    }
+    .proof-cell {
+      background: var(--dark);
+      padding: 28px 24px;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .proof-cell p { color: rgba(255,255,255,.62); font-size: 15px; }
+    .proof-cell strong { font-size: 24px; letter-spacing: -.03em; }
+    .proof-cell small { color: rgba(255,255,255,.44); font-size: 12px; line-height: 1.5; }
+
+    /* DIAGNOSIS */
+    .diagnosis-head {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+    .issue-list {
+      border-top: 1px solid var(--line);
+    }
+    .issue {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr) minmax(260px, 420px);
+      gap: 28px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+    .issue-num { color: var(--cyan); font-weight: 800; font-size: 13px; letter-spacing: .12em; }
+    .issue p { font-size: 16px; max-width: 520px; }
+    .issue-media {
+      aspect-ratio: 16 / 10;
+      background:
+        linear-gradient(135deg, rgba(6,182,212,.12), rgba(0,0,0,.04)),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 1px, transparent 1px 12px);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .issue-media img { height: 100%; object-fit: contain; background: #fff; padding: 12px; }
+
+    /* SERVICE LINE */
+    .service-line {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .service-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .service-list { border-top: 1px solid var(--line); }
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 30px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .service-row h3 { font-size: 24px; }
+    .service-row p { font-size: 15.5px; }
+
+    /* WORK / PROOF */
+    .proof-work {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      position: relative;
+      gap: 28px;
+      margin-top: 44px;
+    }
+    .work-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 18px;
+    }
+    .work-shot {
+      aspect-ratio: 16 / 10;
+      background:
+        linear-gradient(135deg, rgba(6,182,212,.11), rgba(18,18,18,.04)),
+        repeating-linear-gradient(-45deg, rgba(0,0,0,.035) 0 1px, transparent 1px 11px);
       overflow: hidden;
+      border: 1px solid rgba(18,18,18,.08);
     }
-    .hero-left {
-      background: var(--ink);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 5rem 4rem 5rem 3rem;
-      position: relative;
-      z-index: 2;
+    .work-shot img { height: 100%; object-fit: contain; background: #f1f5f7; padding: 10px; }
+    .work-card h3 { margin-top: 18px; font-size: 25px; }
+    .work-card p { margin-top: 8px; font-size: 15.5px; }
+    .work-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
     }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--cyan); margin-bottom: 2.5rem;
-    }
-    .hero-eyebrow span {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--cyan);
-      animation: blink 2s ease-in-out infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-    .hero-h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4.5rem, 8vw, 8rem);
-      line-height: 0.92;
-      letter-spacing: 0.02em;
-      color: #fff;
-      margin-bottom: 2.5rem;
-    }
-    .hero-h1 em { color: var(--cyan); font-style: normal; display: block; }
-    .hero-sub {
-      font-size: 1.1rem; line-height: 1.75;
-      color: rgba(255,255,255,0.55);
-      max-width: 420px; margin-bottom: 3.5rem;
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .btn-primary {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-      background: var(--cyan); color: #fff;
-      padding: 1rem 2.25rem; text-decoration: none;
-      box-shadow: 0 16px 34px rgba(6,182,212,0.16);
-      transition: transform .2s, box-shadow .2s, filter .2s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(6,182,212,0.28); filter: saturate(1.04); }
-    .btn-primary:active { transform: translateY(0); box-shadow: 0 10px 22px rgba(6,182,212,0.2); }
-    .btn-ghost {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7);
-      padding: 1rem 2.25rem; text-decoration: none;
-      transition: border-color .2s, color .2s, background .2s, transform .2s;
-    }
-    .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(6,182,212,0.06); transform: translateY(-1px); }
-    .hero-trust {
-      display: flex; gap: 2.5rem; flex-wrap: wrap;
-      margin-top: 4rem; padding-top: 3rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .trust-item { display: flex; flex-direction: column; gap: 0.25rem; }
-    .trust-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.25rem; letter-spacing: 0.04em; color: var(--cyan); line-height: 1;
-    }
-    .trust-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.4);
+    .pill {
+      font-size: 12px;
+      border: 1px solid var(--line);
+      padding: 7px 10px;
+      color: var(--muted);
+      background: #fff;
     }
 
-    .hero-right {
-      position: relative; overflow: hidden;
-    }
-    .hero-right::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(
-        to right,
-        var(--ink) 0%,
-        rgba(17,17,17,0.9) 18%,
-        rgba(17,17,17,0.42) 42%,
-        transparent 70%
-      );
-    }
-    .hero-right img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: center center;
-      filter: brightness(0.46) saturate(1.08);
-    }
-    .hero-right-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      background:
-        linear-gradient(to bottom, rgba(17,17,17,0.1) 0%, rgba(17,17,17,0.02) 34%, rgba(17,17,17,0.16) 100%),
-        radial-gradient(circle at 78% 24%, rgba(6,182,212,0.08), transparent 32%);
-    }
-    .hero-tag {
-      position: absolute; bottom: 2.5rem; right: 2.5rem;
-      background: rgba(6,182,212,0.92);
-      backdrop-filter: blur(12px);
-      padding: 1rem 1.5rem;
+    /* PROCESS */
+    .process {
+      background: var(--dark);
       color: #fff;
     }
-    .hero-tag-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.7); margin-bottom: 0.25rem;
-    }
-    .hero-tag-val {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem; letter-spacing: 0.06em;
-    }
-
-    /* ── MARQUEE ── */
-    .marquee-wrap {
-      background: var(--ink);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 1.25rem 0; overflow: hidden;
-    }
-    .marquee-track { display: flex; animation: ticker 28s linear infinite; white-space: nowrap; }
-    .marquee-track:hover { animation-play-state: paused; }
-    @keyframes ticker { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-    .marquee-item {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.35); padding: 0 2.5rem;
-      display: inline-flex; align-items: center; gap: 2.5rem;
-    }
-    .marquee-item .dot {
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--cyan); flex-shrink: 0;
-    }
-
-    /* ── SECTION UTILITY ── */
-    .section { padding: 8rem 1.5rem; }
-    .section-sm { padding: 5rem 1.5rem; }
-    .wrap { max-width: 1440px; margin: auto; }
-    .tag {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--cyan); margin-bottom: 1.25rem;
-    }
-    .tag::before { content: ''; width: 30px; height: 1.5px; background: var(--cyan); }
-    .big-h {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 6vw, 6rem);
-      line-height: 0.92; letter-spacing: 0.02em;
-    }
-    .big-h em { color: var(--cyan); font-style: normal; }
-    .rule { height: 1px; background: var(--rule); margin: 0 auto; max-width: 1440px; }
-
-    /* ── ABOUT / SPLIT ── */
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      min-height: 680px;
-    }
-    .about-img { position: relative; overflow: hidden; min-height: 460px; }
-    .about-img img { height: 100%; object-fit: cover; object-position: center 28%; }
-    .about-img-badge {
-      position: absolute; top: 2.5rem; left: 2.5rem;
-      background: var(--bg2); padding: 1.25rem 1.5rem;
-      border-left: 3px solid var(--cyan);
-    }
-    .about-img-badge strong {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem; letter-spacing: 0.04em; display: block; line-height: 1; color: var(--ink);
-    }
-    .about-img-badge span {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink3); display: block; margin-top: 0.15rem;
-    }
-    .about-content {
-      background: var(--bg); padding: 6rem 4rem;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .about-body { font-size: 1.1rem; line-height: 1.8; color: var(--ink2); max-width: 460px; margin-bottom: 2.5rem; }
-    .check-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
-    .check-list li {
-      display: flex; align-items: flex-start; gap: 0.75rem;
-      font-size: 0.95rem; color: var(--ink2); line-height: 1.6;
-    }
-    .check-list li::before {
-      content: ''; flex-shrink: 0;
-      width: 18px; height: 18px; margin-top: 2px;
-      background: var(--cyan-dim); border: 1px solid var(--cyan-border);
-      border-radius: 50%;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2306b6d4' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 8 6.5 11.5 13 5'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-size: 11px; background-position: center;
-    }
-
-    /* ── SERVICES — EDITORIAL ── */
-    .services-section { background: var(--ink); position: relative; }
-    .services-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(6,182,212,0.16), transparent 24%),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: auto, 160px 160px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.55));
-    }
-    .services-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      flex-wrap: wrap; gap: 2rem;
-      padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 4rem;
-      position: relative;
-      z-index: 1;
-    }
-    .services-header .tag { color: rgba(255,255,255,0.35); }
-    .services-header .tag::before { background: rgba(255,255,255,0.25); }
-    .services-header .big-h { color: #fff; }
-    .all-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--cyan); text-decoration: none;
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      border-bottom: 1px solid var(--cyan-border);
-      padding-bottom: 0.1rem;
-      transition: gap .2s;
-    }
-    .all-link:hover { gap: 0.7rem; }
-
-    /* Asymmetric service layout */
-    .services-asym {
+    .process p { color: rgba(255,255,255,.64); }
+    .process-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: auto auto;
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.28);
-      position: relative;
-      z-index: 1;
+      background: rgba(255,255,255,.1);
+      margin-top: 42px;
     }
-    .sv {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%),
-        var(--ink);
-      padding: 3rem 2.5rem;
-      position: relative; overflow: hidden;
-      transition: background .28s ease, transform .28s ease, box-shadow .28s ease;
+    .process-step {
+      background: var(--dark);
+      padding: 28px 22px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .sv::before {
-      content: '';
-      position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(6,182,212,0.65), transparent 65%);
-      opacity: 0.34;
-    }
-    .sv:hover {
-      background:
-        linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.01) 100%),
-        #151515;
-      transform: translateY(-4px);
-      box-shadow: 0 18px 34px rgba(0,0,0,0.2);
-    }
-    .sv-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(255,255,255,0.2); margin-bottom: 2rem; display: block;
-    }
-    .sv-icon { margin-bottom: 1.5rem; }
-    .sv-icon svg { width: 36px; height: 36px; stroke: var(--cyan); }
-    .sv-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem; letter-spacing: 0.04em; color: #fff;
-      margin-bottom: 1rem; line-height: 1;
-    }
-    .sv-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.4); max-width: 320px; }
-    .sv-arrow {
-      position: absolute; bottom: 2rem; right: 2rem;
-      width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.3); transition: border-color .2s, color .2s, transform .2s;
-    }
-    .sv:hover .sv-arrow { border-color: var(--cyan); color: var(--cyan); transform: translate(2px,-2px); }
-    .sv-featured {
-      grid-row: span 2;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(6,182,212,0.16), transparent 34%),
-        linear-gradient(180deg, #0b1a1f 0%, #0b1215 100%);
-      display: flex; flex-direction: column; justify-content: space-between;
-      min-height: 520px;
-    }
-    .sv-featured:hover {
-      background:
-        radial-gradient(circle at 18% 18%, rgba(6,182,212,0.22), transparent 34%),
-        linear-gradient(180deg, #0d2026 0%, #0d1418 100%);
-    }
-    .sv-featured-img {
-      height: 220px; overflow: hidden; margin: -3rem -2.5rem 0;
-      position: relative;
-    }
-    .sv-featured-img img { height: 100%; object-fit: cover; filter: brightness(0.7) saturate(1.2); transition: transform .6s ease; }
-    .sv-featured:hover .sv-featured-img img { transform: scale(1.04); }
-    .sv-featured-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, #0c1a1f 100%);
-    }
-    .sv-cta-card {
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.12), transparent 46%),
-        linear-gradient(135deg, #06b6d4 0%, #1099bf 100%);
-      padding: 3rem 2.5rem;
-      display: flex; flex-direction: column; justify-content: space-between;
-      min-height: 220px;
-    }
-    .sv-cta-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem; letter-spacing: 0.04em; color: #fff; line-height: 1; margin-bottom: 0.75rem;
-    }
-    .sv-cta-sub { font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.5; margin-bottom: 1.5rem; }
-    .btn-white {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-      background: #fff; color: var(--ink);
-      padding: 0.75rem 1.5rem; text-decoration: none; display: inline-flex;
-      align-items: center; gap: 0.4rem; width: fit-content;
-      box-shadow: 0 12px 26px rgba(17,17,17,0.18);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(17,17,17,0.22); }
+    .process-step b { color: var(--cyan); font-size: 13px; letter-spacing: .12em; }
+    .process-step h3 { font-size: 24px; color: #fff; margin-top: 34px; }
+    .process-step p { font-size: 15px; margin-top: 12px; }
 
-    /* ── RESULTS / DARK ── */
-    .results-section { background: #0b0d0e; position: relative; overflow: hidden; }
-    .results-section::before {
-      content: ''; position: absolute;
-      width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%);
-      top: -200px; right: -200px; pointer-events: none;
-    }
-    .results-section::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 140px 140px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 82%);
-    }
-    /* Full-width image strip */
-    .results-img-strip {
-      height: 420px; overflow: hidden; position: relative;
-    }
-    .results-img-strip img { height: 100%; object-fit: cover; filter: brightness(0.45) saturate(1.3); }
-    .results-img-strip::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, #0b0d0e 0%, transparent 30%, transparent 60%, #0b0d0e 100%);
-    }
-    .results-strip-text {
-      position: absolute; inset: 0; z-index: 2;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 1rem; text-align: center;
-    }
-    .results-strip-text h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 7vw, 7rem);
-      letter-spacing: 0.04em; color: #fff; line-height: 0.95;
-    }
-    .results-strip-text h2 em { color: var(--cyan); font-style: normal; }
-    .results-strip-text p { font-size: 1.05rem; color: rgba(255,255,255,0.5); max-width: 500px; }
-    .results-nums {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .res-item {
-      padding: 3.5rem 2.5rem;
-      border-right: 1px solid rgba(255,255,255,0.06);
-      text-align: center;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
-      transition: background .24s ease;
-    }
-    .res-item:hover { background: linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.01) 100%); }
-    .res-item:last-child { border-right: none; }
-    .res-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 6vw, 5.5rem);
-      color: var(--cyan); line-height: 1; letter-spacing: 0.02em;
-    }
-    .res-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.5); margin-top: 0.75rem;
-    }
-    .res-note { font-size: 0.75rem; color: rgba(255,255,255,0.25); margin-top: 0.4rem; font-style: italic; }
-
-    /* ── PROCESS — HORIZONTAL STRIP ── */
-    .process-section { background: var(--bg2); }
-    .process-steps {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border: 1px solid rgba(0,0,0,0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(247,246,243,0.82) 100%);
-      box-shadow: var(--section-shadow);
-      overflow: hidden;
-      margin-top: 4rem;
-    }
-    .p-step {
-      padding: 3rem 2.5rem;
-      border-right: 1px solid var(--rule);
-      position: relative;
-      transition: background .24s ease, transform .24s ease;
-    }
-    .p-step::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--cyan), transparent 72%);
-      opacity: 0;
-      transition: opacity .24s ease;
-    }
-    .p-step:last-child { border-right: none; }
-    .p-step:hover {
-      background: linear-gradient(180deg, rgba(6,182,212,0.05) 0%, rgba(255,255,255,0.66) 100%);
-      transform: translateY(-2px);
-    }
-    .p-step:hover::before { opacity: 1; }
-    .p-step-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 5rem; line-height: 1; letter-spacing: 0.02em;
-      color: var(--ink); opacity: 0.06;
-      position: absolute; top: 1rem; right: 1.5rem;
-    }
-    .p-step-icon {
-      width: 44px; height: 44px; background: var(--cyan-dim);
-      border: 1px solid var(--cyan-border); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;
-    }
-    .p-step-icon svg { width: 20px; height: 20px; stroke: var(--cyan); }
-    .p-step-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
-    .p-step-desc { font-size: 0.875rem; line-height: 1.7; color: var(--ink2); }
-
-    /* ── TESTIMONIALS — ASYMMETRIC ── */
-    .testi-section { background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, var(--bg) 100%); position: relative; }
-    .testi-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at 16% 30%, rgba(6,182,212,0.08), transparent 20%);
-    }
-    .testi-layout {
+    /* FAQ */
+    .faq-layout {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 5rem; align-items: start;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 58px;
+      align-items: start;
     }
-    .testi-left { position: sticky; top: 100px; }
-    .testi-right { display: flex; flex-direction: column; gap: 2rem; }
-    .testi-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(249,248,245,0.92) 100%);
-      border: 1px solid rgba(0,0,0,0.07);
-      padding: 2.5rem;
-      position: relative; overflow: hidden;
-      box-shadow: 0 18px 42px rgba(12,18,24,0.06);
-      transition: border-color .3s, transform .3s, box-shadow .3s, background .3s;
-    }
-    .testi-card:hover {
-      border-color: var(--cyan-border);
-      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,251,252,0.96) 100%);
-      transform: translateX(6px);
-      box-shadow: 0 28px 56px rgba(12,18,24,0.08);
-    }
-    .testi-q {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 6rem; line-height: 1; color: var(--cyan); opacity: 0.12;
-      position: absolute; top: -0.5rem; left: 1.5rem; pointer-events: none;
-    }
-    .testi-text { font-size: 1.05rem; line-height: 1.8; color: var(--ink2); margin-bottom: 2rem; position: relative; z-index: 1; }
-    .testi-author { display: flex; align-items: center; gap: 1rem; }
-    .testi-ava {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--ink); color: var(--cyan);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.06em;
-      flex-shrink: 0;
-    }
-    .testi-name { font-weight: 600; font-size: 0.95rem; }
-    .testi-role { font-size: 0.8rem; color: var(--ink3); margin-top: 0.15rem; }
-    .testi-stars { display: flex; gap: 3px; margin-bottom: 0.5rem; }
-    .testi-stars span { color: var(--cyan); font-size: 0.9rem; }
-
-    /* ── FAQ ── */
-    .faq-section {
-      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(247,246,243,0.72) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .faq-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 84% 22%, rgba(6,182,212,0.08), transparent 18%),
-        linear-gradient(90deg, rgba(17,17,17,0.02) 1px, transparent 1px);
-      background-size: auto, 120px 120px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent 86%);
-    }
-    .faq-layout { display: grid; grid-template-columns: 4.5fr 7.5fr; gap: 5.25rem; align-items: start; position: relative; z-index: 1; }
-    .faq-left-img {
-      margin-top: 2.25rem;
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 5 / 4;
-      width: 100%;
-      max-width: 460px;
-      box-shadow: var(--section-shadow);
-    }
-    .faq-left-img img {
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .faq-left-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(6,182,212,0.15) 0%, transparent 60%);
-    }
-    .faq-item {
-      border: 1px solid rgba(0,0,0,0.08);
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: blur(10px);
-      margin-bottom: 0.9rem;
-      padding: 0 1.4rem;
-      box-shadow: 0 16px 36px rgba(12,18,24,0.04);
-      transition: border-color .24s ease, box-shadow .24s ease, transform .24s ease;
-    }
-    .faq-item:hover {
-      border-color: rgba(6,182,212,0.24);
-      box-shadow: 0 20px 42px rgba(12,18,24,0.06);
-      transform: translateX(4px);
-    }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
     .faq-q {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.35rem 0; cursor: pointer;
-      font-weight: 500; font-size: 1rem;
-      color: var(--ink); transition: color .2s;
       width: 100%;
-      border: none;
-      background: none;
+      border: 0;
+      background: transparent;
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       text-align: left;
+      font: inherit;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      gap: 24px;
     }
-    .faq-q:hover { color: var(--cyan); }
-    .faq-plus {
-      width: 28px; height: 28px; flex-shrink: 0;
-      border: 1px solid var(--rule); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; color: var(--ink3);
-      transition: transform .35s, background .2s, border-color .2s;
-    }
-    .faq-item.open .faq-plus { transform: rotate(45deg); background: var(--cyan); border-color: var(--cyan); color: #fff; }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s cubic-bezier(.16,1,.3,1); }
-    .faq-a p { padding-bottom: 1.5rem; font-size: 0.925rem; line-height: 1.8; color: var(--ink2); max-width: 62ch; }
+    .faq-q span { color: var(--cyan); font-size: 24px; line-height: 1; transition: transform .2s ease; }
+    .faq-item.open .faq-q span { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a p { padding: 0 0 24px; font-size: 15.5px; }
 
-    /* ── CTA ── */
-    .cta-section {
-      background: var(--ink); position: relative; overflow: hidden;
+    /* CTA */
+    .final-cta {
+      background: var(--ink);
+      color: #fff;
+      padding: 86px 0;
     }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 0;
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 50px;
+      align-items: end;
+    }
+    .final-cta h2 { color: #fff; }
+    .final-cta p { color: rgba(255,255,255,.62); margin-top: 20px; max-width: 620px; }
+    .cta-panel {
+      border: 1px solid rgba(255,255,255,.12);
       background:
-        linear-gradient(90deg, rgba(6,182,212,0.06) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 140px 140px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent 92%);
-      pointer-events: none;
+        linear-gradient(135deg, rgba(6,182,212,.16), rgba(255,255,255,.02)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.045) 0 1px, transparent 1px 14px);
+      padding: 24px;
     }
-    .cta-bg-img {
-      position: absolute; inset: 0; z-index: 0;
-    }
-    .cta-bg-img img { height: 100%; object-fit: cover; opacity: 0.18; filter: grayscale(30%); }
-    .cta-inner {
-      position: relative; z-index: 1;
-      max-width: 1440px; margin: auto; padding: 8rem 3rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-    }
-    .cta-h {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 6vw, 6rem);
-      line-height: 0.92; letter-spacing: 0.02em; color: #fff;
-    }
-    .cta-h em { color: var(--cyan); font-style: normal; }
-    .cta-right {
-      display: flex; flex-direction: column; gap: 1.25rem; align-items: flex-start;
-      padding: 2rem 2.15rem;
-      background: linear-gradient(180deg, rgba(10,16,20,0.82) 0%, rgba(10,16,20,0.62) 100%);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 28px 60px rgba(0,0,0,0.22);
-    }
-    .cta-right p { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
-    .cta-badge {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--cyan); margin-bottom: 1.25rem;
-    }
-    .cta-badge span {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--cyan); animation: blink 2s ease-in-out infinite;
-    }
-    .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .cta-panel p { margin: 0 0 18px; font-size: 15px; }
 
-    /* ── FOOTER ── */
     footer {
-      background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 4rem 3rem;
+      padding: 42px 0;
+      background: #090909;
+      color: rgba(255,255,255,.45);
+      font-size: 13px;
     }
-    .footer-inner { max-width: 1440px; margin: auto; }
-    .footer-top {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 2rem;
-      padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);
-      margin-bottom: 2.5rem;
-    }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: #fff; text-decoration: none; }
-    .footer-logo em { color: var(--cyan); font-style: normal; }
-    .footer-nav { display: flex; gap: 2.5rem; flex-wrap: wrap; }
-    .footer-lnk {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.35); text-decoration: none;
-      transition: color .2s;
-    }
-    .footer-lnk:hover { color: var(--cyan); }
-    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-copy {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem; color: rgba(255,255,255,0.2); letter-spacing: 0.08em;
+    .foot { display: flex; justify-content: space-between; gap: 22px; flex-wrap: wrap; }
+    .foot a { text-decoration: none; color: rgba(255,255,255,.65); }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .diagnosis-head,
+      .service-layout,
+      .faq-layout,
+      .cta-box { grid-template-columns: 1fr; }
+      .hero { padding-top: 118px; }
+      .hero-card { max-width: 560px; }
+      .issue { grid-template-columns: 52px 1fr; }
+      .issue-media { grid-column: 2; max-width: 520px; }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+      .proof-work { grid-template-columns: 1fr; }
+      .results-ledger { grid-template-columns: 1fr 1fr; }
+      .ledger-intro { grid-column: 1 / -1; }
+      .feedback-list { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* ── RESPONSIVE ── */
-    @media(max-width: 1100px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-right { height: clamp(340px, 55vw, 520px); min-height: 320px; }
-      .hero-right::before {
-        background: linear-gradient(
-          to bottom,
-          var(--ink) 0%,
-          rgba(17,17,17,0.82) 20%,
-          rgba(17,17,17,0.28) 46%,
-          transparent 72%
-        );
-      }
-      .hero-right img { object-position: center 42%; }
-      .hero-right-overlay {
-        background: linear-gradient(to bottom, rgba(17,17,17,0.08) 0%, rgba(17,17,17,0.18) 100%);
-      }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-content { padding: 4rem 2rem; }
-      .services-asym { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .sv-featured { grid-row: span 1; min-height: auto; }
-      .sv-featured-img { height: 180px; }
-      .results-nums { grid-template-columns: repeat(2, 1fr); }
-      .res-item { border-right: 1px solid rgba(255,255,255,0.06); }
-      .res-item:nth-child(2n) { border-right: none; }
-      .process-steps { grid-template-columns: repeat(2, 1fr); }
-      .p-step { border-bottom: 1px solid var(--rule); }
-      .testi-layout { grid-template-columns: 1fr; gap: 2rem; }
-      .testi-left { position: static; }
-      .faq-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .faq-left-img {
-        display: block;
-        margin-top: 2rem;
-        max-width: 520px;
-        aspect-ratio: 16 / 10;
-      }
-      .cta-inner { grid-template-columns: 1fr; padding: 5rem 2rem; }
-      .cta-right { padding: 1.6rem 1.5rem; }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 18px; }
+      .section { padding: 68px 0; }
+      .hero { padding: 108px 0 54px; }
+      h1 { font-size: clamp(42px, 13vw, 58px); }
+      h2 { font-size: clamp(31px, 10vw, 44px); }
+      p { font-size: 16px; }
+      .hero-grid { gap: 36px; }
+      .hero-note { grid-template-columns: 1fr; }
+      .hero-image { aspect-ratio: 4 / 3.6; }
+      .btn { width: 100%; }
+      .proof-grid,
+      .process-grid,
+      .results-ledger { grid-template-columns: 1fr; }
+      .ledger-intro,.ledger-cell { border-right:0; border-bottom:1px solid var(--line); }
+      .issue { grid-template-columns: 1fr; gap: 16px; }
+      .issue-media { grid-column: auto; }
+      .service-row { grid-template-columns: 1fr; gap: 10px; }
+      .foot { flex-direction: column; }
     }
-    @media(max-width: 700px) {
-      .hero-left { padding: 4rem 1.5rem; }
-      .hero-right { height: clamp(300px, 72vw, 400px); min-height: 300px; }
-      .hero-right img { object-position: center 34%; }
-      .hero-right-overlay {
-        background: linear-gradient(to bottom, rgba(17,17,17,0.06) 0%, rgba(17,17,17,0.22) 100%);
-      }
-      .services-asym { grid-template-columns: 1fr; }
-      .results-nums { grid-template-columns: 1fr 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
-      .testi-card:hover { transform: none; }
-      .faq-item:hover { transform: none; }
-      footer { padding: 3rem 1.5rem; }
-      .section { padding: 5rem 1.5rem; }
-    }
+
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .reveal-l, .reveal-r,
-      .sv, .p-step, .testi-card, .faq-item,
-      .btn-primary, .btn-ghost, .btn-white,
-      .nav-lnk, .nav-cta {
-        transition-duration: 0.01ms !important;
-        transform: none !important;
-      }
+      *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
   </style>
-  <link rel="stylesheet" href="assets/typography.css"/>
-</head>
-<body>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Levant<em>.</em></a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-lnk">Home</a>
-      <a href="services.html" class="nav-lnk">Services</a>
-      <a href="why-us.html" class="nav-lnk">Why Us</a>
-      <a href="audit.html" class="nav-lnk">Free Audit</a>
-      <a href="contact.html" class="nav-cta">Let's Talk</a>
-    </div>
-    <button id="mob-btn" aria-label="Menu">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
-</nav>
-
-<!-- MOBILE MENU -->
-<div id="mob-menu">
-  <button id="mob-close" aria-label="Close menu">✕</button>
-  <a href="index.html" class="mob-lnk active">Home</a>
-  <a href="services.html" class="mob-lnk">Services</a>
-  <a href="why-us.html" class="mob-lnk">Why Us</a>
-  <a href="audit.html" class="mob-lnk">Free Audit</a>
-  <a href="contact.html" class="mob-lnk">Contact</a>
-</div>
-
-<!-- ═══════════════════════════════════════════
-     HERO — split dark/image
-═══════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <span></span>
-    </div>
-    <h1 class="hero-h1">
-      We Build
-      <em>Digital</em>
-      Empires.
-    </h1>
-    <p class="hero-sub">
-      Conversion-first websites, strategic SEO, and brand identity for Metro Detroit businesses ready to dominate their market online.
-    </p>
-    <div class="hero-actions">
-      <a href="contact.html" class="btn-primary">
-        Start Your Empire
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="why-us.html" class="btn-ghost">Why Us</a>
-    </div>
-    <div class="hero-trust">
-      <div class="trust-item">
-        <span class="trust-num">7</span>
-        <span class="trust-label">Day delivery</span>
-      </div>
-      <div class="trust-item">
-        <span class="trust-num">100%</span>
-        <span class="trust-label">Ownership</span>
-      </div>
-      <div class="trust-item">
-        <span class="trust-num">$0</span>
-        <span class="trust-label">Lock-in fees</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <!-- SEO/analytics team at work: people viewing dashboards, real agency feel -->
-    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&q=90&fit=crop" alt="Premium modern creative office interior with refined workspace lighting and glass architecture" loading="eager" fetchpriority="high" decoding="async"/>
-    <div class="hero-right-overlay"></div>
-    <div class="hero-tag">
-      <div class="hero-tag-label">Avg. SEO Traffic Lift</div>
-      <div class="hero-tag-val">300%+</div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">Website Creation <span class="dot"></span></span>
-    <span class="marquee-item">Brand Identity <span class="dot"></span></span>
-    <span class="marquee-item">SEO Foundations <span class="dot"></span></span>
-    <span class="marquee-item">Google Business <span class="dot"></span></span>
-    <span class="marquee-item">Graphic Design <span class="dot"></span></span>
-    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
-    <span class="marquee-item">Empire Building <span class="dot"></span></span>
-    <span class="marquee-item">Website Creation <span class="dot"></span></span>
-    <span class="marquee-item">Brand Identity <span class="dot"></span></span>
-    <span class="marquee-item">SEO Foundations <span class="dot"></span></span>
-    <span class="marquee-item">Google Business <span class="dot"></span></span>
-    <span class="marquee-item">Graphic Design <span class="dot"></span></span>
-    <span class="marquee-item">Metro Detroit <span class="dot"></span></span>
-    <span class="marquee-item">Empire Building <span class="dot"></span></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════
-     ABOUT / WHY LEVANT — full-bleed split
-═══════════════════════════════════════════ -->
-<section style="background: var(--bg);" class="section-sm" style="padding:0;">
-  <div class="about-grid">
-    <div class="about-img reveal-l img-hover-zoom">
-      <!-- SEO strategy session / data on screen -->
-      <img src="assets/business-meeting.jpg" alt="Business meeting around a strategy table with presentation materials" width="2000" height="1334" loading="lazy" decoding="async"/>
-      <div class="about-img-badge">
-        <strong>7</strong>
-        <span>Day avg. delivery</span>
-      </div>
-    </div>
-    <div class="about-content reveal-r">
-      <div class="tag">Why Levant</div>
-      <h2 class="big-h" style="margin-bottom: 1.75rem;">
-        Your Business<br>Deserves To<br><em>Stand Out.</em>
-      </h2>
-      <p class="about-body">
-        Most Metro Detroit businesses blend in online — outdated websites, inconsistent branding, zero Google presence. We build the digital foundation that separates you from every competitor in your market.
-      </p>
-      <ul class="check-list">
-        <li>Websites engineered for conversions, not just aesthetics</li>
-        <li>SEO built into every project — no expensive add-ons</li>
-        <li>You own 100% of everything we create. Always.</li>
-        <li>No retainers, no lock-in, no fine print</li>
-      </ul>
-      <a href="contact.html" class="btn-primary" style="background:var(--ink); display:inline-flex; align-items:center; gap:.5rem;">
-        Start Your Empire
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-<!-- ═══════════════════════════════════════════
-     SERVICES — asymmetric editorial grid
-═══════════════════════════════════════════ -->
-<section class="services-section section">
-  <div class="wrap">
-    <div class="services-header reveal">
-      <div>
-        <div class="tag">What We Do</div>
-        <h2 class="big-h" style="color:#fff;">Five Services.<br><em>One Empire.</em></h2>
-      </div>
-      <a href="services.html" class="all-link">
-        View All Services
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <div class="services-asym reveal stagger">
-      <!-- Featured: Website Creation -->
-      <div class="sv sv-featured">
-        <div class="sv-featured-img">
-          <!-- High-quality web design / UI screenshot -->
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=85&fit=crop" alt="Modern website design and development" loading="lazy" decoding="async"/>
-        </div>
-        <div style="padding-top: 2.5rem;">
-          <span class="sv-num">01</span>
-          <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
-          <div class="sv-title">Website Creation</div>
-          <p class="sv-desc">Modern, mobile-first sites built to turn visitors into clients. Fast, structured, and conversion-optimized from day one.</p>
-        </div>
-        <div class="sv-arrow">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </div>
-      </div>
-
-      <!-- Branding -->
-      <div class="sv">
-        <span class="sv-num">02</span>
-        <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="m12 8 4 4-4 4M8 12h8"/></svg></div>
-        <div class="sv-title">Branding + Logo</div>
-        <p class="sv-desc">An identity system that makes your business look established, consistent, and credible everywhere it appears.</p>
-        <div class="sv-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
-      </div>
-
-      <!-- Graphic Design -->
-      <div class="sv">
-        <span class="sv-num">03</span>
-        <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-        <div class="sv-title">Graphic Design</div>
-        <p class="sv-desc">Social graphics, flyers, banners, and print — all on-brand and built to stop the scroll.</p>
-        <div class="sv-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
-      </div>
-
-      <!-- SEO -->
-      <div class="sv">
-        <span class="sv-num">04</span>
-        <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg></div>
-        <div class="sv-title">SEO Foundations</div>
-        <p class="sv-desc">Technical SEO, metadata, internal linking, and page structure — everything Google needs to find and rank you.</p>
-        <div class="sv-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
-      </div>
-
-      <!-- Google Business -->
-      <div class="sv">
-        <span class="sv-num">05</span>
-        <div class="sv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <div class="sv-title">Google Business</div>
-        <p class="sv-desc">Setup, optimization, and posting support. Keep your local presence active, complete, and competitive.</p>
-        <div class="sv-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
-      </div>
-
-      <!-- CTA card -->
-      <div class="sv-cta-card">
-        <div>
-          <div class="sv-cta-title">Not Sure Where To Start?</div>
-          <p class="sv-cta-sub">Get a free audit first. We'll show you exactly where you rank and what needs fixing — zero commitment.</p>
-        </div>
-        <a href="audit.html" class="btn-white">
-          Get Free Audit
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     RESULTS — dark with image strip
-═══════════════════════════════════════════ -->
-<section class="results-section">
-  <div class="results-img-strip">
-    <!-- Google Analytics / growth charts real office -->
-    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&q=85&fit=crop" alt="Marketing data analytics and campaign performance dashboard" loading="lazy" decoding="async"/>
-    <div class="results-strip-text reveal">
-      <h2>Results That<br><em>Speak For Themselves.</em></h2>
-      <p>Specific outcomes from real projects. Honest numbers with full context.</p>
-    </div>
-  </div>
-  <div class="results-nums reveal" style="transition-delay:.15s;">
-    <div class="res-item">
-      <div class="res-num"><span class="counter" data-target="300">0</span>%</div>
-      <div class="res-label">Traffic Growth</div>
-      <div class="res-note">Top-performing SEO project</div>
-    </div>
-    <div class="res-item">
-      <div class="res-num"><span class="counter" data-target="15">0</span>+</div>
-      <div class="res-label">Page 1 Keywords</div>
-      <div class="res-note">Single local service client</div>
-    </div>
-    <div class="res-item">
-      <div class="res-num"><span class="counter" data-target="7">0</span></div>
-      <div class="res-label">Day Delivery</div>
-      <div class="res-note">Average project completion</div>
-    </div>
-    <div class="res-item">
-      <div class="res-num"><span class="counter" data-target="100">0</span>%</div>
-      <div class="res-label">Ownership</div>
-      <div class="res-note">All files, code & accounts yours</div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     PROCESS — horizontal four-step strip
-═══════════════════════════════════════════ -->
-<section class="process-section section">
-  <div class="wrap">
-    <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;" class="reveal">
-      <div>
-        <div class="tag">How It Works</div>
-        <h2 class="big-h">Simple. Clear.<br><em>Straightforward.</em></h2>
-      </div>
-      <p style="max-width:360px; font-size:1.05rem; line-height:1.75; color:var(--ink2);">We keep the process lean so you always know where things stand. No surprises, no scope creep.</p>
-    </div>
-
-    <div class="process-steps reveal stagger" style="transition-delay:.15s;">
-      <div class="p-step">
-        <div class="p-step-num">1</div>
-        <div class="p-step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </div>
-        <div class="p-step-title">Free Audit</div>
-        <p class="p-step-desc">We review your current presence, find gaps, and show you exactly what needs to change — before you spend a dollar.</p>
-      </div>
-      <div class="p-step">
-        <div class="p-step-num">2</div>
-        <div class="p-step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 17H5a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3M13 21h6a2 2 0 002-2v-6a2 2 0 00-2-2h-6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
-        </div>
-        <div class="p-step-title">Clear Scope + Quote</div>
-        <p class="p-step-desc">A written breakdown of exactly what we'll build, what it costs, and when it's done. No vague estimates.</p>
-      </div>
-      <div class="p-step">
-        <div class="p-step-num">3</div>
-        <div class="p-step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <div class="p-step-title">We Build It Right</div>
-        <p class="p-step-desc">Design, development, branding, SEO — we handle execution while keeping you updated. No ghosting, ever.</p>
-      </div>
-      <div class="p-step">
-        <div class="p-step-num">4</div>
-        <div class="p-step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <div class="p-step-title">Launch + Full Handoff</div>
-        <p class="p-step-desc">Code, files, accounts, logins — all yours. Nothing locked. Ongoing support available when needed.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-<!-- ═══════════════════════════════════════════
-     TESTIMONIALS — sticky left / scrolling right
-═══════════════════════════════════════════ -->
-<section class="testi-section section">
-  <div class="wrap">
-    <div class="testi-layout">
-      <div class="testi-left reveal-l">
-        <div class="tag">Client Feedback</div>
-        <h2 class="big-h" style="margin-bottom:2rem;">What Clients<br><em>Have To Say.</em></h2>
-        <p style="font-size:0.95rem; line-height:1.8; color:var(--ink2); margin-bottom:2rem;">Real feedback from real Metro Detroit business owners — no fluff, no stock testimonials.</p>
-        <!-- digital marketing team working -->
-        <div class="img-hover-zoom" style="overflow:hidden; aspect-ratio:4/3; margin-top:1rem;">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=85&fit=crop" alt="Digital marketing team collaborating on growth strategy" loading="lazy" decoding="async" style="height:100%; object-fit:cover;"/>
-        </div>
-      </div>
-
-      <div class="testi-right reveal-r" style="transition-delay:.15s;">
-        <div class="testi-card card-lift">
-          <div class="testi-q">"</div>
-          <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-          <p class="testi-text">Levant built us a website that actually converts. Our inquiry form submissions increased significantly after launch. They handled everything — design, development, and technical SEO — without us managing multiple vendors.</p>
-          <div class="testi-author">
-            <div class="testi-ava">SB</div>
-            <div>
-              <div class="testi-name">Small Business Owner</div>
-              <div class="testi-role">Professional Services, Detroit</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card card-lift">
-          <div class="testi-q">"</div>
-          <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-          <p class="testi-text">Finally, a web team that communicates throughout the entire project. They delivered our rebrand and new site in just over a week. No surprises, no hidden fees — just solid work and clear expectations from day one.</p>
-          <div class="testi-author">
-            <div class="testi-ava">MD</div>
-            <div>
-              <div class="testi-name">Marketing Director</div>
-              <div class="testi-role">Retail Company, Metro Detroit</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card card-lift">
-          <div class="testi-q">"</div>
-          <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-          <p class="testi-text">Our Google Business profile was incomplete and inconsistent. Levant cleaned it up, optimized everything, and now we're showing up in local search results we weren't reaching before. Worth every dollar.</p>
-          <div class="testi-author">
-            <div class="testi-ava">LB</div>
-            <div>
-              <div class="testi-name">Local Service Business Owner</div>
-              <div class="testi-role">Home Services Industry</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-<!-- ═══════════════════════════════════════════
-     FAQ — asymmetric with image
-═══════════════════════════════════════════ -->
-<section class="faq-section section">
-  <div class="wrap">
-    <div class="faq-layout">
-      <div class="reveal-l">
-        <div class="tag">FAQ</div>
-        <h2 class="big-h" style="margin-bottom:1.5rem;">Straight<br>Answers.<br><em>No Fluff.</em></h2>
-        <p style="font-size:0.95rem; line-height:1.8; color:var(--ink2); max-width:300px;">We'd rather set real expectations upfront than promise the moon and deliver a flashlight.</p>
-        <div class="faq-left-img img-hover-zoom">
-          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=85&fit=crop" alt="Digital strategy planning session with laptop, campaign notes, and team collaboration" loading="lazy" decoding="async"/>
-        </div>
-      </div>
-
-      <div class="reveal-r" style="transition-delay:.15s;">
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1" onclick="toggleFaq(this)">
-            What does "SEO-ready" actually mean?
-            <div class="faq-plus">+</div>
-          </button>
-          <div class="faq-a" id="faq-a-1">
-            <p>Proper headings, metadata, page structure, internal linking, and indexing readiness. It's the technical foundation — not a full ongoing SEO campaign, but what most businesses are completely missing and what gives Google everything it needs to rank you.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2" onclick="toggleFaq(this)">
-            Can you redesign my existing site?
-            <div class="faq-plus">+</div>
-          </button>
-          <div class="faq-a" id="faq-a-2">
-            <p>Absolutely. We keep what's working and improve structure, visuals, speed, and mobile experience. You don't need to start from zero — we can build on what you have and dramatically improve the result.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3" onclick="toggleFaq(this)">
-            How long does a website take?
-            <div class="faq-plus">+</div>
-          </button>
-          <div class="faq-a" id="faq-a-3">
-            <p>Most projects are completed in 1–2 weeks depending on scope. We give you a clear timeline before work begins so there are never surprises on delivery date. Simple sites have gone live in as little as 7 days.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" onclick="toggleFaq(this)">
-            How are ownership terms handled?
-            <div class="faq-plus">+</div>
-          </button>
-          <div class="faq-a" id="faq-a-4">
-            <p>We define ownership, access, and handoff terms in the written proposal before work starts. If transfer is included, the agreement spells out exactly what is delivered, what remains third-party or licensed, and what you receive at launch.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" onclick="toggleFaq(this)">
-            Do you work with businesses outside Metro Detroit?
-            <div class="faq-plus">+</div>
-          </button>
-          <div class="faq-a" id="faq-a-5">
-            <p>We're Metro Detroit focused but work remotely with clients across Michigan and beyond. If you're serious about growing your digital presence, geography isn't a barrier — reach out and we'll see if we're a fit.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     CTA — full-bleed dark with background image
-═══════════════════════════════════════════ -->
-<section class="cta-section">
-  <div class="cta-bg-img">
-    <!-- Detroit city skyline / urban digital -->
-    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80&fit=crop" alt="Digital marketing team strategy session" loading="lazy" decoding="async"/>
-  </div>
-  <div class="cta-inner">
-    <div class="reveal-l">
-      <h2 class="cta-h">Let's Create<br><em>Something</em><br>Great.</h2>
-    </div>
-    <div class="cta-right reveal-r" style="transition-delay:.15s;">
-      <div class="cta-badge"><span></span>Available Now · Metro Detroit</div>
-      <p>Tell us what you need. We'll respond with a clear plan, honest scope, and a real quote. No pressure — just a straight conversation about what will actually help.</p>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-primary">
-          Start Your Empire
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="audit.html" style="font-family:var(--font-ui); font-size:0.72rem; font-weight:600; letter-spacing:0.075em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.65); padding:1rem 2rem; text-decoration:none; transition:border-color .2s,color .2s; display:inline-flex; align-items:center;" onmouseover="this.style.borderColor='var(--cyan)';this.style.color='var(--cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)';this.style.color='rgba(255,255,255,0.65)'">Free Audit First</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <a href="index.html" class="footer-logo">Levant<em>.</em></a>
-      <nav class="footer-nav">
-        <a href="index.html" class="footer-lnk link-underline" style="color:rgba(255,255,255,0.65)">Home</a>
-        <a href="services.html" class="footer-lnk link-underline">Services</a>
-        <a href="why-us.html" class="footer-lnk link-underline">Why Us</a>
-        <a href="audit.html" class="footer-lnk link-underline">Free Audit</a>
-        <a href="contact.html" class="footer-lnk link-underline">Contact</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
-      <div style="display:flex; gap:2rem;">
-        <a href="privacy.html" class="footer-lnk link-underline">Privacy Policy</a>
-        <a href="terms.html" class="footer-lnk link-underline">Terms</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/site.js"></script>
-<script>
-  // FAQ
-  function toggleFaq(btn) {
-    const item = btn.parentElement;
-    const answer = item.querySelector('.faq-a');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-a').style.maxHeight = '0';
-      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-    });
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-      btn.setAttribute('aria-expanded', 'true');
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Levant Digital Marketing",
+      "url": "https://levantdigitalmarketing.com/",
+      "logo": "https://i.imgur.com/Sc2b6hu.png"
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Levant Digital Marketing",
+      "url": "https://levantdigitalmarketing.com/",
+      "areaServed": [
+        "Metro Detroit",
+        "Michigan"
+      ],
+      "priceRange": "$$",
+      "description": "Website design, SEO foundations, brand identity, and Google Business Profile support for local businesses."
+    },
+    {
+      "@type": "Service",
+      "name": "Website design and local SEO foundations",
+      "provider": {
+        "@type": "Organization",
+        "name": "Levant Digital Marketing"
+      },
+      "areaServed": [
+        "Metro Detroit",
+        "Michigan"
+      ],
+      "serviceType": [
+        "Website design",
+        "SEO foundations",
+        "Google Business Profile optimization",
+        "Brand cleanup",
+        "Graphic design"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does this cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the size of the site, content, and whether you need SEO or Google Business Profile help. The audit gives you a real quote based on what needs fixing, not a package you do not need."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does SEO-ready actually mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Proper headings, metadata, page structure, internal links, indexing readiness, and location signals. It is the technical foundation, not a full ongoing SEO campaign."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you redesign my current website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If the current site has useful content or structure, we keep what works and rebuild the parts hurting trust, speed, mobile usability, or search visibility."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a website take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most smaller projects are completed in one to two weeks depending on scope. Simple sites can move faster once content, access, and direction are clear."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What platforms do you build on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Custom static sites are best when speed, ownership, and clean code matter. If you need easy editing, we can recommend a platform based on what you will actually maintain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you write the content?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We can rewrite your homepage, service pages, calls to action, and local SEO copy so the site sounds clear and credible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are ownership terms handled?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ownership, access, and handoff terms are defined before work starts. If transfer is included, the agreement spells out what is delivered and what remains third-party or licensed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You own the site files and accounts. Ongoing edits, SEO improvements, and Google Business support can be handled monthly if you want support after launch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work outside Metro Detroit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Levant is Metro Detroit focused, but remote work is available for Michigan businesses and serious clients outside the area."
+          }
+        }
+      ]
     }
-  }
+  ]
+}</script></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav id="nav">
+<div class="nav-inner">
+<a class="nav-logo" href="index.html">Levant<em>.</em></a>
+<div class="nav-links">
+<a class="nav-lnk" href="index.html">Home</a>
+<a class="nav-lnk" href="services.html">Services</a>
+<a class="nav-lnk" href="why-us.html">Why Us</a>
+<a class="nav-lnk" href="audit.html">Free Audit</a>
+<a class="nav-cta" href="contact.html">Let's Talk</a>
+</div>
+<button aria-expanded="false" aria-label="Menu" id="mob-btn">
+<svg fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="26"><line x1="3" x2="21" y1="6" y2="6"></line><line x1="3" x2="21" y1="12" y2="12"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg>
+</button>
+</div>
+</nav>
+<div aria-hidden="true" id="mob-menu">
+<button aria-label="Close menu" id="mob-close">✕</button>
+<a class="mob-lnk active" href="index.html">Home</a>
+<a class="mob-lnk" href="services.html">Services</a>
+<a class="mob-lnk" href="why-us.html">Why Us</a>
+<a class="mob-lnk" href="audit.html">Free Audit</a>
+<a class="mob-lnk" href="contact.html">Contact</a>
+</div>
+<main id="main">
+<header aria-label="Levant Digital Marketing homepage introduction" class="hero">
+<div class="wrap hero-grid">
+<div>
+<div class="eyebrow">Websites and local SEO for Metro Detroit</div>
+<h1>Your website is costing you <span>work.</span></h1>
+<p class="lead hero-copy">Most local business websites do not lose customers because they are ugly. They lose customers because they feel unclear, outdated, slow, or forgettable when someone is ready to call.</p>
+<div class="btn-row hero-actions">
+<a class="btn cyan" href="audit.html">Get free audit</a>
+<a class="btn light" href="#what-we-fix">See what we fix</a>
+</div>
+<div aria-label="Key promises" class="hero-note">
+<div><strong>Clear scope</strong><span>You know what is being built before work starts.</span></div>
+<div><strong>No lock-in</strong><span>Your files, accounts, and website stay yours.</span></div>
+<div><strong>Built to be used</strong><span>Fast pages, clear copy, and mobile-first structure.</span></div>
+</div>
+</div>
+<aside aria-label="Website audit preview" class="hero-card">
+<div class="hero-image">
+<img alt="Website and marketing audit visual" decoding="async" fetchpriority="high" src="https://i.imgur.com/Sc2b6hu.png"/>
+</div>
+<div class="hero-caption"><span><b>Audit view</b></span><span>Clarity first, polish second</span></div>
+</aside>
+</div>
+</header><div aria-label="Services overview" class="quiet-band"><div class="quiet-track"><span class="quiet-item">Website Creation</span><span class="quiet-item">Brand Identity</span><span class="quiet-item">SEO Foundations</span><span class="quiet-item">Google Business</span><span class="quiet-item">Graphic Design</span><span class="quiet-item">Metro Detroit</span><span class="quiet-item">Website Creation</span><span class="quiet-item">Brand Identity</span><span class="quiet-item">SEO Foundations</span><span class="quiet-item">Google Business</span><span class="quiet-item">Graphic Design</span><span class="quiet-item">Metro Detroit</span></div></div>
+<section aria-label="Quick credibility notes" class="proof-strip">
+<div class="wrap proof-grid">
+<div class="proof-cell"><strong>What we focus on</strong><p>The parts of your site that affect trust before a customer ever speaks to you.</p></div>
+<div class="proof-cell"><strong>7 day</strong><small>Typical small-site delivery window after scope is locked.</small></div>
+<div class="proof-cell"><strong>100%</strong><small>Ownership of site files, copy, accounts, and assets.</small></div>
+<div class="proof-cell"><strong>No games</strong><small>No fake awards, fake testimonials, or mystery retainers.</small></div>
+</div>
+</section>
+<section class="section" id="results"><div class="wrap"><div class="eyebrow">Numbers with context</div><h2>Useful proof beats loud claims.</h2><div aria-label="Levant project proof points" class="results-ledger"><div class="ledger-intro"><h3>What gets tracked</h3><p>Traffic, search visibility, handoff quality, and how quickly a smaller site can be rebuilt once the scope is clear.</p></div><div class="ledger-cell"><strong><span class="counter" data-target="300">0</span>%+</strong><span>Traffic growth</span><small>Top-performing SEO project from the original site.</small></div><div class="ledger-cell"><strong><span class="counter" data-target="15">0</span>+</strong><span>Page 1 keywords</span><small>For a single local service client.</small></div><div class="ledger-cell"><strong><span class="counter" data-target="7">0</span></strong><span>Day delivery</span><small>Typical small-site window after scope is locked.</small></div><div class="ledger-cell"><strong><span class="counter" data-target="100">0</span>%</strong><span>Ownership</span><small>Files, code, accounts, and assets stay with the client.</small></div></div></div></section><section class="section" id="what-we-fix">
+<div class="wrap">
+<div class="diagnosis-head">
+<div>
+<div class="eyebrow">The diagnosis</div>
+<h2>What they see when they land.</h2>
+</div>
+<p class="lead">A customer usually decides whether you feel credible in a few seconds. The job of the site is to remove doubt, not decorate the page.</p>
+</div>
+<div class="issue-list">
+<article class="issue">
+<div class="issue-num">01</div>
+<div>
+<h3>The first screen feels unclear.</h3>
+<p>Visitors should immediately know what you do, where you work, why you are credible, and what to do next.</p>
+</div>
+<div class="issue-media"><img alt="Homepage layout review visual" decoding="async" loading="lazy" src="https://i.imgur.com/ebYKPCv.png"/></div>
+</article>
+<article class="issue">
+<div class="issue-num">02</div>
+<div>
+<h3>The mobile version feels neglected.</h3>
+<p>If the phone experience feels cramped or confusing, trust drops fast. Most local traffic will see that version first.</p>
+</div>
+<div class="issue-media"><img alt="Mobile website review visual" decoding="async" loading="lazy" src="https://i.imgur.com/C9ZYARr.png"/></div>
+</article>
+<article class="issue">
+<div class="issue-num">03</div>
+<div>
+<h3>The message sounds like everyone else.</h3>
+<p>Your site needs plain, specific language that makes the business feel real. Not filler copy that could fit any company.</p>
+</div>
+<div class="issue-media"><img alt="Website messaging and content visual" decoding="async" loading="lazy" src="https://i.imgur.com/JvBQien.png"/></div>
+</article>
+</div>
+</div>
+</section>
+<section class="service-line section" id="services">
+<div class="wrap service-layout">
+<div>
+<div class="eyebrow">What we build</div>
+<h2>A cleaner online presence, without the agency theater.</h2>
+</div>
+<div class="service-list">
+<article class="service-row">
+<h3>Website redesigns</h3>
+<p>Cleaner layouts, stronger first impressions, faster pages, better mobile structure, and copy that explains the business clearly.</p>
+</article>
+<article class="service-row">
+<h3>Local SEO setup</h3>
+<p>Page titles, metadata, headings, internal links, location signals, and the basic structure Google expects from a local business.</p>
+</article>
+<article class="service-row">
+<h3>Google Business Profile</h3>
+<p>Profile cleanup, service categories, descriptions, photos, posting support, and consistency across your main online presence.</p>
+</article>
+<article class="service-row">
+<h3>Brand cleanup</h3>
+<p>Logo usage, colors, spacing, typography, and visual consistency so the business stops looking patched together.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="proof">
+<div class="wrap">
+<div class="eyebrow">Proof, not decoration</div>
+<h2>Show the change clearly.</h2>
+<p class="lead" style="margin-top:18px;">Until real case studies are ready, the page should be honest about what changes in the work: structure, clarity, speed, and local search basics.</p>
+<div class="proof-work">
+<article class="work-card">
+<div class="work-shot"><img alt="Website redesign visual example" decoding="async" loading="lazy" src="https://i.imgur.com/cUC0r4D.png"/></div>
+<h3>Before the redesign</h3>
+<p>Unclear hero, weak service structure, low trust signals, poor mobile hierarchy, and generic copy.</p>
+<div class="work-meta"><span class="pill">Clarity issue</span><span class="pill">Mobile issue</span><span class="pill">Trust issue</span></div>
+</article>
+<article class="work-card">
+<div class="work-shot"><img alt="Improved website visual example" decoding="async" loading="lazy" src="https://i.imgur.com/Y49CB1K.png"/></div>
+<h3>After the rebuild</h3>
+<p>Sharper first screen, stronger calls to action, clearer services, better local search foundation, and cleaner handoff.</p>
+<div class="work-meta"><span class="pill">Cleaner UX</span><span class="pill">SEO foundation</span><span class="pill">Owned files</span></div>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="feedback"><div class="wrap feedback-list"><div><div class="eyebrow">Client feedback</div><h2>Clear work, clean handoff, no runaround.</h2><p class="lead" style="margin-top:18px;">Kept from the original homepage, rewritten into the calmer UI so it supports trust without looking like fake testimonial cards.</p></div><div class="feedback-stack"><article class="feedback-card"><p>Levant built us a website that actually converts. The process was clear, the work looked professional, and we were not stuck managing different vendors.</p><span class="feedback-source">Small Business Owner · Professional Services · Detroit</span></article><article class="feedback-card"><p>They delivered the rebrand and new site quickly without hidden surprises. The communication was straightforward from the first conversation.</p><span class="feedback-source">Marketing Director · Retail Company · Metro Detroit</span></article><article class="feedback-card"><p>Our Google Business profile was incomplete and inconsistent. Levant cleaned it up and helped us show up better locally.</p><span class="feedback-source">Local Service Business Owner · Home Services</span></article></div></div></section><section class="process section">
+<div class="wrap">
+<div class="eyebrow" style="color:rgba(255,255,255,.46)">How it works</div>
+<h2>Small process. Clear decisions.</h2>
+<p class="lead" style="margin-top:18px;">No bloated discovery phase. No endless moodboards. We find what is hurting trust, agree on the scope, build it, and hand it over cleanly.</p>
+<div class="process-grid">
+<article class="process-step"><div><b>01</b><h3>Audit</h3><p>We review the site, mobile experience, Google presence, copy, and obvious trust gaps.</p></div></article>
+<article class="process-step"><div><b>02</b><h3>Scope</h3><p>You get a clear build plan, timeline, and price before anything starts.</p></div></article>
+<article class="process-step"><div><b>03</b><h3>Build</h3><p>The new page structure, visuals, copy, and SEO basics come together in one focused pass.</p></div></article>
+<article class="process-step"><div><b>04</b><h3>Launch</h3><p>Files, accounts, access, and next steps are handed over without locking you in.</p></div></article>
+</div>
+</div>
+</section>
+<section class="section" id="faq">
+<div class="wrap faq-layout">
+<div>
+<div class="eyebrow">Questions</div>
+<h2>The things people actually ask.</h2>
+</div>
+<div class="faq-list"><div class="faq-item open"><button aria-controls="faq-1" aria-expanded="true" class="faq-q" type="button">How much does this cost?<span>+</span></button><div class="faq-a" id="faq-1"><p>It depends on the size of the site, content, and whether you need SEO or Google Business Profile help. The audit gives you a real quote based on what needs fixing, not a package you do not need.</p></div></div><div class="faq-item"><button aria-controls="faq-2" aria-expanded="false" class="faq-q" type="button">What does SEO-ready actually mean?<span>+</span></button><div class="faq-a" id="faq-2"><p>Proper headings, metadata, page structure, internal links, indexing readiness, and location signals. It is the technical foundation, not a full ongoing SEO campaign.</p></div></div><div class="faq-item"><button aria-controls="faq-3" aria-expanded="false" class="faq-q" type="button">Can you redesign my current website?<span>+</span></button><div class="faq-a" id="faq-3"><p>Yes. If the current site has useful content or structure, we keep what works and rebuild the parts hurting trust, speed, mobile usability, or search visibility.</p></div></div><div class="faq-item"><button aria-controls="faq-4" aria-expanded="false" class="faq-q" type="button">How long does a website take?<span>+</span></button><div class="faq-a" id="faq-4"><p>Most smaller projects are completed in one to two weeks depending on scope. Simple sites can move faster once content, access, and direction are clear.</p></div></div><div class="faq-item"><button aria-controls="faq-5" aria-expanded="false" class="faq-q" type="button">What platforms do you build on?<span>+</span></button><div class="faq-a" id="faq-5"><p>Custom static sites are best when speed, ownership, and clean code matter. If you need easy editing, we can recommend a platform based on what you will actually maintain.</p></div></div><div class="faq-item"><button aria-controls="faq-6" aria-expanded="false" class="faq-q" type="button">Do you write the content?<span>+</span></button><div class="faq-a" id="faq-6"><p>Yes. We can rewrite your homepage, service pages, calls to action, and local SEO copy so the site sounds clear and credible.</p></div></div><div class="faq-item"><button aria-controls="faq-7" aria-expanded="false" class="faq-q" type="button">How are ownership terms handled?<span>+</span></button><div class="faq-a" id="faq-7"><p>Ownership, access, and handoff terms are defined before work starts. If transfer is included, the agreement spells out what is delivered and what remains third-party or licensed.</p></div></div><div class="faq-item"><button aria-controls="faq-8" aria-expanded="false" class="faq-q" type="button">What happens after launch?<span>+</span></button><div class="faq-a" id="faq-8"><p>You own the site files and accounts. Ongoing edits, SEO improvements, and Google Business support can be handled monthly if you want support after launch.</p></div></div><div class="faq-item"><button aria-controls="faq-9" aria-expanded="false" class="faq-q" type="button">Do you work outside Metro Detroit?<span>+</span></button><div class="faq-a" id="faq-9"><p>Yes. Levant is Metro Detroit focused, but remote work is available for Michigan businesses and serious clients outside the area.</p></div></div></div>
+</div>
+</section>
+<section class="final-cta">
+<div class="wrap cta-box">
+<div>
+<div class="eyebrow" style="color:rgba(255,255,255,.46)">Start with the audit</div>
+<h2>If your site makes people hesitate, it is already costing you.</h2>
+<p>Send the website. We will look at what customers see first, what feels weak, and what should be fixed before you spend money on traffic.</p>
+</div>
+<div class="cta-panel">
+<p>No pressure. No fake urgency. Just a clear read on what is hurting the site.</p>
+<div class="btn-row"><a class="btn cyan" href="audit.html">Get free audit</a><a class="btn" href="contact.html" style="border-color:rgba(255,255,255,.26); color:#fff">Contact</a></div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap foot"><span>© 2026 Levant Digital Marketing. All rights reserved.</span><span><a href="index.html">Home</a> · <a href="services.html">Services</a> · <a href="why-us.html">Why Us</a> · <a href="audit.html">Free Audit</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a></span></div></footer>
+<script src="assets/site.js"></script><script>
+    const mobBtn = document.getElementById('mob-btn');
+    const mobMenu = document.getElementById('mob-menu');
+    const mobClose = document.getElementById('mob-close');
 
-  // Counters
-  function animateCounter(counter) {
-    const target = parseInt(counter.getAttribute('data-target'));
-    const duration = 1800;
-    const step = target / (duration / 16);
-    let current = 0;
-    const tick = () => {
-      current = Math.min(current + step, target);
-      counter.textContent = Math.floor(current);
-      if (current < target) requestAnimationFrame(tick);
-      else counter.textContent = target;
-    };
-    tick();
-  }
-  const ctrObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); ctrObs.unobserve(e.target); } });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.counter').forEach(c => ctrObs.observe(c));
-</script>
+    function openMenu() {
+      mobMenu?.classList.add('open');
+      mobMenu?.setAttribute('aria-hidden', 'false');
+      mobBtn?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobMenu?.classList.remove('open');
+      mobMenu?.setAttribute('aria-hidden', 'true');
+      mobBtn?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    mobBtn?.addEventListener('click', openMenu);
+    mobClose?.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mob-lnk').forEach(link => link.addEventListener('click', closeMenu));
+
+    const faqItems = document.querySelectorAll('.faq-item');
+    function setFaqHeight(item) {
+      const answer = item.querySelector('.faq-a');
+      if (!answer) return;
+      answer.style.maxHeight = item.classList.contains('open') ? answer.scrollHeight + 'px' : '0px';
+    }
+    faqItems.forEach(item => {
+      const button = item.querySelector('.faq-q');
+      button?.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        item.classList.toggle('open', !isOpen);
+        button.setAttribute('aria-expanded', String(!isOpen));
+        setFaqHeight(item);
+      });
+      setFaqHeight(item);
+    });
+    window.addEventListener('resize', () => faqItems.forEach(setFaqHeight));
+
+    function animateCounter(counter) {
+      const target = parseInt(counter.getAttribute('data-target'), 10);
+      const duration = 1400;
+      const step = target / (duration / 16);
+      let current = 0;
+      const tick = () => {
+        current = Math.min(current + step, target);
+        counter.textContent = Math.floor(current);
+        if (current < target) requestAnimationFrame(tick);
+        else counter.textContent = target;
+      };
+      tick();
+    }
+    const ctrObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          ctrObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.45 });
+    document.querySelectorAll('.counter').forEach(counter => ctrObs.observe(counter));
+  </script>
 </body>
 </html>
