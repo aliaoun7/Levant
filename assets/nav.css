@@ -1,0 +1,6 @@
+/* Shared navigation fallback for pages that link this asset. */
+.nav a,
+.book-btn {
+  text-decoration: none;
+}
+

@@ -413,7 +413,7 @@
 
     /* Clean top-left logo image */
     .brand-mark {
-      width: 228px;
+      width: 200px;
       height: auto;
       display: block;
       object-fit: contain;
@@ -789,6 +789,389 @@
       70% { transform: translateX(120%); opacity: 0; }
     }
 
+    /* === OUT-OF-THIS-WORLD MOTION PACK === */
+
+    /* Scroll progress bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      z-index: 1000;
+      background: linear-gradient(90deg, #079bb6, #10aeca, #6ee7f7, #10aeca);
+      background-size: 300% 100%;
+      animation: gradientSlide 4s linear infinite;
+      box-shadow: 0 0 18px rgba(16,174,202,.65), 0 0 6px rgba(16,174,202,.9);
+      transition: width .12s linear;
+    }
+    @keyframes gradientSlide {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+
+    /* Cursor trail */
+    .cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #10aeca, transparent 70%);
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+      transition: width .25s ease, height .25s ease, opacity .25s ease;
+    }
+    .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 38px; height: 38px;
+      border: 1.5px solid rgba(16,174,202,.55);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width .28s ease, height .28s ease, border-color .25s ease, transform .12s ease;
+    }
+    .cursor-dot.hover-active { width: 22px; height: 22px; opacity: .6; }
+    .cursor-ring.hover-active { width: 64px; height: 64px; border-color: rgba(16,174,202,.95); }
+    @media (max-width: 1040px) {
+      .cursor-dot, .cursor-ring { display: none; }
+    }
+
+    /* Hero aurora background */
+    .hero {
+      isolation: isolate;
+    }
+    .hero .aurora {
+      position: absolute;
+      inset: -10%;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(60px);
+      opacity: .85;
+    }
+    .hero .aurora span {
+      position: absolute;
+      border-radius: 50%;
+      mix-blend-mode: multiply;
+      animation: blobFloat 18s ease-in-out infinite;
+    }
+    .hero .aurora span:nth-child(1) {
+      width: 520px; height: 520px;
+      left: -8%; top: -10%;
+      background: radial-gradient(circle, rgba(16,174,202,.45), transparent 60%);
+    }
+    .hero .aurora span:nth-child(2) {
+      width: 440px; height: 440px;
+      right: -6%; top: 20%;
+      background: radial-gradient(circle, rgba(110,231,247,.35), transparent 60%);
+      animation-delay: -6s;
+    }
+    .hero .aurora span:nth-child(3) {
+      width: 380px; height: 380px;
+      left: 35%; bottom: -20%;
+      background: radial-gradient(circle, rgba(7,155,182,.3), transparent 60%);
+      animation-delay: -12s;
+    }
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      33% { transform: translate(60px, -40px) scale(1.1); }
+      66% { transform: translate(-40px, 50px) scale(.95); }
+    }
+
+    /* Particle canvas */
+    .particle-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero .hero-grid { z-index: 2; }
+
+    /* Headline shimmer + letter reveal */
+    .h1 .cyan {
+      background: linear-gradient(90deg, #079bb6 0%, #10aeca 35%, #6ee7f7 50%, #10aeca 65%, #079bb6 100%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmerText 3.2s linear infinite;
+    }
+    @keyframes shimmerText {
+      0% { background-position: 200% 50%; }
+      100% { background-position: -200% 50%; }
+    }
+    .letter-anim {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(30px) rotateX(-60deg);
+      animation: letterIn .65s var(--ease-out) forwards;
+    }
+    @keyframes letterIn {
+      to { opacity: 1; transform: translateY(0) rotateX(0); }
+    }
+
+    /* Magnetic + glow primary button */
+    .btn.primary {
+      position: relative;
+      box-shadow: 0 10px 30px rgba(16,174,202,.35), 0 0 0 0 rgba(16,174,202,.6);
+      animation: ctaPulse 2.6s ease-in-out infinite;
+    }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 10px 30px rgba(16,174,202,.35), 0 0 0 0 rgba(16,174,202,.55); }
+      50% { box-shadow: 0 14px 38px rgba(16,174,202,.55), 0 0 0 14px rgba(16,174,202,0); }
+    }
+    .btn { transition: transform .25s var(--ease-out), box-shadow .3s ease, background .25s ease; }
+
+    /* 3D tilt cards */
+    .problem-card, .trust-card, .quote, .proof-panel, .stat {
+      transform-style: preserve-3d;
+      perspective: 900px;
+    }
+    .problem-card.tilt-active,
+    .trust-card.tilt-active,
+    .quote.tilt-active {
+      transition: transform .12s ease-out, box-shadow .25s ease;
+    }
+
+    /* Animated card border glow on hover */
+    .problem-card, .trust-card, .quote {
+      position: relative;
+    }
+    .problem-card::after,
+    .trust-card::after,
+    .quote::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(16,174,202,.6), transparent 40%, transparent 60%, rgba(16,174,202,.6));
+      opacity: 0;
+      transition: opacity .3s ease;
+      mix-blend-mode: overlay;
+    }
+    .problem-card:hover::after,
+    .trust-card:hover::after,
+    .quote:hover::after {
+      opacity: 1;
+    }
+
+    /* Marquee tool strip */
+    .tool-strip { position: relative; }
+    .tool-grid {
+      animation: marquee 28s linear infinite;
+      width: max-content;
+      display: flex !important;
+      gap: 80px;
+      padding: 0 40px;
+    }
+    .tool-strip .wrap {
+      width: 100%;
+      max-width: none;
+      padding: 0;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .tool-grid .tool { flex: 0 0 auto; padding: 0 40px; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .tool-strip:hover .tool-grid { animation-play-state: paused; }
+
+    /* Stats animated number glow */
+    .stat b {
+      background: linear-gradient(180deg, #10aeca, #6ee7f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 18px rgba(16,174,202,.4));
+    }
+    .stats {
+      background: radial-gradient(ellipse at center, #0c1116 0%, #060708 70%);
+    }
+    .stats::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(16,174,202,.18), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(110,231,247,.14), transparent 30%);
+      pointer-events: none;
+      animation: statsBgShift 12s ease-in-out infinite alternate;
+    }
+    @keyframes statsBgShift {
+      0% { transform: translate(0,0); }
+      100% { transform: translate(-20px, 18px); }
+    }
+
+    /* Foundation morphing blob */
+    .foundation .device-shot {
+      position: relative;
+    }
+    .foundation .device-shot::before {
+      content: "";
+      position: absolute;
+      inset: -8% -10%;
+      z-index: -1;
+      background: radial-gradient(circle, rgba(16,174,202,.22), transparent 65%);
+      filter: blur(40px);
+      animation: blobMorph 9s ease-in-out infinite;
+    }
+    @keyframes blobMorph {
+      0%, 100% { border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%; transform: scale(1) rotate(0); }
+      50% { border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%; transform: scale(1.08) rotate(8deg); }
+    }
+
+    /* CTA band rocket trail */
+    .cta-band {
+      background: linear-gradient(100deg, #0798b1, #07a9c2, #10aeca, #07a9c2);
+      background-size: 300% 100%;
+      animation: ctaGradient 8s ease-in-out infinite;
+    }
+    @keyframes ctaGradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.18), transparent 60%);
+      top: -300px; left: -200px;
+      animation: ctaOrb 14s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes ctaOrb {
+      0%, 100% { transform: translate(0,0); }
+      50% { transform: translate(80vw, 80px); }
+    }
+
+    /* FAQ slide-in answer */
+    .faq-answer p {
+      transform: translateY(-6px);
+      opacity: 0;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .faq-item.open .faq-answer p {
+      transform: translateY(0);
+      opacity: 1;
+      transition-delay: .12s;
+    }
+
+    /* Reveal variants */
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+    .reveal-left.is-visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(.92); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+    .reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+
+    /* Logo shimmer on hover */
+    .brand-mark { transition: transform .4s var(--ease-out), filter .4s ease; }
+    .brand:hover .brand-mark { transform: scale(1.05); filter: drop-shadow(0 0 12px rgba(16,174,202,.5)); }
+
+    /* Nav link hover slide underline */
+    .nav-links a:not(.active):not(.book-btn)::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 20px;
+      height: 2px;
+      background: var(--cyan);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+    }
+    .nav-links a:not(.active):not(.book-btn):hover { color: var(--cyan); }
+    .nav-links a:not(.active):not(.book-btn):hover::after { transform: scaleX(1); }
+
+    /* Section dividers */
+    .problem, .foundation, .local-proof, .trust-strip, .testimonials, .faq-section {
+      position: relative;
+    }
+
+    /* Eyebrow tag glow */
+    .eyebrow {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Mobile drawer */
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(7, 9, 10, .97);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      transform: translateX(100%);
+      transition: transform .35s var(--ease-out);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 28px 32px;
+      overflow-y: auto;
+      visibility: hidden;
+    }
+    body.drawer-open .mobile-drawer { transform: translateX(0); visibility: visible; }
+    body.drawer-open { overflow: hidden; }
+    .mobile-drawer a {
+      color: #fff !important;
+      font-family: "Satoshi", "General Sans", sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -.03em;
+      padding: 18px 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      display: block;
+      background: transparent !important;
+      height: auto !important;
+      box-shadow: none !important;
+    }
+    .mobile-drawer a::after { display: none !important; }
+    .mobile-drawer a:hover, .mobile-drawer a:active { color: var(--cyan-bright) !important; }
+    .drawer-close {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .25);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+    }
+    .mobile-btn { cursor: pointer; z-index: 201; position: relative; }
+    @media (min-width: 1041px) { .mobile-drawer { display: none !important; } }
+
+    /* Mobile performance */
+    @media (max-width: 1040px) {
+      .particle-canvas { display: none !important; }
+      .hero .aurora { display: none !important; }
+      body::before { display: none !important; }
+      .tool-strip::before, .stats::before, .footer::before { animation: none !important; opacity: 0 !important; }
+      .check, .bullet i, .proof-number { animation: none !important; }
+      .btn.primary { animation: none !important; }
+      .hero-visual { animation: none !important; }
+      .problem-card::after, .trust-card::after, .quote::after { display: none !important; }
+    }
+    @media (max-width: 640px) {
+      html { scroll-padding-top: 76px; }
+      .hero .h1 { word-break: normal; overflow-wrap: anywhere; hyphens: auto; }
+      .actions { gap: 14px !important; }
+      .problem-card, .trust-card, .quote, .proof-panel, .stat {
+        box-shadow: 0 8px 24px rgba(0,0,0,.05) !important;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -809,6 +1192,9 @@
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
 <nav class="site-nav">
 <div class="wrap nav-inner">
 <a aria-label="Levant Digital Marketing home" class="brand" href="#">
@@ -826,13 +1212,15 @@
 </nav>
 <main id="home">
 <section class="hero">
+<div aria-hidden="true" class="aurora"><span></span><span></span><span></span></div>
+<canvas aria-hidden="true" class="particle-canvas" id="heroParticles"></canvas>
 <div class="wrap hero-grid">
 <div class="hero-copy">
-<h1 class="h1">Look credible.<br/>Get <span class="cyan">found.</span></h1>
-<p>Levant Digital Marketing builds clean websites, clearer messaging, Google Business Profile optimization, and AI SEO foundations that help Metro Detroit businesses earn trust and get more calls.</p>
+<h1 class="h1">Your website should make people <span class="cyan">call.</span></h1>
+<p>We help Metro Detroit businesses clean up their website, Google profile, and search presence so customers trust them faster and find them easier.</p>
 <div class="actions">
-<a class="btn primary" href="#contact">Book a free consultation <span class="arrow">→</span></a>
-<a class="btn secondary" href="#problem">See what we fix <span class="arrow">↓</span></a>
+<a class="btn primary" href="#contact">Show me what to fix <span class="arrow">→</span></a>
+<a class="btn secondary" href="#problem">What is costing me calls? <span class="arrow">↓</span></a>
 </div>
 <div class="hero-points">
 <div class="point"><span class="check">✓</span><div><strong>Local Detroit Focused</strong><span>We know this market.</span></div></div>
@@ -884,7 +1272,7 @@
 <div class="bullet"><i>✓</i>AI SEO for search, answer engines, and stronger topical visibility</div>
 <div class="bullet"><i>✓</i>Ongoing support from a local team that cares</div>
 </div>
-<a class="btn primary" href="#contact">Book a free consultation <span class="arrow">→</span></a>
+<a class="btn primary" href="#contact">Show me what to fix <span class="arrow">→</span></a>
 </div>
 <div aria-hidden="true" class="device-shot reveal" data-delay="2"><img alt="Responsive website mockup on laptop and phone" decoding="async" loading="lazy" src="assets/homepage-foundation.png"/></div>
 </div>
@@ -1046,9 +1434,9 @@
 </section>
 <section class="cta-band" id="contact">
 <div class="wrap cta-inner">
-<div><div class="eyebrow">Ready to Grow?</div><h2 class="h2">Let’s build something that works.</h2></div>
-<p>Book a free consultation and we’ll show you exactly what’s holding your business back, and how to fix it.</p>
-<a class="btn" href="contact.html">Book your free call <span class="arrow">→</span></a>
+<div><div class="eyebrow">Your Next Call Starts Here</div><h2 class="h2">Find the leaks before another lead slips away.</h2></div>
+<p>Send us your site and we’ll point out the trust gaps, search issues, and quick wins worth fixing first.</p>
+<a class="btn" href="contact.html">Get my quick review <span class="arrow">→</span></a>
 </div>
 </section>
 </main>
@@ -1066,7 +1454,7 @@
 </div>
 <div><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#problem">What We Fix</a></li><li><a href="#process">Our Process</a></li><li><a href="#results">Results</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li></ul></div>
 <div><h4>Services</h4><ul><li>Custom Websites</li><li>AI SEO</li><li>Google Business Profile</li><li>Messaging &amp; Copy</li><li>Website Maintenance</li><li>Local SEO</li></ul></div>
-<div><h4>Let’s Talk</h4><p>Based in Metro Detroit<br/>Serving Macomb, Oakland, Wayne and surrounding communities.</p><a class="btn" href="contact.html">Book a free consultation <span class="arrow">→</span></a></div>
+<div><h4>Let’s Talk</h4><p>Based in Metro Detroit<br/>Serving Macomb, Oakland, Wayne and surrounding communities.</p><a class="btn" href="contact.html">Get my quick review <span class="arrow">→</span></a></div>
 </div>
 <div class="wrap subfooter"><span>© 2026 Levant Digital Marketing. All rights reserved.</span><div class="sub-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>
 </footer>
@@ -1119,6 +1507,225 @@
     revealItems.forEach((item) => observer.observe(item));
   } else {
     revealItems.forEach((item) => item.classList.add('is-visible'));
+  }
+})();
+</script>
+<script>
+(function () {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll progress bar
+  const bar = document.getElementById('scrollProgress');
+  function updateBar() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateBar, { passive: true });
+  updateBar();
+
+  // Custom cursor
+  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('pointermove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+    });
+    function ringLoop() {
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+      requestAnimationFrame(ringLoop);
+    }
+    ringLoop();
+    document.querySelectorAll('a, button, .btn, .problem-card, .trust-card, .quote, .faq-question').forEach((el) => {
+      el.addEventListener('mouseenter', () => { dot.classList.add('hover-active'); ring.classList.add('hover-active'); });
+      el.addEventListener('mouseleave', () => { dot.classList.remove('hover-active'); ring.classList.remove('hover-active'); });
+    });
+  } else {
+    document.getElementById('cursorDot').style.display = 'none';
+    document.getElementById('cursorRing').style.display = 'none';
+  }
+
+  // Mobile drawer
+  const mobBtn = document.querySelector('.mobile-btn');
+  const navLinks = document.querySelector('.nav-links');
+  if (mobBtn && navLinks) {
+    const drawer = document.createElement('div');
+    drawer.className = 'mobile-drawer';
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.innerHTML = '<button class="drawer-close" aria-label="Close menu" type="button">×</button>' + navLinks.innerHTML;
+    document.body.appendChild(drawer);
+    function openDrawer() {
+      document.body.classList.add('drawer-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      mobBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeDrawer() {
+      document.body.classList.remove('drawer-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      mobBtn.setAttribute('aria-expanded', 'false');
+    }
+    mobBtn.addEventListener('click', () => {
+      if (document.body.classList.contains('drawer-open')) closeDrawer();
+      else openDrawer();
+    });
+    drawer.querySelector('.drawer-close').addEventListener('click', closeDrawer);
+    drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeDrawer));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDrawer();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1040) closeDrawer();
+    });
+  }
+
+  // Hero particles (desktop only)
+  const isMobile = window.matchMedia('(max-width: 1040px)').matches;
+  if (!reduce && !isMobile) {
+    const canvas = document.getElementById('heroParticles');
+    const hero = canvas.parentElement;
+    const ctx = canvas.getContext('2d');
+    let particles = [], W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      const r = hero.getBoundingClientRect();
+      W = r.width; H = r.height;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function init() {
+      particles = [];
+      const count = Math.min(60, Math.floor(W / 22));
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - .5) * .3,
+          vy: (Math.random() - .5) * .3,
+          r: Math.random() * 2 + .6,
+          a: Math.random() * .5 + .25
+        });
+      }
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(16,174,202,${p.a})`;
+        ctx.fill();
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const d2 = dx*dx + dy*dy;
+          if (d2 < 12000) {
+            ctx.strokeStyle = `rgba(16,174,202,${(1 - d2/12000) * .18})`;
+            ctx.lineWidth = .7;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    resize(); init(); draw();
+    window.addEventListener('resize', () => { resize(); init(); });
+  }
+
+  // Headline fade — kept simple to preserve gradient text-clip on .cyan
+
+  // Magnetic primary buttons
+  if (!reduce) {
+    document.querySelectorAll('.btn.primary').forEach((btn) => {
+      btn.addEventListener('pointermove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width / 2;
+        const y = e.clientY - r.top - r.height / 2;
+        btn.style.transform = `translate(${x * .18}px, ${y * .25}px)`;
+      });
+      btn.addEventListener('pointerleave', () => {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  // 3D tilt cards
+  if (!reduce) {
+    document.querySelectorAll('.problem-card, .trust-card, .quote').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        const rx = (py - .5) * -8;
+        const ry = (px - .5) * 10;
+        card.classList.add('tilt-active');
+        card.style.transform = `translateY(-7px) perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+        card.classList.remove('tilt-active');
+      });
+    });
+  }
+
+  // Animated stat counters
+  function animateCount(el) {
+    const raw = el.textContent.trim();
+    const match = raw.match(/^([\d.]+)(.*)$/);
+    if (!match) return;
+    const target = parseFloat(match[1]);
+    const suffix = match[2];
+    const duration = 1600;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = target * eased;
+      el.textContent = (target % 1 === 0 ? Math.round(val) : val.toFixed(1)) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window && !reduce) {
+    const counters = document.querySelectorAll('.stat b');
+    const co = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          co.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .4 });
+    counters.forEach((c) => co.observe(c));
+  }
+
+  // Marquee duplicate tools for seamless loop
+  const toolGrid = document.querySelector('.tool-grid');
+  if (toolGrid) {
+    const original = toolGrid.innerHTML;
+    toolGrid.innerHTML = original + original;
+  }
+
+  // Parallax hero visual on scroll
+  if (!reduce) {
+    const visual = document.querySelector('.hero-visual');
+    if (visual) {
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y < 800) {
+          visual.style.translate = `0 ${y * 0.12}px`;
+        }
+      }, { passive: true });
+    }
   }
 })();
 </script></body>

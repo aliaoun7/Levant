@@ -8,6 +8,7 @@
 <meta content="Why Metro Detroit businesses choose Levant Digital Marketing for websites, Google Business Profile optimization, AI SEO, sharper messaging, and local visibility." name="description"/>
 <link href="https://api.fontshare.com" rel="preconnect"/>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;f[]=satoshi@500,700,900&amp;display=swap" rel="stylesheet"/>
+<link href="assets/motion.css" rel="stylesheet"/>
 <style>
 :root {
   --cyan:#06a8c2;
@@ -1003,6 +1004,22 @@ img[src^="data:image/png"] {
 .hero-badge {
   border: 0 !important;
 }
+
+/* Mobile menu button (was missing) */
+.mobile-btn {
+  display: none;
+  border: 1px solid rgba(0, 0, 0, .12);
+  background: #fff;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+@media (max-width: 1040px) {
+  .mobile-btn { display: flex; }
+}
 </style>
 </head>
 <body>
@@ -1016,8 +1033,9 @@ img[src^="data:image/png"] {
 <a href="services.html">Services</a>
 <a class="active" href="why-us.html">Why Us</a>
 <a href="audit.html">Free Audit</a>
-<a href="contact.html">Let's Talk</a>
+<a class="book-btn" href="contact.html">Let's Talk</a>
 </div>
+<button aria-label="Open menu" class="mobile-btn">☰</button>
 </div>
 </nav>
 <main>
@@ -1025,11 +1043,11 @@ img[src^="data:image/png"] {
 <div class="wrap hero-grid">
 <div class="hero-copy">
 <div class="eyebrow">Why Us</div>
-<h1 class="h1">Because looking credible is no longer optional.</h1>
-<p>Your next customer is comparing you in seconds. They check your website, your reviews, your Google profile, and whether your business feels trustworthy. We build the online presence that wins that comparison.</p>
+<h1 class="h1">Customers decide fast. We help you pass the gut check.</h1>
+<p>Before they call, they scan your site, reviews, photos, and Google profile. We make those first few seconds feel clear, current, and worth trusting.</p>
 <div class="actions">
-<a class="btn primary" href="contact.html">Book a free consultation <span class="arrow">→</span></a>
-<a class="btn secondary" href="audit.html">Get a free audit <span class="arrow">↓</span></a>
+<a class="btn primary" href="contact.html">Show me what to fix <span class="arrow">→</span></a>
+<a class="btn secondary" href="audit.html">Check my visibility <span class="arrow">↓</span></a>
 </div>
 </div>
 <div class="hero-art">
@@ -1191,12 +1209,12 @@ img[src^="data:image/png"] {
 <div class="wrap cta-inner">
 <div class="cta-icon">↗</div>
 <div>
-<h2>Ready to stop looking average?</h2>
-<p>Let’s build the kind of online presence that makes customers trust you before they call.</p>
+<h2>Stop giving customers a reason to scroll past.</h2>
+<p>We’ll find the weak spots in your website, Google profile, and search presence before your next customer does.</p>
 </div>
 <div class="cta-actions">
-<a class="btn" href="contact.html">Book a free consultation <span class="arrow">→</span></a>
-<a class="btn secondary" href="audit.html">Get a free audit <span class="arrow">↓</span></a>
+<a class="btn" href="contact.html">Show me what to fix <span class="arrow">→</span></a>
+<a class="btn secondary" href="audit.html">Check my visibility <span class="arrow">↓</span></a>
 </div>
 </div>
 </section>
@@ -1222,7 +1240,7 @@ img[src^="data:image/png"] {
 </div>
 <div>
 <h4>Get Started</h4>
-<ul><li>↗ Book a Free Consultation</li><li>◎ Get a Free Audit</li></ul>
+<ul><li>↗ Show Me What to Fix</li><li>◎ Check My Visibility</li></ul>
 </div>
 </div>
 <div class="wrap subfooter">
@@ -1230,11 +1248,6 @@ img[src^="data:image/png"] {
 <div class="sub-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
 </div>
 </footer>
-<script>
-document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{
-  const p=q.querySelector('span:last-child');
-  p.textContent=p.textContent==='+'?'−':'+';
-}));
-</script>
+<script defer src="assets/motion.js"></script>
 </body>
 </html>
