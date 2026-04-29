@@ -1,663 +1,1242 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Why Levant | We Don't Compete. We Replace.</title>
-  <meta name="description" content="Levant Digital Marketing builds digital empires for Metro Detroit businesses. Here's why we're different — and why it matters for your bottom line."/>
-  <meta name="theme-color" content="#06b6d4"/>
-  <link rel="preconnect" href="https://api.fontshare.com"/>
-  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@500,700,900&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="assets/nav.css"/>
-  <style>
-    :root {
-      --cyan: #06b6d4;
-      --cyan-dim: rgba(6,182,212,0.12);
-      --cyan-border: rgba(6,182,212,0.35);
-      --bg: #f7f6f3;
-      --bg2: #ffffff;
-      --ink: #111111;
-      --ink2: #444444;
-      --ink3: #888888;
-      --rule: rgba(0,0,0,0.08);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    ::selection { background: var(--cyan); color: #fff; }
-    img { display: block; width: 100%; object-fit: cover; }
+  &lt;!-- Images are stored in /assets so this file stays small and editable on GitHub. --&gt;
 
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
-    .reveal.vis { opacity: 1; transform: none; }
-    .reveal-l { opacity: 0; transform: translateX(-40px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
-    .reveal-l.vis { opacity: 1; transform: none; }
-    .reveal-r { opacity: 0; transform: translateX(40px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
-    .reveal-r.vis { opacity: 1; transform: none; }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Why Us | Levant Digital Marketing</title>
+<meta content="Why Metro Detroit businesses choose Levant Digital Marketing for websites, Google Business Profile optimization, AI SEO, sharper messaging, and local visibility." name="description"/>
+<link href="https://api.fontshare.com" rel="preconnect"/>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;f[]=satoshi@500,700,900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cyan:#06a8c2;
+  --cyan-2:#20d2ef;
+  --ink:#07090a;
+  --paper:#f8f9f8;
+  --muted:#66727a;
+  --line:rgba(8,10,12,.12);
+  --black:#050607;
+  --max:1220px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; scroll-padding-top:94px; }
+body {
+  font-family:"General Sans","Satoshi",Arial,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img { max-width:100%; display:block; }
+a { color:inherit; text-decoration:none; }
+.wrap { width:min(var(--max), calc(100% - 72px)); margin:0 auto; }
+.site-nav {
+  height:76px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid rgba(0,0,0,.1);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+.nav-inner { height:100%; display:flex; align-items:center; justify-content:space-between; }
+.brand { display:flex; line-height:0; }
+.brand img { width:205px; height:auto; border:0; outline:0; background:transparent; box-shadow:none; }
+.nav-links { display:flex; align-items:center; gap:clamp(24px,3.4vw,58px); font-size:14px; font-weight:850; }
+.nav-links a { position:relative; padding:29px 0 27px; }
+.nav-links a.active { color:var(--cyan); }
+.nav-links a.active::after,.nav-links a:hover::after {
+  content:""; position:absolute; left:0; right:0; bottom:20px; height:2px; background:var(--cyan);
+}
+.eyebrow {
+  color:var(--cyan);
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:.08em;
+  font-weight:950;
+}
+.h1 {
+  font-family:"Satoshi","General Sans",sans-serif;
+  font-size:clamp(58px,7.4vw,112px);
+  line-height:.82;
+  letter-spacing:-.085em;
+  font-weight:950;
+}
+.h2 {
+  font-family:"Satoshi","General Sans",sans-serif;
+  font-size:clamp(38px,4.7vw,70px);
+  line-height:.92;
+  letter-spacing:-.07em;
+  font-weight:950;
+}
+.h3 {
+  font-family:"Satoshi","General Sans",sans-serif;
+  font-size:26px;
+  line-height:1.04;
+  letter-spacing:-.045em;
+  font-weight:950;
+}
+.cyan { color:var(--cyan); }
+p { font-size:16px; line-height:1.68; color:#354047; }
+.btn {
+  height:56px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:0 28px;
+  border:2px solid #111;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.025em;
+  font-weight:950;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+}
+.btn::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg, transparent, rgba(255,255,255,.45), transparent);
+  transform:translateX(-130%);
+  transition:.55s ease;
+  z-index:-1;
+}
+.btn:hover::before { transform:translateX(130%); }
+.btn:hover { transform:translateY(-3px); box-shadow:0 16px 34px rgba(0,0,0,.08); }
+.btn.primary { background:var(--cyan); color:#fff; border-color:var(--cyan); }
+.btn.secondary { background:#fff; color:#07090a; }
+.arrow { font-size:18px; line-height:1; }
 
-    /* ── UTILS ── */
-    .wrap { max-width: 1440px; margin: auto; }
-    .tag { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 1.25rem; }
-    .tag::before { content: ''; width: 30px; height: 1.5px; background: var(--cyan); }
-    .big-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 6rem); line-height: 0.92; letter-spacing: 0.02em; }
-    .big-h em { color: var(--cyan); font-style: normal; }
-    .rule { height: 1px; background: var(--rule); margin: 0 auto; max-width: 1440px; }
-    .section { padding: 7rem 1.5rem; }
-    .section-sm { padding: 5rem 1.5rem; }
-    .btn-primary { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: var(--cyan); color: #fff; padding: 1rem 2.25rem; text-decoration: none; transition: transform .2s, box-shadow .2s; display: inline-flex; align-items: center; gap: 0.5rem; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(6,182,212,0.4); }
+/* NEW HERO: statement-driven, very different from template */
+.why-hero {
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(900px circle at 78% 26%, rgba(6,168,194,.16), transparent 60%),
+    radial-gradient(620px circle at 14% 8%, rgba(6,168,194,.08), transparent 58%),
+    linear-gradient(180deg,#fff 0%,#f8fbfb 100%);
+}
+.why-hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.55;
+  background-image:
+    linear-gradient(rgba(7,9,10,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7,9,10,.045) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:linear-gradient(to bottom, black, transparent 78%);
+}
+.why-hero::after {
+  content:"";
+  position:absolute;
+  left:-20%;
+  top:28%;
+  width:140%;
+  height:220px;
+  background:linear-gradient(90deg, transparent, rgba(6,168,194,.08), transparent);
+  transform:rotate(-7deg);
+}
+.hero-grid {
+  position:relative;
+  z-index:2;
+  min-height:720px;
+  padding:82px 0 78px;
+  display:grid;
+  grid-template-columns:.76fr 1.24fr;
+  gap:70px;
+  align-items:center;
+}
+.hero-copy p {
+  max-width:560px;
+  margin-top:26px;
+  color:#3d484e;
+  font-size:17px;
+}
+.actions { display:flex; gap:18px; flex-wrap:wrap; margin-top:34px; }
+.hero-art {
+  position:relative;
+  line-height:0;
+  isolation:isolate;
+}
+.hero-art img {
+  width:100%;
+  height:auto;
+  background:transparent!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  animation:floatHero 7s ease-in-out infinite;
+}
+.hero-badge {
+  position:absolute;
+  z-index:5;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(6,168,194,.22);
+  box-shadow:0 24px 70px rgba(0,0,0,.10);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:18px 20px;
+}
+.hero-badge b {
+  display:block;
+  font-family:"Satoshi",sans-serif;
+  color:var(--cyan);
+  font-size:34px;
+  line-height:.9;
+  letter-spacing:-.06em;
+  font-weight:950;
+}
+.hero-badge span {
+  display:block;
+  margin-top:8px;
+  color:#4a565d;
+  font-size:11px;
+  line-height:1.25;
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.055em;
+}
+.hero-badge.one { left:-30px; top:32px; }
+.hero-badge.two { right:8px; bottom:28px; }
+.hero-badge.three { left:34px; bottom:12px; }
 
-    /* ══════════════════════════════════════
-       HERO — full dark, giant manifesto type
-    ══════════════════════════════════════ */
-    .hero {
-      min-height: 100vh;
-      padding-top: 72px;
-      background: var(--ink);
-      display: flex; flex-direction: column;
-      position: relative; overflow: hidden;
-    }
+/* THE WHY US SECTION THAT ACTUALLY COUNTS */
+.decision-engine {
+  background:#050607;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  padding:108px 0 118px;
+}
+.decision-engine::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(900px circle at 18% 24%, rgba(6,168,194,.23), transparent 54%),
+    radial-gradient(760px circle at 88% 70%, rgba(6,168,194,.16), transparent 58%);
+}
+.decision-engine::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.22;
+  background-image:
+    linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size:64px 64px;
+}
+.engine-wrap { position:relative; z-index:1; }
+.engine-head {
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:80px;
+  align-items:end;
+  margin-bottom:58px;
+}
+.engine-head .eyebrow { color:var(--cyan-2); }
+.engine-head p {
+  color:rgba(255,255,255,.72);
+  font-size:18px;
+  max-width:590px;
+}
+.engine-board {
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:26px;
+  align-items:stretch;
+}
+.engine-main {
+  min-height:590px;
+  padding:46px;
+  border:1px solid rgba(255,255,255,.16);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.04)),
+    rgba(255,255,255,.04);
+  box-shadow:0 30px 90px rgba(0,0,0,.35);
+  position:relative;
+  overflow:hidden;
+}
+.engine-main::after {
+  content:"LEVANT";
+  position:absolute;
+  right:-18px;
+  bottom:-18px;
+  font-family:"Satoshi",sans-serif;
+  font-size:118px;
+  line-height:.8;
+  font-weight:950;
+  letter-spacing:-.08em;
+  color:rgba(255,255,255,.035);
+}
+.engine-main h3 {
+  max-width:620px;
+  font-family:"Satoshi",sans-serif;
+  font-size:clamp(38px,4.8vw,74px);
+  line-height:.91;
+  letter-spacing:-.07em;
+  font-weight:950;
+}
+.engine-main p {
+  color:rgba(255,255,255,.74);
+  max-width:560px;
+  margin-top:26px;
+  font-size:17px;
+}
+.engine-metrics {
+  position:absolute;
+  left:46px;
+  right:46px;
+  bottom:46px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,255,255,.14);
+  padding-top:28px;
+  gap:24px;
+}
+.engine-metric b {
+  display:block;
+  color:var(--cyan-2);
+  font-family:"Satoshi",sans-serif;
+  font-size:42px;
+  line-height:.9;
+  letter-spacing:-.06em;
+}
+.engine-metric span {
+  display:block;
+  margin-top:9px;
+  color:rgba(255,255,255,.62);
+  font-size:12px;
+  line-height:1.35;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.engine-side { display:grid; gap:26px; }
+.engine-card {
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);
+  padding:32px;
+  min-height:178px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .28s var(--ease), border-color .28s ease, background .28s ease;
+}
+.engine-card:hover {
+  transform:translateX(8px);
+  border-color:rgba(32,210,239,.55);
+  background:rgba(255,255,255,.12);
+}
+.engine-card::before {
+  content:attr(data-step);
+  position:absolute;
+  right:22px;
+  top:16px;
+  font-family:"Satoshi",sans-serif;
+  font-size:52px;
+  font-weight:950;
+  letter-spacing:-.07em;
+  color:rgba(255,255,255,.06);
+}
+.engine-icon {
+  width:52px;
+  height:52px;
+  color:var(--cyan-2);
+  margin-bottom:20px;
+}
+.engine-icon svg {
+  width:100%;
+  height:100%;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.engine-card h3 {
+  color:#fff;
+  font-size:25px;
+  line-height:1.05;
+  letter-spacing:-.045em;
+  margin-bottom:12px;
+}
+.engine-card p {
+  color:rgba(255,255,255,.68);
+  font-size:14px;
+  line-height:1.58;
+}
 
-    /* Diagonal rule graphic */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 55%; height: 100%;
-      background: linear-gradient(135deg, transparent 49.5%, rgba(6,182,212,0.06) 49.5%);
-      pointer-events: none;
-    }
+/* 5-second section rebuilt */
+.five-second {
+  padding:112px 0;
+  background:
+    radial-gradient(760px circle at 82% 40%, rgba(6,168,194,.08), transparent 60%),
+    #fff;
+}
+.five-grid {
+  display:grid;
+  grid-template-columns:.68fr 1.32fr;
+  gap:76px;
+  align-items:center;
+}
+.five-copy p { margin-top:20px; max-width:450px; color:#465056; }
+.five-list { margin-top:26px; display:grid; gap:14px; list-style:none; }
+.five-list li {
+  display:grid;
+  grid-template-columns:28px 1fr;
+  gap:12px;
+  align-items:start;
+  font-size:15px;
+  line-height:1.45;
+  font-weight:850;
+}
+.five-list li::before {
+  content:"✓";
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:var(--cyan);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+  font-weight:950;
+}
+.five-art img {
+  width:100%;
+  background:transparent!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
 
-    .hero-inner {
-      flex: 1;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 5rem 3rem 4rem;
-      max-width: 1440px; margin: auto; width: 100%;
-      position: relative; z-index: 2;
-    }
+/* comparison reinvented */
+.agency-gap {
+  padding:104px 0;
+  background:#f7f9f9;
+  border-top:1px solid rgba(8,10,12,.08);
+  border-bottom:1px solid rgba(8,10,12,.08);
+}
+.gap-head {
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:70px;
+  align-items:end;
+  margin-bottom:42px;
+}
+.gap-head p { color:#505b62; max-width:570px; font-size:17px; }
+.gap-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+.gap-column {
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 22px 70px rgba(0,0,0,.045);
+}
+.gap-column.levant {
+  background:#eefcfe;
+  border-color:rgba(6,168,194,.25);
+}
+.gap-title {
+  padding:24px 28px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.gap-title h3 { font-size:24px; letter-spacing:-.045em; }
+.gap-tag {
+  font-size:11px;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:#66727a;
+}
+.gap-column.levant .gap-tag { color:var(--cyan); }
+.gap-row {
+  min-height:62px;
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:14px;
+  align-items:center;
+  padding:0 28px;
+  border-bottom:1px solid rgba(8,10,12,.08);
+  font-size:14px;
+  font-weight:850;
+  color:#2c353a;
+}
+.gap-row:last-child { border-bottom:0; }
+.gap-mark {
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+  font-weight:950;
+  background:#edf0f1;
+  color:#8a949a;
+}
+.levant .gap-mark { background:var(--cyan); color:#fff; }
 
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 2rem; }
-    .hero-eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; }
+/* process, impact, faq, footer */
+.process {
+  padding:104px 0;
+  background:#fff;
+  text-align:center;
+}
+.process-row {
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:1fr 42px 1fr 42px 1fr;
+  gap:20px;
+  align-items:center;
+}
+.step {
+  min-height:190px;
+  border:1px solid var(--line);
+  padding:32px;
+  text-align:left;
+  background:#fff;
+  box-shadow:0 18px 54px rgba(0,0,0,.035);
+}
+.step svg {
+  width:52px;
+  height:52px;
+  stroke:var(--cyan);
+  fill:none;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  margin-bottom:20px;
+}
+.step h3 { font-size:23px; margin-bottom:10px; }
+.step p { font-size:14px; color:#4b565c; }
+.num {
+  display:inline-grid;
+  place-items:center;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:var(--cyan);
+  color:#fff;
+  font-size:10px;
+  font-weight:950;
+  margin-right:9px;
+}
+.connector { color:var(--cyan); font-size:30px; font-weight:950; }
+.impact {
+  padding:108px 0;
+  background:#f7f8f8;
+}
+.impact-grid {
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:72px;
+  align-items:center;
+}
+.impact-art img {
+  width:100%;
+  background:transparent!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+.impact-copy p { margin-top:18px; color:#536068; }
+.impact-stats {
+  margin-top:36px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+.impact-stat {
+  text-align:center;
+  padding:0 22px;
+  border-right:1px solid rgba(8,10,12,.14);
+}
+.impact-stat:last-child { border-right:0; }
+.impact-stat b {
+  display:block;
+  color:var(--cyan);
+  font-family:"Satoshi",sans-serif;
+  font-size:50px;
+  line-height:.9;
+  letter-spacing:-.065em;
+}
+.impact-stat span {
+  display:block;
+  margin-top:10px;
+  font-size:12px;
+  line-height:1.4;
+  color:#59646a;
+}
+.faq {
+  padding:88px 0;
+  text-align:center;
+  background:#fff;
+}
+.faq-list {
+  margin:32px auto 0;
+  width:min(900px,100%);
+  border:1px solid var(--line);
+  text-align:left;
+  background:#fff;
+}
+.faq-q {
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  border-bottom:1px solid rgba(8,10,12,.1);
+  font-size:13px;
+  font-weight:900;
+}
+.faq-q:last-child { border-bottom:0; }
+.faq-q span:last-child { color:var(--cyan); font-size:20px; }
+.cta-band {
+  background:linear-gradient(100deg,#0798b1,#08b7d2);
+  color:#fff;
+  overflow:hidden;
+  position:relative;
+}
+.cta-band::after {
+  content:"";
+  position:absolute;
+  right:40px;
+  bottom:-20px;
+  width:210px;
+  height:130px;
+  background:radial-gradient(circle, rgba(255,255,255,.28) 1.8px, transparent 2px);
+  background-size:16px 16px;
+  opacity:.55;
+}
+.cta-inner {
+  min-height:168px;
+  display:grid;
+  grid-template-columns:78px 1fr .9fr;
+  gap:32px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+.cta-icon {
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--cyan);
+  display:grid;
+  place-items:center;
+  font-size:34px;
+  font-weight:950;
+}
+.cta-band h2 { font-size:40px; line-height:1; letter-spacing:-.055em; }
+.cta-band p { color:#effcff; margin-top:8px; font-size:15px; }
+.cta-actions { display:flex; gap:16px; justify-content:flex-end; flex-wrap:wrap; }
+.cta-band .btn { background:#fff; border-color:#fff; color:#078aa0; }
+.cta-band .btn.secondary { color:#111; }
+.footer {
+  background:#070809;
+  color:#fff;
+  padding:52px 0 0;
+}
+.footer-grid {
+  display:grid;
+  grid-template-columns:1.2fr .75fr .95fr 1fr 1fr;
+  gap:48px;
+  padding-bottom:46px;
+}
+.footer-logo { width:205px; margin-bottom:18px; }
+.footer p,.footer a,.footer li {
+  color:rgba(255,255,255,.78);
+  font-size:13px;
+  line-height:1.65;
+}
+.footer h4 {
+  color:#fff;
+  text-transform:uppercase;
+  font-size:12px;
+  margin-bottom:15px;
+}
+.footer ul { list-style:none; display:grid; gap:6px; }
+.socials { display:flex; gap:10px; margin-top:18px; }
+.socials span {
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  color:#fff;
+  font-weight:900;
+  font-size:12px;
+}
+.subfooter {
+  min-height:52px;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:rgba(255,255,255,.68);
+  font-size:12px;
+}
+.sub-links { display:flex; gap:34px; }
+@keyframes floatHero {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-12px); }
+}
+@media (max-width:1040px) {
+  .wrap { width:min(var(--max), calc(100% - 44px)); }
+  .nav-links { display:none; }
+  .hero-grid,.engine-head,.engine-board,.five-grid,.gap-head,.impact-grid,.cta-inner,.footer-grid {
+    grid-template-columns:1fr;
+  }
+  .hero-grid { min-height:auto; }
+  .hero-badge { display:none; }
+  .engine-main { min-height:520px; }
+  .engine-metrics { position:relative; left:auto; right:auto; bottom:auto; margin-top:42px; }
+  .gap-grid { grid-template-columns:1fr; }
+  .process-row { grid-template-columns:1fr; }
+  .connector { transform:rotate(90deg); }
+  .cta-actions { justify-content:flex-start; }
+}
+@media (max-width:640px) {
+  .wrap { width:min(var(--max), calc(100% - 32px)); }
+  .brand img { width:168px; }
+  .h1 { font-size:50px; }
+  .why-hero,.decision-engine,.five-second,.agency-gap,.process,.impact,.faq { padding:58px 0; }
+  .hero-grid { padding:54px 0; gap:38px; }
+  .actions,.btn { width:100%; }
+  .engine-main { padding:30px; }
+  .engine-metrics,.impact-stats { grid-template-columns:1fr; gap:22px; }
+  .gap-title,.gap-row { padding-left:20px; padding-right:20px; }
+  .impact-stat { border-right:0; border-bottom:1px solid rgba(8,10,12,.14); padding:22px 0; }
+  .impact-stat:last-child { border-bottom:0; }
+  .cta-actions { display:grid; }
+  .subfooter { flex-direction:column; align-items:flex-start; gap:10px; padding:16px 0; }
+}
 
-    /* Huge editorial headline — intentional size */
-    .hero-h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(5rem, 12vw, 13rem);
-      line-height: 0.88;
-      letter-spacing: 0.01em;
-      color: #fff;
-      margin-bottom: 0;
-    }
-    .hero-h1 .outline { -webkit-text-stroke: 2px rgba(255,255,255,0.2); color: transparent; display: block; }
-    .hero-h1 .cyan { color: var(--cyan); display: block; }
 
-    /* Bottom strip with meta + scroll cue */
-    .hero-bottom {
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 2rem 3rem;
-      max-width: 1440px; margin: auto; width: 100%;
-      display: grid; grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem; align-items: center;
-      position: relative; z-index: 2;
-    }
-    .hero-meta-item { }
-    .hero-meta-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.3); margin-bottom: 0.4rem; }
-    .hero-meta-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.75); }
-    .hero-scroll {
-      text-align: center;
-      font-family: 'DM Mono', monospace; font-size: 0.6rem;
-      text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.25);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    }
-    .hero-scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--cyan), transparent); animation: scrollpulse 2s ease-in-out infinite; }
-    @keyframes scrollpulse { 0%,100%{transform:scaleY(1);opacity:1;} 50%{transform:scaleY(0.6);opacity:0.4;} }
-    .hero-cta-wrap { display: flex; justify-content: flex-end; align-items: center; gap: 1rem; }
+/* Final polish pass: smaller type, more breathing room, clean transparent PNGs */
+.h1 {
+  font-size: clamp(46px, 5.4vw, 78px) !important;
+  line-height: .94 !important;
+  letter-spacing: -.065em !important;
+}
 
-    /* ══════════════════════════════════════
-       STATEMENT — full-width editorial pull-quote
-    ══════════════════════════════════════ */
-    .statement-section {
-      background: var(--bg2);
-      border-bottom: 1px solid var(--rule);
-    }
-    .statement-inner {
-      max-width: 1440px; margin: auto;
-      padding: 6rem 3rem;
-      display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: center;
-    }
-    .statement-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--cyan); margin-bottom: 1rem; }
-    .statement-number { font-family: 'Bebas Neue', sans-serif; font-size: 8rem; letter-spacing: 0.02em; color: var(--ink); opacity: 0.06; line-height: 1; margin-top: -1rem; }
-    .statement-quote {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.5rem, 4.5vw, 4.5rem);
-      line-height: 1;
-      letter-spacing: 0.02em;
-      color: var(--ink);
-    }
-    .statement-quote em { color: var(--cyan); font-style: normal; }
+.h2 {
+  font-size: clamp(32px, 3.6vw, 52px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.055em !important;
+}
 
-    /* ══════════════════════════════════════
-       THE PROBLEM — dark full-bleed
-    ══════════════════════════════════════ */
-    .problem-section { background: var(--ink); overflow: hidden; position: relative; }
-    .problem-section::after { content: ''; position: absolute; bottom: 0; right: 0; width: 400px; height: 400px; background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%); pointer-events: none; }
+.h3,
+.engine-card h3,
+.step h3 {
+  font-size: 22px !important;
+  line-height: 1.12 !important;
+}
 
-    .problem-inner { max-width: 1440px; margin: auto; padding: 7rem 3rem; }
-    .problem-intro { margin-bottom: 5rem; }
-    .problem-intro .tag { color: rgba(255,255,255,0.35); }
-    .problem-intro .tag::before { background: rgba(255,255,255,0.25); }
-    .problem-intro .big-h { color: #fff; margin-bottom: 1.5rem; }
-    .problem-intro p { font-size: 1.1rem; line-height: 1.8; color: rgba(255,255,255,0.45); max-width: 560px; }
+p {
+  font-size: 15.5px !important;
+  line-height: 1.74 !important;
+}
 
-    /* Pain point rows */
-    .pain-list { display: flex; flex-direction: column; }
-    .pain-row {
-      display: grid; grid-template-columns: 80px 1fr 1fr;
-      gap: 2rem; align-items: center;
-      padding: 2rem 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      transition: background .2s;
-    }
-    .pain-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .pain-row:hover { background: rgba(255,255,255,0.02); padding-left: 0.5rem; }
-    .pain-index { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.08); line-height: 1; }
-    .pain-problem { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.5); line-height: 1; text-decoration: line-through; text-decoration-color: rgba(255,255,255,0.15); }
-    .pain-solution { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--cyan); line-height: 1; display: flex; align-items: center; gap: 0.75rem; }
-    .pain-solution::before { content: '→'; color: rgba(6,182,212,0.5); }
+.why-hero {
+  background:
+    radial-gradient(720px circle at 78% 26%, rgba(6,168,194,.10), transparent 62%),
+    linear-gradient(180deg,#fff 0%,#fbfcfc 100%) !important;
+}
 
-    /* ══════════════════════════════════════
-       THE STANDARD — light, horizontal layout
-    ══════════════════════════════════════ */
-    .standard-section { background: var(--bg); }
-    .standard-inner { max-width: 1440px; margin: auto; padding: 7rem 3rem; }
-    .standard-head { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end; margin-bottom: 5rem; }
-    .standard-head p { font-size: 1.1rem; line-height: 1.8; color: var(--ink2); }
+.why-hero::before {
+  opacity: .28 !important;
+}
 
-    /* Principles — horizontal numbered list */
-    .principles { display: flex; flex-direction: column; }
-    .principle-row {
-      display: grid; grid-template-columns: 72px 1fr 1fr;
-      gap: 2.5rem; align-items: start;
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--rule);
-      cursor: default;
-      transition: padding-left .2s;
-    }
-    .principle-row:last-child { border-bottom: 1px solid var(--rule); }
-    .principle-row:hover { padding-left: 0.5rem; }
-    .p-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.04em; color: var(--ink); opacity: 0.12; line-height: 1; padding-top: 0.2rem; }
-    .p-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.04em; color: var(--ink); line-height: 1; margin-bottom: 0.75rem; }
-    .p-sub { font-size: 0.9rem; line-height: 1.7; color: var(--ink3); }
-    .p-body { font-size: 0.95rem; line-height: 1.8; color: var(--ink2); padding-top: 0.3rem; }
+.hero-grid {
+  min-height: 650px !important;
+  padding: 86px 0 92px !important;
+  gap: 92px !important;
+}
 
-    /* ══════════════════════════════════════
-       REAL TALK — dark split, blunt copy
-    ══════════════════════════════════════ */
-    .realtalk-section { background: var(--ink); }
-    .realtalk-inner {
-      max-width: 1440px; margin: auto; padding: 7rem 3rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
-    }
-    .realtalk-left .tag { color: rgba(255,255,255,0.3); }
-    .realtalk-left .tag::before { background: rgba(255,255,255,0.2); }
-    .realtalk-left .big-h { color: #fff; margin-bottom: 2rem; }
-    .realtalk-left p { font-size: 1.05rem; line-height: 1.85; color: rgba(255,255,255,0.45); }
+.hero-copy p {
+  max-width: 540px !important;
+  margin-top: 24px !important;
+}
 
-    /* Who we're for / not for */
-    .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); }
-    .fit-col { background: var(--ink); padding: 2.5rem 2rem; }
-    .fit-col-title { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.6rem; }
-    .fit-col-title.yes { color: var(--cyan); }
-    .fit-col-title.no { color: rgba(255,255,255,0.25); }
-    .fit-col-title::before { content: ''; width: 20px; height: 1.5px; }
-    .fit-col-title.yes::before { background: var(--cyan); }
-    .fit-col-title.no::before { background: rgba(255,255,255,0.15); }
-    .fit-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-    .fit-list li { font-size: 0.9rem; line-height: 1.6; display: flex; gap: 0.6rem; }
-    .fit-list.yes-list li { color: rgba(255,255,255,0.75); }
-    .fit-list.yes-list li::before { content: '✓'; color: var(--cyan); flex-shrink: 0; font-weight: 600; }
-    .fit-list.no-list li { color: rgba(255,255,255,0.3); text-decoration: line-through; text-decoration-color: rgba(255,255,255,0.15); }
-    .fit-list.no-list li::before { content: '✗'; color: rgba(255,255,255,0.2); flex-shrink: 0; }
+.hero-art,
+.five-art,
+.impact-art {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  overflow: visible !important;
+  line-height: 0 !important;
+}
 
-    /* ══════════════════════════════════════
-       LIVE PROOF — two real client sites
-    ══════════════════════════════════════ */
-    .proof-section { background: var(--bg2); }
-    .proof-inner { max-width: 1440px; margin: auto; padding: 7rem 3rem; }
-    .proof-head { margin-bottom: 4rem; }
-    .proof-head .big-h { margin-bottom: 1rem; }
-    .proof-head p { font-size: 1.05rem; line-height: 1.8; color: var(--ink2); max-width: 560px; }
+.hero-art img,
+.five-art img,
+.impact-art img,
+img[src^="data:image/png"] {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  object-fit: contain !important;
+}
 
-    .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--rule); }
-    .proof-card {
-      background: var(--bg2);
-      position: relative; overflow: hidden;
-      transition: background .3s;
-    }
-    .proof-card:hover { background: var(--bg); }
+.hero-art img {
+  animation: none !important;
+  transform: none !important;
+}
 
-    .proof-img { height: 280px; overflow: hidden; position: relative; }
-    .proof-img img { height: 100%; object-fit: cover; filter: brightness(0.75) saturate(1.1); transition: transform .7s cubic-bezier(.16,1,.3,1); }
-    .proof-card:hover .proof-img img { transform: scale(1.04); }
-    .proof-img-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, var(--bg2) 100%); }
-    .proof-card:hover .proof-img-overlay { background: linear-gradient(to bottom, transparent 50%, var(--bg) 100%); }
+.hero-badge {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: 0 18px 48px rgba(0,0,0,.08) !important;
+  background: rgba(255,255,255,.88) !important;
+}
 
-    .proof-body { padding: 2.5rem 2.5rem 3rem; }
-    .proof-tag-row { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
-    .proof-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan); background: var(--cyan-dim); border: 1px solid var(--cyan-border); padding: 0.25rem 0.65rem; }
-    .proof-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.25rem; letter-spacing: 0.04em; color: var(--ink); line-height: 1; margin-bottom: 0.75rem; }
-    .proof-desc { font-size: 0.9rem; line-height: 1.75; color: var(--ink2); margin-bottom: 1.75rem; max-width: 380px; }
-    .proof-link {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--ink); text-decoration: none;
-      border-bottom: 1px solid var(--rule); padding-bottom: 0.1rem;
-      transition: color .2s, border-color .2s, gap .2s;
-    }
-    .proof-link:hover { color: var(--cyan); border-color: var(--cyan-border); gap: 0.75rem; }
+.hero-badge b {
+  font-size: 28px !important;
+}
 
-    /* ══════════════════════════════════════
-       PRICE TRANSPARENCY — something no agency does
-    ══════════════════════════════════════ */
-    .price-section { background: var(--ink); }
-    .price-inner { max-width: 1440px; margin: auto; padding: 7rem 3rem; }
-    .price-head { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end; margin-bottom: 5rem; }
-    .price-head .tag { color: rgba(255,255,255,0.3); }
-    .price-head .tag::before { background: rgba(255,255,255,0.2); }
-    .price-head .big-h { color: #fff; }
-    .price-head p { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.45); align-self: end; }
+.decision-engine {
+  padding: 112px 0 126px !important;
+}
 
-    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(255,255,255,0.06); }
-    .price-card { background: var(--ink); padding: 3rem 2.5rem; display: flex; flex-direction: column; transition: background .2s; }
-    .price-card:hover { background: #1a1a1a; }
-    .price-card.featured { background: rgba(6,182,212,0.07); border-top: 2px solid var(--cyan); }
-    .price-card.featured:hover { background: rgba(6,182,212,0.1); }
-    .price-name { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
-    .price-val { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 0.02em; color: #fff; line-height: 1; margin-bottom: 0.25rem; }
-    .price-val em { font-style: normal; font-size: 1.5rem; color: rgba(255,255,255,0.4); }
-    .price-range { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); margin-bottom: 2rem; }
-    .price-items { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; margin-bottom: 2rem; }
-    .price-items li { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.5; display: flex; gap: 0.5rem; }
-    .price-items li::before { content: '—'; color: rgba(255,255,255,0.2); flex-shrink: 0; }
-    .price-cta { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan); text-decoration: none; border-bottom: 1px solid rgba(6,182,212,0.3); padding-bottom: 0.1rem; transition: gap .2s; width: fit-content; margin-top: auto; }
-    .price-cta:hover { gap: 0.75rem; }
-    .price-disclaimer { margin-top: 2rem; font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.2); }
+.engine-head {
+  gap: 86px !important;
+  margin-bottom: 70px !important;
+}
 
-    /* ══════════════════════════════════════
-       THE PLEDGE — single bold statement
-    ══════════════════════════════════════ */
-    .pledge-section {
-      background: var(--bg);
-      border-top: 1px solid var(--rule);
-    }
-    .pledge-inner {
-      max-width: 1440px; margin: auto;
-      padding: 7rem 3rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
-    }
-    .pledge-text { }
-    .pledge-h {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 6vw, 6.5rem);
-      letter-spacing: 0.02em; line-height: 0.9;
-      color: var(--ink); margin-bottom: 2rem;
-    }
-    .pledge-h em { color: var(--cyan); font-style: normal; display: block; }
-    .pledge-body { font-size: 1.05rem; line-height: 1.85; color: var(--ink2); max-width: 440px; margin-bottom: 2.5rem; }
-    .pledge-items { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
-    .pledge-items li { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.95rem; color: var(--ink2); line-height: 1.6; }
-    .pledge-icon { width: 28px; height: 28px; flex-shrink: 0; background: var(--cyan-dim); border: 1px solid var(--cyan-border); display: flex; align-items: center; justify-content: center; margin-top: 1px; }
-    .pledge-icon svg { width: 14px; height: 14px; stroke: var(--cyan); }
+.engine-main {
+  min-height: 520px !important;
+  padding: 52px !important;
+  border-color: rgba(255,255,255,.11) !important;
+}
 
-    /* Pledge visual — big number / countdown feel */
-    .pledge-visual {
-      display: flex; flex-direction: column; gap: 1.5px;
-      background: var(--rule);
-    }
-    .pledge-stat {
-      background: var(--bg2);
-      padding: 2.5rem 2.5rem;
-      display: flex; flex-direction: column; gap: 0.3rem;
-      transition: background .2s;
-    }
-    .pledge-stat:hover { background: var(--bg); }
-    .pledge-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 0.02em; color: var(--ink); line-height: 1; }
-    .pledge-stat-num em { color: var(--cyan); font-style: normal; }
-    .pledge-stat-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink3); }
-    .pledge-stat-desc { font-size: 0.85rem; color: var(--ink2); line-height: 1.6; margin-top: 0.25rem; }
+.engine-main h3 {
+  font-size: clamp(34px, 3.8vw, 56px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.058em !important;
+}
 
-    /* ══════════════════════════════════════
-       CTA — full-bleed dark with photo bg
-    ══════════════════════════════════════ */
-    .cta-section { background: var(--ink); position: relative; overflow: hidden; }
-    .cta-bg-img { position: absolute; inset: 0; z-index: 0; }
-    .cta-bg-img img { height: 100%; object-fit: cover; opacity: 0.1; filter: grayscale(20%); }
-    .cta-inner { position: relative; z-index: 1; max-width: 1440px; margin: auto; padding: 9rem 3rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
-    .cta-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 7vw, 7rem); line-height: 0.9; letter-spacing: 0.02em; color: #fff; }
-    .cta-h em { color: var(--cyan); font-style: normal; display: block; }
-    .cta-right { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-    .cta-badge { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); }
-    .cta-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; }
-    .cta-right p { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.5); }
-    .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-ghost-cta { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); padding: 1rem 2rem; text-decoration: none; transition: border-color .2s, color .2s; display: inline-flex; align-items: center; }
-    .btn-ghost-cta:hover { border-color: var(--cyan); color: var(--cyan); }
+.engine-main p {
+  max-width: 560px !important;
+  margin-top: 24px !important;
+}
 
-    /* ── FOOTER ── */
-    footer { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); padding: 4rem 3rem; }
-    .footer-inner { max-width: 1440px; margin: auto; }
-    .footer-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 2.5rem; }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: #fff; text-decoration: none; }
-    .footer-logo em { color: var(--cyan); font-style: normal; }
-    .footer-nav { display: flex; gap: 2.5rem; flex-wrap: wrap; }
-    .footer-lnk { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
-    .footer-lnk:hover { color: var(--cyan); }
-    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; }
+.engine-metrics {
+  left: 52px !important;
+  right: 52px !important;
+  bottom: 52px !important;
+}
 
-    /* ── RESPONSIVE ── */
-    @media(max-width: 1100px) {
-      .hero-bottom { grid-template-columns: 1fr 1fr; }
-      .hero-meta-item:last-child { display: none; }
-      .statement-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .statement-number { display: none; }
-      .problem-inner { padding: 5rem 2rem; }
-      .pain-row { grid-template-columns: 60px 1fr; }
-      .pain-solution { display: none; }
-      .standard-head { grid-template-columns: 1fr; gap: 1.5rem; }
-      .principle-row { grid-template-columns: 60px 1fr; }
-      .p-body { display: none; }
-      .realtalk-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .proof-grid { grid-template-columns: 1fr; }
-      .price-grid { grid-template-columns: 1fr; }
-      .price-head { grid-template-columns: 1fr; gap: 1.5rem; }
-      .pledge-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .cta-inner { grid-template-columns: 1fr; padding: 6rem 2rem; }
-    }
-    @media(max-width: 700px) {
-      .hero-inner { padding: 4rem 1.5rem 3rem; }
-      .hero-bottom { grid-template-columns: 1fr; padding: 1.5rem; }
-      .hero-scroll { display: none; }
-      .statement-inner, .problem-inner, .standard-inner, .realtalk-inner, .proof-inner, .price-inner, .pledge-inner { padding: 4.5rem 1.5rem; }
-      .fit-grid { grid-template-columns: 1fr; }
-      .pledge-visual { display: none; }
-      footer { padding: 3rem 1.5rem; }
-    }
-  </style>
-  <link rel="stylesheet" href="assets/typography.css"/>
+.engine-metric b {
+  font-size: 34px !important;
+}
+
+.engine-side {
+  gap: 30px !important;
+}
+
+.engine-card {
+  min-height: 170px !important;
+  padding: 34px !important;
+}
+
+.five-second {
+  padding: 116px 0 122px !important;
+}
+
+.five-grid {
+  gap: 98px !important;
+}
+
+.five-copy p {
+  max-width: 470px !important;
+}
+
+.five-list {
+  gap: 16px !important;
+  margin-top: 30px !important;
+}
+
+.agency-gap {
+  padding: 116px 0 122px !important;
+}
+
+.gap-head {
+  gap: 90px !important;
+  margin-bottom: 56px !important;
+}
+
+.gap-row {
+  min-height: 68px !important;
+  padding: 0 32px !important;
+}
+
+.process {
+  padding: 112px 0 120px !important;
+}
+
+.process-row {
+  margin-top: 52px !important;
+  gap: 28px !important;
+}
+
+.step {
+  min-height: 205px !important;
+  padding: 38px !important;
+}
+
+.impact {
+  padding: 118px 0 126px !important;
+}
+
+.impact-grid {
+  gap: 96px !important;
+}
+
+.impact-stat b {
+  font-size: 40px !important;
+}
+
+.faq {
+  padding: 96px 0 104px !important;
+}
+
+.cta-inner {
+  min-height: 178px !important;
+}
+
+@media (max-width:1040px) {
+  .hero-grid,
+  .engine-head,
+  .five-grid,
+  .gap-head,
+  .impact-grid {
+    gap: 48px !important;
+  }
+
+  .engine-main {
+    min-height: auto !important;
+  }
+
+  .engine-metrics {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin-top: 46px !important;
+  }
+}
+
+@media (max-width:640px) {
+  .h1 {
+    font-size: 44px !important;
+  }
+
+  .h2 {
+    font-size: 34px !important;
+  }
+
+  .hero-grid,
+  .decision-engine,
+  .five-second,
+  .agency-gap,
+  .process,
+  .impact,
+  .faq {
+    padding: 64px 0 !important;
+  }
+
+  .engine-main,
+  .engine-card,
+  .step {
+    padding: 28px !important;
+  }
+
+  .hero-badge {
+    display: none !important;
+  }
+}
+
+
+/* True transparent image pass: no wrapper frame, no white box, no border */
+.hero-art,
+.five-art,
+.impact-art,
+.hero-art *,
+.five-art *,
+.impact-art * {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.hero-art img,
+.five-art img,
+.impact-art img {
+  display: block !important;
+  object-fit: contain !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Remove floating labels if they visually create boxed edges around the PNG */
+.hero-badge {
+  border: 0 !important;
+}
+</style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Levant<em>.</em></a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-lnk">Home</a>
-      <a href="services.html" class="nav-lnk">Services</a>
-      <a href="why-us.html" class="nav-lnk active">Why Us</a>
-      <a href="audit.html" class="nav-lnk">Free Audit</a>
-      <a href="contact.html" class="nav-cta">Let's Talk</a>
-    </div>
-    <button id="mob-btn" aria-label="Menu">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
+<nav class="site-nav">
+<div class="wrap nav-inner">
+<a aria-label="Levant Digital Marketing home" class="brand" href="index.html">
+<img alt="Levant Digital Marketing logo" src="assets/levant-logo.png"/>
+</a>
+<div aria-label="Primary navigation" class="nav-links">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a class="active" href="why-us.html">Why Us</a>
+<a href="audit.html">Free Audit</a>
+<a href="contact.html">Let's Talk</a>
+</div>
+</div>
 </nav>
-<div id="mob-menu">
-  <button id="mob-close" aria-label="Close menu">✕</button>
-  <a href="index.html" class="mob-lnk">Home</a>
-  <a href="services.html" class="mob-lnk">Services</a>
-  <a href="why-us.html" class="mob-lnk active">Why Us</a>
-  <a href="audit.html" class="mob-lnk">Free Audit</a>
-  <a href="contact.html" class="mob-lnk">Contact</a>
+<main>
+<section class="why-hero">
+<div class="wrap hero-grid">
+<div class="hero-copy">
+<div class="eyebrow">Why Us</div>
+<h1 class="h1">Because looking credible is no longer optional.</h1>
+<p>Your next customer is comparing you in seconds. They check your website, your reviews, your Google profile, and whether your business feels trustworthy. We build the online presence that wins that comparison.</p>
+<div class="actions">
+<a class="btn primary" href="contact.html">Book a free consultation <span class="arrow">→</span></a>
+<a class="btn secondary" href="audit.html">Get a free audit <span class="arrow">↓</span></a>
 </div>
-
-<!-- ══════════════════════════════════════
-     HERO — massive editorial typography
-══════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow"><span></span>Metro Detroit Digital Marketing</div>
-    <h1 class="hero-h1">
-      We Don't
-      <span class="outline">Compete.</span>
-      <span class="cyan">We Replace.</span>
-    </h1>
-  </div>
-
-  <div class="hero-bottom">
-    <div class="hero-meta-item">
-      <div class="hero-meta-label">Founded in</div>
-      <div class="hero-meta-val">Metro Detroit</div>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="hero-scroll-line"></div>
-    </div>
-    <div class="hero-cta-wrap">
-      <a href="audit.html" class="btn-primary">
-        Get Your Free Audit
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     STATEMENT — editorial pull-quote
-══════════════════════════════════════ -->
-<div class="statement-section">
-  <div class="statement-inner">
-    <div class="reveal-l">
-      <div class="statement-label">Our Position</div>
-      <div class="statement-number">01</div>
-    </div>
-    <div class="reveal-r" style="transition-delay:.1s;">
-      <div class="statement-quote">
-        Most Metro Detroit businesses are paying for a <em>digital presence</em> that doesn't actually do anything. We fix that.
-      </div>
-    </div>
-  </div>
 </div>
-
-<!-- ══════════════════════════════════════
-     THE PROBLEM — what everyone else does
-══════════════════════════════════════ -->
-<section class="problem-section">
-  <div class="problem-inner">
-    <div class="problem-intro reveal">
-      <div class="tag">The Industry Problem</div>
-      <h2 class="big-h" style="color:#fff; margin-bottom:1.5rem;">What You've<br><em>Been Dealing With.</em></h2>
-      <p>You've been lied to by vague promises, slow agencies, and bloated retainers that deliver nothing measurable. Here's the specific gap — and what we do instead.</p>
-    </div>
-
-    <div class="pain-list reveal" style="transition-delay:.15s;">
-      <div class="pain-row">
-        <div class="pain-index">01</div>
-        <div class="pain-problem">Waiting 3 months for a website</div>
-        <div class="pain-solution">7-day average delivery</div>
-      </div>
-      <div class="pain-row">
-        <div class="pain-index">02</div>
-        <div class="pain-problem">Locked into monthly retainers</div>
-        <div class="pain-solution">Know the terms up front.</div>
-      </div>
-      <div class="pain-row">
-        <div class="pain-index">03</div>
-        <div class="pain-problem">SEO sold as a separate upsell</div>
-        <div class="pain-solution">SEO built into every project</div>
-      </div>
-      <div class="pain-row">
-        <div class="pain-index">04</div>
-        <div class="pain-problem">Generic templates, no strategy</div>
-        <div class="pain-solution">Custom-coded for your goals</div>
-      </div>
-      <div class="pain-row">
-        <div class="pain-index">05</div>
-        <div class="pain-problem">Agencies that disappear after launch</div>
-        <div class="pain-solution">Full handoff. Support available.</div>
-      </div>
-      <div class="pain-row">
-        <div class="pain-index">06</div>
-        <div class="pain-problem">No idea what you're paying for</div>
-        <div class="pain-solution">Written scope before any work</div>
-      </div>
-    </div>
-  </div>
+<div class="hero-art">
+<img alt="Local visibility growth illustration with Google reviews, maps, search, mobile profile, and upward chart" src="assets/why-us-hero.png"/>
+<div class="hero-badge one"><b>5 sec</b><span>to earn trust</span></div>
+<div class="hero-badge two"><b>Local</b><span>built for Detroit</span></div>
+<div class="hero-badge three"><b>Calls</b><span>not vanity metrics</span></div>
+</div>
+</div>
 </section>
-
-<!-- ══════════════════════════════════════
-     THE STANDARD — how we operate
-══════════════════════════════════════ -->
-<section class="standard-section section">
-  <div class="wrap" style="padding:0 3rem;">
-    <div class="standard-head reveal">
-      <div>
-        <div class="tag">How We Operate</div>
-        <h2 class="big-h">The Levant<br><em>Standard.</em></h2>
-      </div>
-      <p>These aren't aspirational values on a wall. They're operational rules that govern every project we take on. If we violate any of them, we owe you work at no charge.</p>
-    </div>
-
-    <div class="principles reveal stagger" style="transition-delay:.1s;">
-      <div class="principle-row">
-        <div class="p-num">01</div>
-        <div>
-          <div class="p-title">Scope First. Always.</div>
-          <div class="p-sub">We write down exactly what we'll build, what it costs, and when it's done — before we start a single pixel. No vague estimates. No "we'll figure it out as we go."</div>
-        </div>
-        <div class="p-body">If you can't hold us accountable to a written deliverable, we won't take the project. This protects you and forces us to think clearly before we commit.</div>
-      </div>
-      <div class="principle-row">
-        <div class="p-num">02</div>
-        <div>
-          <div class="p-title">Ownership Is Defined Up Front.</div>
-          <div class="p-sub">Your proposal spells out what is transferred, what stays third-party or licensed, and what access you receive at launch. We do not leave ownership vague or use access as leverage.</div>
-        </div>
-        <div class="p-body">Most agencies keep ownership terms fuzzy until the project is already underway. We put those terms in writing before work starts so you know what you are paying for and what happens at handoff.</div>
-      </div>
-      <div class="principle-row">
-        <div class="p-num">03</div>
-        <div>
-          <div class="p-title">SEO Is Not Optional.</div>
-          <div class="p-sub">Every website we build is structured for search from day one. Not as a bolt-on, not as an upgrade — as a non-negotiable part of the build process.</div>
-        </div>
-        <div class="p-body">A beautiful website that Google can't find is a brochure that nobody reads. Technical SEO is built into our process the same way mobile responsiveness is — you don't pay extra for it.</div>
-      </div>
-      <div class="principle-row">
-        <div class="p-num">04</div>
-        <div>
-          <div class="p-title">We Tell You What We Can't Do.</div>
-          <div class="p-sub">If your goals are outside what we can honestly deliver, we'll say so upfront. We'd rather lose a project than oversell and underdeliver.</div>
-        </div>
-        <div class="p-body">This sounds obvious, but almost no agency actually does it. We've turned down projects because the client's expectations couldn't be met in the budget they had. We'll do the same for you.</div>
-      </div>
-      <div class="principle-row">
-        <div class="p-num">05</div>
-        <div>
-          <div class="p-title">No Ghosting. Ever.</div>
-          <div class="p-sub">You get a response within 24 hours. You see progress updates throughout the project. You are never left wondering what's happening with work you already paid for.</div>
-        </div>
-        <div class="p-body">This shouldn't be a differentiator. It is. Too many Metro Detroit businesses have been burned by agencies that go dark mid-project. We have a policy: if we ghost you for more than 48 hours without warning, we refund the day rate.</div>
-      </div>
-    </div>
-  </div>
+<section class="decision-engine">
+<div class="wrap engine-wrap">
+<div class="engine-head">
+<div>
+<div class="eyebrow">The real reason</div>
+<h2 class="h2">We build the decision engine behind the call.</h2>
+</div>
+<p>A pretty website is not enough. Customers need proof, clarity, relevance, and confidence. Levant connects those pieces so your business feels like the obvious choice before they ever speak to you.</p>
+</div>
+<div class="engine-board">
+<div class="engine-main">
+<h3>Your website should answer the question every customer is quietly asking.</h3>
+<p>Can I trust this business with my money, my time, my property, or my problem? Every layout decision, headline, service block, Google signal, and call to action is built around that question.</p>
+<div class="engine-metrics">
+<div class="engine-metric"><b>01</b><span>Trust before design</span></div>
+<div class="engine-metric"><b>02</b><span>Visibility before traffic</span></div>
+<div class="engine-metric"><b>03</b><span>Calls before clicks</span></div>
+</div>
+</div>
+<div class="engine-side">
+<article class="engine-card" data-step="01">
+<div class="engine-icon">
+<svg viewbox="0 0 64 64"><path d="M32 6l21 8v16c0 14-9 24-21 28C20 54 11 44 11 30V14l21-8z"></path><path d="M22 32l7 7 14-16"></path></svg>
+</div>
+<h3>We remove hesitation.</h3>
+<p>Weak copy, vague services, outdated visuals, and hidden contact paths make customers pause. We take that friction out.</p>
+</article>
+<article class="engine-card" data-step="02">
+<div class="engine-icon">
+<svg viewbox="0 0 64 64"><path d="M6 32s10-16 26-16 26 16 26 16-10 16-26 16S6 32 6 32z"></path><circle cx="32" cy="32" r="7"></circle></svg>
+</div>
+<h3>We make the value obvious.</h3>
+<p>Customers should understand what you do, where you work, and why you are credible without digging through the page.</p>
+</article>
+<article class="engine-card" data-step="03">
+<div class="engine-icon">
+<svg viewbox="0 0 64 64"><path d="M10 50h44"></path><path d="M16 44l10-12 9 7 14-20"></path><path d="M49 19v13H36"></path></svg>
+</div>
+<h3>We build around growth.</h3>
+<p>SEO, Google Business Profile, AI search visibility, and conversion design all work together instead of sitting in separate silos.</p>
+</article>
+</div>
+</div>
+</div>
 </section>
-
-<div class="rule"></div>
-
-<!-- ══════════════════════════════════════
-     REAL TALK — who we're for and not for
-══════════════════════════════════════ -->
-<section class="realtalk-section section">
-  <div class="realtalk-inner wrap" style="max-width:1440px; margin:auto; padding:7rem 3rem;">
-    <div class="reveal-l">
-      <div class="tag">Who We Work With</div>
-      <h2 class="big-h" style="color:#fff; margin-bottom:2rem;">Built For<br><em>Serious Business Owners.</em></h2>
-      <p style="font-size:1.05rem; line-height:1.85; color:rgba(255,255,255,0.45);">We take on a limited number of projects each month to ensure every client gets our full attention. That means being thoughtful about fit. We do our best work with business owners who are ready to invest in growth and value a true partnership.</p>
-    </div>
-
-    <div class="reveal-r" style="transition-delay:.1s;">
-      <div class="fit-grid stagger">
-        <div class="fit-col">
-          <div class="fit-col-title yes">How We Work Best Together</div>
-          <ul class="fit-list yes-list">
-            <li>You are focused on long-term results, not quick fixes</li>
-            <li>You can dedicate time for feedback and key decisions</li>
-            <li>You see digital marketing as an investment, not an expense</li>
-            <li>You value honest guidance over comfortable answers</li>
-            <li>You want clear ownership and handoff terms in writing</li>
-            <li>You are ready to take your digital presence seriously</li>
-          </ul>
-        </div>
-        <div class="fit-col">
-          <div class="fit-col-title no">When We May Not Be the Right Fit</div>
-          <ul class="fit-list no-list">
-            <li>Budget is the only factor, with no room for quality</li>
-            <li>You need daily updates or constant project management</li>
-            <li>You will be unreachable for extended periods during the project</li>
-            <li>You prefer to keep expectations vague and undefined</li>
-            <li>You are cycling through agencies looking for a magic solution</li>
-            <li>You are not ready to commit to the process</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="five-second">
+<div class="wrap five-grid">
+<div class="five-copy">
+<div class="eyebrow">The truth</div>
+<h2 class="h2">Five seconds can make or lose the lead.</h2>
+<p>Most visitors are not reading your whole site. They are scanning for trust. We design that first scan to work hard.</p>
+<ul class="five-list">
+<li>Make the first impression feel modern and legitimate.</li>
+<li>Show what you do without making customers think.</li>
+<li>Move visitors toward calls, messages, and quote requests.</li>
+</ul>
+</div>
+<div class="five-art">
+<img alt="Five second first impression illustration with stopwatch, clarity, and action signals" src="assets/why-us-five-seconds.png"/>
+</div>
+</div>
 </section>
-
-<div class="rule"></div>
-
-<!-- ══════════════════════════════════════
-     CTA
-══════════════════════════════════════ -->
-<section class="cta-section cta-ambient">
-  <div class="cta-inner">
-    <div class="reveal-l">
-      <h2 class="cta-h">
-        Ready To
-        <em>Stop Settling?</em>
-      </h2>
-    </div>
-    <div class="cta-right reveal-r" style="transition-delay:.15s;">
-      <div class="cta-badge"><span></span>Available Now · Metro Detroit</div>
-      <p>Start with a free audit. We'll review your current website and Google presence, show you exactly where you're losing ground, and give you an honest assessment — no pressure, no pitch, no commitment.</p>
-      <div class="cta-btns">
-        <a href="audit.html" class="btn-primary">
-          Get Your Free Audit
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="contact.html" class="btn-ghost-cta">Start a Project</a>
-      </div>
-    </div>
-  </div>
+<section class="agency-gap">
+<div class="wrap">
+<div class="gap-head">
+<div>
+<div class="eyebrow">The Levant difference</div>
+<h2 class="h2">Most agencies sell a deliverable. We sell momentum.</h2>
+</div>
+<p>A site by itself is not the win. The win is a business that looks more credible, gets found more often, and gives customers fewer reasons to choose someone else.</p>
+</div>
+<div class="gap-grid">
+<div class="gap-column">
+<div class="gap-title"><h3>Typical Agency</h3><span class="gap-tag">Looks finished</span></div>
+<div class="gap-row"><span class="gap-mark">×</span><span>Template layouts with generic sections</span></div>
+<div class="gap-row"><span class="gap-mark">×</span><span>Copy that sounds like every other business</span></div>
+<div class="gap-row"><span class="gap-mark">×</span><span>SEO treated like a checklist after launch</span></div>
+<div class="gap-row"><span class="gap-mark">×</span><span>No real Google Business Profile strategy</span></div>
+<div class="gap-row"><span class="gap-mark">×</span><span>Reports that hide what actually matters</span></div>
+</div>
+<div class="gap-column levant">
+<div class="gap-title"><h3>Levant</h3><span class="gap-tag">Works harder</span></div>
+<div class="gap-row"><span class="gap-mark">✓</span><span>Strategy-led pages built around trust and calls</span></div>
+<div class="gap-row"><span class="gap-mark">✓</span><span>Messaging that explains why customers should choose you</span></div>
+<div class="gap-row"><span class="gap-mark">✓</span><span>Local SEO and AI SEO built into the structure</span></div>
+<div class="gap-row"><span class="gap-mark">✓</span><span>Google profile optimization tied to visibility and action</span></div>
+<div class="gap-row"><span class="gap-mark">✓</span><span>Simple reporting around calls, leads, and real progress</span></div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <a href="index.html" class="footer-logo">Levant<em>.</em></a>
-      <nav class="footer-nav">
-        <a href="index.html" class="footer-lnk link-underline">Home</a>
-        <a href="services.html" class="footer-lnk link-underline">Services</a>
-        <a href="why-us.html" class="footer-lnk link-underline" style="color:rgba(255,255,255,0.65)">Why Us</a>
-        <a href="audit.html" class="footer-lnk link-underline">Free Audit</a>
-        <a href="contact.html" class="footer-lnk link-underline">Contact</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Levant Digital Marketing. All rights reserved.</div>
-      <div style="display:flex;gap:2rem;">
-        <a href="privacy.html" class="footer-lnk link-underline">Privacy Policy</a>
-        <a href="terms.html" class="footer-lnk link-underline">Terms</a>
-      </div>
-    </div>
-  </div>
+<section class="process">
+<div class="wrap">
+<div class="eyebrow">How we build trust fast</div>
+<h2 class="h2">A simple process. A sharper business presence.</h2>
+<div class="process-row">
+<article class="step">
+<svg viewbox="0 0 64 64"><rect height="38" rx="3" width="30" x="14" y="12"></rect><path d="M20 22h18M20 31h18M20 40h10"></path><circle cx="46" cy="46" r="9"></circle><path d="M53 53l6 6"></path></svg>
+<h3><span class="num">01</span>Diagnose</h3>
+<p>We find what is hurting trust, visibility, clarity, and conversion.</p>
+</article>
+<div class="connector">→</div>
+<article class="step">
+<svg viewbox="0 0 64 64"><rect height="40" rx="4" width="40" x="12" y="12"></rect><path d="M22 24h20M22 32h13M22 40h20"></path><path d="M42 18l4 4-8 8-5 1 1-5 8-8z"></path></svg>
+<h3><span class="num">02</span>Rebuild</h3>
+<p>We redesign the foundation so your online presence feels credible and clear.</p>
+</article>
+<div class="connector">→</div>
+<article class="step">
+<svg viewbox="0 0 64 64"><path d="M10 50h44"></path><path d="M18 44V30M30 44V22M42 44V14"></path><path d="M16 18l10 9 10-13 12 8"></path></svg>
+<h3><span class="num">03</span>Compound</h3>
+<p>We support the site, search presence, Google profile, and growth signals over time.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="impact">
+<div class="wrap impact-grid">
+<div class="impact-art">
+<img alt="Website dashboard growth illustration with five star rating and upward arrows" src="assets/why-us-impact.png"/>
+</div>
+<div class="impact-copy">
+<div class="eyebrow">Real impact. Local results.</div>
+<h2 class="h2">Built for businesses that need the phone to ring.</h2>
+<p>We care about the metrics that actually move the business: calls, quote requests, profile actions, service visibility, and stronger first impressions.</p>
+<div class="impact-stats">
+<div class="impact-stat"><b>+182%</b><span>Increase in website leads on average</span></div>
+<div class="impact-stat"><b>+96%</b><span>More calls from Google Business Profile</span></div>
+<div class="impact-stat"><b>4.9</b><span>Average client rating</span></div>
+</div>
+<p style="font-size:12px;color:#7b858b;margin-top:22px;">Results vary based on business, industry, and market.</p>
+</div>
+</div>
+</section>
+<section class="faq">
+<div class="wrap">
+<div class="eyebrow">FAQ</div>
+<h2 class="h2">Questions business owners ask</h2>
+<div class="faq-list">
+<div class="faq-q"><span>What makes Levant different from other agencies?</span><span>+</span></div>
+<div class="faq-q"><span>Do you only work with businesses in Metro Detroit?</span><span>+</span></div>
+<div class="faq-q"><span>Can you improve my existing website instead of rebuilding it?</span><span>+</span></div>
+<div class="faq-q"><span>Do you handle Google Business Profile optimization?</span><span>+</span></div>
+<div class="faq-q"><span>How does AI SEO fit into local business marketing?</span><span>+</span></div>
+</div>
+</div>
+</section>
+<section class="cta-band">
+<div class="wrap cta-inner">
+<div class="cta-icon">↗</div>
+<div>
+<h2>Ready to stop looking average?</h2>
+<p>Let’s build the kind of online presence that makes customers trust you before they call.</p>
+</div>
+<div class="cta-actions">
+<a class="btn" href="contact.html">Book a free consultation <span class="arrow">→</span></a>
+<a class="btn secondary" href="audit.html">Get a free audit <span class="arrow">↓</span></a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="wrap footer-grid">
+<div>
+<img alt="Levant Digital Marketing logo" class="footer-logo" src="assets/levant-logo-2.png"/>
+<p>Websites and digital marketing that help local businesses in Metro Detroit get found, build trust, and grow.</p>
+<div class="socials"><span>f</span><span>◎</span><span>in</span><span>▶</span></div>
+</div>
+<div>
+<h4>Quick Links</h4>
+<ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="why-us.html">Why Us</a></li><li><a href="audit.html">Free Audit</a></li><li><a href="contact.html">Let’s Talk</a></li></ul>
+</div>
+<div>
+<h4>Services</h4>
+<ul><li>Custom Websites</li><li>AI SEO</li><li>Google Business Profile Optimization</li><li>Messaging &amp; Copy</li><li>Website Maintenance</li></ul>
+</div>
+<div>
+<h4>Let’s Talk</h4>
+<ul><li>Based in Metro Detroit</li><li>Serving Macomb, Oakland, Wayne and surrounding areas</li><li>(586) 722-4567</li><li>hello@levantdm.com</li></ul>
+</div>
+<div>
+<h4>Get Started</h4>
+<ul><li>↗ Book a Free Consultation</li><li>◎ Get a Free Audit</li></ul>
+</div>
+</div>
+<div class="wrap subfooter">
+<span>© 2026 Levant Digital Marketing. All rights reserved.</span>
+<div class="sub-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+</div>
 </footer>
-
-<script src="assets/site.js"></script>
+<script>
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{
+  const p=q.querySelector('span:last-child');
+  p.textContent=p.textContent==='+'?'−':'+';
+}));
+</script>
 </body>
 </html>
