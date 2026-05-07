@@ -1,1253 +1,420 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Why Us | Levant Digital Marketing</title>
-<meta content="Why Metro Detroit businesses choose Levant Digital Marketing for websites, Google Business Profile optimization, AI SEO, sharper messaging, and local visibility." name="description"/>
-<link href="https://api.fontshare.com" rel="preconnect"/>
-<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;f[]=satoshi@500,700,900&amp;display=swap" rel="stylesheet"/>
-<link href="assets/motion.css" rel="stylesheet"/>
-<style>
-:root {
-  --cyan:#06a8c2;
-  --cyan-2:#20d2ef;
-  --ink:#07090a;
-  --paper:#f8f9f8;
-  --muted:#66727a;
-  --line:rgba(8,10,12,.12);
-  --black:#050607;
-  --max:1220px;
-  --ease:cubic-bezier(.16,1,.3,1);
-}
-* { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; scroll-padding-top:94px; }
-body {
-  font-family:"General Sans","Satoshi",Arial,sans-serif;
-  color:var(--ink);
-  background:#fff;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-img { max-width:100%; display:block; }
-a { color:inherit; text-decoration:none; }
-.wrap { width:min(var(--max), calc(100% - 72px)); margin:0 auto; }
-.site-nav {
-  height:76px;
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(255,255,255,.92);
-  border-bottom:1px solid rgba(0,0,0,.1);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-}
-.nav-inner { height:100%; display:flex; align-items:center; justify-content:space-between; }
-.brand { display:flex; line-height:0; }
-.brand img { width:205px; height:auto; border:0; outline:0; background:transparent; box-shadow:none; }
-.nav-links { display:flex; align-items:center; gap:clamp(24px,3.4vw,58px); font-size:14px; font-weight:850; }
-.nav-links a { position:relative; padding:29px 0 27px; }
-.nav-links a.active { color:var(--cyan); }
-.nav-links a.active::after,.nav-links a:hover::after {
-  content:""; position:absolute; left:0; right:0; bottom:20px; height:2px; background:var(--cyan);
-}
-.eyebrow {
-  color:var(--cyan);
-  text-transform:uppercase;
-  font-size:12px;
-  letter-spacing:.08em;
-  font-weight:950;
-}
-.h1 {
-  font-family:"Satoshi","General Sans",sans-serif;
-  font-size:clamp(58px,7.4vw,112px);
-  line-height:.82;
-  letter-spacing:-.085em;
-  font-weight:950;
-}
-.h2 {
-  font-family:"Satoshi","General Sans",sans-serif;
-  font-size:clamp(38px,4.7vw,70px);
-  line-height:.92;
-  letter-spacing:-.07em;
-  font-weight:950;
-}
-.h3 {
-  font-family:"Satoshi","General Sans",sans-serif;
-  font-size:26px;
-  line-height:1.04;
-  letter-spacing:-.045em;
-  font-weight:950;
-}
-.cyan { color:var(--cyan); }
-p { font-size:16px; line-height:1.68; color:#354047; }
-.btn {
-  height:56px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  padding:0 28px;
-  border:2px solid #111;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:.025em;
-  font-weight:950;
-  position:relative;
-  overflow:hidden;
-  isolation:isolate;
-  transition:transform .22s var(--ease), box-shadow .22s var(--ease);
-}
-.btn::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(110deg, transparent, rgba(255,255,255,.45), transparent);
-  transform:translateX(-130%);
-  transition:.55s ease;
-  z-index:-1;
-}
-.btn:hover::before { transform:translateX(130%); }
-.btn:hover { transform:translateY(-3px); box-shadow:0 16px 34px rgba(0,0,0,.08); }
-.btn.primary { background:var(--cyan); color:#fff; border-color:var(--cyan); }
-.btn.secondary { background:#fff; color:#07090a; }
-.arrow { font-size:18px; line-height:1; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Us | Levant Digital Marketing — Metro Detroit</title>
+  <meta name="description" content="Why Metro Detroit businesses choose Levant Digital Marketing for websites, Google Business Profile, AI SEO, and local visibility. Strategy-led, not deliverable-led.">
+  <meta name="theme-color" content="#079bb6">
 
-/* NEW HERO: statement-driven, very different from template */
-.why-hero {
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(900px circle at 78% 26%, rgba(6,168,194,.16), transparent 60%),
-    radial-gradient(620px circle at 14% 8%, rgba(6,168,194,.08), transparent 58%),
-    linear-gradient(180deg,#fff 0%,#f8fbfb 100%);
-}
-.why-hero::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.55;
-  background-image:
-    linear-gradient(rgba(7,9,10,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(7,9,10,.045) 1px, transparent 1px);
-  background-size:56px 56px;
-  mask-image:linear-gradient(to bottom, black, transparent 78%);
-}
-.why-hero::after {
-  content:"";
-  position:absolute;
-  left:-20%;
-  top:28%;
-  width:140%;
-  height:220px;
-  background:linear-gradient(90deg, transparent, rgba(6,168,194,.08), transparent);
-  transform:rotate(-7deg);
-}
-.hero-grid {
-  position:relative;
-  z-index:2;
-  min-height:720px;
-  padding:82px 0 78px;
-  display:grid;
-  grid-template-columns:.76fr 1.24fr;
-  gap:70px;
-  align-items:center;
-}
-.hero-copy p {
-  max-width:560px;
-  margin-top:26px;
-  color:#3d484e;
-  font-size:17px;
-}
-.actions { display:flex; gap:18px; flex-wrap:wrap; margin-top:34px; }
-.hero-art {
-  position:relative;
-  line-height:0;
-  isolation:isolate;
-}
-.hero-art img {
-  width:100%;
-  height:auto;
-  background:transparent!important;
-  border:0!important;
-  outline:0!important;
-  box-shadow:none!important;
-  filter:none!important;
-  animation:floatHero 7s ease-in-out infinite;
-}
-.hero-badge {
-  position:absolute;
-  z-index:5;
-  background:rgba(255,255,255,.92);
-  border:1px solid rgba(6,168,194,.22);
-  box-shadow:0 24px 70px rgba(0,0,0,.10);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  padding:18px 20px;
-}
-.hero-badge b {
-  display:block;
-  font-family:"Satoshi",sans-serif;
-  color:var(--cyan);
-  font-size:34px;
-  line-height:.9;
-  letter-spacing:-.06em;
-  font-weight:950;
-}
-.hero-badge span {
-  display:block;
-  margin-top:8px;
-  color:#4a565d;
-  font-size:11px;
-  line-height:1.25;
-  text-transform:uppercase;
-  font-weight:900;
-  letter-spacing:.055em;
-}
-.hero-badge.one { left:-30px; top:32px; }
-.hero-badge.two { right:8px; bottom:28px; }
-.hero-badge.three { left:34px; bottom:12px; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap"></noscript>
 
-/* THE WHY US SECTION THAT ACTUALLY COUNTS */
-.decision-engine {
-  background:#050607;
-  color:#fff;
-  position:relative;
-  overflow:hidden;
-  padding:108px 0 118px;
-}
-.decision-engine::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(900px circle at 18% 24%, rgba(6,168,194,.23), transparent 54%),
-    radial-gradient(760px circle at 88% 70%, rgba(6,168,194,.16), transparent 58%);
-}
-.decision-engine::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.22;
-  background-image:
-    linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
-  background-size:64px 64px;
-}
-.engine-wrap { position:relative; z-index:1; }
-.engine-head {
-  display:grid;
-  grid-template-columns:.9fr 1.1fr;
-  gap:80px;
-  align-items:end;
-  margin-bottom:58px;
-}
-.engine-head .eyebrow { color:var(--cyan-2); }
-.engine-head p {
-  color:rgba(255,255,255,.72);
-  font-size:18px;
-  max-width:590px;
-}
-.engine-board {
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:26px;
-  align-items:stretch;
-}
-.engine-main {
-  min-height:590px;
-  padding:46px;
-  border:1px solid rgba(255,255,255,.16);
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.04)),
-    rgba(255,255,255,.04);
-  box-shadow:0 30px 90px rgba(0,0,0,.35);
-  position:relative;
-  overflow:hidden;
-}
-.engine-main::after {
-  content:"LEVANT";
-  position:absolute;
-  right:-18px;
-  bottom:-18px;
-  font-family:"Satoshi",sans-serif;
-  font-size:118px;
-  line-height:.8;
-  font-weight:950;
-  letter-spacing:-.08em;
-  color:rgba(255,255,255,.035);
-}
-.engine-main h3 {
-  max-width:620px;
-  font-family:"Satoshi",sans-serif;
-  font-size:clamp(38px,4.8vw,74px);
-  line-height:.91;
-  letter-spacing:-.07em;
-  font-weight:950;
-}
-.engine-main p {
-  color:rgba(255,255,255,.74);
-  max-width:560px;
-  margin-top:26px;
-  font-size:17px;
-}
-.engine-metrics {
-  position:absolute;
-  left:46px;
-  right:46px;
-  bottom:46px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid rgba(255,255,255,.14);
-  padding-top:28px;
-  gap:24px;
-}
-.engine-metric b {
-  display:block;
-  color:var(--cyan-2);
-  font-family:"Satoshi",sans-serif;
-  font-size:42px;
-  line-height:.9;
-  letter-spacing:-.06em;
-}
-.engine-metric span {
-  display:block;
-  margin-top:9px;
-  color:rgba(255,255,255,.62);
-  font-size:12px;
-  line-height:1.35;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.04em;
-}
-.engine-side { display:grid; gap:26px; }
-.engine-card {
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.08);
-  padding:32px;
-  min-height:178px;
-  position:relative;
-  overflow:hidden;
-  transition:transform .28s var(--ease), border-color .28s ease, background .28s ease;
-}
-.engine-card:hover {
-  transform:translateX(8px);
-  border-color:rgba(32,210,239,.55);
-  background:rgba(255,255,255,.12);
-}
-.engine-card::before {
-  content:attr(data-step);
-  position:absolute;
-  right:22px;
-  top:16px;
-  font-family:"Satoshi",sans-serif;
-  font-size:52px;
-  font-weight:950;
-  letter-spacing:-.07em;
-  color:rgba(255,255,255,.06);
-}
-.engine-icon {
-  width:52px;
-  height:52px;
-  color:var(--cyan-2);
-  margin-bottom:20px;
-}
-.engine-icon svg {
-  width:100%;
-  height:100%;
-  stroke:currentColor;
-  fill:none;
-  stroke-width:1.9;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-.engine-card h3 {
-  color:#fff;
-  font-size:25px;
-  line-height:1.05;
-  letter-spacing:-.045em;
-  margin-bottom:12px;
-}
-.engine-card p {
-  color:rgba(255,255,255,.68);
-  font-size:14px;
-  line-height:1.58;
-}
-
-/* 5-second section rebuilt */
-.five-second {
-  padding:112px 0;
-  background:
-    radial-gradient(760px circle at 82% 40%, rgba(6,168,194,.08), transparent 60%),
-    #fff;
-}
-.five-grid {
-  display:grid;
-  grid-template-columns:.68fr 1.32fr;
-  gap:76px;
-  align-items:center;
-}
-.five-copy p { margin-top:20px; max-width:450px; color:#465056; }
-.five-list { margin-top:26px; display:grid; gap:14px; list-style:none; }
-.five-list li {
-  display:grid;
-  grid-template-columns:28px 1fr;
-  gap:12px;
-  align-items:start;
-  font-size:15px;
-  line-height:1.45;
-  font-weight:850;
-}
-.five-list li::before {
-  content:"✓";
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  background:var(--cyan);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  font-size:13px;
-  font-weight:950;
-}
-.five-art img {
-  width:100%;
-  background:transparent!important;
-  border:0!important;
-  outline:0!important;
-  box-shadow:none!important;
-}
-
-/* comparison reinvented */
-.agency-gap {
-  padding:104px 0;
-  background:#f7f9f9;
-  border-top:1px solid rgba(8,10,12,.08);
-  border-bottom:1px solid rgba(8,10,12,.08);
-}
-.gap-head {
-  display:grid;
-  grid-template-columns:.9fr 1.1fr;
-  gap:70px;
-  align-items:end;
-  margin-bottom:42px;
-}
-.gap-head p { color:#505b62; max-width:570px; font-size:17px; }
-.gap-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-}
-.gap-column {
-  background:#fff;
-  border:1px solid var(--line);
-  box-shadow:0 22px 70px rgba(0,0,0,.045);
-}
-.gap-column.levant {
-  background:#eefcfe;
-  border-color:rgba(6,168,194,.25);
-}
-.gap-title {
-  padding:24px 28px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.gap-title h3 { font-size:24px; letter-spacing:-.045em; }
-.gap-tag {
-  font-size:11px;
-  font-weight:950;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-  color:#66727a;
-}
-.gap-column.levant .gap-tag { color:var(--cyan); }
-.gap-row {
-  min-height:62px;
-  display:grid;
-  grid-template-columns:34px 1fr;
-  gap:14px;
-  align-items:center;
-  padding:0 28px;
-  border-bottom:1px solid rgba(8,10,12,.08);
-  font-size:14px;
-  font-weight:850;
-  color:#2c353a;
-}
-.gap-row:last-child { border-bottom:0; }
-.gap-mark {
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  font-size:13px;
-  font-weight:950;
-  background:#edf0f1;
-  color:#8a949a;
-}
-.levant .gap-mark { background:var(--cyan); color:#fff; }
-
-/* process, impact, faq, footer */
-.process {
-  padding:104px 0;
-  background:#fff;
-  text-align:center;
-}
-.process-row {
-  margin-top:40px;
-  display:grid;
-  grid-template-columns:1fr 42px 1fr 42px 1fr;
-  gap:20px;
-  align-items:center;
-}
-.step {
-  min-height:190px;
-  border:1px solid var(--line);
-  padding:32px;
-  text-align:left;
-  background:#fff;
-  box-shadow:0 18px 54px rgba(0,0,0,.035);
-}
-.step svg {
-  width:52px;
-  height:52px;
-  stroke:var(--cyan);
-  fill:none;
-  stroke-width:1.9;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  margin-bottom:20px;
-}
-.step h3 { font-size:23px; margin-bottom:10px; }
-.step p { font-size:14px; color:#4b565c; }
-.num {
-  display:inline-grid;
-  place-items:center;
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  background:var(--cyan);
-  color:#fff;
-  font-size:10px;
-  font-weight:950;
-  margin-right:9px;
-}
-.connector { color:var(--cyan); font-size:30px; font-weight:950; }
-.impact {
-  padding:108px 0;
-  background:#f7f8f8;
-}
-.impact-grid {
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:72px;
-  align-items:center;
-}
-.impact-art img {
-  width:100%;
-  background:transparent!important;
-  border:0!important;
-  outline:0!important;
-  box-shadow:none!important;
-}
-.impact-copy p { margin-top:18px; color:#536068; }
-.impact-stats {
-  margin-top:36px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-}
-.impact-stat {
-  text-align:center;
-  padding:0 22px;
-  border-right:1px solid rgba(8,10,12,.14);
-}
-.impact-stat:last-child { border-right:0; }
-.impact-stat b {
-  display:block;
-  color:var(--cyan);
-  font-family:"Satoshi",sans-serif;
-  font-size:50px;
-  line-height:.9;
-  letter-spacing:-.065em;
-}
-.impact-stat span {
-  display:block;
-  margin-top:10px;
-  font-size:12px;
-  line-height:1.4;
-  color:#59646a;
-}
-.faq {
-  padding:88px 0;
-  text-align:center;
-  background:#fff;
-}
-.faq-list {
-  margin:32px auto 0;
-  width:min(900px,100%);
-  border:1px solid var(--line);
-  text-align:left;
-  background:#fff;
-}
-.faq-q {
-  min-height:58px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 22px;
-  border-bottom:1px solid rgba(8,10,12,.1);
-  font-size:13px;
-  font-weight:900;
-}
-.faq-q:last-child { border-bottom:0; }
-.faq-q span:last-child { color:var(--cyan); font-size:20px; }
-.cta-band {
-  background:linear-gradient(100deg,#0798b1,#08b7d2);
-  color:#fff;
-  overflow:hidden;
-  position:relative;
-}
-.cta-band::after {
-  content:"";
-  position:absolute;
-  right:40px;
-  bottom:-20px;
-  width:210px;
-  height:130px;
-  background:radial-gradient(circle, rgba(255,255,255,.28) 1.8px, transparent 2px);
-  background-size:16px 16px;
-  opacity:.55;
-}
-.cta-inner {
-  min-height:168px;
-  display:grid;
-  grid-template-columns:78px 1fr .9fr;
-  gap:32px;
-  align-items:center;
-  position:relative;
-  z-index:2;
-}
-.cta-icon {
-  width:72px;
-  height:72px;
-  border-radius:50%;
-  background:#fff;
-  color:var(--cyan);
-  display:grid;
-  place-items:center;
-  font-size:34px;
-  font-weight:950;
-}
-.cta-band h2 { font-size:40px; line-height:1; letter-spacing:-.055em; }
-.cta-band p { color:#effcff; margin-top:8px; font-size:15px; }
-.cta-actions { display:flex; gap:16px; justify-content:flex-end; flex-wrap:wrap; }
-.cta-band .btn { background:#fff; border-color:#fff; color:#078aa0; }
-.cta-band .btn.secondary { color:#111; }
-.footer {
-  background:#070809;
-  color:#fff;
-  padding:52px 0 0;
-}
-.footer-grid {
-  display:grid;
-  grid-template-columns:1.2fr .75fr .95fr 1fr 1fr;
-  gap:48px;
-  padding-bottom:46px;
-}
-.footer-logo { width:205px; margin-bottom:18px; }
-.footer p,.footer a,.footer li {
-  color:rgba(255,255,255,.78);
-  font-size:13px;
-  line-height:1.65;
-}
-.footer h4 {
-  color:#fff;
-  text-transform:uppercase;
-  font-size:12px;
-  margin-bottom:15px;
-}
-.footer ul { list-style:none; display:grid; gap:6px; }
-.socials { display:flex; gap:10px; margin-top:18px; }
-.socials span {
-  width:28px;
-  height:28px;
-  display:grid;
-  place-items:center;
-  border:1px solid rgba(255,255,255,.35);
-  border-radius:50%;
-  color:#fff;
-  font-weight:900;
-  font-size:12px;
-}
-.subfooter {
-  min-height:52px;
-  border-top:1px solid rgba(255,255,255,.12);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  color:rgba(255,255,255,.68);
-  font-size:12px;
-}
-.sub-links { display:flex; gap:34px; }
-@keyframes floatHero {
-  0%,100% { transform:translateY(0); }
-  50% { transform:translateY(-12px); }
-}
-@media (max-width:1040px) {
-  .wrap { width:min(var(--max), calc(100% - 44px)); }
-  .nav-links { display:none; }
-  .hero-grid,.engine-head,.engine-board,.five-grid,.gap-head,.impact-grid,.cta-inner,.footer-grid {
-    grid-template-columns:1fr;
-  }
-  .hero-grid { min-height:auto; }
-  .hero-badge { display:none; }
-  .engine-main { min-height:520px; }
-  .engine-metrics { position:relative; left:auto; right:auto; bottom:auto; margin-top:42px; }
-  .gap-grid { grid-template-columns:1fr; }
-  .process-row { grid-template-columns:1fr; }
-  .connector { transform:rotate(90deg); }
-  .cta-actions { justify-content:flex-start; }
-}
-@media (max-width:640px) {
-  .wrap { width:min(var(--max), calc(100% - 32px)); }
-  .brand img { width:168px; }
-  .h1 { font-size:50px; }
-  .why-hero,.decision-engine,.five-second,.agency-gap,.process,.impact,.faq { padding:58px 0; }
-  .hero-grid { padding:54px 0; gap:38px; }
-  .actions,.btn { width:100%; }
-  .engine-main { padding:30px; }
-  .engine-metrics,.impact-stats { grid-template-columns:1fr; gap:22px; }
-  .gap-title,.gap-row { padding-left:20px; padding-right:20px; }
-  .impact-stat { border-right:0; border-bottom:1px solid rgba(8,10,12,.14); padding:22px 0; }
-  .impact-stat:last-child { border-bottom:0; }
-  .cta-actions { display:grid; }
-  .subfooter { flex-direction:column; align-items:flex-start; gap:10px; padding:16px 0; }
-}
-
-
-/* Final polish pass: smaller type, more breathing room, clean transparent PNGs */
-.h1 {
-  font-size: clamp(46px, 5.4vw, 78px) !important;
-  line-height: .94 !important;
-  letter-spacing: -.065em !important;
-}
-
-.h2 {
-  font-size: clamp(32px, 3.6vw, 52px) !important;
-  line-height: 1.02 !important;
-  letter-spacing: -.055em !important;
-}
-
-.h3,
-.engine-card h3,
-.step h3 {
-  font-size: 22px !important;
-  line-height: 1.12 !important;
-}
-
-p {
-  font-size: 15.5px !important;
-  line-height: 1.74 !important;
-}
-
-.why-hero {
-  background:
-    radial-gradient(720px circle at 78% 26%, rgba(6,168,194,.10), transparent 62%),
-    linear-gradient(180deg,#fff 0%,#fbfcfc 100%) !important;
-}
-
-.why-hero::before {
-  opacity: .28 !important;
-}
-
-.hero-grid {
-  min-height: 650px !important;
-  padding: 86px 0 92px !important;
-  gap: 92px !important;
-}
-
-.hero-copy p {
-  max-width: 540px !important;
-  margin-top: 24px !important;
-}
-
-.hero-art,
-.five-art,
-.impact-art {
-  background: transparent !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  overflow: visible !important;
-  line-height: 0 !important;
-}
-
-.hero-art img,
-.five-art img,
-.impact-art img,
-img[src^="data:image/png"] {
-  background: transparent !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
-  object-fit: contain !important;
-}
-
-.hero-art img {
-  animation: none !important;
-  transform: none !important;
-}
-
-.hero-badge {
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: 0 18px 48px rgba(0,0,0,.08) !important;
-  background: rgba(255,255,255,.88) !important;
-}
-
-.hero-badge b {
-  font-size: 28px !important;
-}
-
-.decision-engine {
-  padding: 112px 0 126px !important;
-}
-
-.engine-head {
-  gap: 86px !important;
-  margin-bottom: 70px !important;
-}
-
-.engine-main {
-  min-height: 520px !important;
-  padding: 52px !important;
-  border-color: rgba(255,255,255,.11) !important;
-}
-
-.engine-main h3 {
-  font-size: clamp(34px, 3.8vw, 56px) !important;
-  line-height: 1.02 !important;
-  letter-spacing: -.058em !important;
-}
-
-.engine-main p {
-  max-width: 560px !important;
-  margin-top: 24px !important;
-}
-
-.engine-metrics {
-  left: 52px !important;
-  right: 52px !important;
-  bottom: 52px !important;
-}
-
-.engine-metric b {
-  font-size: 34px !important;
-}
-
-.engine-side {
-  gap: 30px !important;
-}
-
-.engine-card {
-  min-height: 170px !important;
-  padding: 34px !important;
-}
-
-.five-second {
-  padding: 116px 0 122px !important;
-}
-
-.five-grid {
-  gap: 98px !important;
-}
-
-.five-copy p {
-  max-width: 470px !important;
-}
-
-.five-list {
-  gap: 16px !important;
-  margin-top: 30px !important;
-}
-
-.agency-gap {
-  padding: 116px 0 122px !important;
-}
-
-.gap-head {
-  gap: 90px !important;
-  margin-bottom: 56px !important;
-}
-
-.gap-row {
-  min-height: 68px !important;
-  padding: 0 32px !important;
-}
-
-.process {
-  padding: 112px 0 120px !important;
-}
-
-.process-row {
-  margin-top: 52px !important;
-  gap: 28px !important;
-}
-
-.step {
-  min-height: 205px !important;
-  padding: 38px !important;
-}
-
-.impact {
-  padding: 118px 0 126px !important;
-}
-
-.impact-grid {
-  gap: 96px !important;
-}
-
-.impact-stat b {
-  font-size: 40px !important;
-}
-
-.faq {
-  padding: 96px 0 104px !important;
-}
-
-.cta-inner {
-  min-height: 178px !important;
-}
-
-@media (max-width:1040px) {
-  .hero-grid,
-  .engine-head,
-  .five-grid,
-  .gap-head,
-  .impact-grid {
-    gap: 48px !important;
-  }
-
-  .engine-main {
-    min-height: auto !important;
-  }
-
-  .engine-metrics {
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    margin-top: 46px !important;
-  }
-}
-
-@media (max-width:640px) {
-  .h1 {
-    font-size: 44px !important;
-  }
-
-  .h2 {
-    font-size: 34px !important;
-  }
-
-  .hero-grid,
-  .decision-engine,
-  .five-second,
-  .agency-gap,
-  .process,
-  .impact,
-  .faq {
-    padding: 64px 0 !important;
-  }
-
-  .engine-main,
-  .engine-card,
-  .step {
-    padding: 28px !important;
-  }
-
-  .hero-badge {
-    display: none !important;
-  }
-}
-
-
-/* True transparent image pass: no wrapper frame, no white box, no border */
-.hero-art,
-.five-art,
-.impact-art,
-.hero-art *,
-.five-art *,
-.impact-art * {
-  background: transparent !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.hero-art img,
-.five-art img,
-.impact-art img {
-  display: block !important;
-  object-fit: contain !important;
-  mix-blend-mode: normal !important;
-}
-
-/* Remove floating labels if they visually create boxed edges around the PNG */
-.hero-badge {
-  border: 0 !important;
-}
-
-/* Mobile menu button (was missing) */
-.mobile-btn {
-  display: none;
-  border: 1px solid rgba(0, 0, 0, .12);
-  background: #fff;
-  width: 44px;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  cursor: pointer;
-}
-@media (max-width: 1040px) {
-  .mobile-btn { display: flex; }
-}
-</style>
+  <link rel="preload" href="assets/why-us-hero.png" as="image">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<nav class="site-nav">
-<div class="wrap nav-inner">
-<a aria-label="Levant Digital Marketing home" class="brand" href="index.html">
-<img alt="Levant Digital Marketing logo" src="assets/levant-logo.png"/>
-</a>
-<div aria-label="Primary navigation" class="nav-links">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a class="active" href="why-us.html">Why Us</a>
-<a href="audit.html">Free Audit</a>
-<a class="book-btn" href="contact.html">Let's Talk</a>
-</div>
-<button aria-label="Open menu" class="mobile-btn">☰</button>
-</div>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="wrap nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Levant Digital Marketing home">
+      <img src="assets/levant-logo.png" alt="Levant Digital Marketing" width="160" height="34">
+    </a>
+    <div class="nav__links" role="navigation">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="why-us.html" aria-current="page">Why Us</a>
+      <a href="audit.html">Free Audit</a>
+    </div>
+    <a href="contact.html" class="nav__cta">Let's Talk</a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 5h14M3 10h14M3 15h14"/>
+      </svg>
+    </button>
+  </div>
+  <div class="nav__drawer" role="dialog" aria-label="Mobile menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="why-us.html" aria-current="page">Why Us</a>
+    <a href="audit.html">Free Audit</a>
+    <a href="contact.html">Let's Talk</a>
+  </div>
 </nav>
-<main>
-<section class="why-hero">
-<div class="wrap hero-grid">
-<div class="hero-copy">
-<div class="eyebrow">Why Us</div>
-<h1 class="h1">Customers decide fast. We help you pass the gut check.</h1>
-<p>Before they call, they scan your site, reviews, photos, and Google profile. We make those first few seconds feel clear, current, and worth trusting.</p>
-<div class="actions">
-<a class="btn primary" href="contact.html">Show me what to fix <span class="arrow">→</span></a>
-<a class="btn secondary" href="audit.html">Check my visibility <span class="arrow">↓</span></a>
-</div>
-</div>
-<div class="hero-art">
-<img alt="Local visibility growth illustration with Google reviews, maps, search, mobile profile, and upward chart" src="assets/why-us-hero.png"/>
-<div class="hero-badge one"><b>5 sec</b><span>to earn trust</span></div>
-<div class="hero-badge two"><b>Local</b><span>built for Detroit</span></div>
-<div class="hero-badge three"><b>Calls</b><span>not vanity metrics</span></div>
-</div>
-</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero hero--ivory hero--bordered">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <span class="eyebrow">Why Us</span>
+      <h1 class="display">Customers decide fast. We help you <em class="serif accent">pass the gut check.</em></h1>
+      <p class="text-18">Before they call, they scan your site, reviews, photos, and Google profile. We make those first few seconds feel clear, current, and worth trusting.</p>
+      <div class="btn-group">
+        <a href="audit.html" class="btn btn--primary btn--pill btn--lg">
+          Show me what to fix
+          <svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="contact.html" class="btn btn--secondary btn--lg">Let's Talk</a>
+      </div>
+      <div class="hero__trust">
+        <div class="trust-point">
+          <span class="trust-point__num">5 sec</span>
+          <span class="trust-point__label">to earn trust online</span>
+        </div>
+        <div class="trust-point">
+          <span class="trust-point__num">+182%</span>
+          <span class="trust-point__label">avg. lead increase</span>
+        </div>
+        <div class="trust-point">
+          <span class="trust-point__num">Local</span>
+          <span class="trust-point__label">Built for Detroit</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__img-wrap">
+      <img
+        class="hero__img hero__img--plain"
+        src="assets/why-us-hero.png"
+        alt="Side-by-side comparison of a weak local business website versus a credible, conversion-optimized redesign by Levant Digital Marketing"
+        width="580"
+        height="460"
+        fetchpriority="high"
+      >
+    </div>
+  </div>
 </section>
-<section class="decision-engine">
-<div class="wrap engine-wrap">
-<div class="engine-head">
-<div>
-<div class="eyebrow">The real reason</div>
-<h2 class="h2">We build the decision engine behind the call.</h2>
-</div>
-<p>A pretty website is not enough. Customers need proof, clarity, relevance, and confidence. Levant connects those pieces so your business feels like the obvious choice before they ever speak to you.</p>
-</div>
-<div class="engine-board">
-<div class="engine-main">
-<h3>Your website should answer the question every customer is quietly asking.</h3>
-<p>Can I trust this business with my money, my time, my property, or my problem? Every layout decision, headline, service block, Google signal, and call to action is built around that question.</p>
-<div class="engine-metrics">
-<div class="engine-metric"><b>01</b><span>Trust before design</span></div>
-<div class="engine-metric"><b>02</b><span>Visibility before traffic</span></div>
-<div class="engine-metric"><b>03</b><span>Calls before clicks</span></div>
-</div>
-</div>
-<div class="engine-side">
-<article class="engine-card" data-step="01">
-<div class="engine-icon">
-<svg viewbox="0 0 64 64"><path d="M32 6l21 8v16c0 14-9 24-21 28C20 54 11 44 11 30V14l21-8z"></path><path d="M22 32l7 7 14-16"></path></svg>
-</div>
-<h3>We remove hesitation.</h3>
-<p>Weak copy, vague services, outdated visuals, and hidden contact paths make customers pause. We take that friction out.</p>
-</article>
-<article class="engine-card" data-step="02">
-<div class="engine-icon">
-<svg viewbox="0 0 64 64"><path d="M6 32s10-16 26-16 26 16 26 16-10 16-26 16S6 32 6 32z"></path><circle cx="32" cy="32" r="7"></circle></svg>
-</div>
-<h3>We make the value obvious.</h3>
-<p>Customers should understand what you do, where you work, and why you are credible without digging through the page.</p>
-</article>
-<article class="engine-card" data-step="03">
-<div class="engine-icon">
-<svg viewbox="0 0 64 64"><path d="M10 50h44"></path><path d="M16 44l10-12 9 7 14-20"></path><path d="M49 19v13H36"></path></svg>
-</div>
-<h3>We build around growth.</h3>
-<p>SEO, Google Business Profile, AI search visibility, and conversion design all work together instead of sitting in separate silos.</p>
-</article>
-</div>
-</div>
-</div>
+
+<!-- ===================== WHAT WE BUILD ===================== -->
+<section class="section section--soft" aria-labelledby="decision-heading">
+  <div class="wrap">
+    <div class="section-header section-header--wide reveal">
+      <span class="eyebrow">The real reason</span>
+      <h2 class="heading-1" id="decision-heading">We build the decision engine behind the call.</h2>
+      <p class="text-18">A pretty website is not enough. Customers need proof, clarity, relevance, and confidence. Levant connects those pieces so your business feels like the obvious choice before they ever speak to you.</p>
+    </div>
+    <div class="trust-grid">
+      <article class="trust-card reveal reveal--delay-1">
+        <div class="icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span class="trust-card__label">Remove friction</span>
+        <h3>We eliminate the hesitation.</h3>
+        <p>Weak copy, vague services, outdated visuals, and buried contact paths make customers pause. We take that friction out so the path to calling you is obvious.</p>
+      </article>
+      <article class="trust-card reveal reveal--delay-2">
+        <div class="icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <span class="trust-card__label">Clarify the offer</span>
+        <h3>We make the value obvious.</h3>
+        <p>Customers should understand what you do, where you work, and why you're credible without digging through the page. We structure everything around that expectation.</p>
+      </article>
+      <article class="trust-card reveal reveal--delay-3">
+        <div class="icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <span class="trust-card__label">Build for growth</span>
+        <h3>We build around long-term visibility.</h3>
+        <p>SEO, Google Business Profile, AI search positioning, and conversion design all work together instead of sitting in separate silos with separate vendors.</p>
+      </article>
+    </div>
+  </div>
 </section>
-<section class="five-second">
-<div class="wrap five-grid">
-<div class="five-copy">
-<div class="eyebrow">The truth</div>
-<h2 class="h2">Five seconds can make or lose the lead.</h2>
-<p>Most visitors are not reading your whole site. They are scanning for trust. We design that first scan to work hard.</p>
-<ul class="five-list">
-<li>Make the first impression feel modern and legitimate.</li>
-<li>Show what you do without making customers think.</li>
-<li>Move visitors toward calls, messages, and quote requests.</li>
-</ul>
-</div>
-<div class="five-art">
-<img alt="Five second first impression illustration with stopwatch, clarity, and action signals" src="assets/why-us-five-seconds.png"/>
-</div>
-</div>
+
+<!-- ===================== FIVE SECONDS ===================== -->
+<section class="section" aria-labelledby="five-sec-heading">
+  <div class="wrap split">
+    <div class="split__copy reveal">
+      <span class="eyebrow">The truth</span>
+      <h2 class="heading-1" id="five-sec-heading">Five seconds can make or lose the lead.</h2>
+      <p class="text-18">Most visitors are not reading your whole site. They are scanning for trust. We design that first scan to work hard — so the right signals land before the customer has time to hesitate.</p>
+      <ul class="feature-list">
+        <li class="feature-item">
+          <span class="feature-item__dot" aria-hidden="true"><svg viewBox="0 0 10 10"><polyline points="2 5 4.5 7.5 8 3"/></svg></span>
+          <p>Make the first impression feel modern and legitimate</p>
+        </li>
+        <li class="feature-item">
+          <span class="feature-item__dot" aria-hidden="true"><svg viewBox="0 0 10 10"><polyline points="2 5 4.5 7.5 8 3"/></svg></span>
+          <p>Show what you do without making customers think</p>
+        </li>
+        <li class="feature-item">
+          <span class="feature-item__dot" aria-hidden="true"><svg viewBox="0 0 10 10"><polyline points="2 5 4.5 7.5 8 3"/></svg></span>
+          <p>Move visitors toward calls, messages, and quote requests</p>
+        </li>
+        <li class="feature-item">
+          <span class="feature-item__dot" aria-hidden="true"><svg viewBox="0 0 10 10"><polyline points="2 5 4.5 7.5 8 3"/></svg></span>
+          <p>Signal credibility before the customer reads a single paragraph</p>
+        </li>
+      </ul>
+    </div>
+    <div class="split__visual reveal reveal--delay-2">
+      <img
+        src="assets/why-us-five-seconds.png"
+        alt="Eye-tracking heatmap showing how visitors scan a local business website in the first five seconds, focusing on headlines, photos, and contact buttons"
+        width="560"
+        height="440"
+        loading="lazy"
+      >
+    </div>
+  </div>
 </section>
-<section class="agency-gap">
-<div class="wrap">
-<div class="gap-head">
-<div>
-<div class="eyebrow">The Levant difference</div>
-<h2 class="h2">Most agencies sell a deliverable. We sell momentum.</h2>
-</div>
-<p>A site by itself is not the win. The win is a business that looks more credible, gets found more often, and gives customers fewer reasons to choose someone else.</p>
-</div>
-<div class="gap-grid">
-<div class="gap-column">
-<div class="gap-title"><h3>Typical Agency</h3><span class="gap-tag">Looks finished</span></div>
-<div class="gap-row"><span class="gap-mark">×</span><span>Template layouts with generic sections</span></div>
-<div class="gap-row"><span class="gap-mark">×</span><span>Copy that sounds like every other business</span></div>
-<div class="gap-row"><span class="gap-mark">×</span><span>SEO treated like a checklist after launch</span></div>
-<div class="gap-row"><span class="gap-mark">×</span><span>No real Google Business Profile strategy</span></div>
-<div class="gap-row"><span class="gap-mark">×</span><span>Reports that hide what actually matters</span></div>
-</div>
-<div class="gap-column levant">
-<div class="gap-title"><h3>Levant</h3><span class="gap-tag">Works harder</span></div>
-<div class="gap-row"><span class="gap-mark">✓</span><span>Strategy-led pages built around trust and calls</span></div>
-<div class="gap-row"><span class="gap-mark">✓</span><span>Messaging that explains why customers should choose you</span></div>
-<div class="gap-row"><span class="gap-mark">✓</span><span>Local SEO and AI SEO built into the structure</span></div>
-<div class="gap-row"><span class="gap-mark">✓</span><span>Google profile optimization tied to visibility and action</span></div>
-<div class="gap-row"><span class="gap-mark">✓</span><span>Simple reporting around calls, leads, and real progress</span></div>
-</div>
-</div>
-</div>
+
+<!-- ===================== COMPARISON TABLE ===================== -->
+<section class="section section--soft" aria-labelledby="compare-heading">
+  <div class="wrap">
+    <div class="section-header section-header--center reveal">
+      <span class="eyebrow">The Levant difference</span>
+      <h2 class="heading-1" id="compare-heading">Most agencies sell a deliverable. We sell momentum.</h2>
+      <p class="text-18">A site by itself is not the win. The win is a business that looks more credible, gets found more often, and gives customers fewer reasons to choose someone else.</p>
+    </div>
+    <div class="compare-wrap reveal">
+      <div class="compare__head" role="row">
+        <div class="compare__head-cell" role="columnheader">What they review</div>
+        <div class="compare__head-cell" role="columnheader">Typical Agency</div>
+        <div class="compare__head-cell compare__head-cell--accent" role="columnheader">Levant Digital</div>
+      </div>
+      <div class="compare__row" role="row">
+        <div class="compare__cell">Strategy vs. template</div>
+        <div class="compare__cell"><span class="compare__x" aria-label="No">✕</span> Template layouts with generic sections</div>
+        <div class="compare__cell"><span class="compare__check" aria-label="Yes">✓</span> Strategy-led pages built around trust and calls</div>
+      </div>
+      <div class="compare__row" role="row">
+        <div class="compare__cell">Copy quality</div>
+        <div class="compare__cell"><span class="compare__x" aria-label="No">✕</span> Copy that sounds like every other business</div>
+        <div class="compare__cell"><span class="compare__check" aria-label="Yes">✓</span> Messaging that explains why customers should choose you</div>
+      </div>
+      <div class="compare__row" role="row">
+        <div class="compare__cell">SEO approach</div>
+        <div class="compare__cell"><span class="compare__x" aria-label="No">✕</span> SEO treated like a checklist bolted on after launch</div>
+        <div class="compare__cell"><span class="compare__check" aria-label="Yes">✓</span> Local SEO and AI SEO built into the structure from day one</div>
+      </div>
+      <div class="compare__row" role="row">
+        <div class="compare__cell">Google Business Profile</div>
+        <div class="compare__cell"><span class="compare__x" aria-label="No">✕</span> No real Google Business Profile strategy included</div>
+        <div class="compare__cell"><span class="compare__check" aria-label="Yes">✓</span> Profile optimization tied to visibility and call volume</div>
+      </div>
+      <div class="compare__row" role="row">
+        <div class="compare__cell">Reporting</div>
+        <div class="compare__cell"><span class="compare__x" aria-label="No">✕</span> Reports that highlight vanity metrics, not results</div>
+        <div class="compare__cell"><span class="compare__check" aria-label="Yes">✓</span> Simple reporting around calls, leads, and real progress</div>
+      </div>
+      <div class="compare__row" role="row">
+        <div class="compare__cell">After launch</div>
+        <div class="compare__cell"><span class="compare__x" aria-label="No">✕</span> Site handed off and left to stagnate</div>
+        <div class="compare__cell"><span class="compare__check" aria-label="Yes">✓</span> Ongoing support as your business and market evolve</div>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="process">
-<div class="wrap">
-<div class="eyebrow">How we build trust fast</div>
-<h2 class="h2">A simple process. A sharper business presence.</h2>
-<div class="process-row">
-<article class="step">
-<svg viewbox="0 0 64 64"><rect height="38" rx="3" width="30" x="14" y="12"></rect><path d="M20 22h18M20 31h18M20 40h10"></path><circle cx="46" cy="46" r="9"></circle><path d="M53 53l6 6"></path></svg>
-<h3><span class="num">01</span>Diagnose</h3>
-<p>We find what is hurting trust, visibility, clarity, and conversion.</p>
-</article>
-<div class="connector">→</div>
-<article class="step">
-<svg viewbox="0 0 64 64"><rect height="40" rx="4" width="40" x="12" y="12"></rect><path d="M22 24h20M22 32h13M22 40h20"></path><path d="M42 18l4 4-8 8-5 1 1-5 8-8z"></path></svg>
-<h3><span class="num">02</span>Rebuild</h3>
-<p>We redesign the foundation so your online presence feels credible and clear.</p>
-</article>
-<div class="connector">→</div>
-<article class="step">
-<svg viewbox="0 0 64 64"><path d="M10 50h44"></path><path d="M18 44V30M30 44V22M42 44V14"></path><path d="M16 18l10 9 10-13 12 8"></path></svg>
-<h3><span class="num">03</span>Compound</h3>
-<p>We support the site, search presence, Google profile, and growth signals over time.</p>
-</article>
-</div>
-</div>
+
+<!-- ===================== IMPACT ===================== -->
+<section class="section" aria-labelledby="impact-heading">
+  <div class="wrap split split--reverse">
+    <div class="split__copy reveal">
+      <span class="eyebrow">Real impact</span>
+      <h2 class="heading-1" id="impact-heading">Built for businesses that need the phone to ring.</h2>
+      <p class="text-18">We care about the metrics that actually move your business — calls, quote requests, profile actions, service visibility, and stronger first impressions.</p>
+      <p class="text-14 muted">Results vary based on business, industry, and market conditions.</p>
+    </div>
+    <div class="split__visual reveal reveal--delay-2">
+      <img
+        src="assets/why-us-impact.png"
+        alt="Analytics dashboard showing a 182 percent increase in website leads and a 96 percent increase in Google Business Profile calls for a Metro Detroit local business"
+        width="560"
+        height="440"
+        loading="lazy"
+      >
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="metric-row">
+      <div class="metric-card reveal reveal--delay-1">
+        <span class="metric-card__num">+182%</span>
+        <span class="metric-card__label">Average increase in website leads</span>
+        <span class="metric-card__note">Based on clients with SEO foundations in place</span>
+      </div>
+      <div class="metric-card reveal reveal--delay-2">
+        <span class="metric-card__num">+96%</span>
+        <span class="metric-card__label">More calls from Google Business Profile</span>
+        <span class="metric-card__note">After profile optimization and ongoing management</span>
+      </div>
+      <div class="metric-card reveal reveal--delay-3">
+        <span class="metric-card__num">4.9</span>
+        <span class="metric-card__label">Average client satisfaction rating</span>
+        <span class="metric-card__note">Across all completed projects</span>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="impact">
-<div class="wrap impact-grid">
-<div class="impact-art">
-<img alt="Website dashboard growth illustration with five star rating and upward arrows" src="assets/why-us-impact.png"/>
-</div>
-<div class="impact-copy">
-<div class="eyebrow">Real impact. Local results.</div>
-<h2 class="h2">Built for businesses that need the phone to ring.</h2>
-<p>We care about the metrics that actually move the business: calls, quote requests, profile actions, service visibility, and stronger first impressions.</p>
-<div class="impact-stats">
-<div class="impact-stat"><b>+182%</b><span>Increase in website leads on average</span></div>
-<div class="impact-stat"><b>+96%</b><span>More calls from Google Business Profile</span></div>
-<div class="impact-stat"><b>4.9</b><span>Average client rating</span></div>
-</div>
-<p style="font-size:12px;color:#7b858b;margin-top:22px;">Results vary based on business, industry, and market.</p>
-</div>
-</div>
+
+<!-- ===================== PROCESS ===================== -->
+<section class="section section--soft" aria-labelledby="process-heading">
+  <div class="wrap">
+    <div class="section-header section-header--center reveal">
+      <span class="eyebrow">How we build trust fast</span>
+      <h2 class="heading-1" id="process-heading">A simple process. A sharper business presence.</h2>
+    </div>
+    <div class="process-grid process-3">
+      <div class="process-step reveal reveal--delay-1">
+        <div class="step-num" aria-hidden="true">01</div>
+        <div class="icon-box icon-box--sm" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <h3>Diagnose</h3>
+        <p>We find what is hurting trust, visibility, clarity, and conversion. You get a clear audit of your website, Google profile, and search presence.</p>
+      </div>
+      <div class="process-step reveal reveal--delay-2">
+        <div class="step-num" aria-hidden="true">02</div>
+        <div class="icon-box icon-box--sm" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Rebuild</h3>
+        <p>We redesign the foundation so your online presence feels credible, clear, and conversion-ready across every channel a customer might use to find you.</p>
+      </div>
+      <div class="process-step reveal reveal--delay-3">
+        <div class="step-num" aria-hidden="true">03</div>
+        <div class="icon-box icon-box--sm" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Compound</h3>
+        <p>We support the site, search presence, Google profile, and growth signals over time so your visibility keeps building long after launch.</p>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="faq">
-<div class="wrap">
-<div class="eyebrow">FAQ</div>
-<h2 class="h2">Questions business owners ask</h2>
-<div class="faq-list">
-<div class="faq-q"><span>What makes Levant different from other agencies?</span><span>+</span></div>
-<div class="faq-q"><span>Do you only work with businesses in Metro Detroit?</span><span>+</span></div>
-<div class="faq-q"><span>Can you improve my existing website instead of rebuilding it?</span><span>+</span></div>
-<div class="faq-q"><span>Do you handle Google Business Profile optimization?</span><span>+</span></div>
-<div class="faq-q"><span>How does AI SEO fit into local business marketing?</span><span>+</span></div>
-</div>
-</div>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section" aria-labelledby="faq-heading">
+  <div class="wrap">
+    <div class="section-header section-header--center reveal">
+      <span class="eyebrow">Questions</span>
+      <h2 class="heading-1" id="faq-heading">Things business owners ask us.</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          What makes Levant different from other agencies?
+          <span class="faq__icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg>
+          </span>
+        </button>
+        <div class="faq__a" role="region">Most agencies build a deliverable and hand it off. We build momentum. That means strategy before design, copy that explains your actual value, SEO built into the structure, Google profile tied to visibility, and ongoing support after launch. The goal is always calls — not just a finished website.</div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          Do you only work with businesses in Metro Detroit?
+          <span class="faq__icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg>
+          </span>
+        </button>
+        <div class="faq__a" role="region">Metro Detroit is our primary market — Macomb, Oakland, and Wayne counties. Remote work is available for Michigan businesses and serious local service businesses outside the area who need the same kind of foundation work.</div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          Can you improve my existing website instead of rebuilding it?
+          <span class="faq__icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg>
+          </span>
+        </button>
+        <div class="faq__a" role="region">Yes. We start with the audit. If your current site has a good foundation, we keep what works and fix what's hurting trust, speed, mobile experience, messaging, or search visibility. Full rebuilds happen when the foundation itself is the problem.</div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          Do you handle Google Business Profile optimization?
+          <span class="faq__icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg>
+          </span>
+        </button>
+        <div class="faq__a" role="region">Yes, and we think it's one of the highest-leverage things a local business can do. We optimize categories, services, photos, posts, and Q&amp;A — and we connect your profile strategy to your website and local SEO so they reinforce each other.</div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          How does AI SEO fit into local business marketing?
+          <span class="faq__icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg>
+          </span>
+        </button>
+        <div class="faq__a" role="region">More customers are starting their search using ChatGPT, Google's AI Overview, and similar tools. AI SEO makes sure your business is positioned to appear in those answers — not just traditional blue-link search results. For local businesses, being mentioned early in an AI answer builds trust before the customer ever visits your site.</div>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="cta-band">
-<div class="wrap cta-inner">
-<div class="cta-icon">↗</div>
-<div>
-<h2>Stop giving customers a reason to scroll past.</h2>
-<p>We’ll find the weak spots in your website, Google profile, and search presence before your next customer does.</p>
-</div>
-<div class="cta-actions">
-<a class="btn" href="contact.html">Show me what to fix <span class="arrow">→</span></a>
-<a class="btn secondary" href="audit.html">Check my visibility <span class="arrow">↓</span></a>
-</div>
-</div>
+
+<!-- ===================== CTA BAND ===================== -->
+<section class="section section--dark cta-band" aria-labelledby="why-cta-heading">
+  <div class="wrap">
+    <span class="eyebrow">Stop giving customers a reason to scroll past</span>
+    <h2 class="heading-1" id="why-cta-heading">We'll find the weak spots before your next customer does.</h2>
+    <p class="text-18">A free audit of your website, Google profile, and search presence. No pressure. Just clarity.</p>
+    <div class="btn-group">
+      <a href="audit.html" class="btn btn--primary btn--pill btn--lg">Get My Free Audit</a>
+      <a href="contact.html" class="btn btn--outline-white btn--lg">Let's Talk</a>
+    </div>
+  </div>
 </section>
-</main>
-<footer class="footer">
-<div class="wrap footer-grid">
-<div>
-<img alt="Levant Digital Marketing logo" class="footer-logo" src="assets/levant-logo-2.png"/>
-<p>Websites and digital marketing that help local businesses in Metro Detroit get found, build trust, and grow.</p>
-<div class="socials"><span>f</span><span>◎</span><span>in</span><span>▶</span></div>
-</div>
-<div>
-<h4>Quick Links</h4>
-<ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="why-us.html">Why Us</a></li><li><a href="audit.html">Free Audit</a></li><li><a href="contact.html">Let’s Talk</a></li></ul>
-</div>
-<div>
-<h4>Services</h4>
-<ul><li>Custom Websites</li><li>AI SEO</li><li>Google Business Profile Optimization</li><li>Messaging &amp; Copy</li><li>Website Maintenance</li></ul>
-</div>
-<div>
-<h4>Let’s Talk</h4>
-<ul><li>Based in Metro Detroit</li><li>Serving Macomb, Oakland, Wayne and surrounding areas</li><li>(586) 722-4567</li><li>hello@levantdm.com</li></ul>
-</div>
-<div>
-<h4>Get Started</h4>
-<ul><li>↗ Show Me What to Fix</li><li>◎ Check My Visibility</li></ul>
-</div>
-</div>
-<div class="wrap subfooter">
-<span>© 2026 Levant Digital Marketing. All rights reserved.</span>
-<div class="sub-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
-</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer section--dark" aria-label="Site footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="assets/levant-logo.png" alt="Levant Digital Marketing" class="footer__brand-logo" width="140" height="30" loading="lazy">
+        <p>Websites and digital marketing that help local businesses in Metro Detroit get found, build trust, and grow.</p>
+        <div class="footer__social">
+          <a href="https://facebook.com/levantdigitalmarketing" class="social-link" aria-label="Levant on Facebook" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/levantdigitalmarketing/" class="social-link" aria-label="Levant on Instagram" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/levant-digital-marketing" class="social-link" aria-label="Levant on LinkedIn" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://g.page/levantdigitalmarketing" class="social-link" aria-label="Levant on Google Business" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-.55-5h1.1v-5h-1.1v5zm0-6.5h1.1V9h-1.1v1.5z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="why-us.html">Why Us</a></li>
+          <li><a href="audit.html">Free Audit</a></li>
+          <li><a href="contact.html">Let's Talk</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Custom Websites</a></li>
+          <li><a href="services.html">Website Redesigns</a></li>
+          <li><a href="services.html">Google Business Profile</a></li>
+          <li><a href="services.html">AI SEO</a></li>
+          <li><a href="services.html">Messaging &amp; Copy</a></li>
+          <li><a href="services.html">Website Maintenance</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Let's Talk</h4>
+        <p class="footer__location">Based in Metro Detroit, Michigan.<br>Serving Macomb, Oakland, Wayne<br>and surrounding communities.</p>
+        <a href="contact.html" class="footer__cta-link">Get My Free Review</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Levant Digital Marketing. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
 </footer>
-<script defer src="assets/motion.js"></script>
+
+<script src="assets/site.js" defer></script>
 </body>
 </html>
